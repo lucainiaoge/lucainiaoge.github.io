@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>Archives: 2019/9 | Lucainiao&#39;s blog</title>
+  <title>2019数模国赛B题解析(Analysis of 2019CUMCM Question-B) | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Here&apos;s my blog for coders and music lovers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lucainiao&#39;s blog">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/archives/2019/09/index.html">
+  <meta name="description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
+<meta name="keywords" content="math_moding,MATLAB,physics,simulation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019数模国赛B题解析(Analysis of 2019CUMCM Question-B)">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="Here&apos;s my blog for coders and music lovers">
+<meta property="og:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/8PNUSLkOJi27lGz.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/6fpOwxPnALTGZV4.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/gosYxRNWvh4O3n1.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/6KJmLD1gfPVX5AW.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/mHWCrbuwtqUkDdj.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/Ly6GIkAxmgY9Cqw.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/3SXr2HuRfKLmqnQ.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/dvxUw1T8SFhHBRK.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/zSFWc6YLH7AGf9M.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/icnR9PMd5sS7UKT.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/o7vwpghjZFrLqmC.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/PWhJ9HMVvylwnS3.png">
+<meta property="og:updated_time" content="2019-09-30T09:11:36.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lucainiao&#39;s blog">
-<meta name="twitter:description" content="Here&apos;s my blog for coders and music lovers">
+<meta name="twitter:title" content="2019数模国赛B题解析(Analysis of 2019CUMCM Question-B)">
+<meta name="twitter:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -158,78 +174,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-math-modling-2019CUMCM-answer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/29/blog-intro/" class="archive-article-date">
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2019/09/29/math-modling-2019CUMCM-answer/" class="archive-article-date">
   	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/29/blog-intro/">lucainiaoge博客介绍(introduction)</a>
+    <h1 class="article-title_lucainiaoge" itemprop="name">
+      2019数模国赛B题解析(Analysis of 2019CUMCM Question-B)
     </h1>
   
+</p></center>
+      
+        <p><strong>by lucainiaoge</strong></p>
+<hr>
+<p>这篇文章讲解2019年数学建模国赛B题的求解历程。</p>
+<ul>
+<li>基础知识required：运动学和牛顿力学，空间向量的概念</li>
+</ul>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">blog_start</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-          
+<h1 id="First-Sight-Discovering-and-Creating"><a href="#First-Sight-Discovering-and-Creating" class="headerlink" title="First Sight: Discovering and Creating"></a>First Sight: Discovering and Creating</h1><ul>
+<li>问题链接：<blockquote>
+<p>全国大学生数学建模大赛官网<a href="http://www.mcm.edu.cn/" target="_blank" rel="noopener">http://www.mcm.edu.cn/</a>，进去点击“赛题与评奖”，即可获取赛题</p>
+</blockquote>
+</li>
+</ul>
+<p>我们做的是B题，同心鼓那个。起初我觉得这题很没劲，但做起来以后才觉得有意思。数学建模心路历程和经历已经写过了，可以看我博客的这套文章：<a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1</a></p>
+<p>解决第一问：</p>
+<blockquote>
+<p>Q1. 在理想状态下，每个人都可以精确控制用力方向、时机和力度，试讨论这种情形下团队的最佳协作策略，并给出该策略下的颠球高度。</p>
+</blockquote>
+<h2 id="Solve-by-simulation"><a href="#Solve-by-simulation" class="headerlink" title="Solve by simulation"></a>Solve by simulation</h2><p>我们拿到问题，首先考虑：我们要输出什么样子的结果？<br>我们要输出“最佳协作策略”。既然要建模，一定要定量，那么这个策略也是定量的。想：协作需要确定什么量？以人为单位，每个人需要通过绳子提供拉力，拉力包含夹角和方向，同时也包含随时间变化的信息（毕竟游戏是一个过程）。</p>
+<p>怎么刻画这些量？$\varphi_k - t \quad curve \quad and \quad \textbf{F}_k - t \quad curve$</p>
+<p>$\varphi_k$是每个人施力夹角，$\textbf{F}_k$是每个人施力的大小</p>
+<p>有了这个思路，我们就要确定这个有关每个人施力随时间变化的函数了。这个函数的目的：使得游戏得分最高。即：将函数输入游戏，游戏输出得分结果，我们要这么样的函数使得结果最优——优化问题。那么我们又要开始想：游戏如何输入这个函数？我们要构建游戏的真实过程！</p>
+<p>到此为止，我们其实已经进入正题上了——构建游戏的过程。说白了：物理仿真系统！</p>
+<p>仿真系统的构建，我们使用MATLAB，后面也一直在用MATLAB。我首先写了一个最简单的仿真系统——小球与地碰撞反弹的系统。</p>
+<p>我们能参考的是什么？运动学方程，牛顿运动定律，碰撞定理。</p>
+<p>以最简单的反弹系统为例，我们有这么几个微分方程：<br>$\frac{dy(t)}{dt} = v(t)$<br>$\frac{dv(t)}{dt} = g$<br>$v(t+\Delta t)=-ev(t) \quad when \quad y(t)&lt;\epsilon$, e为碰撞系数</p>
+<p>我们要做的是将其以时间步长$\Delta t$离散化以适应MATLAB仿真：</p>
+<p>$y(i+1)-y(i) = v(t) \Delta t$<br>$v(i+1)-v(i) = g \Delta t$<br>$v(i+1)=-ev(i) \quad when \quad y(i)&lt;\epsilon$</p>
+<p>好的，接下来就要代码实现了。其实，上面已经给出了迭代公式。离散化其实是对实际世界的近似。实际世界一切物理现象的发生可以看成是同时的，不会出现“上帝先确定某物体的加速度，再确定它的速度，最后确定它的位置”这种情况（至少用微分方程求解是这样的）。但我们迭代时候，就产生了这样的问题：我们有很多迭代公式，先迭代哪个？</p>
+<p>如果我们要求解差分方程组，也不存在这个问题，毕竟求解差分方程和求解微分方程是一个套路，最后得出的解与我们先解出哪个方程无关。可是迭代的话，我们先算谁后算谁，有一个因果性。我们一般按照高阶(eg:加速度，速度)到低阶(eg:速度，位置)的顺序来迭代。<br>实例代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:max_step</span><br><span class="line">   t=t_step*<span class="built_in">i</span>;</span><br><span class="line">   v(<span class="built_in">i</span>+<span class="number">1</span>)=-g*t_step+v(<span class="built_in">i</span>);</span><br><span class="line">   y(<span class="built_in">i</span>+<span class="number">1</span>)=v(<span class="built_in">i</span><span class="number">-1</span>)*t_step+y(<span class="built_in">i</span>);</span><br><span class="line">   <span class="keyword">if</span>(y(<span class="built_in">i</span>)&lt;<span class="built_in">eps</span>)</span><br><span class="line">       v(<span class="built_in">i</span>+<span class="number">1</span>)=-v(<span class="built_in">i</span>)*<span class="number">0.998</span>;</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
+<p>运行这个代码，可以得到这样的过程（横轴是时间）：<img src="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif" alt="exp_collide_simulate.gif"></p>
+<h2 id="Creat-1D-Physical-Simulation-System"><a href="#Creat-1D-Physical-Simulation-System" class="headerlink" title="Creat 1D Physical Simulation System"></a>Creat 1D Physical Simulation System</h2><p>我们其实完成了历史性的一步：构建了一个物理仿真系统。接下来，就是将其应用到题目中了。</p>
+<p>题目第一问对实际施力情况可以做理想化处理。理想到什么程度？我们的把握是：让每个均匀站立的人可以做到对称施力——竖直分力相等，水平分力也相等使得八个人水平合力为0。那么，我们只需获取竖直方向合力，结合任何时刻人的高度和鼓的高度，即可得到每个人的分力以及力的夹角了。现在，我们的任务就是：设定每个时刻的竖直合力。</p>
+<p>我们要考虑两个物体的运动。模型较为简单，迭代求解甚至可以考虑空气阻力、浮力等因素（不用获取解析形式，是数值方法的一大优点，这样可以使得我们考虑很多通过解析方法很难刻画的因素）。在我们直接列离散化之后的方程如下(为节省篇幅，一些明显易求得的物理量[例如截面积和体积]在这里不加以计算，仅做符号说明)：</p>
+<ul>
+<li>符号说明：<ul>
+<li>脚标”d”代表”drum”，即“鼓”；脚标”b”代表”ball”，即“球”；</li>
+<li>“C”是空气阻力系数，对于球而言$C_b = 0.5$，对于圆柱而言$C_d = 0.73$</li>
+<li>“V”代表体积，”S”代表截面积，”$F_z$”代表队员的竖直合力，”$\rho$”代表空气密度，”m”表示质量</li>
+<li>指标$i$代表迭代变量（即时间），$\Delta t$为迭代步长</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>$f_{d_{air}}(i) = 0.5 C_d \rho S_d  v_d(i) |v_d(i)|$……(鼓的空气阻力)<br>$f_{b_{air}}(i) = 0.5 C_b \rho S_b  v_b(i) |v_b(i)|$……(球的空气阻力)<br>$m_d v_d(i+1) = (-m_d g + \rho V_d g - f_{d_{air}}(i) + F_z(i))\Delta t + m_d v_d(i)$……(鼓的速度迭代公式)<br>$m_b v_b(i+1) = (-m_b g + \rho V_b g - f_{b_{air}}(i))\Delta t + m_b v_b(i)$……(球的速度迭代公式)<br>$z_d(i+1) = z_d(i) + v_d(i)\Delta t$……(鼓的位置迭代公式)<br>$z_b(i+1) = z_b(i) + v_b(i)\Delta t$……(球的位置迭代公式)<br>$if \quad z_b(i)-z_d(i)&lt;\epsilon \quad :$<img src="https://i.loli.net/2019/09/30/8PNUSLkOJi27lGz.png" alt="formula-collision-1D.png">(碰撞迭代公式)</p>
+</blockquote>
+<p>碰撞的迭代公式的推导由来如下图所示<br><img src="https://i.loli.net/2019/09/30/6fpOwxPnALTGZV4.png" alt="formula-collision-1D-source.png"><br>其中P代表冲量，这几个式子是列了冲量定理和碰撞系数e的定义式。</p>
+<h2 id="How-to-Set-F-z-i"><a href="#How-to-Set-F-z-i" class="headerlink" title="How to Set $F_z(i)$"></a>How to Set $F_z(i)$</h2><p>上面的物理模型想要运行，必须实时输入$F_z(i)$，所以我们需要构建一个确定$F_z(i)$的系统。想了半天，憋出来一个想法：使用状态机并引入反馈。</p>
+<p>什么是状态机？就是设置决策者在不同情况下进入不同的状态，不同的状态下做出不同的决策。这里，我们设置了这么几种状态：</p>
+<p><img src="https://i.loli.net/2019/09/30/gosYxRNWvh4O3n1.png" alt="status_change.png"><img src="https://i.loli.net/2019/09/30/6KJmLD1gfPVX5AW.png" alt="status_change_2.png"></p>
+<p>在不同状态下，设定不同的$F_z(i)$值，即：$F_z(i)\in \lbrace F_I,F_{II},F_{III},F_{IV} \rbrace$，每次迭代都根据目前状态设置$F_z(i)$即可。</p>
+<p>我们探索了几个$F_z(i)$的值，比如$[F_I,F_{II},F_{III},F_{IV}]=[(g+6)m_d,0,gm_d,(g+3)m_d]$，设置鼓向下运动最大速度为0.6m/s，按照上述图片的状态转换规则进行迭代，会得到这样的结果(在这里我也加入了和地面碰撞反弹的判断)(红线是球的运动轨迹，蓝线是鼓面的运动轨迹，碰撞判断时没有考虑球的大小)：</p>
+<p><img src="https://i.loli.net/2019/09/30/mHWCrbuwtqUkDdj.png" alt="raw_result_1D_1.png"></p>
+<p>会发现，要不就往下掉，要不就越飞越高，没有实现稳定地控制。怎么让它稳定？我们想到了引入负反馈！也就是，鼓太高的时候，就减少向上的力使鼓保持在下面。</p>
+<p>反馈很简单，设置一个分段函数$T_{lim}(y)$如下：</p>
+<p><img src="https://i.loli.net/2019/09/30/Ly6GIkAxmgY9Cqw.png" alt="feedback_func.png"></p>
+<p>每次迭代按照状态设置完参考竖直力之后，按照这个函数限制一下$F_z(i)$(这个函数是力的上限，如果设定值大于$T_{lim}(y(i))$，就将$F_z(i)$设置为$T_{lim}(y(i))$)。于是得到了令人满意的结果：</p>
+<p><img src="https://i.loli.net/2019/09/30/3SXr2HuRfKLmqnQ.png" alt="result-1D-feasible.png"></p>
+<p>鼓的初始高度对稳定结果没有影响，实验结果如下：<br><img src="https://i.loli.net/2019/09/30/dvxUw1T8SFhHBRK.png" alt="init_pos_inf.png"></p>
+<p>接下来，我们要获取最优值，“最优”是什么？当然是游戏得分多！所以，我们首先要实现：接球数目最多。接下来，我们能接球的时间越长越好。当然，还要考虑一下成员的操作难易度。这个操作难易度定义为$\xi = |\frac{1}{Iter}\sum_{i=1}^{Iter}y_d(i)-y_{conft}|$，其中$y_{conft}$为舒适高度，我们取的0.8，$Iter$为游戏能进行的最大迭代次数，$t_{step}$是迭代步长。</p>
+<p>搜索反馈函数的两个lim值和stageI的参考值，求解这个目标规划：<br><img src="https://i.loli.net/2019/09/30/zSFWc6YLH7AGf9M.png" alt="opt_purpose.png"><br>进一步考虑了球的大小，得到最优结果如下：<br><img src="https://i.loli.net/2019/09/30/icnR9PMd5sS7UKT.png" alt="best-result-1D.png"></p>
+<p>基本符合预期！在迭代时间极限40秒内，击打了80个球！</p>
+<p>接下来，将分力分解给每个队员：</p>
+<p>设每个队员都有一个舒适施力的值服从正态分布，记为$h_{pull}-N(1.1,0.1^2)$，设N个队员之间夹角为$\gamma=2\pi /N$，<br>人到鼓边缘的距离$d_{max}=\frac{0.3}{sin(\gamma/2)}-0.2$  (其中0.3=0.6/2,即两人之间距离的一半，0.2为鼓的半径)。<br>那么，任意时刻，每个人施力夹角为：$\varphi_k(i)=arctan( \frac{h_{pull_k} - y_d(i)}{d_{max}} )$，<br>每个人施力大小为：$T_k(i)=T_z(i)/(Nsin \varphi_k(i) )$</p>
+<p>于是，我们就有了分解之后队员的力与时间的指导规律：<img src="https://i.loli.net/2019/09/30/o7vwpghjZFrLqmC.jpg" alt="F_and_angle_1D.jpg"></p>
+<p>开始向第二问进发！</p>
+<h1 id="Second-Process-Move-to-the-3D-World"><a href="#Second-Process-Move-to-the-3D-World" class="headerlink" title="Second Process: Move to the 3D World"></a>Second Process: Move to the 3D World</h1><blockquote>
+<p>Q2. 在现实情形中，队员发力时机和力度不可能做到精确控制，存在一定误差，于是鼓面可能出现倾斜。试建立模型描述队员的发力时机和力度与某一特定时刻的鼓面倾斜角度的关系。设队员人数为8，绳长为1.7m，鼓面初始时刻是水平静止的，初始位置较绳子水平时下降11 cm，表1中给出了队员们的不同发力时机和力度，求0.1 s时鼓面的倾斜角度。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/09/30/PWhJ9HMVvylwnS3.png" alt="chart_q2.png"></p>
+<p>抱歉，不小心把答案也贴上来了<del>（不要紧不要紧</del>）</p>
+
+      
+	  
+	  
+		
+		
+		  <div>
+			<blockquote>
+				<strong>本文作者：</strong>
+				
+				  lucainiaoge
+				
+				<br>
+				<strong>本文链接：</strong>
+				https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer/
+				<br>
+				<strong>版权声明：</strong>
+				本作品采用
+				<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+				进行许可。转载请注明出处！
+				
+				  <br>
+				  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+				
+			</blockquote>
+			
+			
+			<hr>
+				<center><strong>Welcome to my little world</strong></center>
+			<hr>
+		  </div>
+		
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thx!!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/29/math-modling-2019CUMCM-answer/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/29/math-modling-2019CUMCM-answer/">2019数模国赛B题解析(Analysis of 2019CUMCM Question-B)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,275 +358,147 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/KNN-handwriting-recognization/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/29/blog-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          lucainiaoge博客介绍(introduction)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/25/KNN-handwriting-recognization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KNN实现手写数字识别(KNN handwriting recognization)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/KNN-handwriting-recognization/">KNN实现手写数字识别(KNN handwriting recognization)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pattarn_recognization</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Sight-Discovering-and-Creating"><span class="toc-number">1.</span> <span class="toc-text">First Sight: Discovering and Creating</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve-by-simulation"><span class="toc-number">1.1.</span> <span class="toc-text">Solve by simulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-1D-Physical-Simulation-System"><span class="toc-number">1.2.</span> <span class="toc-text">Creat 1D Physical Simulation System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Set-F-z-i"><span class="toc-number">1.3.</span> <span class="toc-text">How to Set $F_z(i)$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Process-Move-to-the-3D-World"><span class="toc-number">2.</span> <span class="toc-text">Second Process: Move to the 3D World</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/23/how_to_build_a_blog/" class="archive-article-date">
-  	<time datetime="2019-09-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/23/how_to_build_a_blog/">如何开始搭建自己博客(How to start my blog)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">blog_start</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/math-modling-2019CUMCM-summary-1/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/math-modling-2019CUMCM-summary-1/">2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/math-modling-2019CUMCM-summary-2/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/math-modling-2019CUMCM-summary-2/">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
+<div class="gitalk">
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+            clientID: '113d81d5e28a1fcdede5',
+            clientSecret: '457eefa5d617e8c922ad82852dbcfe01abf436bf',
+            repo: 'lucainiaoge.github.io',
+            owner: 'lucainiaoge',
+            admin: ['lucainiaoge'],
+            id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/math-modling-2019CUMCM-summary-3/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/math-modling-2019CUMCM-summary-3/">2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</a>
-    </h1>
-  
+        gitalk.render('gitalk-container')
+    </script>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/15/math-modling-2019CUMCM-summary-4/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/math-modling-2019CUMCM-summary-4/">2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -544,8 +521,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
