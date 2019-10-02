@@ -6,36 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>2019数学建模国赛总结 Part 4 (2019 CUMCM Summary) | Lucainiao&#39;s blog</title>
+  <title>2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1) | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="by lucainiaoge  Final battle - 2019.9.159.15，今天， 我要完成最后一关，">
-<meta name="keywords" content="math_moding,experience">
+  <meta name="description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
+<meta name="keywords" content="math_moding,math,MATLAB,physics,simulation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-4/index.html">
+<meta property="og:title" content="2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer-1/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="by lucainiaoge  Final battle - 2019.9.159.15，今天， 我要完成最后一关，">
+<meta property="og:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/f5h2T8tme7sznEG.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/MIuZP1rCgis5Ely.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/qTOEV8fFyI1e6PC.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/zbS8Q6npuwUPC3l.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/QRE1qxJGI5rU6dS.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/lWdaM4qJUmv8eOC.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/5sMqlZmSFUwIVHk.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/zmLXBrhxnAl3dWc.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/JQ5Hgy1M7qFp6Li.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/ex9bKmsPS6TYvXW.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/eIP9poOYZTxznWg.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/fSPbo5AcKlUqg9O.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/gtRebZhVma3YDxA.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/rTgUPn2xBmwYGSy.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/22/IyvWeQwlC3bck1u.png">
-<meta property="og:updated_time" content="2019-09-23T10:24:16.904Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/8PNUSLkOJi27lGz.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/6fpOwxPnALTGZV4.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/gosYxRNWvh4O3n1.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/6KJmLD1gfPVX5AW.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/mHWCrbuwtqUkDdj.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/Ly6GIkAxmgY9Cqw.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/3SXr2HuRfKLmqnQ.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/dvxUw1T8SFhHBRK.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/zSFWc6YLH7AGf9M.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/icnR9PMd5sS7UKT.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/o7vwpghjZFrLqmC.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/PWhJ9HMVvylwnS3.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/01/GEld3bZ2CuWSTcx.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/4dHzkQRI7JEsuTD.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/PEq1yh9VJYmczAp.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/NXDtSPQ1HA9Bh7q.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/e6MvbL9hncmTgqO.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/puENYKJLmIZRqGw.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/rvaVXTdYeQsqb49.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/JPLAURwZSXquh2K.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/02/JPAHi6kfFUCGxcB.png">
+<meta property="og:updated_time" content="2019-10-02T07:19:08.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)">
-<meta name="twitter:description" content="by lucainiaoge  Final battle - 2019.9.159.15，今天， 我要完成最后一关，">
-<meta name="twitter:image" content="https://i.loli.net/2019/09/22/f5h2T8tme7sznEG.png">
+<meta name="twitter:title" content="2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)">
+<meta name="twitter:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -176,7 +183,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-math-modling-2019CUMCM-summary-4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-math-modling-2019CUMCM-answer-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -185,8 +192,8 @@
 	  
         
         
-        <a href="/2019/09/15/math-modling-2019CUMCM-summary-4/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+        <a href="/2019/09/29/math-modling-2019CUMCM-answer-1/" class="archive-article-date">
+  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
@@ -197,63 +204,114 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)
+      2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)
     </h1>
   
 </p></center>
       
         <p><strong>by lucainiaoge</strong></p>
 <hr>
-<h1 id="Final-battle-2019-9-15"><a href="#Final-battle-2019-9-15" class="headerlink" title="Final battle - 2019.9.15"></a>Final battle - 2019.9.15</h1><p>9.15，今天，</p>
-<p>我要完成最后一关，</p>
+<p>这篇文章讲解2019年数学建模国赛B题的求解历程。</p>
+<ul>
+<li>基础知识required：运动学和牛顿力学，空间向量的概念</li>
+</ul>
 <a id="more"></a>
+<ul>
+<li>本文物理量如果无特殊说明一律采用国际单位制</li>
+<li>若无法显示公式，或者出现[Math Processing Error]，请尝试shift+F5或者ctrl+shift+F5刷新页面<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p>打大Boss！</p>
-<p>毕竟我第四问还没碰呢。。。</p>
-<p>一早6:30起床，于是早上我又被自己的<strong>帅帅帅</strong>先而帅到了！</p>
-<p>一坐下，赶快进入状态（虽然还有点迷迷糊糊）。十分担心，打开客户端检查有没有被退赛，嗯好，没有，好的，打开MATLAB看看我的程序还在不在，嗯好，没有，哦不，还在，嗯好。</p>
-<p>……</p>
-<p>嗯，大概在7：00左右，我的大脑开始全速运转了。我把图存的差不多，直接就上手搜索PID的比例系数了。搜索量还是挺大的，而且老跑飞。保存图像时候，MATLAB还老给我崩掉（大概是因为，我画的点太多了）。不过硬着头皮，我搞出来很多组数。</p>
-<p>这里一个教训：跑出来结果别老顾着高兴。要提前准备好一个有条理的总结方式：每次跑出结果，要记录完那些东西才能跑下一次，并且不要忘了这一次跑的条件是什么，用哪个版本的程序跑出来的……我就是，写了很多个版本，不下三个，每个版本的迭代初始设置都不一样（初始设置本来就纷繁复杂，我试图在MATLAB代码中汇总，但是还是没有根除这个问题），我最后就迷失在了这里。我真的不知道某个数据是用哪个程序跑出来的了。</p>
-<p>我安慰自己，没事儿了，都到这个份儿上了，随便找个程序，再跑一遍，得到好看的结果直接记下来，把这一个所有信息都记下来，写到论文上就好了！</p>
-<p>嗯，这个思想起到了效果，不过没有起到长期效果……</p>
-<p>随着我的任务推进，我的大脑逐渐僵硬，我渐渐意识到自己快成为翔哥之前推公式的样子了。对了，上午我给翔哥的任务很简单而明确，就是：给翔哥输入合力（原来还想再给合力矩，但是很明显翔哥吃不消了，要是我我可能也无从下手了，转而自闭），翔哥输入N个人的分力的大小和方向（自由度很高，需要想办法设置分工规则）。翔哥思路很不错：让球来的方向那几个人着重使劲，其他人抵消其他影响。说的简单做起来难，翔哥也写了一上午。期间，我就用我那杂七杂八程序跑出来的玄学合力喂给他，他也用他的玄学程序输出玄学分力喂给我。于是我们就陷入了玄学循环……</p>
-<p>眼见着就要被这点屁事带倒了。我决定，先吃顿午饭（其实是外卖，因为之前跟楚笑说我们仨今天不下去了，帮我们点外卖吧），是鸡公煲，我一般不吃鸡公煲，但今天吃的还挺有味道的。吃完回来继续重新跑我问题4的优化程序，就崩了！崩了！再也！跑！不！出！来！了！</p>
-<p>我按捺住自己忐忑的心情，重新修改程序，修改了有半个小时，还！是！不行！！这个时刻，出这种事，谁顶得住？！</p>
-<p>还好！还好！还记得这个嘛？</p>
-<blockquote>
-<p>求救rar技能</p>
+</li>
+</ul>
+<h1 id="First-Sight-Discovering-and-Creating"><a href="#First-Sight-Discovering-and-Creating" class="headerlink" title="First Sight: Discovering and Creating"></a>First Sight: Discovering and Creating</h1><ul>
+<li>问题链接：<blockquote>
+<p>全国大学生数学建模大赛官网<a href="http://www.mcm.edu.cn/" target="_blank" rel="noopener">http://www.mcm.edu.cn/</a>，进去点击“赛题与评奖”，即可获取赛题</p>
 </blockquote>
-<p>现在的自闭时间是下午2:00，我在这时候之前做了一件让我自己十分受益的事情：</p>
-<p><img src="https://i.loli.net/2019/09/22/f5h2T8tme7sznEG.png" alt="rar_who_saved_me.png"></p>
-<p>仰天长笑哈哈</p>
-<p>我复活了！</p>
-<p>我按照这个里面打好包的程序又跑了一遍，（虽然这个程序时漏洞百出的，毕竟两个小时内，我也改了一些漏洞的，但是也可能制造了一些漏洞呢）成了！赶紧记下来，直接作为最后结果了！先不给它搜索，直接记下来，反正是按照最后一问条件跑出来的！（这个条件的刻画，我在清早分给翔哥了！）无所谓！结果可喜就是了！</p>
-<p>好，圆满完成？</p>
-<p>哦不！屁事多多！</p>
-<p>e的灵敏度分析；问题4优化算法求解；论文很多公式还没打下来；论文问题4还没写结果；论文还没有写改进意见和附录；我们的支撑材料还没有完整化；翔哥还在推模型的验证系统该怎么弄（这涉及到另一套代码）……<br>继续分工，我和翔哥搞模型验证系统（又开始互传变量了！），子烨继续打公式写论文；只不过我多了一个工序：让子烨不断发论文现稿给我订正。但毕竟我精力有限，很多错误直到比赛结束也没能排查出来，哎……</p>
-<p><img src="https://i.loli.net/2019/09/22/MIuZP1rCgis5Ely.png" alt="inf_printscreen_1.png"></p>
-<p>最后，连扯带拽连滚带爬，极限操作搞定了以上我提到的收尾问题。虽然这些事情离我现在敲下这个字（2019.9.16 0:18，哦今天要上课了妈呀）是最近的，但是我真的不太记得这些事情是怎么解决的了。大概就是：ddl提供最大生产力吧！</p>
-<p>总之，在最后千钧一发之际，我们搞定了。打开客户端，确认存活，上传MD5码：</p>
-<p><img src="https://i.loli.net/2019/09/22/qTOEV8fFyI1e6PC.png" alt="MD5_1.png"></p>
-<p>啊哦又发现文件命名不太对，重新提交（我忽然玩性大发，想要在8:00之前好好玩一玩提交MD5码，被队友制止了）：</p>
-<p><img src="https://i.loli.net/2019/09/22/zbS8Q6npuwUPC3l.png" alt="MD5_2.png"></p>
-<p>告一段落！再会！收拾桌子！准备哈皮（？？？）</p>
+</li>
+</ul>
+<p>我们做的是B题，同心鼓那个。起初我觉得这题很没劲，但做起来以后才觉得有意思。数学建模心路历程和经历已经写过了，可以看我博客的这套文章：<a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1</a></p>
+<p>解决第一问：</p>
+<blockquote>
+<p>Q1. 在理想状态下，每个人都可以精确控制用力方向、时机和力度，试讨论这种情形下团队的最佳协作策略，并给出该策略下的颠球高度。</p>
+</blockquote>
+<h2 id="Solve-by-simulation"><a href="#Solve-by-simulation" class="headerlink" title="Solve by simulation"></a>Solve by simulation</h2><p>我们拿到问题，首先考虑：我们要输出什么样子的结果？<br>我们要输出“最佳协作策略”。既然要建模，一定要定量，那么这个策略也是定量的。想：协作需要确定什么量？以人为单位，每个人需要通过绳子提供拉力，拉力包含夹角和方向，同时也包含随时间变化的信息（毕竟游戏是一个过程）。</p>
+<p>怎么刻画这些量？$\varphi_k - t \quad curve \quad and \quad \textbf{F}_k - t \quad curve$</p>
+<p>$\varphi_k$是每个人施力夹角，$\textbf{F}_k$是每个人施力的大小</p>
+<p>有了这个思路，我们就要确定这个有关每个人施力随时间变化的函数了。这个函数的目的：使得游戏得分最高。即：将函数输入游戏，游戏输出得分结果，我们要这么样的函数使得结果最优——优化问题。那么我们又要开始想：游戏如何输入这个函数？我们要构建游戏的真实过程！</p>
+<p>到此为止，我们其实已经进入正题上了——构建游戏的过程。说白了：物理仿真系统！</p>
+<p>仿真系统的构建，我们使用MATLAB，后面也一直在用MATLAB。我首先写了一个最简单的仿真系统——小球与地碰撞反弹的系统。</p>
+<p>我们能参考的是什么？运动学方程，牛顿运动定律，碰撞定理。</p>
+<p>以最简单的反弹系统为例，我们有这么几个微分方程：<br>$\frac{dy(t)}{dt} = v(t)$<br>$\frac{dv(t)}{dt} = g$<br>$v(t+\Delta t)=-ev(t) \quad when \quad y(t)&lt;\epsilon$, e为碰撞系数</p>
+<p>我们要做的是将其以时间步长$\Delta t$离散化以适应MATLAB仿真：</p>
+<p>$y(i+1)-y(i) = v(t) \Delta t$<br>$v(i+1)-v(i) = g \Delta t$<br>$v(i+1)=-ev(i) \quad when \quad y(i)&lt;\epsilon$</p>
+<p>好的，接下来就要代码实现了。其实，上面已经给出了迭代公式。离散化其实是对实际世界的近似。实际世界一切物理现象的发生可以看成是同时的，不会出现“上帝先确定某物体的加速度，再确定它的速度，最后确定它的位置”这种情况（至少用微分方程求解是这样的）。但我们迭代时候，就产生了这样的问题：我们有很多迭代公式，先迭代哪个？</p>
+<p>如果我们要求解差分方程组，也不存在这个问题，毕竟求解差分方程和求解微分方程是一个套路，最后得出的解与我们先解出哪个方程无关。可是迭代的话，我们先算谁后算谁，有一个因果性。我们一般按照高阶(eg:加速度，速度)到低阶(eg:速度，位置)的顺序来迭代。<br>实例代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:max_step</span><br><span class="line">   t=t_step*<span class="built_in">i</span>;</span><br><span class="line">   v(<span class="built_in">i</span>+<span class="number">1</span>)=-g*t_step+v(<span class="built_in">i</span>);</span><br><span class="line">   y(<span class="built_in">i</span>+<span class="number">1</span>)=v(<span class="built_in">i</span><span class="number">-1</span>)*t_step+y(<span class="built_in">i</span>);</span><br><span class="line">   <span class="keyword">if</span>(y(<span class="built_in">i</span>)&lt;<span class="built_in">eps</span>)</span><br><span class="line">       v(<span class="built_in">i</span>+<span class="number">1</span>)=-v(<span class="built_in">i</span>)*<span class="number">0.998</span>;</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>运行这个代码，可以得到这样的过程（横轴是时间）：<img src="https://i.loli.net/2019/09/29/mnJzdb4A6iYMDoU.gif" alt="exp_collide_simulate.gif"></p>
+<h2 id="Creat-1D-Physical-Simulation-System"><a href="#Creat-1D-Physical-Simulation-System" class="headerlink" title="Creat 1D Physical Simulation System"></a>Creat 1D Physical Simulation System</h2><p>我们其实完成了历史性的一步：构建了一个物理仿真系统。接下来，就是将其应用到题目中了。</p>
+<p>题目第一问对实际施力情况可以做理想化处理。理想到什么程度？我们的把握是：让每个均匀站立的人可以做到对称施力——竖直分力相等，水平分力也相等使得八个人水平合力为0。那么，我们只需获取竖直方向合力，结合任何时刻人的高度和鼓的高度，即可得到每个人的分力以及力的夹角了。现在，我们的任务就是：设定每个时刻的竖直合力。</p>
+<p>我们要考虑两个物体的运动。模型较为简单，迭代求解甚至可以考虑空气阻力、浮力等因素（不用获取解析形式，是数值方法的一大优点，这样可以使得我们考虑很多通过解析方法很难刻画的因素）。在我们直接列离散化之后的方程如下(为节省篇幅，一些明显易求得的物理量[例如截面积和体积]在这里不加以计算，仅做符号说明)：</p>
+<ul>
+<li>符号说明：<ul>
+<li>脚标”d”代表”drum”，即“鼓”；脚标”b”代表”ball”，即“球”；</li>
+<li>“C”是空气阻力系数，对于球而言$C_b = 0.5$，对于圆柱而言$C_d = 0.73$</li>
+<li>“V”代表体积，”S”代表截面积，”$F_z$”代表队员的竖直合力，”$\rho$”代表空气密度，”m”表示质量</li>
+<li>指标$i$代表迭代变量（即时间），$\Delta t$为迭代步长</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>$f_{d_{air}}(i) = 0.5 C_d \rho S_d  v_d(i) |v_d(i)|$……(鼓的空气阻力)<br>$f_{b_{air}}(i) = 0.5 C_b \rho S_b  v_b(i) |v_b(i)|$……(球的空气阻力)<br>$m_d v_d(i+1) = (-m_d g + \rho V_d g - f_{d_{air}}(i) + F_z(i))\Delta t + m_d v_d(i)$……(鼓的速度迭代公式)<br>$m_b v_b(i+1) = (-m_b g + \rho V_b g - f_{b_{air}}(i))\Delta t + m_b v_b(i)$……(球的速度迭代公式)<br>$z_d(i+1) = z_d(i) + v_d(i)\Delta t$……(鼓的位置迭代公式)<br>$z_b(i+1) = z_b(i) + v_b(i)\Delta t$……(球的位置迭代公式)<br>$if \quad z_b(i)-z_d(i)&lt;\epsilon \quad :$<img src="https://i.loli.net/2019/09/30/8PNUSLkOJi27lGz.png" alt="formula-collision-1D.png">(碰撞迭代公式)</p>
+</blockquote>
+<p>碰撞的迭代公式的推导由来如下图所示<br><img src="https://i.loli.net/2019/09/30/6fpOwxPnALTGZV4.png" alt="formula-collision-1D-source.png"><br>其中P代表冲量，这几个式子是列了冲量定理和碰撞系数e的定义式。</p>
+<h2 id="How-to-Set-F-z-i"><a href="#How-to-Set-F-z-i" class="headerlink" title="How to Set $F_z(i)$"></a>How to Set $F_z(i)$</h2><p>上面的物理模型想要运行，必须实时输入$F_z(i)$，所以我们需要构建一个确定$F_z(i)$的系统。想了半天，憋出来一个想法：使用状态机并引入反馈。</p>
+<p>什么是状态机？就是设置决策者在不同情况下进入不同的状态，不同的状态下做出不同的决策。这里，我们设置了这么几种状态：</p>
+<p><img src="https://i.loli.net/2019/09/30/gosYxRNWvh4O3n1.png" alt="status_change.png"><img src="https://i.loli.net/2019/09/30/6KJmLD1gfPVX5AW.png" alt="status_change_2.png"></p>
+<p>在不同状态下，设定不同的$F_z(i)$值，即：$F_z(i)\in \lbrace F_I,F_{II},F_{III},F_{IV} \rbrace$，每次迭代都根据目前状态设置$F_z(i)$即可。</p>
+<p>我们探索了几个$F_z(i)$的值，比如$[F_I,F_{II},F_{III},F_{IV}]=[(g+6)m_d,0,gm_d,(g+3)m_d]$，设置鼓向下运动最大速度为0.6m/s，按照上述图片的状态转换规则进行迭代，会得到这样的结果(在这里我也加入了和地面碰撞反弹的判断)(红线是球的运动轨迹，蓝线是鼓面的运动轨迹，碰撞判断时没有考虑球的大小)：</p>
+<p><img src="https://i.loli.net/2019/09/30/mHWCrbuwtqUkDdj.png" alt="raw_result_1D_1.png"></p>
+<p>会发现，要不就往下掉，要不就越飞越高，没有实现稳定地控制。怎么让它稳定？我们想到了引入负反馈！也就是，鼓太高的时候，就减少向上的力使鼓保持在下面。</p>
+<p>反馈很简单，设置一个分段函数$T_{lim}(y)$如下：</p>
+<p><img src="https://i.loli.net/2019/09/30/Ly6GIkAxmgY9Cqw.png" alt="feedback_func.png"></p>
+<p>每次迭代按照状态设置完参考竖直力之后，按照这个函数限制一下$F_z(i)$(这个函数是力的上限，如果设定值大于$T_{lim}(z(i))$，就将$F_z(i)$设置为$T_{lim}(z(i))$)。于是得到了令人满意的结果：</p>
+<p><img src="https://i.loli.net/2019/09/30/3SXr2HuRfKLmqnQ.png" alt="result-1D-feasible.png"></p>
+<p>鼓的初始高度对稳定结果没有影响，实验结果如下：<br><img src="https://i.loli.net/2019/09/30/dvxUw1T8SFhHBRK.png" alt="init_pos_inf.png"></p>
+<p>接下来，我们要获取最优值，“最优”是什么？当然是游戏得分多！所以，我们首先要实现：接球数目最多。接下来，我们能接球的时间越长越好。当然，还要考虑一下成员的操作难易度。这个操作难易度定义为$\xi = |\frac{1}{Iter}\sum_{i=1}^{Iter}y_d(i)-y_{conft}|$，其中$y_{conft}$为舒适高度，我们取的0.8，$Iter$为游戏能进行的最大迭代次数，$t_{step}$是迭代步长。</p>
+<p>搜索反馈函数的两个lim值和stageI的参考值，求解这个目标规划：<br><img src="https://i.loli.net/2019/09/30/zSFWc6YLH7AGf9M.png" alt="opt_purpose.png"><br>进一步考虑了球的大小，得到最优结果如下：<br><img src="https://i.loli.net/2019/09/30/icnR9PMd5sS7UKT.png" alt="best-result-1D.png"></p>
+<p>基本符合预期！在迭代时间极限40秒内，击打了80个球！</p>
+<p>接下来，将分力分解给每个队员：</p>
+<p>设每个队员都有一个舒适施力的值服从正态分布，记为$h_{pull}-N(1.1,0.1^2)$，设N个队员之间夹角为$\gamma=2\pi /N$，<br>人到鼓边缘的距离$d_{max}=\frac{0.3}{sin(\gamma/2)}-0.2$  (其中0.3=0.6/2,即两人之间距离的一半，0.2为鼓的半径)。<br>那么，任意时刻，每个人施力夹角为：$\varphi_k(i)=arctan( \frac{h_{pull_k} - y_d(i)}{d_{max}} )$，<br>每个人施力大小为：$T_k(i)=T_z(i)/(Nsin \varphi_k(i) )$</p>
+<p>于是，我们就有了分解之后队员的力与时间的指导规律：<img src="https://i.loli.net/2019/09/30/o7vwpghjZFrLqmC.jpg" alt="F_and_angle_1D.jpg"></p>
+<p>开始向第二问进发！</p>
+<h1 id="Second-Process-Move-to-the-3D-World"><a href="#Second-Process-Move-to-the-3D-World" class="headerlink" title="Second Process: Move to the 3D World"></a>Second Process: Move to the 3D World</h1><blockquote>
+<p>Q2. 在现实情形中，队员发力时机和力度不可能做到精确控制，存在一定误差，于是鼓面可能出现倾斜。试建立模型描述队员的发力时机和力度与某一特定时刻的鼓面倾斜角度的关系。设队员人数为8，绳长为1.7m，鼓面初始时刻是水平静止的，初始位置较绳子水平时下降11 cm，表1中给出了队员们的不同发力时机和力度，求0.1 s时鼓面的倾斜角度。<br><img src="https://i.loli.net/2019/09/30/PWhJ9HMVvylwnS3.png" alt="chart_q2.png"><br>抱歉，不小心把答案也贴上来了<del>（不要紧不要紧</del>）</p>
+</blockquote>
+<h2 id="Solution-How-to-rotate"><a href="#Solution-How-to-rotate" class="headerlink" title="Solution - How to rotate?"></a>Solution - How to rotate?</h2><p>第二问其实就是让我们专注建立物理模型了！力都给我们给好了，也没有排球什么事儿，就让鼓运动就是了！关键是：怎么让鼓转起来？</p>
+<p>当然是：转动定理！（<del>不知道的小伙伴们快快复习大物！</del>）</p>
+<p><img src="https://i.loli.net/2019/10/01/GEld3bZ2CuWSTcx.png" alt="Drum_vectors.png"></p>
+<p>如上图所示：鼓的一些向量属性。$\pmb{R_k}(k=1,2…8)$代表[鼓的中心点]到[鼓面边缘&amp;每个人所在竖直平面交点]的向量，它的长度是$D/2$，D是鼓的直径，方向记为$\pmb{R^o_k}(k=1,2…8)$；$\pmb{T_k}(k=1,2…8)$代表每个人拉力的大小和方向；$\pmb{n}$为鼓的法向量。</p>
+<p>另外，我们令：$\pmb{M_k}(k=1,2…8)$为每个人的拉力对鼓造成的力矩，$\pmb{\omega}$为鼓的角速度，$\Delta\theta$为鼓的法向量偏离竖直方向$\pmb{e_z}$的角度，$\pmb{\Delta n}为法向量的瞬时移动量$，$J$为鼓的转动惯量。</p>
+<p>转动惯量的计算：将鼓看作圆管状模型，忽略牛皮的质量。制作鼓常用的木材为梧桐木，梧桐木的密度$\rho_{wood}=0.8\times 10^3 kg/m^3$，根据题中给的鼓的尺寸和质量可以求得梧桐木厚度为w=0.0163m；根据转动惯量的定义<br>\begin{equation}<br>J=\int_{D/2-w}^{D/2} \int_{-h/2}^{h/2} 2 \pi \rho_{wood} (r^2+z^2)rdrdz=0.1517kg·m^2<br>\end{equation}</p>
+<p>那么，我们依然直接列出离散化之后的动力学迭代公式：</p>
+<blockquote>
 <hr>
-<p><strong>P.S.</strong> 数学建模一大感受：我老是疑神疑鬼，总是觉得数学建模客户端就要关闭了。殊不知，我应该做的是再好好阅读一遍赛区规则说明。</p>
-<p><strong>P.P.S.</strong> 最后学校群里有一个可怜虫在图书馆电脑上提交MD5码以后把文件给删了，觉得提交了MD5码就ok了，在删了以后才意识到：</p>
-<p><img src="https://i.loli.net/2019/09/22/QRE1qxJGI5rU6dS.png" alt="inf_printscreen_2.png"><br><img src="https://i.loli.net/2019/09/22/lWdaM4qJUmv8eOC.png" alt="inf_printscreen_3.png"><br><img src="https://i.loli.net/2019/09/22/5sMqlZmSFUwIVHk.png" alt="inf_printscreen_4.png"></p>
-<blockquote>
-<p>这个可怜虫内心大概已经MD了5000万次了</p>
+<ul>
+<li>转动迭代<br>$\pmb{M_k}(i)=\frac{D}{2}\pmb{R^o_k}(i)\times\pmb{T_k}(i)(k=1,2…8)$……(每个人造成的分力矩)<br>$\pmb{M}(i)=\sum^{8}_{k=1}\pmb{M_k}(i)$……(拉力对鼓的合力矩)<br>$\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{M}(i)\Delta t/J$……(拉力对鼓的合力矩)<br>$\pmb{\Delta n}(i)=\pmb{n(i)}\times\pmb{\omega}(i)\Delta t$……(角速度造成的法向量瞬时变化量)<br>$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\Delta n}(i)$……(更新法向量)<br>$\pmb{n}(i+1)=\pmb{n}(i+1)/ | \pmb{n}(i+1) |$……(归一化消除长度误差)<br>$\pmb{R_k^o}(i+1)=\pmb{R}(i+1)\pmb{R_k^o}(1)$……(按照新的法向量更新鼓的径向,R为旋转矩阵)</li>
+</ul>
+<hr>
+<ul>
+<li>平动迭代<br>$\pmb{f_{d_{air}}}(i) = 0.5 C_d \rho S_d  \pmb{v_d}(i) |\pmb{v_d}(i)|$……(鼓的空气阻力)<br>$m_d \pmb{v_d}(i+1) = (-m_d g\pmb{e_z} + \rho V_d g\pmb{e_z} - \pmb{f_{d_{air}}}(i) + \pmb{\sum T}(i))\Delta t + m_d \pmb{v_d(i)}$……(鼓的速度迭代公式)<br>$\pmb{r_d}(i+1) = \pmb{r_d}(i) + \pmb{v_d}(i)\Delta t$……(鼓的位置迭代公式)</li>
+</ul>
+<hr>
+<ul>
+<li>上面有待确定的量<br>旋转矩阵$\pmb{R}$的求解: 见博文<a href="https://lucainiaoge.github.io/2019/10/02/rotation-in-3D-space/" target="_blank" rel="noopener">三维旋转矩阵和刚体旋转(Object Rotation in 3D Space)</a><br>$\pmb{\sum T}(i)$: 按照每一时刻表格中给出的力合成为矢量。$\pmb{T}(i)=\sum^{8}_{k=1}\pmb{T_k}(i)$<br>$\pmb{T_k}(i)$: 方向为$\pmb{T_k^o}(i)=\frac{[cos(2\pi (k-1)/N),sin(2\pi (k-1)/N),tan\varphi_k(i)]}{|[cos(2\pi (k-1)/N),sin(2\pi (k-1)/N),tan\varphi_k(i)]|}$,其中$\varphi_k(i)$的求法在第一问中已给出</li>
+</ul>
 </blockquote>
-<p>若有来者，有幸看到这篇文章的最后，并且打算参加下一次建模比赛，请谨记这个教训：MD5码只是一个路径的加密码而已，并不是文件本身的信息。这个码是为了保证你的文件是你的，不是别人作弊搞的。所以提交MD5码以后，不能修改信息！</p>
-<p>所以，最后才会有一个上传文件阶段（此阶段，你的文件路径已经锁住了！锁住了！你再动，再修改，就是作弊！）所以，在我正在写总结的时候，看到上面这位可怜虫的教训的时候，我在反省自己，是否也犯了类似地错误（毕竟我提交MD5以后还欣赏了两边我的论文甚至把它发送给了我爹一起欣赏（当然最后发现我靠漏洞百出（再当然，我不敢再修改了）））</p>
-<p>所以，我终于意识到，我还没有提交文件！</p>
-<p><img src="https://i.loli.net/2019/09/22/zmLXBrhxnAl3dWc.png" alt="inf_printscreen_5.png"></p>
-<p>hzy也参加数模，我赶快提醒他</p>
-<p><img src="https://i.loli.net/2019/09/22/JQ5Hgy1M7qFp6Li.png" alt="inf_printscreen_6.png"><br><img src="https://i.loli.net/2019/09/22/ex9bKmsPS6TYvXW.png" alt="inf_printscreen_7.png"><br>谢天谢地。<br>我的心路历程：</p>
-<pre><code>“我靠怎么这么多漏洞”</code></pre><p><img src="https://i.loli.net/2019/09/22/eIP9poOYZTxznWg.png" alt="inf_printscreen_8.png"><br><img src="https://i.loli.net/2019/09/22/fSPbo5AcKlUqg9O.png" alt="inf_printscreen_9.png"><br><img src="https://i.loli.net/2019/09/22/gtRebZhVma3YDxA.png" alt="inf_printscreen_10.png"><br><img src="https://i.loli.net/2019/09/22/rTgUPn2xBmwYGSy.png" alt="inf_printscreen_11.png"><br>    到：庆幸自己终于交上去了，<br>    论文写成啥样，怎么审核，随他去吧！随他去吧！我提交上去了！<br>    谢天谢地！啊啊啊啊啊！</p>
-<p><img src="https://i.loli.net/2019/09/22/IyvWeQwlC3bck1u.png" alt="inf_printscreen_12.png"><br>嗯，没错，我在今天的0:53分依然十分担心自己没传上去作品，又忐忐忑忑地传了一次，截图为凭！爽了，睡觉！</p>
+<p>至此，我们第二问完全可以求解了。将题目表格中的数据代入，就可以轻松求出任何时刻鼓的位置和角度了！结果如下：<br><img src="https://i.loli.net/2019/10/02/4dHzkQRI7JEsuTD.png" alt="Q3_P1.png"><img src="https://i.loli.net/2019/10/02/PEq1yh9VJYmczAp.png" alt="Q3_P2.png"><br><img src="https://i.loli.net/2019/10/02/NXDtSPQ1HA9Bh7q.png" alt="Q3_P3.png"><img src="https://i.loli.net/2019/10/02/e6MvbL9hncmTgqO.png" alt="Q3_P4.png"><br><img src="https://i.loli.net/2019/10/02/puENYKJLmIZRqGw.png" alt="Q3_P5.png"><img src="https://i.loli.net/2019/10/02/rvaVXTdYeQsqb49.png" alt="Q3_P6.png"><img src="https://i.loli.net/2019/10/02/JPLAURwZSXquh2K.png" alt="Q3_P7.png"></p>
+<h2 id="Bonus-Experiment"><a href="#Bonus-Experiment" class="headerlink" title="Bonus Experiment"></a>Bonus Experiment</h2><p>我们还没讨论绳长是否可变和绳子松弛的情况。其实无论如何，影响的都是力$\pmb{T_k}(i)$的$\varphi_k(i)$。假设中，拉力在鼓面的投影一定平行于径向（这样就避免了鼓的水平自转），如果绳长可变，那么可以保证在人的水平位置不变的条件下，拉绳子的手可以竖直运动；如果绳长不可变，即假设人拉绳子总是牵着末端，那么人必定在水平移动。</p>
+<p>无论哪种假设，都只是对$\varphi_k(i)$的计算公式产生影响。我们看看$\varphi_k(i)$对倾斜角度（第二问表格里的结果）有什么影响？因为施力时间比较短，所以假设施力过程中$\varphi_k=\varphi$不变。我们得到了这样的结果：</p>
+<p><img src="https://i.loli.net/2019/10/02/JPAHi6kfFUCGxcB.png" alt="Q3_P8.png"></p>
+<p>对情形2（施力不均匀）拟合了一下，是一个正弦函数——$\theta = 4^o sin\varphi$<br>可以发现对结果影响比较小，0.2秒时间内最多影响4°</p>
 
       
 	  
@@ -268,7 +326,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-4/
+				https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer-1/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -322,7 +380,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">physics</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">simulation</a>
         		</li>
       		
 		</ul>
@@ -378,7 +448,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2019/09/29/math-modling-2019CUMCM-answer-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -392,15 +462,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/15/math-modling-2019CUMCM-summary-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/29/blog-intro/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)
+          lucainiaoge博客介绍(introduction)
         
       </div>
     </a>
   
+  
+    <a href="/2019/09/25/KNN-handwriting-recognization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KNN实现手写数字识别(KNN handwriting recognization)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -417,6 +492,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Sight-Discovering-and-Creating"><span class="toc-number">1.</span> <span class="toc-text">First Sight: Discovering and Creating</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve-by-simulation"><span class="toc-number">1.1.</span> <span class="toc-text">Solve by simulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-1D-Physical-Simulation-System"><span class="toc-number">1.2.</span> <span class="toc-text">Creat 1D Physical Simulation System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Set-F-z-i"><span class="toc-number">1.3.</span> <span class="toc-text">How to Set $F_z(i)$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Process-Move-to-the-3D-World"><span class="toc-number">2.</span> <span class="toc-text">Second Process: Move to the 3D World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-How-to-rotate"><span class="toc-number">2.1.</span> <span class="toc-text">Solution - How to rotate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonus-Experiment"><span class="toc-number">2.2.</span> <span class="toc-text">Bonus Experiment</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
