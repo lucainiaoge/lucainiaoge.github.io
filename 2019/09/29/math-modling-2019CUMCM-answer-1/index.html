@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/10/02/rvaVXTdYeQsqb49.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/02/JPLAURwZSXquh2K.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/02/JPAHi6kfFUCGxcB.png">
-<meta property="og:updated_time" content="2019-10-02T07:19:08.922Z">
+<meta property="og:updated_time" content="2019-10-03T10:12:05.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)">
 <meta name="twitter:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
@@ -291,7 +291,7 @@
 <p><img src="https://i.loli.net/2019/10/01/GEld3bZ2CuWSTcx.png" alt="Drum_vectors.png"></p>
 <p>如上图所示：鼓的一些向量属性。$\pmb{R_k}(k=1,2…8)$代表[鼓的中心点]到[鼓面边缘&amp;每个人所在竖直平面交点]的向量，它的长度是$D/2$，D是鼓的直径，方向记为$\pmb{R^o_k}(k=1,2…8)$；$\pmb{T_k}(k=1,2…8)$代表每个人拉力的大小和方向；$\pmb{n}$为鼓的法向量。</p>
 <p>另外，我们令：$\pmb{M_k}(k=1,2…8)$为每个人的拉力对鼓造成的力矩，$\pmb{\omega}$为鼓的角速度，$\Delta\theta$为鼓的法向量偏离竖直方向$\pmb{e_z}$的角度，$\pmb{\Delta n}为法向量的瞬时移动量$，$J$为鼓的转动惯量。</p>
-<p>转动惯量的计算：将鼓看作圆管状模型，忽略牛皮的质量。制作鼓常用的木材为梧桐木，梧桐木的密度$\rho_{wood}=0.8\times 10^3 kg/m^3$，根据题中给的鼓的尺寸和质量可以求得梧桐木厚度为w=0.0163m；根据转动惯量的定义<br>\begin{equation}<br>J=\int_{D/2-w}^{D/2} \int_{-h/2}^{h/2} 2 \pi \rho_{wood} (r^2+z^2)rdrdz=0.1517kg·m^2<br>\end{equation}</p>
+<p>转动惯量的计算：将鼓看作圆管状模型，忽略牛皮的质量。制作鼓常用的木材为梧桐木，梧桐木的密度$\rho_{wood}=0.8\times 10^3 kg/m^3$，根据题中给的鼓的尺寸和质量可以求得梧桐木厚度为w=0.0163m；根据转动惯量的定义，鼓相对侧面中轴的转动惯量为：<br>\begin{equation}<br>J=\int_{D/2-w}^{D/2} \int_{-h/2}^{h/2} 2 \pi \rho_{wood} (r^2+z^2)rdrdz=0.1517kg·m^2<br>\end{equation}</p>
 <p>那么，我们依然直接列出离散化之后的动力学迭代公式：</p>
 <blockquote>
 <hr>
@@ -312,6 +312,14 @@
 <p>无论哪种假设，都只是对$\varphi_k(i)$的计算公式产生影响。我们看看$\varphi_k(i)$对倾斜角度（第二问表格里的结果）有什么影响？因为施力时间比较短，所以假设施力过程中$\varphi_k=\varphi$不变。我们得到了这样的结果：</p>
 <p><img src="https://i.loli.net/2019/10/02/JPAHi6kfFUCGxcB.png" alt="Q3_P8.png"></p>
 <p>对情形2（施力不均匀）拟合了一下，是一个正弦函数——$\theta = 4^o sin\varphi$<br>可以发现对结果影响比较小，0.2秒时间内最多影响4°</p>
+<h1 id="2019数学建模系列传送门"><a href="#2019数学建模系列传送门" class="headerlink" title="2019数学建模系列传送门"></a>2019数学建模系列传送门</h1><ul>
+<li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</a></li>
+<li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-2/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a></li>
+<li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-3/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</a></li>
+<li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-4/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)</a></li>
+<li><a href="https://lucainiaoge.github.io/2019/09/29/math-modling-2019CUMCM-answer-1/" target="_blank" rel="noopener">2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)</a></li>
+<li><a href="https://lucainiaoge.github.io/2019/10/02/math-modling-2019CUMCM-answer-2/" target="_blank" rel="noopener">2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)</a></li>
+</ul>
 
       
 	  
@@ -500,7 +508,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Sight-Discovering-and-Creating"><span class="toc-number">1.</span> <span class="toc-text">First Sight: Discovering and Creating</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve-by-simulation"><span class="toc-number">1.1.</span> <span class="toc-text">Solve by simulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-1D-Physical-Simulation-System"><span class="toc-number">1.2.</span> <span class="toc-text">Creat 1D Physical Simulation System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Set-F-z-i"><span class="toc-number">1.3.</span> <span class="toc-text">How to Set $F_z(i)$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Process-Move-to-the-3D-World"><span class="toc-number">2.</span> <span class="toc-text">Second Process: Move to the 3D World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-How-to-rotate"><span class="toc-number">2.1.</span> <span class="toc-text">Solution - How to rotate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonus-Experiment"><span class="toc-number">2.2.</span> <span class="toc-text">Bonus Experiment</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Sight-Discovering-and-Creating"><span class="toc-number">1.</span> <span class="toc-text">First Sight: Discovering and Creating</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve-by-simulation"><span class="toc-number">1.1.</span> <span class="toc-text">Solve by simulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-1D-Physical-Simulation-System"><span class="toc-number">1.2.</span> <span class="toc-text">Creat 1D Physical Simulation System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Set-F-z-i"><span class="toc-number">1.3.</span> <span class="toc-text">How to Set $F_z(i)$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Process-Move-to-the-3D-World"><span class="toc-number">2.</span> <span class="toc-text">Second Process: Move to the 3D World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-How-to-rotate"><span class="toc-number">2.1.</span> <span class="toc-text">Solution - How to rotate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonus-Experiment"><span class="toc-number">2.2.</span> <span class="toc-text">Bonus Experiment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019数学建模系列传送门"><span class="toc-number">3.</span> <span class="toc-text">2019数学建模系列传送门</span></a></li></ol>
                     </div>
                 </span>
             </div>
