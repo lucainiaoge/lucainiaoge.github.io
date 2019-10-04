@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/10/02/rvaVXTdYeQsqb49.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/02/JPLAURwZSXquh2K.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/02/JPAHi6kfFUCGxcB.png">
-<meta property="og:updated_time" content="2019-10-03T10:12:05.711Z">
+<meta property="og:updated_time" content="2019-10-04T02:52:38.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)">
 <meta name="twitter:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。  基础知识required：运动学和牛顿力学，空间向量的概念">
@@ -296,7 +296,7 @@
 <blockquote>
 <hr>
 <ul>
-<li>转动迭代<br>$\pmb{M_k}(i)=\frac{D}{2}\pmb{R^o_k}(i)\times\pmb{T_k}(i)(k=1,2…8)$……(每个人造成的分力矩)<br>$\pmb{M}(i)=\sum^{8}_{k=1}\pmb{M_k}(i)$……(拉力对鼓的合力矩)<br>$\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{M}(i)\Delta t/J$……(拉力对鼓的合力矩)<br>$\pmb{\Delta n}(i)=\pmb{n(i)}\times\pmb{\omega}(i)\Delta t$……(角速度造成的法向量瞬时变化量)<br>$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\Delta n}(i)$……(更新法向量)<br>$\pmb{n}(i+1)=\pmb{n}(i+1)/ | \pmb{n}(i+1) |$……(归一化消除长度误差)<br>$\pmb{R_k^o}(i+1)=\pmb{R}(i+1)\pmb{R_k^o}(1)$……(按照新的法向量更新鼓的径向,R为旋转矩阵)</li>
+<li>转动迭代<br>$\pmb{M_k}(i)=\frac{D}{2}\pmb{R^o_k}(i)\times\pmb{T_k}(i)(k=1,2…8)$……(每个人造成的分力矩)<br>$\pmb{M}(i)=\sum^{8}_{k=1}\pmb{M_k}(i)$……(拉力对鼓的合力矩)<br>$\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{M}(i)\Delta t/J$……(转动定理)<br>$\pmb{\Delta n}(i)=\pmb{n(i)}\times\pmb{\omega}(i)\Delta t$……(角速度造成的法向量瞬时变化量)<br>$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\Delta n}(i)$……(更新法向量)<br>$\pmb{n}(i+1)=\pmb{n}(i+1)/ | \pmb{n}(i+1) |$……(归一化消除长度误差)<br>$\pmb{R_k^o}(i+1)=\pmb{R}(i+1)\pmb{R_k^o}(1)$……(按照新的法向量更新鼓的径向,R为旋转矩阵)</li>
 </ul>
 <hr>
 <ul>

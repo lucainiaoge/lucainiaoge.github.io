@@ -19,12 +19,14 @@
 <meta property="og:image" content="https://i.loli.net/2019/10/02/g4J72biRmOPfU9j.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/XmkEJsN53zDy4gn.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/cd1Tux6BAgvISqG.png">
-<meta property="og:image" content="https://i.loli.net/2019/10/03/yU9PwAunKDNcYXf.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/qQ1dcMPTu6bwEUt.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/FO4jHdkUBqPf3Vl.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/8aeiAUXDIf4Lb9x.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/03/gFZpkHW5nCusXoT.png">
-<meta property="og:updated_time" content="2019-10-03T11:47:31.053Z">
+<meta property="og:image" content="https://i.loli.net/2019/10/04/WuKfHAkLJdUxrZY.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/04/2lUHrf6sEc4qu17.gif">
+<meta property="og:image" content="https://i.loli.net/2019/10/03/qQ1dcMPTu6bwEUt.png">
+<meta property="og:updated_time" content="2019-10-04T08:02:27.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)">
 <meta name="twitter:description" content="by lucainiaoge  这篇文章讲解2019年数学建模国赛B题的求解历程。这是第二篇。  基础知识required：运动学和牛顿力学，空间向量的概念，最好有点反馈控制的知识（没有也行）">
@@ -212,7 +214,7 @@
 <p>但是，我们怎么让我们的模型适用于三维世界？我们还有哪些没有做？捋了一遍，发现还差好多！具体总结如下：<br><img src="https://i.loli.net/2019/10/02/g4J72biRmOPfU9j.png" alt="TODO_list.png"></p>
 <p>让我们逐(man)一(man)解决！</p>
 <h2 id="Solution-Get-Feedback-and-Adjust"><a href="#Solution-Get-Feedback-and-Adjust" class="headerlink" title="Solution: Get Feedback and Adjust"></a>Solution: Get Feedback and Adjust</h2><p>在这里依然使用反馈的思路，只不过不能是简单地画一个单调递减函数就能解决的问题了。这回，我们要按照控制论的思想实时进行控制了！</p>
-<p>什么是控制论的思想？就是：首先，我们有一个目标的值，叫做期望值。加入我们想让$\Delta t$时间后，被控制物体的位置$\pmb{r}(t+\Delta t)$变到$\pmb{r_0}$，那么我们就说期望值为$\pmb{r_0}$。</p>
+<p>什么是控制论的思想？就是：首先，我们有一个目标的值，叫做期望值。假如我们想让$\Delta t$时间后，被控制物体的位置$\pmb{r}(t+\Delta t)$变到$\pmb{r_0}$，那么我们就说期望值为$\pmb{r_0}$。</p>
 <p>在这里请允许我借用概率论中求期望的符号:$E[\pmb{r}(t+\Delta t)]=\pmb{r_0}$</p>
 <p>请注意：这里的$E[·]$作用的对象是我们要调整的时变量，我们假定$E[·]$对于这些时变量的期望具有<strong>线性性质</strong>，这么认为的理由在后面会有解释。</p>
 <p>那么接下来，我们就要竭尽所能达成这个期望。我们能干什么？当然是：调整力！牛顿力学的体系下，我们可以认为：力是改变物体运动状态的<strong>原因</strong>！</p>
@@ -225,15 +227,19 @@
 <p>下一时刻，鼓水平位置的期望值为球水平位置：<br>$E[\pmb{r_d}(i+1)]=\pmb{r_b(i)}$(注意，这里向量都是二维向量)<br>考虑运动方程$\pmb{r_d}(i+1)=\pmb{r_d}(i)+\pmb{v_d}(i)\Delta t$<br>由于实际世界是连续的，我们的迭代步长可以取得足够小，使得：$|\pmb{v_d}(i+1)-\pmb{v_d}(i)|&lt;\epsilon$<br>所以运动方程还可写为：$\pmb{r_d}(i+1)=\pmb{r_d}(i)+\pmb{v_d}(i+1)\Delta t$</p>
 <p>运动方程两边求期望得到：$E[\pmb{v_d}(i+1)]=(E[\pmb{r_d}(i+1)]-\pmb{r_d}(i))/\Delta t=(\pmb{r_b}(i)-\pmb{r_d}(i))/\Delta t$<br>记$\pmb{r_{db}}(i)=(\pmb{r_b}(i)-\pmb{r_d}(i))$<br>则有$E[\pmb{v_d}(i+1)]=\pmb{r_{db}}(i)/\Delta t$<br>仅使用PID比例控制，则可以拆掉期望运算$\pmb{v_d}(i+1)=\pmb{K_{pv}}\pmb{r_{db}}(i)/\Delta t$<br>其中：$\pmb{K_{pv}}=diag(k_{vx},k_{vy})$<br>又根据冲量定理，$\pmb{v_d}(i+1)=\pmb{v_d}(i)+\pmb{F_{xy}}(i)\Delta t/m_d$<br>结合以上式子，经过简单代入和移项，再利用连续性(前后时刻的合力视为相等)，可以推出：</p>
 <blockquote>
-<p>$\pmb{F_{xy}}(i+1)=\pmb{K_{pv}}\pmb{r_{db}}(i)m_d/(\Delta t)^2-\pmb{v_d}(i)m_d/\Delta t $<br>这就是我们想要的控制方程，按照这个式子设置此时的合力即可使得鼓的水平位置趋向于球的水平位置！</p>
+<p>$\pmb{F_{xy}}(i)=\pmb{K_{pv}}\pmb{r_{db}}(i)m_d/(\Delta t)^2-\pmb{v_d}(i)m_d/\Delta t $<br>这就是我们想要的控制方程，按照这个式子设置此时的合力即可使得鼓的水平位置趋向于球的水平位置！</p>
 </blockquote>
 <h3 id="PID-in-problem-③"><a href="#PID-in-problem-③" class="headerlink" title="PID in problem ③"></a>PID in problem ③</h3><p>③的目的是：让鼓始终保持水平。为什么要让鼓保持水平？一个原因是让球更容易被接到；还有一个原因就是减少转动防止力的不均匀性使得鼓过不了多久就转翻了。<br>对于力矩的推导相似，但是更复杂。具体呢：看下面吧！</p>
-<p>我们期望鼓的法向量$\pmb{n}(i+1)$为$z单位向量\pmb{e_z}$，即$E[\pmb{n}(i+1)]=\pmb{e_z}$<br>根据转动定理和连续性，$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\omega}(i+1)\times\pmb{n}(i)\Delta t$<br>两边求期望得到$E[\pmb{\omega}(i+1)]\times\pmb{n}(i)\Delta t=E[\pmb{n}(i+1)]-\pmb{n}(i)$<br>代入$E[\pmb{n}(i+1)]=\pmb{e_z}$得到$E[\pmb{\omega}(i+1)]\times\pmb{n}(i)\Delta t=\pmb{e_z}-\pmb{n}(i)$<br>我们仅使用比例控制PID，那么可以继续拆掉期望运算，得到：<br>$\pmb{\omega}(i+1)\times\pmb{n}(i)\Delta t=\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))$<br>其中，$\pmb{K_{pr}}=diag(k_{rx},k_{ry},k_{rz})$<br>列出动力学公式$J\pmb{\omega}(i+1)=J\pmb{\omega}(i)+\pmb{M}(i)\Delta t$<br>将动力学公式两边同时叉乘$\pmb{n}(i)$，结合已得到的式子，推出<br>$\pmb{M}(i)\times\pmb{n}(i)\Delta t=J\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))/\Delta t-J\pmb{\omega}(i)\times\pmb{n}(i)$<br>我们最终要得到$\pmb{M}(i+1)$，上式中$\pmb{M}(i)近似等于\pmb{M}(i+1)$，所以把这个向量积方程解出来就好了。这个方程怎么解？<br>我们先把和设定值$\pmb{M}(i+1)$无关的已知量（即时刻$i$的运动参量）挪到一边去，<br>令$\pmb{S}(i)=J[\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))/\Delta t-\pmb{\omega}(i)\times\pmb{n}(i)]/\Delta t$<br>那么这个方程就写成了$\pmb{M}(i+1)\times\pmb{n}(i)=\pmb{S}(i)$<br>求解过程如下图<br><img src="https://i.loli.net/2019/10/03/XmkEJsN53zDy4gn.png" alt="solve_equation.png"><br>最终得到：</p>
+<p>我们期望鼓的法向量$\pmb{n}(i+1)$为$z单位向量\pmb{e_z}$，即$E[\pmb{n}(i+1)]=\pmb{e_z}$<br>根据转动定理和连续性，$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\omega}(i+1)\times\pmb{n}(i)\Delta t$<br>两边求期望得到$E[\pmb{\omega}(i+1)]\times\pmb{n}(i)\Delta t=E[\pmb{n}(i+1)]-\pmb{n}(i)$<br>代入$E[\pmb{n}(i+1)]=\pmb{e_z}$得到$E[\pmb{\omega}(i+1)]\times\pmb{n}(i)\Delta t=\pmb{e_z}-\pmb{n}(i)$<br>我们仅使用比例控制PID，那么可以继续拆掉期望运算，得到：<br>$\pmb{\omega}(i+1)\times\pmb{n}(i)\Delta t=\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))$<br>其中，$\pmb{K_{pr}}=diag(k_{rx},k_{ry},k_{rz})$<br>列出动力学公式$J\pmb{\omega}(i+1)=J\pmb{\omega}(i)+\pmb{M}(i)\Delta t$<br>将动力学公式两边同时叉乘$\pmb{n}(i)$，结合已得到的式子，推出<br>$\pmb{M}(i)\times\pmb{n}(i)\Delta t=J\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))/\Delta t-J\pmb{\omega}(i)\times\pmb{n}(i)$<br>我们最终要得到$\pmb{M}(i)$&lt;所以把这个向量积方程解出来就好了。这个方程怎么解？<br>我们先把和设定值$\pmb{M}(i)$无关的已知量（即时刻$i$的运动参量）挪到一边去，<br>令$\pmb{S}(i)=J[\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))/\Delta t-\pmb{\omega}(i)\times\pmb{n}(i)]/\Delta t$<br>那么这个方程就写成了$\pmb{M}(i)\times\pmb{n}(i)=\pmb{S}(i)$<br>求解过程如下图<br><img src="https://i.loli.net/2019/10/03/XmkEJsN53zDy4gn.png" alt="solve_equation.png"><br>最终得到：</p>
 <blockquote>
-<p>$\pmb{M}(i+1)=diag(-S_y(i)/n_z(i),S_x(i)/n_z(i),0)$<br>这就是我们想要的力矩的控制方程，按照此式子迭代可以使得鼓始终保持水平</p>
+<p>$\pmb{M}(i)=diag(-S_y(i)/n_z(i),S_x(i)/n_z(i),0)$<br>这就是我们想要的力矩的控制方程，按照此式子迭代可以使得鼓始终保持水平</p>
 </blockquote>
 <h3 id="Problem-④-amp-⑤"><a href="#Problem-④-amp-⑤" class="headerlink" title="Problem ④&amp;⑤"></a>Problem ④&amp;⑤</h3><p>问题一个个解决，一半多的理论问题已经被搞定了！那么，三维碰撞怎么描绘？如何刻画使球竖直弹回的条件？</p>
-<h4 id="Describe-3D-Collision"><a href="#Describe-3D-Collision" class="headerlink" title="Describe 3D Collision"></a>Describe 3D Collision</h4><p>先解决碰撞的迭代公式<br><img src="https://i.loli.net/2019/10/03/cd1Tux6BAgvISqG.png" alt="collision_analysis.png"><br>上图是碰撞瞬间部分物理量的示意图。我们需要研究N点两个物体的速度。这涉及到了：鼓在N点的线速度(质心速度和转动线速度之和)、鼓的转动角速度、碰撞点的位置、球的质心速度(之前假设不考虑球的自转)。让我们一一列方程！<br>设鼓的厚度为$h$，球的半径为$R$，用单一字母代表原点到该字母表示点的向量，那么有<br>$\pmb{PQ}=h\pmb{n}/2$,$\pmb{N}=\pmb{O}-h\pmb{n}/2$,$\pmb{Q}=\pmb{P}+\pmb{PQ}$<br>我们知道$平面\sigma:n_x(x-x_Q)+n_y(y-y_Q)+n_z(z-z_Q)=0$<br>其中$n_x,n_y,n_z$为鼓面单位法向量的分量<br>那么球到鼓面的距离为$d_{ON}=|n_x(x_O-x_Q)+n_y(y_O-y_Q)+n_z(z_O-z_Q)|$<br>每次迭代判断一次$d_{ON}\le R?$，如果成立则对碰撞进行迭代：<br>设此时鼓的质心速度为$\pmb{v_d}$，鼓的角速度为$\pmb{\omega}$，$N$点处鼓的旋转线速度为$\pmb{v_{\tau}}$，N点鼓的质点速度为$\pmb{v_{N}}$，球的质心速度为$\pmb{v_d}$，那么我们有：<br>$\pmb{v_{\tau}}=\pmb{\omega}\times\pmb{PN}$<br>$\pmb{v_{N}}=\pmb{v_d}+\pmb{v_{\tau}}$<br>下面，列写动力学方程更新下一时刻鼓和球的运动参量：<br>对物体列冲量定理和碰撞系数定义式<br><img src="https://i.loli.net/2019/10/03/yU9PwAunKDNcYXf.png" alt="formula-collision-3D-source.png"><br>上面$\pmb{\sum F}$为队员拉力的合力。<br>可以求得下一时刻二者的质心速度</p>
+<h4 id="Describe-3D-Collision"><a href="#Describe-3D-Collision" class="headerlink" title="Describe 3D Collision"></a>Describe 3D Collision</h4><p>先解决碰撞的迭代公式<br><img src="https://i.loli.net/2019/10/03/cd1Tux6BAgvISqG.png" alt="collision_analysis.png"><br>上图是碰撞瞬间部分物理量的示意图。我们需要研究N点两个物体的速度。这涉及到了：鼓在N点的线速度(质心速度和转动线速度之和)、鼓的转动角速度、碰撞点的位置、球的质心速度(之前假设不考虑球的自转)。让我们一一列方程！<br>设鼓的厚度为$h$，球的半径为$R$，用单一字母代表原点到该字母表示点的向量，那么有<br>$\pmb{PQ}=h\pmb{n}/2$,$\pmb{N}=\pmb{O}-h\pmb{n}/2$,$\pmb{Q}=\pmb{P}+\pmb{PQ}$<br>我们知道$平面\sigma:n_x(x-x_Q)+n_y(y-y_Q)+n_z(z-z_Q)=0$<br>其中$n_x,n_y,n_z$为鼓面单位法向量的分量<br>那么球到鼓面的距离为$d_{ON}=|n_x(x_O-x_Q)+n_y(y_O-y_Q)+n_z(z_O-z_Q)|$<br>每次迭代判断一次$d_{ON}\le R?$，如果成立则对碰撞进行迭代：<br>设此时鼓的质心速度为$\pmb{v_d}$，鼓的角速度为$\pmb{\omega}$，$N$点处鼓的旋转线速度为$\pmb{v_{\tau}}$，N点鼓的质点速度为$\pmb{v_{N}}$，球的质心速度为$\pmb{v_d}$，那么我们有：<br>$\pmb{v_{\tau}}=\pmb{\omega}\times\pmb{PN}$<br>$\pmb{v_{N}}=\pmb{v_d}+\pmb{v_{\tau}}$<br>下面，列写动力学方程更新下一时刻鼓和球的运动参量：<br>对物体列冲量定理和碰撞系数定义式<br>$\pmb{P}(i)=m_{b} \pmb{v_b}(i)+m_{d} \pmb{v_d}(i) $（前一时刻动量）<br>$\pmb{P}(i+1)=m_{b} \pmb{v_b}(i+1)+m_{d} \pmb{v_d}(i+1) $（后一时刻动量）<br>$I(i)=\sum \pmb{F}(i) \Delta t-\left(m_{b}+m_{d}\right) g \Delta t \pmb{e_z} $（外力冲量）<br>$\pmb{P}(i)+\pmb{I}(i)=\pmb{P}(i+1) $（冲量定理）<br>$e\left[\pmb{v_b}(i+1)-\pmb{v_d}(i+1)\right]=\pmb{v_d}(i)-\pmb{v_b}(i) $（碰撞系数定义）</p>
+<!--
+![formula-collision-3D-source.png](https://i.loli.net/2019/10/03/yU9PwAunKDNcYXf.png)
+-->
+<p>上面$\pmb{\sum F}$为队员拉力的合力。<br>可以求得下一时刻二者的质心速度</p>
 <blockquote>
 <p><img src="https://i.loli.net/2019/10/03/qQ1dcMPTu6bwEUt.png" alt="formula-collision-3D.png"></p>
 </blockquote>
@@ -241,11 +247,43 @@
 <blockquote>
 <p>$\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{PO}\times m_b(\pmb{v_b}(i)-\pmb{v_b}(i+1))$</p>
 </blockquote>
-<h4 id="Describe-the-Condition-in-⑤"><a href="#Describe-the-Condition-in-⑤" class="headerlink" title="Describe the Condition in ⑤"></a>Describe the Condition in ⑤</h4><p>下面，我们需要探究碰撞瞬间满足什么条件，就可以将球竖直弹回。<br>如果下一时刻球竖直弹回，那么一定有：<br>$\pmb{v_b}(i+1)\times\pmb{e_z}=0$<br>根据上一部分推出的鼓质心速度$\pmb{v_d}(i+1)$的计算公式，忽略重力影响，得到<br><img src="https://i.loli.net/2019/10/03/FO4jHdkUBqPf3Vl.png" alt="formula-collision-3D-part.png"><br>式子两边同时叉乘$\pmb{e_z}$并移项化简，得到：<br><img src="https://i.loli.net/2019/10/03/8aeiAUXDIf4Lb9x.png" alt="formula-collision-3D-part2.png"><br>写成分量形式，得到：</p>
+<h4 id="Describe-the-Condition-in-⑤"><a href="#Describe-the-Condition-in-⑤" class="headerlink" title="Describe the Condition in ⑤"></a>Describe the Condition in ⑤</h4><p>下面，我们需要探究碰撞瞬间满足什么条件，就可以将球竖直弹回。<br>如果下一时刻球竖直弹回，那么一定有：<br>$\pmb{v_b}(i+1)\times\pmb{e_z}=0$<br>根据上一部分推出的鼓质心速度$\pmb{v_d}(i+1)$的计算公式，忽略重力影响，得到<br><img src="https://i.loli.net/2019/10/03/FO4jHdkUBqPf3Vl.png" alt="formula-collision-3D-part.png"><br>式子两边同时叉乘$\pmb{e_z}$并移项化简，得到：<br><img src="https://i.loli.net/2019/10/03/8aeiAUXDIf4Lb9x.png" alt="formula-collision-3D-part2.png"><br>写成分量形式并运算向量积，得到：</p>
 <blockquote>
-<p><img src="https://i.loli.net/2019/10/03/gFZpkHW5nCusXoT.png" alt="formula-collision-3D-part3.png"><br>这就是让球竖直弹回应该满足的条件。</p>
+<p><img src="https://i.loli.net/2019/10/03/gFZpkHW5nCusXoT.png" alt="formula-collision-3D-part3.png"><br>这就是让球竖直弹回应该满足的条件。可以发现，如果不考虑碰撞过程中摩擦等情况，仅调用碰撞系数，球在下一时刻的弹回方向仅由鼓和球的水平质心速度决定，而且二者速度反向共线。</p>
 </blockquote>
-<h3 id="Problem-⑥"><a href="#Problem-⑥" class="headerlink" title="Problem ⑥"></a>Problem ⑥</h3><h1 id="2019数学建模系列传送门"><a href="#2019数学建模系列传送门" class="headerlink" title="2019数学建模系列传送门"></a>2019数学建模系列传送门</h1><ul>
+<h3 id="Problem-⑥"><a href="#Problem-⑥" class="headerlink" title="Problem ⑥"></a>Problem ⑥</h3><p>将上一部分推导的条件写成二维向量的向量表达式：<br><img src="https://i.loli.net/2019/10/04/WuKfHAkLJdUxrZY.png" alt="formula-collision-3D-part4.png"><br>下面推导省去脚标$xy$，向量都是二维向量，$水平合力\pmb{F_{xy}}=\pmb{\sum T}$。<br>将此式子中的$ \pmb{v_d}(i)$作为下一时刻鼓速度$\pmb{v_d}(i+1)$的参考值。移项，可以获得：<br>$E[\pmb{v_d}(i+1)]=-(\frac{\pmb{\sum T(i)}-(m_b+m_d)g\pmb{e_z}}{(1+e)m_d}\Delta t + \frac{m_b-em_d}{(1+e)m_d}\pmb{v_b}(i))$<br>仅采用比例控制PID，则可以拆掉期望运算：<br>$\pmb{v_d}(i+1)=-\pmb{K_{pf}}(\frac{\pmb{\sum T(i)}-(m_b+m_d)g\pmb{e_z}}{(1+e)m_d}\Delta t + \frac{m_b-em_d}{(1+e)m_d}\pmb{v_b}(i))$<br>其中$\pmb{K_{pf}}=diag(k_{fx},k_{fy})$<br>结合冲量定理：$m_d\pmb{v_d}(i+1)-m_d\pmb{v_d}(i)=\pmb{\sum T(i)}\Delta t$<br>令$\lambda=(em_d-m_b)/\Delta t$，再参考连续性并化简上式可以得到：</p>
+<blockquote>
+<p>$\pmb{F_{xy}}(i)=\pmb{\sum T(i)}=diag(\frac{\lambda k_{fx}-1}{1+k_{fx}},\frac{\lambda k_{fy}-1}{1+k_{fy}})\pmb{v_b}(i)$<br>这就是迎接球使其竖直弹回需要设定的下一时刻水平合力迭代公式<br>细心的小伙伴会发现：这个式子和之前问题②的迭代式子打架了，不过没关系，我们使用分段PID，在判断球快要碰撞时才采用此表达式。</p>
+</blockquote>
+<h2 id="Results-3D-movement"><a href="#Results-3D-movement" class="headerlink" title="Results: 3D movement"></a>Results: 3D movement</h2><p>先上效果图：<img src="https://i.loli.net/2019/10/04/2lUHrf6sEc4qu17.gif" alt="3D_system_demonstrate_Compress.gif"><br>如何实现的？之前我们的准备工作已经十分充足了！话不多说，现在只需要把迭代公式列一遍：</p>
+<blockquote>
+<hr>
+<ul>
+<li>Section 0: get several values<br>$d_{ON}=|n_x(x_O-x_Q)+n_y(y_O-y_Q)+n_z(z_O-z_Q)|$ (球到鼓面的距离)<br>set $\pmb{K_{pv}},\pmb{K_{pr}},\pmb{K_{pf}},\epsilon_d,\epsilon_v,\epsilon_{collide}$</li>
+</ul>
+<hr>
+<ul>
+<li>Section 1: set $\pmb{M}(i),\pmb{F}(i), status \quad X$<ul>
+<li>角动量设置<br>$\pmb{S}(i)=J[\pmb{K_{pr}}(\pmb{e_z}-\pmb{n}(i))/\Delta t-\pmb{\omega}(i)\times\pmb{n}(i)]/\Delta t$<br>$\pmb{M}(i)=diag(-S_y(i)/n_z(i),S_x(i)/n_z(i),0)$</li>
+<li>水平合力设置<br>$if \quad d_{ON}&gt;\epsilon_d$ ……(距离较远，鼓追球)<br>$\quad\pmb{F_{xy}}(i)=\pmb{K_{pv}}\pmb{r_{db}}(i)m_d/(\Delta t)^2-\pmb{v_d}(i)m_d/\Delta t $ ……(二维向量)<br>$else$ ……(距离较近，鼓迎球)<br>$\quad\lambda=(em_d-m_b)/\Delta t$<br>$\quad\pmb{F_{xy}}(i)=diag(\frac{\lambda k_{fx}-1}{1+k_{fx}},\frac{\lambda k_{fy}-1}{1+k_{fy}})\pmb{v_b}(i)$…… (二维向量)</li>
+<li>竖直合力设置<br>$F_z(i)=min(F_X(i),T_{lim}(z_d(i)))$,$F_X(i)\in \lbrace F_I,F_{II},F_{III},F_{IV} \rbrace$</li>
+<li>根据第一问的状态机更新状态X(此处略去)</li>
+</ul>
+<hr>
+</li>
+<li>Section 2: physics system<ul>
+<li>rotation<br>$\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{M}(i)\Delta t/J$……(转动定理)<br>$\pmb{\Delta n}(i)=\pmb{n(i)}\times\pmb{\omega}(i)\Delta t$……(角速度造成的法向量瞬时变化量)<br>$\pmb{n}(i+1)=\pmb{n}(i)+\pmb{\Delta n}(i)$……(更新法向量)<br>$\pmb{n}(i+1)=\pmb{n}(i+1)/ | \pmb{n}(i+1) |$……(归一化消除长度误差)<br>$\pmb{R_k^o}(i+1)=\pmb{R}(i+1)\pmb{R_k^o}(1)$……(更新鼓的径向,R为旋转矩阵)</li>
+<li>translation<br>drum：<br>$\pmb{f_{d_{air}}}(i) = 0.5 C_d \rho S_d  \pmb{v_d}(i) |\pmb{v_d}(i)|$<br>$m_d \pmb{v_d}(i+1) = (-m_d g\pmb{e_z} + \rho V_d g\pmb{e_z} - \pmb{f_{d_{air}}}(i) + \pmb{F}(i))\Delta t + m_d \pmb{v_d(i)}$<br>$\pmb{r_d}(i+1) = \pmb{r_d}(i) + \pmb{v_d}(i)\Delta t$<br>ball：<br>$\pmb{f_{b_{air}}}(i) = 0.5 C_b \rho S_b  \pmb{v_b}(i) |\pmb{v_b}(i)|$<br>$m_b \pmb{v_b}(i+1) = (-m_b g\pmb{e_z} + \rho V_b g\pmb{e_z} - \pmb{f_{b_{air}}}(i) + m_b \pmb{v_b(i)}$.<br>$\pmb{r_b}(i+1) = \pmb{r_b}(i) + \pmb{v_b}(i)\Delta t$</li>
+<li>collision<br>$if \quad d_{ON}&lt;\epsilon_{collide}$<br>$\quad\pmb{P}(i)=m_{b} \pmb{v_b}(i)+m_{d} \pmb{v_d}(i) $<br>$\quad I(i)=\pmb{F}(i) \Delta t-\left(m_{b}+m_{d}\right) g \Delta t \pmb{e_z} $<br>$\quad$<img src="https://i.loli.net/2019/10/03/qQ1dcMPTu6bwEUt.png" alt="formula-collision-3D.png"><br>$\quad\pmb{\omega}(i+1)=\pmb{\omega}(i)+\pmb{r_{db}}(i)\times m_b(\pmb{v_b}(i)-\pmb{v_b}(i+1))$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Section 3: judge system<br>$if \quad d_{ON}&lt;\epsilon_{collide}$……(接不到球)<br>$\quad if \quad (x_d-x_b)^2+(y_d-y_b)^2&gt;R_d^2$……(简单化处理)<br>$\quad\quad fail=2$<br>$if \quad v_b(i)&lt;\epsilon_{v}$……(球达到最高)<br>$\quad if \quad d_{ON}&lt;0.4$……(球太低的判负)<br>$\quad\quad fail=1$</li>
+</ul>
+</blockquote>
+<h1 id="Complete-the-system-prblem-⑦"><a href="#Complete-the-system-prblem-⑦" class="headerlink" title="Complete the system: prblem ⑦"></a>Complete the system: prblem ⑦</h1><h1 id="2019数学建模系列传送门"><a href="#2019数学建模系列传送门" class="headerlink" title="2019数学建模系列传送门"></a>2019数学建模系列传送门</h1><ul>
 <li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</a></li>
 <li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-2/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a></li>
 <li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-3/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</a></li>
@@ -432,7 +470,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Restart-Move-into-3D-World"><span class="toc-number">1.</span> <span class="toc-text">Restart: Move into 3D World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-Get-Feedback-and-Adjust"><span class="toc-number">1.1.</span> <span class="toc-text">Solution: Get Feedback and Adjust</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PID-in-problem-①-amp-②"><span class="toc-number">1.1.1.</span> <span class="toc-text">PID in problem ①&amp;②</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PID-in-problem-③"><span class="toc-number">1.1.2.</span> <span class="toc-text">PID in problem ③</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-④-amp-⑤"><span class="toc-number">1.1.3.</span> <span class="toc-text">Problem ④&amp;⑤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Describe-3D-Collision"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Describe 3D Collision</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Describe-the-Condition-in-⑤"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Describe the Condition in ⑤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-⑥"><span class="toc-number">1.1.4.</span> <span class="toc-text">Problem ⑥</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019数学建模系列传送门"><span class="toc-number">2.</span> <span class="toc-text">2019数学建模系列传送门</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Restart-Move-into-3D-World"><span class="toc-number">1.</span> <span class="toc-text">Restart: Move into 3D World</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-Get-Feedback-and-Adjust"><span class="toc-number">1.1.</span> <span class="toc-text">Solution: Get Feedback and Adjust</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PID-in-problem-①-amp-②"><span class="toc-number">1.1.1.</span> <span class="toc-text">PID in problem ①&amp;②</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PID-in-problem-③"><span class="toc-number">1.1.2.</span> <span class="toc-text">PID in problem ③</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-④-amp-⑤"><span class="toc-number">1.1.3.</span> <span class="toc-text">Problem ④&amp;⑤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Describe-3D-Collision"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">Describe 3D Collision</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Describe-the-Condition-in-⑤"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Describe the Condition in ⑤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-⑥"><span class="toc-number">1.1.4.</span> <span class="toc-text">Problem ⑥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results-3D-movement"><span class="toc-number">1.2.</span> <span class="toc-text">Results: 3D movement</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Complete-the-system-prblem-⑦"><span class="toc-number">2.</span> <span class="toc-text">Complete the system: prblem ⑦</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019数学建模系列传送门"><span class="toc-number">3.</span> <span class="toc-text">2019数学建模系列传送门</span></a></li></ol>
                     </div>
                 </span>
             </div>
