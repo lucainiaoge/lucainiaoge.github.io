@@ -160,7 +160,7 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-communication_theory-understanding_of_channel_capacity-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-course_note1-propositional_logic-BN_and_inference_UCLA_Adnan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -169,8 +169,8 @@
 	  
         
         
-        <a href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/" class="archive-article-date">
-  	<time datetime="2019-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+        <a href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/" class="archive-article-date">
+  	<time datetime="2020-03-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
 </a>
         
       </header>
@@ -181,18 +181,16 @@
 		<center><p>
   
     <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/">信道容量的初步理解2 (My Rudimentary Understanding of Channel Capacity - 2)</a>
+      <a class="article-title_lucainiaoge" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/">Course Note1 - Propositional Logic - BN and inference UCLA Adnan Darwiche</a>
     </h1>
   
 </p></center>
       
         <p><strong>by lucainiaoge</strong></p>
 <hr>
-<p>这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。</p>
-<ul>
-<li>基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:</p>
         
-          <a class="article-more-a" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/#more">more >></a>
+          <a class="article-more-a" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/#more">more >></a>
         
       
 	  
@@ -212,11 +210,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">information_theory</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">communication</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">logic</a>
         		</li>
       		
 		</ul>
@@ -226,7 +228,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/">show full article >></a>
+          <a class="article-more-a" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/">show full article >></a>
         </p>
       
 
@@ -323,6 +325,102 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-2/">show full article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-communication_theory-understanding_of_channel_capacity-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/" class="archive-article-date">
+  	<time datetime="2019-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_lucainiaoge" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/">信道容量的初步理解2 (My Rudimentary Understanding of Channel Capacity - 2)</a>
+    </h1>
+  
+</p></center>
+      
+        <p><strong>by lucainiaoge</strong></p>
+<hr>
+<p>这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。</p>
+<ul>
+<li>基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。
+        
+          <a class="article-more-a" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/#more">more >></a>
+        
+      
+	  
+	  
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">information_theory</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">communication</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/28/communication_theory-understanding_of_channel_capacity-1/">show full article >></a>
         </p>
       
 
@@ -1235,101 +1333,10 @@
 
 
   
-    <article id="post-math-modling-2019CUMCM-summary-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/09/15/math-modling-2019CUMCM-summary-4/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
   
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/09/15/math-modling-2019CUMCM-summary-4/">2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Final-battle-2019-9-15"><a href="#Final-battle-2019-9-15" class="headerlink" title="Final battle - 2019.9.15"></a>Final battle - 2019.9.15</h1><p>9.15，今天，</p>
-<p>我要完成最后一关，</p>
-        
-          <a class="article-more-a" href="/2019/09/15/math-modling-2019CUMCM-summary-4/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/math-modling-2019CUMCM-summary-4/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1444,14 +1451,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">information_theory</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">communication</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pattarn_recognization</a>
               </li>
              
@@ -1461,6 +1460,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">information_theory</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">communication</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">logic</a>
               </li>
              
               <li class="article-tag-list-item">

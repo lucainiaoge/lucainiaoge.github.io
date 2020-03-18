@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucainiaoge.github.io.git/"/>
-  <updated>2019-10-28T08:14:38.620Z</updated>
+  <updated>2020-03-18T12:34:19.802Z</updated>
   <id>https://lucainiaoge.github.io.git/</id>
   
   <author>
@@ -17,29 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>信道容量的初步理解2 (My Rudimentary Understanding of Channel Capacity - 2)</title>
-    <link href="https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity-1/"/>
-    <id>https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity-1/</id>
-    <published>2019-10-27T16:00:00.000Z</published>
-    <updated>2019-10-28T08:14:38.620Z</updated>
+    <title>Course Note1 - Propositional Logic - BN and inference UCLA Adnan Darwiche</title>
+    <link href="https://lucainiaoge.github.io.git/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/"/>
+    <id>https://lucainiaoge.github.io.git/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/</id>
+    <published>2020-03-17T16:00:00.000Z</published>
+    <updated>2020-03-18T12:34:19.802Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><p>这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。</p><ul><li>基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。<a id="more"></a></li><li>本文log默认表示以2位底</li><li>若无法显示公式，或者出现[Math Processing Error]，请尝试shift+F5或者ctrl+shift+F5刷新页面<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:</p><a id="more"></a><blockquote><ul><li><a href="https://www.bilibili.com/video/av44032749" target="_blank" rel="noopener">bilibili course link: UCLA Bayesian Networks and Inference - Adnan Darwiche</a></li><li><a href="https://www.youtube.com/watch?v=-6A6b_Z4bIg&list=PLlDG_zCuBub6ywAIrM1DfJp8xaeVjyvwx" target="_blank" rel="noopener">youtube course link: UCLA Bayesian Networks and Inference - Adnan Darwiche</a></li></ul></blockquote><p>When studying the course, I was somehow confused partly because the lecture goes too fast. I have to frequently halt and apprehend the slides. Luckily, the slides are very well-arranged.<br>Through the first several courses, we are lead to discover the mathematical essence of Baysian Networks (BN).</p><h2 id="Prerequisites-for-this-note"><a href="#Prerequisites-for-this-note" class="headerlink" title="Prerequisites for this note"></a>Prerequisites for this note</h2><p>Knowing what sets are, knowing basic boolean logic, a mathematical mind</p><h2 id="Purpose-of-this-note"><a href="#Purpose-of-this-note" class="headerlink" title="Purpose of this note"></a>Purpose of this note</h2><p>Set up the foundation of probability calculus.</p><p>Link logical calculation with set calculation.</p><h1 id="Constructing-Propositional-Logic"><a href="#Constructing-Propositional-Logic" class="headerlink" title="Constructing Propositional Logic"></a>Constructing Propositional Logic</h1><p><strong>Motivation:</strong> There will be a great deal of definitions. My understanding is that they are like fundations of the magnificent building of probibilistic inference for what we interpret as “events” are explained with the Propositional Logic.</p><p><font color="Crimson" size="4"><strong>Definition (propositional variable and sentence/event):</strong></font><font color="DarkRed" size="3"> a propositional variable $p$ is defined on a discrete set P;a sentence or an event $\alpha$ is an assignment of propositional variables. $\alpha$ can hold <strong>true</strong> or <strong>false</strong></font></p><p>In other words,$(p=p_0)=\alpha \in \lbrace \pmb{true},\pmb{false} \rbrace$<br>In the following discussions, we take <strong>True</strong> as T and <strong>False</strong> as F.</p><blockquote><p>e.g. propositional variable: B=”Burglery”, E=”Earthquake”, A=”Alarm”; a sentence: $\alpha$=(B=T,A=F)</p></blockquote><p>When we have a lot of propositional variables, the combinitions of <strong>possible circumstances</strong> are exploding exponentially. To efficiently deal with that is one of our tasks.<br>First we have to define such <strong>possible circumstances</strong> with term “world”:</p><p><font color="Crimson" size="4"><strong>Definition (world):</strong></font><font color="DarkRed" size="3"> a world $w$ is an assignment for <strong>all</strong> propositional variables $p_i$.</font></p><p>We can treat worlds as smallest elements of the whole set $\Omega$.</p><blockquote><p>e.g. $p_B$=”Burglery”, $p_E$=”Earthquake”, $p_A$=”Alarm”<br>$w_1=[(p_B,p_E,p_A)=(T,T,T)]$<br>$w_2=[(p_B,p_E,p_A)=(T,T,F)]$<br>$w_3=[(p_B,p_E,p_A)=(T,F,T)]$<br>$w_4=[(p_B,p_E,p_A)=(T,F,F)]$<br>$w_5=[(p_B,p_E,p_A)=(F,T,T)]$<br>$w_6=[(p_B,p_E,p_A)=(F,T,F)]$<br>$w_7=[(p_B,p_E,p_A)=(F,F,T)]$<br>$w_8=[(p_B,p_E,p_A)=(F,F,F)]$<br>$\Omega=\lbrace w_1,w_2,…,w_8 \rbrace$</p></blockquote><p><font color="Crimson" size="4"><strong>Definition ($w \models \alpha$):</strong></font><font color="DarkRed" size="3"> a world $w$ holds true if a sentence $\alpha$ is true.</font></p><blockquote><p>e.g. given sentences: $B=[p_B=T]$(means Burglery happens), $E=[p_E=T]$, $A=[p_A=T]$, $\neg B=[p_B=F]$ and so forth<br>Then, $w_1 \models B$, $w_5 \models \neg B$</p></blockquote><p><font color="Crimson" size="4"><strong>Definition (model of sentence $\alpha$):</strong></font><font color="DarkRed" size="3"> $Mods(\alpha)=\lbrace w:w \models \alpha ,w\in \Omega \rbrace$</font><br>Model of a sentence is a set. It’s obvious that model of a sentence is unique and given a set of worlds there is a unique sentence whose model is the set.</p><blockquote><p>e.g. $Mods(B)=\lbrace w_1,w_2,w_3,w_4 \rbrace$</p></blockquote><p>Until now, we know that:</p><ol><li>We are studying <strong>Propasitional Variables</strong> which are discrete</li><li>A <strong>sentence/event</strong> is a function for Propasitional Variable vectors (i.e. a value assignment). The function value domain is $\lbrace \pmb{true},\pmb{false} \rbrace$</li><li>A <strong>world</strong> is a sentence considering all Propasitional Variables.</li><li><strong>Model of a sentence</strong> is a set whose elements are worlds that hold true when this sentence holds true.</li></ol><p>Hope you are getting excited: we are linking the logic world of Ture or False with the world of sets. We can really define logical calculations.</p><h1 id="Propositional-Logic-Calculation"><a href="#Propositional-Logic-Calculation" class="headerlink" title="Propositional Logic Calculation"></a>Propositional Logic Calculation</h1><p><font color="Crimson" size="4"><strong>Definition (Basic Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \wedge \beta $ is such a sentence that $Mod(\alpha \wedge \beta)=Mod(\alpha)\cap Mod(\beta)$<br>$\alpha \vee \beta $ is such a sentence that $Mod(\alpha \wedge \beta)=Mod(\alpha)\cup Mod(\beta)$<br>$\neg \alpha $ is such a sentence that $Mod(\neg \alpha)=\Omega \setminus Mod(\alpha)$<br></font><br>You see? Your familiar logical calculation “and”,”or” and “not” is actually set calculation “intersection”,”union” and “complement”.</p><p><font color="Crimson" size="4"><strong>Definition (relationships of sentences):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha$ is <strong>consistent or satisfiable</strong> $\Leftrightarrow$ $Mods(\alpha)\neq \emptyset$<br>$\alpha$ is <strong>valid</strong> $\Leftrightarrow$ $Mods(\alpha)= \Omega$ $\Leftrightarrow$ $\models \alpha$ $\Leftrightarrow$ $\alpha = True$<br>$\alpha$ and $\beta$ are <strong>equivalent</strong> $\Leftrightarrow$ $Mod(\alpha)=Mod(\beta)$<br>$\alpha$ and $\beta$ are <strong>mutually exclusive</strong> $\Leftrightarrow$ $Mod(\alpha)\cap Mod(\beta)=\emptyset$<br>$\alpha$ and $\beta$ are <strong>exhaustive</strong> $\Leftrightarrow$ $Mod(\alpha)\cup Mod(\beta)=\Omega$<br>$\alpha$ <strong>implies</strong> $\beta$ $\Leftrightarrow$ $Mod(\alpha)\subset Mod(\beta)$ $\Leftrightarrow$ $\alpha \models \beta$<br></font><br>I think those definitions are to remind people the importance of such relationships. Also helping people to communicate in a more logical manner…</p><p>A few more definitions of Propositional Logic calculation:<br><font color="Crimson" size="4"><strong>Definition (More Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \rightarrow \beta $ $\Leftrightarrow$ $\neg \alpha \vee \beta$<br>$\alpha \leftrightarrow \beta $ $\Leftrightarrow$ $(\alpha \rightarrow \beta)\wedge (\beta \rightarrow \alpha)$<br></font><br>Worth noticing those definitions.<br>$\alpha \rightarrow \beta $ is in fact telling you that $\alpha$ implies $\beta$, or <strong>contraposition</strong>. $\alpha \rightarrow \beta = True$ means: whenever $\alpha$ is true, $\beta$ is true. So $Mod(\alpha)\subset Mod(\beta)$. (Think the worlds!)<br>$\alpha \leftrightarrow \beta $ is actually <strong>XNOR</strong>. $\alpha \leftrightarrow \beta = True$ means that $\alpha$ and $\beta$ are equivalent.</p><p>Several examples:</p><blockquote><p>given sentences: $B=[p_B=T]$, $E=[p_E=T]$, $A=[p_A=T]$, $\neg B=[p_B=F]$ and so forth<br>$\alpha=(E \vee B)\rightarrow A$<br>$Mod(\alpha)=\lbrace w_1,w_3,w_5,w_7,w_8 \rbrace$<br>$\beta=(E \rightarrow B)$<br>$Mod(\beta)=\lbrace w_1,w_2,w_5,w_6,w_7,w_8 \rbrace$<br>then, $Mod(\alpha \wedge \beta)=\lbrace w_1,w_5,w_7,w_8 \rbrace$</p></blockquote><p>Calculating intersection is in fact adding information, and we throw away world elements by doing this. This is compactible with information theory!</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。
+&lt;h1 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h1&gt;&lt;p&gt;This is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:&lt;/p&gt;
     
     </summary>
     
     
     
-      <category term="information_theory" scheme="https://lucainiaoge.github.io.git/tags/information-theory/"/>
+      <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
     
-      <category term="communication" scheme="https://lucainiaoge.github.io.git/tags/communication/"/>
+      <category term="BN" scheme="https://lucainiaoge.github.io.git/tags/BN/"/>
+    
+      <category term="logic" scheme="https://lucainiaoge.github.io.git/tags/logic/"/>
     
   </entry>
   
@@ -59,6 +59,33 @@
 &lt;p&gt;这篇文章总结一下我对信道容量的理解，其中包括什么是香农的信息观、什么是信息传输、什么是离散信源和离散信道容量。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;基础知识required：这篇文章需要的背景知识不多，会高中数学、知道什么是离散分布、知道什么是矩阵就够了。适合正在学习通信理论的伙伴们阅读。
+    
+    </summary>
+    
+    
+    
+      <category term="information_theory" scheme="https://lucainiaoge.github.io.git/tags/information-theory/"/>
+    
+      <category term="communication" scheme="https://lucainiaoge.github.io.git/tags/communication/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信道容量的初步理解2 (My Rudimentary Understanding of Channel Capacity - 2)</title>
+    <link href="https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity-1/"/>
+    <id>https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity-1/</id>
+    <published>2019-10-27T16:00:00.000Z</published>
+    <updated>2019-10-28T08:14:38.620Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><p>这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。</p><ul><li>基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。<a id="more"></a></li><li>本文log默认表示以2位底</li><li>若无法显示公式，或者出现[Math Processing Error]，请尝试shift+F5或者ctrl+shift+F5刷新页面<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这篇文章总结一下我对信道容量的理解，其中包括什么是连续信道容量、香农公式的说明和简要推导。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基础知识required：通信的基本常识-傅里叶分析的使用、香农的信息观点，随机过程的常识（独立性、均值方差等的定义）。适合正在学习通信理论的伙伴们阅读。
     
     </summary>
     
