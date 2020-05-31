@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Rhythm Word Embedding Research Proposal]]></title>
+    <url>%2F2020%2F05%2F31%2Frhythm%20pattern%20as%20word%20embedding%20research%20proposal%2F</url>
+    <content type="text"><![CDATA[by lucainiaoge IntroThis is a link of google drive and github of my research proposal on May 31, 2020 Google Colab link: Research Proposal on Rhythm Pattern as Word Embedding v2.pdfGithub link: https://github.com/lucainiaoge/rhythm-word-embedding/ No more…]]></content>
+      <tags>
+        <tag>machine_learning</tag>
+        <tag>neural_network</tag>
+        <tag>algorithm_composing</tag>
+        <tag>MIR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CNN Note2 - Back Propagation Alogorithm]]></title>
     <url>%2F2020%2F04%2F03%2FCNNnote2-BP_algorithm%2F</url>
     <content type="text"><![CDATA[by lucainiaoge IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN: References and helpful links Reference 1: CNN tutorial note of Jake Bouvrie Reference 2: A helpful CSDN blog in Chinese, author - xqp_dream Prerequisites for this noteneural network concepts, CNN concepts, vector calculus First Part: Review – BP (back propagation) in fully connected layersReview of Feedforward and BP formulaJust a review, not a tutorial! How to derive the formula? Please go to learn neural network basics.Give a link of tutorial from Andrew Ng Detailed derivation of BP formula Second Part: math in CNN – representation and BPMath formalization of CNN feeding forward BP for convolutional layers The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer) Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer) BP for CNN – a summarization]]></content>
       <tags>
         <tag>machine_learning</tag>
+        <tag>math</tag>
         <tag>CNN</tag>
         <tag>neural_network</tag>
       </tags>

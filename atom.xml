@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucainiaoge.github.io.git/"/>
-  <updated>2020-04-03T13:25:21.004Z</updated>
+  <updated>2020-05-31T09:57:46.467Z</updated>
   <id>https://lucainiaoge.github.io.git/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Rhythm Word Embedding Research Proposal</title>
+    <link href="https://lucainiaoge.github.io.git/2020/05/31/rhythm%20pattern%20as%20word%20embedding%20research%20proposal/"/>
+    <id>https://lucainiaoge.github.io.git/2020/05/31/rhythm pattern as word embedding research proposal/</id>
+    <published>2020-05-30T16:00:00.000Z</published>
+    <updated>2020-05-31T09:57:46.467Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a link of google drive and github of my research proposal on May 31, 2020</p><p>Google Colab link: <a href="https://drive.google.com/file/d/1PVrc_6QE-XM7rIpDUvYwPoOOAYVkOvtW/view?usp=sharing" title="Research Proposal on Rhythm Pattern as Word Embedding v2.pdf" target="_blank" rel="noopener">Research Proposal on Rhythm Pattern as Word Embedding v2.pdf</a><br>Github link: <a href="https://github.com/lucainiaoge/rhythm-word-embedding/" target="_blank" rel="noopener">https://github.com/lucainiaoge/rhythm-word-embedding/</a></p><a id="more"></a><p>No more…</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h1&gt;&lt;p&gt;This is a link of google drive and github of my research proposal on May 31, 2020&lt;/p&gt;
+&lt;p&gt;Google Colab link: &lt;a href=&quot;https://drive.google.com/file/d/1PVrc_6QE-XM7rIpDUvYwPoOOAYVkOvtW/view?usp=sharing&quot; title=&quot;Research Proposal on Rhythm Pattern as Word Embedding v2.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Research Proposal on Rhythm Pattern as Word Embedding v2.pdf&lt;/a&gt;&lt;br&gt;Github link: &lt;a href=&quot;https://github.com/lucainiaoge/rhythm-word-embedding/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/lucainiaoge/rhythm-word-embedding/&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
+    
+      <category term="neural_network" scheme="https://lucainiaoge.github.io.git/tags/neural-network/"/>
+    
+      <category term="algorithm_composing" scheme="https://lucainiaoge.github.io.git/tags/algorithm-composing/"/>
+    
+      <category term="MIR" scheme="https://lucainiaoge.github.io.git/tags/MIR/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CNN Note2 - Back Propagation Alogorithm</title>
     <link href="https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/"/>
     <id>https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/</id>
     <published>2020-04-02T16:00:00.000Z</published>
-    <updated>2020-04-03T13:25:21.004Z</updated>
+    <updated>2020-04-03T13:41:33.364Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:</p><a id="more"></a><h2 id="References-and-helpful-links"><a href="#References-and-helpful-links" class="headerlink" title="References and helpful links"></a>References and helpful links</h2><blockquote><ul><li><a href="http://cogprints.org/5869/1/cnn_tutorial.pdf" target="_blank" rel="noopener">Reference 1: CNN tutorial note of Jake Bouvrie</a></li><li><a href="https://blog.csdn.net/ck1798333105/article/details/52369122" target="_blank" rel="noopener">Reference 2: A helpful CSDN blog in Chinese, author - xqp_dream</a></li></ul></blockquote><h2 id="Prerequisites-for-this-note"><a href="#Prerequisites-for-this-note" class="headerlink" title="Prerequisites for this note"></a>Prerequisites for this note</h2><p>neural network concepts, CNN concepts, vector calculus</p><h1 id="First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><a href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers" class="headerlink" title="First Part: Review – BP (back propagation) in fully connected layers"></a>First Part: Review – BP (back propagation) in fully connected layers</h1><h2 id="Review-of-Feedforward-and-BP-formula"><a href="#Review-of-Feedforward-and-BP-formula" class="headerlink" title="Review of Feedforward and BP formula"></a>Review of Feedforward and BP formula</h2><p><img src="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg" alt="Part1_1-1_1.jpg"><br>Just a review, not a tutorial! How to derive the formula? Please go to learn neural network basics.<br>Give <a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">a link of tutorial from Andrew Ng</a></p><h2 id="Detailed-derivation-of-BP-formula"><a href="#Detailed-derivation-of-BP-formula" class="headerlink" title="Detailed derivation of BP formula"></a>Detailed derivation of BP formula</h2><p><img src="https://i.loli.net/2020/04/03/O9Kr2CpN7iLTegG.jpg" alt="Part1_1-2_1.jpg"><br><img src="https://i.loli.net/2020/04/03/1gUuzNhxtQnrEdY.jpg" alt="Part1_1-2_2.jpg"><br><img src="https://i.loli.net/2020/04/03/mZOnVXgxsQL4tYf.jpg" alt="Part1_1-2_3.jpg"></p><h1 id="Second-Part-math-in-CNN-–-representation-and-BP"><a href="#Second-Part-math-in-CNN-–-representation-and-BP" class="headerlink" title="Second Part: math in CNN – representation and BP"></a>Second Part: math in CNN – representation and BP</h1><h2 id="Math-formalization-of-CNN-feeding-forward"><a href="#Math-formalization-of-CNN-feeding-forward" class="headerlink" title="Math formalization of CNN feeding forward"></a>Math formalization of CNN feeding forward</h2><p><img src="https://i.loli.net/2020/04/03/miqXKzBD7CE1rL3.jpg" alt="Part2-1_1.jpg"><br><img src="https://i.loli.net/2020/04/03/ECVM5AsbKok2xLY.jpg" alt="Part2-1_2.jpg"></p><h2 id="BP-for-convolutional-layers"><a href="#BP-for-convolutional-layers" class="headerlink" title="BP for convolutional layers"></a>BP for convolutional layers</h2><p><img src="https://i.loli.net/2020/04/03/OspeVKBUJvXqGHD.jpg" alt="Part2-2_0.jpg"></p><h3 id="The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer"><a href="#The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer" class="headerlink" title="The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)"></a>The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)</h3><p><img src="https://i.loli.net/2020/04/03/z3EOHS85xdV4Wai.jpg" alt="Part2-2_1_1.jpg"><br><img src="https://i.loli.net/2020/04/03/5AM3KsWoSx7jvmR.jpg" alt="Part2-2_1_2.jpg"></p><h3 id="Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer"><a href="#Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer" class="headerlink" title="Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)"></a>Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)</h3><p><img src="https://i.loli.net/2020/04/03/9b1aSiH2FrcCzqp.jpg" alt="Part2-2_2_1.jpg"><br><img src="https://i.loli.net/2020/04/03/fQND1v9PutTHmCc.jpg" alt="Part2-2_2_2.jpg"><br><img src="https://i.loli.net/2020/04/03/k5PZdEBDzOVWL1r.jpg" alt="Part2-2_2_3.jpg"><br><img src="https://i.loli.net/2020/04/03/dRnJtA8plyIFMbY.jpg" alt="Part2-2_2_4.jpg"></p><h2 id="BP-for-CNN-–-a-summarization"><a href="#BP-for-CNN-–-a-summarization" class="headerlink" title="BP for CNN – a summarization"></a>BP for CNN – a summarization</h2><p><img src="https://i.loli.net/2020/04/03/5NhKxmcvrGFbWZz.jpg" alt="Part2-2_3.jpg"></p>]]></content>
     
@@ -36,6 +66,8 @@
     
     
       <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
+    
+      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
     
       <category term="CNN" scheme="https://lucainiaoge.github.io.git/tags/CNN/"/>
     
