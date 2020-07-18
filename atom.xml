@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucainiaoge.github.io.git/"/>
-  <updated>2020-05-31T09:57:46.467Z</updated>
+  <updated>2020-07-18T06:35:56.634Z</updated>
   <id>https://lucainiaoge.github.io.git/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>About me</title>
+    <link href="https://lucainiaoge.github.io.git/2020/07/18/about-me/"/>
+    <id>https://lucainiaoge.github.io.git/2020/07/18/about-me/</id>
+    <published>2020-07-17T16:00:00.000Z</published>
+    <updated>2020-07-18T06:35:56.634Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Welcome! I am Tongyu Lu (路通宇)!</strong></p><hr><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><ul><li>Currently studying at Harbin Institute of Technology (Shenzhen) as an undergraduate student in Electronic Information Engineering major.</li><li>I am greatly interested in music technology. Currently I am doing researches on algorithm composing with NLP methods. I am also interested in MIR topics, including automatic transcription and computational musicology. Then, I want to combine those topics together: [my_proposal](## My research proposals)</li><li>I am an amateur composer. My artistic works are introduced  [here](# My Music)</li></ul><p><img src="https://i.loli.net/2020/07/18/Y9hEZvTqo8Fe4bD.jpg" alt="me.jpg"><br><font color="gray"> My photo in LA Universal Studio </font></p><h1 id="My-Music"><a href="#My-Music" class="headerlink" title="My Music"></a>My Music</h1><h2 id="First-trials"><a href="#First-trials" class="headerlink" title="First trials"></a>First trials</h2><ul><li>My aunt taught me piano since I was a little boy!</li><li>In around 2012, I began practicing music myself: transcripting the pieces I like into piano scores and practicing piano skills.</li><li>I composed my first collection of <strong>12 Scottish and Ireish folk song styled pieces</strong> in 2018 and published it here: [Lucainiao’s Musical Adventures in Ireland (路菜鸟梦游爱尔兰)](# <a href="https://music.163.com/#/album?id=75139286" target="_blank" rel="noopener">https://music.163.com/#/album?id=75139286</a>)</li><li>Here are several pieces in this collection:<blockquote><p>Reel In the Summer (夏日的舞会)</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1339507651&auto=0&height=66"></iframe>Wonderland (仙境)<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1339513121&auto=0&height=66"></iframe></blockquote></li></ul><p>## </p><ul><li><h1 id="Researches"><a href="#Researches" class="headerlink" title="Researches"></a>Researches</h1></li></ul><h2 id="My-research-proposals"><a href="#My-research-proposals" class="headerlink" title="My research proposals:"></a>My research proposals:</h2><h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><h2 id="Follow-the-Music-as-language-line"><a href="#Follow-the-Music-as-language-line" class="headerlink" title="Follow the Music-as-language line"></a>Follow the Music-as-language line</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="introduction" scheme="https://lucainiaoge.github.io.git/tags/introduction/"/>
+    
+  </entry>
   
   <entry>
     <title>Rhythm Word Embedding Research Proposal</title>
@@ -99,33 +123,6 @@
       <category term="BN" scheme="https://lucainiaoge.github.io.git/tags/BN/"/>
     
       <category term="logic" scheme="https://lucainiaoge.github.io.git/tags/logic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>信道容量的初步理解 (My Rudimentary Understanding of Channel Capacity)</title>
-    <link href="https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity/"/>
-    <id>https://lucainiaoge.github.io.git/2019/10/28/communication_theory-understanding_of_channel_capacity/</id>
-    <published>2019-10-27T16:00:00.000Z</published>
-    <updated>2020-05-31T09:59:58.349Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><p>这篇文章总结一下我对信道容量的理解，其中包括什么是香农的信息观、什么是信息传输、什么是离散信源和离散信道容量。</p><ul><li>基础知识required：这篇文章需要的背景知识不多，会高中数学、知道什么是离散分布、知道什么是矩阵就够了。适合正在学习通信理论的伙伴们阅读。<a id="more"></a></li><li>本文log默认表示以2位底</li><li>若无法显示公式，或者出现[Math Processing Error]，请尝试shift+F5或者ctrl+shift+F5刷新页面<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></li></ul><h1 id="To-Start-With-pinpoint-my-definition-of-‘channel’"><a href="#To-Start-With-pinpoint-my-definition-of-‘channel’" class="headerlink" title="To Start With : pinpoint my definition of ‘channel’"></a>To Start With : pinpoint my definition of ‘channel’</h1><h2 id="I-have-to-be-a-little-verbose"><a href="#I-have-to-be-a-little-verbose" class="headerlink" title="I have to be a little verbose"></a>I have to be a little verbose</h2><p>我在这里跳过对信源、信道定义的讨论，直接讨论信道容量。不过，后续讨论不需要对通信系统有整体的绝对把握，而重在理解香农信息论的世界观。</p><p>在这里，必须指明对信息的度量标准：不确定性。</p><p>概率论的世界观里，不确定性是事物的本质属性，而“信息是消除不确定性的东西”（这句话不是我说的，是香农说的）。使得不确定性的计算满足数学自洽的性质，香农找到了$I=-logP$的测度加以衡量离散信息，单位为bit。什么是离散信息？还有连续的？我们在后面再讨论。</p><p>好了，相关知识（随机过程基础、信息论世界观的理解）倘若欠缺，建议阅读《通信原理》(国防工业出版社)的前四个章节，里面对这些概念有了初步的讲解。</p><h2 id="channel-to-transmit-elimination-of-uncertainty"><a href="#channel-to-transmit-elimination-of-uncertainty" class="headerlink" title="channel: to transmit elimination of uncertainty"></a>channel: to transmit <strong>elimination of uncertainty</strong></h2><p>现在，我们将眼光放到“信息的传输”这件事情。<br>首先，我们知道信息是消除不确定性的东西，在新源消除了一部分不确定性；比如，发送信息的人知道了你明天通信原理考试的第一道大题是：</p><blockquote><p>有线信道有哪些种？</p></blockquote><p>然后，这个透题小坏蛋要将<strong>这个对不确定性的消除</strong>奔走相告，传递给另一个人。</p><p>对于这段文字的不确定性怎么衡量？这就很困难了，因为人类语言的复杂性使得我们分析变得极其困难。不过，我们给一些假设加以限制，就可以合理地进行后续讨论。我们假设信源的字符服从这个离散分布：<br><img src="https://i.loli.net/2019/10/28/lP6hzkswXOiU3K4.png" alt="distribution1.png"></p><p>那么我们得到的这条消息里，针对这个离散分布所对应的离散信息量为：$I_X=-9log(1/1000)=89.69bit$</p><p>然后，这条信息（对不确定性的消除），经过透题小坏蛋（信道），传给焦急的你，剩下了：</p><blockquote><p>我靠信道有哪些种？</p></blockquote><p>那么你得到的针对这个离散分布所对应的离散信息量就是：$I_Y=-2log(991/1000)-7log(1/1000)=69.79bit$<br>在传输过程中，信道损失的信息量就是：$I_X-I_Y=89.69-69.79=19.90bit$</p><p>可是，我们总不能传完了信息才知道损失了多少吧，那就没有实际意义了。<br>（试想，你不信任那个透题小坏蛋，然后ta跟你讲明天考试题是“请写出这门课老师和助教的姓名”）。<br>那么，我们就得对信道有一个估摸，看看我用各种方式传信息经过信道的损失在接收方最多还能剩多少信息。描述这个<strong>最多还剩多少信息</strong>的一个量就是信道容量。</p><h1 id="Understanding-of-Discrete-Channel"><a href="#Understanding-of-Discrete-Channel" class="headerlink" title="Understanding of Discrete Channel"></a>Understanding of Discrete Channel</h1><p>这一篇文章不奢求讲太多，就讲到我对离散信道的理解为止吧。但是，首先请允许我提出一些自己对于此领域的思考和疑问：</p><h2 id="remaining-discussion-from-last-part"><a href="#remaining-discussion-from-last-part" class="headerlink" title="remaining discussion from last part"></a>remaining discussion from last part</h2><p>上一节的讨论只是直观的理解。要系统地理解，还需要系统的定义。后面，我会尽量以透题小能手的例子解释。</p><p>当然，我这个透题的例子不是很严格。事实上哪有说话只从这个字库里任意组合的啊，至少也应该是按照词组搞吧。</p><p>这就是其他的概率分布了，这样的分布无法用一个表格来表示，而可能是一个网络？这方面，我也没有进行深入探究，也没有发现哪些系统的知识可以学习。大家要给我建议啊啊啊啊！</p><p>不过话说回来，上述我们讨论的信息，都是给定分布之后才可以得到的。既然分布不同，同样的字符传达的信息量不同，那么信息论是否需要建立参考系的概念？世上有没有绝对的信息参考系？</p><p>另外，我得坦白自己还没有完全接受基于不确定性的世界观，还是对决定论抱有一丝的希望，毕竟概率无法反映事物机理，只能反映统计规律。有没有一种不需要引入随机变量即可定义信息的方式？</p><h2 id="Discrete-Information-Entropy"><a href="#Discrete-Information-Entropy" class="headerlink" title="Discrete Information Entropy"></a>Discrete Information Entropy</h2><p>好了，天马行空讨论到此为止，上面这些问题留给一生思考。</p><p>下面简要介绍一下离散信息熵的概念。</p><p>针对之前给出的那个分布，我们能传达的信息非常有限，也就那么几道题。其实，这些字符的任意组合，都能传达不同的信息，比如“有？”“？？”之类的，类似于“AB”“BB”这种。但我们的理解知识特定的，这就是所谓信道编码。语法，就是一种信道编码规则，也就是信息冗余，其实是一种约定好的先验。在这种编码下，相当一部分的字符组合会被视为无效（比如，你收到了“道种有？信信？种道”，你会一脸懵逼）。</p><p>但现在我们不管那些乱七八糟的编解码，也不管解码之后有多少信息。我们只研究：给定字符种类、给定消息长度、不关心先验的条件下，调整字符的分布，一条消息（即字符组合）如何传达最多的信息？</p><p>试想你有一个四进制信源（所谓四进制，其实就是信源每个字符的取值种类是四种），取值集合为X={A,B,C,D}。如果只让你发两个字符，那么你就有16种组合了。那如果让你发N个字符，N特别大，依概率收敛的情形下，你就会收到$P(A)N个A，P(B)N个B，P(C)N个C，P(D)N个D$，总的信息量为$I=-P(A)NlogP(A)-P(B)NlogP(B)-P(C)NlogP(C)-P(D)NlogP(D)$，平均每个字符的信息量就是$\overline{I_{X}}=I/N=-P(A)logP(A)-P(B)logP(B)-P(C)logP(C)-P(D)logP(D)$。</p><p>这就是离散信息熵：$H(X)=E[-logP(X)]$，单位就是bit，$E[·]$为随机变量的数学期望。离散信息熵可以用来衡量信源的不确定性，可以衡量在离散信源$X$的离散分布给定的情况下消息中每个字符所蕴含的信息量。</p><p>可以用优化方法求得：当$X$服从均匀分布时，$H(X)$达到最大值，为$logN$，N为字符种类数，即进制数。</p><p>这一点怎么理解？需要知道的是，接收方对信源的分布已经有了解。字符出现的概率越接近0或1，越接近确定。假如上述4进制中，$P(A)=-e+1/3，P(B)=-e+1/3，P(C)=-e+1/3，P(D)=3e，e略大于0$，那么我们就可以断定接收方几乎永远收不到D，那么不确定性就少了一些，能消除的不确定性也就少了一些。</p><p>但注意：这是一个平均概念。假如我们就接收一个字符，恰巧接收到了概率极小的D，那这个字符带来的信息量还是很大的。这就好比四个人比赛，我们提前知道第四个人胜算不大，最后ta却赢了；当然，还是四个人势均力敌的情况最难猜到谁获胜。</p><p>所以，直观理解不确定性，就是“越不确定越难猜”。</p><h2 id="Discrete-Channel"><a href="#Discrete-Channel" class="headerlink" title="Discrete Channel"></a>Discrete Channel</h2><h2 id="Discrete-Channel-Capacity"><a href="#Discrete-Channel-Capacity" class="headerlink" title="Discrete Channel Capacity"></a>Discrete Channel Capacity</h2><p>在研究信道容量时，我们的信道已经给定了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;这篇文章总结一下我对信道容量的理解，其中包括什么是香农的信息观、什么是信息传输、什么是离散信源和离散信道容量。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基础知识required：这篇文章需要的背景知识不多，会高中数学、知道什么是离散分布、知道什么是矩阵就够了。适合正在学习通信理论的伙伴们阅读。
-    
-    </summary>
-    
-    
-    
-      <category term="information_theory" scheme="https://lucainiaoge.github.io.git/tags/information-theory/"/>
-    
-      <category term="communication" scheme="https://lucainiaoge.github.io.git/tags/communication/"/>
     
   </entry>
   
