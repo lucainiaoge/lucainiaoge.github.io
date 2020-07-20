@@ -197,11 +197,160 @@
 ![me.jpg](https://i.loli.net/2020/07/18/Y9hEZvTqo8Fe4bD.jpg)
 </div>
 
-
-
 <h1 id="My-Music"><a href="#My-Music" class="headerlink" title="My Music"></a>My Music</h1><p><font color="gray"> If my music fails to be played here, it may be because of copyright barriers. You can click the links and listen to them in outside webpages. You can also find my music in my <a href="https://music.163.com/#/artist/album?id=31150711" target="_blank" rel="noopener">Netease Music Personal Page</a></font></p>
-<p>Instead of using DAW, I keep composing music with staff. Although I cannot creat impressing sound effects in this manner, I think it is more important to express the musical information in a higher level. Here is a brief introduction of my explorations and my musical pieces!</p>
-<h2 id="First-explorations"><a href="#First-explorations" class="headerlink" title="First explorations"></a>First explorations</h2><ul>
+<p>Instead of using DAW, I keep composing music with staff. Although I cannot creat impressing sound effects in this manner, I think it is more important to express the musical information in a higher level.</p>
+<p>Here is <a href="https://lucainiaoge.github.io/2020/07/18/my-music-explorations/" target="_blank" rel="noopener"><strong>an introduction</strong></a> of my explorations and my musical pieces!</p>
+<p>A few of my pieces here!</p>
+<blockquote>
+<ul>
+<li><a href="https://music.163.com/#/song?id=1391341109" target="_blank" rel="noopener">Jazz quartet: Rehearsal room for experts (高手的排练室)</a></li>
+</ul>
+<p><a href="https://music.163.com/#/song?id=1412072801" target="_blank" rel="noopener">Jazz piano work: Fantasia for Christmas in C major</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=1&id=84341801&auto=0&height=90"></iframe>
+
+<p><a href="https://music.163.com/#/album?id=89536700" target="_blank" rel="noopener">Jazz piano work: My blind mind</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=1&id=89536700&auto=0&height=90"></iframe>
+
+<ul>
+<li><p><a href="https://music.163.com/#/song?id=1400108823" target="_blank" rel="noopener">Piano work: Etude in c minor - phone ringtone</a></p>
+</li>
+<li><p><a href="https://music.163.com/#/song?id=1407112983" target="_blank" rel="noopener">Duet for violin and piano: Crazy bug</a></p>
+</li>
+<li><p><a href="https://music.163.com/#/song?id=1346054283" target="_blank" rel="noopener">Short orchistral piece: The Walking of Insects (惊蛰)</a></p>
+</li>
+<li><p><a href="https://music.163.com/#/song?id=1356722304" target="_blank" rel="noopener">Short orchistral piece: Spring Birds (春天的鸟)</a></p>
+</li>
+</ul>
+<p><a href="https://music.163.com/#/song?id=1339513121" target="_blank" rel="noopener">Early work: Wonderland (秘境)</a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1339513121&auto=0&height=66"></iframe>
+</blockquote>
+<h1 id="Researches"><a href="#Researches" class="headerlink" title="Researches"></a>Researches</h1><h2 id="My-research-proposals"><a href="#My-research-proposals" class="headerlink" title="My research proposals"></a>My research proposals</h2><h3 id="Topic-1-algorithm-composing-in-a-general-pipeline"><a href="#Topic-1-algorithm-composing-in-a-general-pipeline" class="headerlink" title="Topic 1: algorithm composing in a general pipeline"></a>Topic 1: algorithm composing in a general pipeline</h3><blockquote>
+<p>(In order to make it clear, I wrote a lot about why I choose my pipeline. If you want to skip my motivations, just skip directly to <a href="#ideal_pipeline">My ideal pipeline</a>!)</p>
+</blockquote>
+<p>The ultimate goal of algorithm composing is to create great music which can fool human listeners and bring them a sense of beauty. Easy to see: if we want to achieve this goal, the final output should be <strong>audio</strong>. As a result, a straightforward method can be considered:</p>
+<p><img src="https://i.loli.net/2020/07/18/RXDeViOm7lqWJHY.png" alt="black_box_model.png"><br><font color="gray"> The big black box model </font></p>
+<p>A lot of computational effort should be exerted to achieve this! Even so, this kind of model achieved a lot. Examples are <a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio" target="_blank" rel="noopener">WaveNet(deepmind)</a> and <a href="https://openai.com/blog/jukebox/" target="_blank" rel="noopener">JukeBox(OpenAI)</a>. It seems that all we need to do is to design the big-black-box. With careful designing, it can even achieve conditional generation and style transfer. It can be versatile!</p>
+<p><strong>However, I would not simply surrender to it. Why?</strong></p>
+<ol>
+<li>High computation load! For example, Jukebox has to spend half a day to create a new song.</li>
+<li>Hard to interpret the big-black-box! </li>
+<li>Why did not recordings take the place of musical scores? This is because musical scores provide abstracted information, while recordings provide lower-level information. With scores as condition, it is easier to perform in different styles; but audio-level music cannot achieve this easily.</li>
+</ol>
+<p>Different levels of music representation matter a lot!  <a href="https://www.researchgate.net/publication/243535791_A_Framework_for_the_Evaluation_of_Music_Representation_Systems" target="_blank" rel="noopener">Wiggins et.al</a> said that audio is rich in expressive completeness but poor in structural generality, and symbolic representation is the inverse. James C. Forth also subscribed to this idea in his <a href="https://research.gold.ac.uk/7803/1/COMP_thesis_Forth_2012.pdf" target="_blank" rel="noopener">Ph.D thesis</a>. <em>Conceptual Space</em> was proposed by <a href="https://en.wikipedia.org/wiki/Peter_G%C3%A4rdenfors" target="_blank" rel="noopener">Peter Gärdenfors</a> in his book <a href="https://mitpress.mit.edu/books/conceptual-spaces" target="_blank" rel="noopener">Conceptual Spaces: The Geometry of Thought</a>. Conceptual sapce is between sub-symbolic representation (e.g. audio) and symbolic representation (e.g. chord symbols). Models have to understand musical conceptual sapce in order to do real creative works. We can say that the big-black-box models do explore conceptual space, but they explore them in a hard-to-interpret manner.</p>
+<p>Now, we have to find an intermediate way to relieve this. Then, here comes my proposal!</p>
+<p><span id="ideal_pipeline"> <img src="https://i.loli.net/2020/07/18/5nftd43vgIQuyNF.png" alt="my_ideal_pipeline.png"> </span></p>
+<p><font color="gray"> <strong>My ideal pipeline</strong> of MIR and NLP for algorithm composing </font></p>
+<p>I specified the big-black-model with three stages: audio MIR, symbolic MIR and NLP for algrothm composing. In this framework, MIR topics are combined with algorithm composing. How? Algorithm composing models need <strong>clean structured data</strong>! MIR tasks are in charge of this! This is like word separation tasks in NLP dataset prerprocessing. For MIR, we need to do more because music is special. I will specify its unique sides and compare it with natural language in <a href="#music_as_language">another section</a>.</p>
+<p>Next, clean structured data are represented as musical words (maybe in <a href="#music_as_language">different levels</a>). Generative models in NLP (like transformers, BERT, RNN autoencoder etc.) can be used here. More tasks like style transfer (e.g. changing meter for a piece, generating variations for a motif) can be considered here. In a word, let the machine write the score!</p>
+<p>After creating the score, we have to find a way to <em>‘perform’</em> it. This is somehow like robot reader: feed an article for it and it reads it aloud in a natural manner. Similarly, we have to teach the machine to interpre the scores and <em>‘read’</em> them aloud!</p>
+<p>Each step is a task to do! I will try to solve them one-by-one!</p>
+<h3 id="Topic-2-Follow-the-Music-as-language-line"><a href="#Topic-2-Follow-the-Music-as-language-line" class="headerlink" title=" Topic 2: Follow the Music-as-language line "></a><span id="music_as_language"> Topic 2: Follow the Music-as-language line </span></h3><p>In order to avoid reinventing the wheel, we have to ask ourselves ‘is this the things we already done?’ For MIR and computational creativity, chances are that several topics are already explored by NLP reasearchers. However, we also have to find the uniqueness of music, which is not fully explored.</p>
+<p>Now, we follow the line of compareing music with natural languages.</p>
+<ul>
+<li>Similarity #1: hierarchical structures</li>
+<li>Similarity #2: syntactics</li>
+<li>Difference #1: polyphony</li>
+<li>Difference #2: repetition</li>
+<li>Difference #3: semantics</li>
+</ul>
+<h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
+<p>Following the idea of <em>hierarchical structures</em>, I created a string representation method for rhythm patterns…</p>
+
+      
+	  
+	  
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">introduction</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/18/personal-page/">show full article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-my-music-explorations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2020/07/18/my-music-explorations/" class="archive-article-date">
+  	<time datetime="2020-07-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_lucainiaoge" href="/2020/07/18/my-music-explorations/">My Music Explorations</a>
+    </h1>
+  
+</p></center>
+      
+        <p><strong>Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my explorations on composing!</strong></p>
+<hr>
+<h1 id="My-Music"><a href="#My-Music" class="headerlink" title="My Music"></a>My Music</h1><p><font color="gray"> If my music fails to be played here, it may be because of copyright barriers. You can click the links and listen to them in outside webpages. You can also find my music in my <a href="https://music.163.com/#/artist/album?id=31150711" target="_blank" rel="noopener">Netease Music Personal Page</a></font></p>
+<p>Instead of using DAW, I keep composing music with staff. Although I cannot creat impressing sound effects in this manner, I think it is more important to express the musical information in a higher level.</p>
+<p>This is an introduction of my explorations and my musical pieces! <font color="gray"> I am sharing my works not purely aiming at showing my professional skills, and I am not professional currently. Instead, I hope that my explorations on composition can inspire more music lovers to try bravely!</font></p>
+<h2 id="Early-explorations"><a href="#Early-explorations" class="headerlink" title="Early explorations"></a>Early explorations</h2><ul>
 <li>My aunt taught me piano since I was a little boy!</li>
 <li>In around 2012, I began practicing music myself: transcripting the pieces I like into piano scores and practicing piano skills.</li>
 <li>I composed my first collection of <strong>12 Scottish and Irish folk song styled pieces</strong> in 2018 and published it here: <a href="https://music.163.com/#/album?id=75139286" target="_blank" rel="noopener">Lucainiao’s Musical Adventures in Ireland (路菜鸟梦游爱尔兰)</a></li>
@@ -222,7 +371,7 @@
 
 <p>Here are two of this collection:</p>
 <ul>
-<li><a href="https://music.163.com/#/album?id=75541918" target="_blank" rel="noopener">Short orchistral piece: The Walking of Insects (惊蛰)</a></li>
+<li><a href="https://music.163.com/#/song?id=1346054283" target="_blank" rel="noopener">Short orchistral piece: The Walking of Insects (惊蛰)</a></li>
 <li><a href="https://music.163.com/#/song?id=1356722304" target="_blank" rel="noopener">Short orchistral piece: Spring Birds (春天的鸟)</a></li>
 </ul>
 </blockquote>
@@ -296,41 +445,9 @@
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=1&id=84341801&auto=0&height=90"></iframe>
 
 <p><a href="https://music.163.com/#/album?id=89536700" target="_blank" rel="noopener">My blind mind</a></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=1&id=89536700&auto=0&height=90"></iframe>
-</blockquote>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=1&id=89536700&auto=0&height=90"></iframe></blockquote>
 </li>
 </ul>
-<h1 id="Researches"><a href="#Researches" class="headerlink" title="Researches"></a>Researches</h1><h2 id="My-research-proposals"><a href="#My-research-proposals" class="headerlink" title="My research proposals"></a>My research proposals</h2><h3 id="Topic-1-algorithm-composing-in-a-general-pipeline"><a href="#Topic-1-algorithm-composing-in-a-general-pipeline" class="headerlink" title="Topic 1: algorithm composing in a general pipeline"></a>Topic 1: algorithm composing in a general pipeline</h3><blockquote>
-<p>(In order to make it clear, I wrote a lot about why I choose my pipeline. If you want to skip my motivations, just skip directly to <a href="#ideal_pipeline">My ideal pipeline</a>!)</p>
-</blockquote>
-<p>The ultimate goal of algorithm composing is to create great music which can fool human listeners and bring them a sense of beauty. Easy to see: if we want to achieve this goal, the final output should be <strong>audio</strong>. As a result, a straightforward method can be considered:</p>
-<p><img src="https://i.loli.net/2020/07/18/RXDeViOm7lqWJHY.png" alt="black_box_model.png"><br><font color="gray"> The big black box model </font></p>
-<p>A lot of computational effort should be exerted to achieve this! Even so, this kind of model achieved a lot. Examples are <a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio" target="_blank" rel="noopener">WaveNet(deepmind)</a> and <a href="https://openai.com/blog/jukebox/" target="_blank" rel="noopener">JukeBox(OpenAI)</a>. It seems that all we need to do is to design the big-black-box. With careful designing, it can even achieve conditional generation and style transfer. It can be versatile!</p>
-<p><strong>However, I would not simply surrender to it. Why?</strong></p>
-<ol>
-<li>High computation load! For example, Jukebox has to spend half a day to create a new song.</li>
-<li>Hard to interpret the big-black-box! </li>
-<li>Why did not recordings take the place of musical scores? This is because musical scores provide abstracted information, while recordings provide lower-level information. With scores as condition, it is easier to perform in different styles; but audio-level music cannot achieve this easily.</li>
-</ol>
-<p>Different levels of music representation matter a lot!  <a href="https://www.researchgate.net/publication/243535791_A_Framework_for_the_Evaluation_of_Music_Representation_Systems" target="_blank" rel="noopener">Wiggins et.al</a> said that audio is rich in expressive completeness but poor in structural generality, and symbolic representation is the inverse. James C. Forth also subscribed to this idea in his <a href="https://research.gold.ac.uk/7803/1/COMP_thesis_Forth_2012.pdf" target="_blank" rel="noopener">Ph.D thesis</a>. <em>Conceptual Space</em> was proposed by <a href="https://en.wikipedia.org/wiki/Peter_G%C3%A4rdenfors" target="_blank" rel="noopener">Peter Gärdenfors</a> in his book <a href="https://mitpress.mit.edu/books/conceptual-spaces" target="_blank" rel="noopener">Conceptual Spaces: The Geometry of Thought</a>. Conceptual sapce is between sub-symbolic representation (e.g. audio) and symbolic representation (e.g. chord symbols). Models have to understand musical conceptual sapce in order to do real creative works. We can say that the big-black-box models do explore conceptual space, but they explore them in a hard-to-interpret manner.</p>
-<p>Now, we have to find an intermediate way to relieve this. Then, here comes my proposal!</p>
-<p><span id="ideal_pipeline"> <img src="https://i.loli.net/2020/07/18/5nftd43vgIQuyNF.png" alt="my_ideal_pipeline.png"> </span></p>
-<p><font color="gray"> <strong>My ideal pipeline</strong> of MIR and NLP for algorithm composing </font></p>
-<p>I specified the big-black-model with three stages: audio MIR, symbolic MIR and NLP for algrothm composing. In this framework, MIR topics are combined with algorithm composing. How? Algorithm composing models need <strong>clean structured data</strong>! MIR tasks are in charge of this! This is like word separation tasks in NLP dataset prerprocessing. For MIR, we need to do more because music is special. I will specify its unique sides and compare it with natural language in <a href="#music_as_language">another section</a>.</p>
-<p>Next, clean structured data are represented as musical words (maybe in <a href="#music_as_language">different levels</a>). Generative models in NLP (like transformers, BERT, RNN autoencoder etc.) can be used here. More tasks like style transfer (e.g. changing meter for a piece, generating variations for a motif) can be considered here. In a word, let the machine write the score!</p>
-<p>After creating the score, we have to find a way to <em>‘perform’</em> it. This is somehow like robot reader: feed an article for it and it reads it aloud in a natural manner. Similarly, we have to teach the machine to interpre the scores and <em>‘read’</em> them aloud!</p>
-<p>Each step is a task to do! I will try to solve them one-by-one!</p>
-<h3 id="Topic-2-Follow-the-Music-as-language-line"><a href="#Topic-2-Follow-the-Music-as-language-line" class="headerlink" title=" Topic 2: Follow the Music-as-language line "></a><span id="music_as_language"> Topic 2: Follow the Music-as-language line </span></h3><p>In order to avoid reinventing the wheel, we have to ask ourselves ‘is this the things we already done?’ For MIR and computational creativity, chances are that several topics are already explored by NLP reasearchers. However, we also have to find the uniqueness of music, which is not fully explored.</p>
-<p>Now, we follow the line of compareing music with natural languages.</p>
-<ul>
-<li>Similarity #1: hierarchical structures</li>
-<li>Similarity #2: syntactics</li>
-<li>Difference #1: polyphony</li>
-<li>Difference #2: repetition</li>
-<li>Difference #3: semantics</li>
-</ul>
-<h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
-<p>Following the idea of <em>hierarchical structures</em>, I created a string representation method for rhythm patterns…</p>
 
       
 	  
@@ -365,7 +482,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/personal-page/">show full article >></a>
+          <a class="article-more-a" href="/2020/07/18/my-music-explorations/">show full article >></a>
         </p>
       
 
@@ -1364,100 +1481,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/15/math-modling-2019CUMCM-summary-1/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-math-modling-2019CUMCM-summary-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/09/15/math-modling-2019CUMCM-summary-2/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/09/15/math-modling-2019CUMCM-summary-2/">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="First-Battle-2019-9-13"><a href="#First-Battle-2019-9-13" class="headerlink" title="First Battle - 2019.9.13"></a>First Battle - 2019.9.13</h1><p>第二天，我<strong>帅</strong>先到达战场（毕竟我就睡在隔壁战壕里）。自己又调了一会小模型，画了几个图给了子烨。就继续了。第一天晚上，我宣布完阶段性胜利后，便给翔哥分配任务了：“赶紧研究第二问，它和第一问没啥重合的，但是关系到后面”。翔哥于是就又开始自闭了。</p>
-        
-          <a class="article-more-a" href="/2019/09/15/math-modling-2019CUMCM-summary-2/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">experience</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/math-modling-2019CUMCM-summary-2/">show full article >></a>
         </p>
       
 
