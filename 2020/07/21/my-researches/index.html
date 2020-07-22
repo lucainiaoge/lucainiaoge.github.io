@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/18/5nftd43vgIQuyNF.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png">
-<meta property="og:updated_time" content="2020-07-22T02:01:00.026Z">
+<meta property="og:updated_time" content="2020-07-22T02:26:42.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My Researches">
 <meta name="twitter:description" content="Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my ideas and researches in music tech!  Research proposalsTopic 1: music generation in a general pipeline (July 19, 2020) (In order to make it">
@@ -195,7 +195,7 @@
 <p>The ultimate goal of music generation is to create great music which can fool human listeners and bring them a sense of beauty. Easy to see: if we want to achieve this goal, the final output should be <strong>audio</strong>. As a result, a straightforward method can be considered:</p>
 <p><img src="https://i.loli.net/2020/07/18/RXDeViOm7lqWJHY.png" alt="black_box_model.png"><br><font color="gray"> The big black box model </font></p>
 <p>A lot of computational effort should be exerted to achieve this! Even so, this kind of model achieved a lot. Examples are <a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio" target="_blank" rel="noopener">WaveNet(deepmind)</a> and <a href="https://openai.com/blog/jukebox/" target="_blank" rel="noopener">JukeBox(OpenAI)</a>. It seems that all we need to do is to design the big-black-box. With careful designing, it can even achieve conditional generation and style transfer. It can be versatile!</p>
-<p><strong>The end-to-end big-black-box models are powerful enough. However, I would not simply surrender to it. Why?</strong></p>
+<p><strong>The end-to-end big-black-box models are powerful enough. However, I would not simply surrender to them. Why?</strong></p>
 <ol>
 <li>High computation load! For example, Jukebox has to spend half a day to create a new song.</li>
 <li>Hard to interpret the big-black-box! </li>
@@ -251,7 +251,7 @@
 </ul>
 <h1 id="Detailed-researches"><a href="#Detailed-researches" class="headerlink" title="Detailed researches"></a>Detailed researches</h1><h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
 <p>Following the idea of constructing <em>hierarchical syntactic structures</em> with <em>recursive application of rules</em>, I created a string representation method for rhythm patterns… (Paper is available in <a href="https://arxiv.org/pdf/2007.10610.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/2007.10610.pdf</a>!)</p>
-<p><font color="gray">In May 2020, I was doing internship in <a href="http://homepage.fudan.edu.cn/weili/fd-lamt/" target="_blank" rel="noopener">Prof. Wei Li’s LAB: FD-LAMT</a>. In FD-LAMT, I happened to notice that Lucheng Yan, a postgrad of Prof. Wei Li, was asking a question in FD-LAMT wechat group, and he was asking about training GAN. I contacted him and knew that his motivation was to consider musical priori knowledge in rhythm generation. What he did was enumerating a <strong>BIG rhythm pattern table</strong>, whose elements are frequently-used 8-beat rhythm patterns in 4/4 meter; he further used GAN to generate patterns but failed. I was kind of motivated by this. In one of our discussions, I figured out that I can create a string-based word representation for rhythms rather than enumerating them; and then the machine can learn to summarize such words!</font></p>
+<p><font color="gray">In May 2020, I was doing internship in <a href="http://homepage.fudan.edu.cn/weili/fd-lamt/" target="_blank" rel="noopener">Prof. Wei Li’s LAB: FD-LAMT</a>. In FD-LAMT, I happened to notice that <a href="mailto:dun_1989@163.com" target="_blank" rel="noopener">Lucheng Yan</a>, a postgrad of Prof. Wei Li, was asking a question in FD-LAMT wechat group, and he was asking about training GAN. I contacted him and knew that his motivation was to consider musical priori knowledge in rhythm generation. What he did was enumerating a <strong>BIG rhythm pattern table</strong>, whose elements are frequently-used 8-beat rhythm patterns in 4/4 meter; he further used GAN to generate patterns but failed. I was kind of motivated by this. In one of our discussions, I figured out that I can create a string-based word representation for rhythms rather than enumerating them; and then the machine can learn to summarize such words!</font></p>
 <p>Question is, how to design the recursive rules? Now I brifly introduce it using three examples! <font color="gray">For further information (e.g. how to apply our word representation for rhythm), you can visit <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</font><br><img src="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png" alt="pieces_for_illustration.png"><br>First, I show the result of encoding <strong>segment (a)</strong>:</p>
 <blockquote>
 <ul>
@@ -293,7 +293,7 @@
 <li>Rhythm1c_indexed = [0,2,13,12,11,3,12,13,12,11,3,12,1]</li>
 </ul>
 </blockquote>
-<p>Now, I finished introducing my rules! You can find my code in my <a href="https://github.com/lucainiaoge/rhythm-word-embedding" target="_blank" rel="noopener">Github repo (https://github.com/lucainiaoge/rhythm-word-embedding)</a> implementing such rules to <a href="https://github.com/jukedeck/nottingham-dataset" target="_blank" rel="noopener">Nottingham Dataset</a>.</p>
+<p>Now, I finished introducing my rules! You can find my code in my <a href="https://github.com/lucainiaoge/rhythm-word-embedding" target="_blank" rel="noopener">Github repo (https://github.com/lucainiaoge/rhythm-word-embedding)</a> implementing such rules to <a href="https://github.com/jukedeck/nottingham-dataset" target="_blank" rel="noopener">Nottingham Dataset</a>. Again, details about my model and results are shown in <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</p>
 
       
 	  

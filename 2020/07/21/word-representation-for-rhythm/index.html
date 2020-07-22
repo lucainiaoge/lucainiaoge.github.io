@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>Word Representation for Rhythm | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is my first scientific research about music!  Paper: https://arxiv.org/pdf/2007.10610.pdf">
+  <meta name="description" content="This is my first scientific research about music!  Paper: https://arxiv.org/abs/2007.10610Codes: https://github.com/lucainiaoge/rhythm-word-embedding">
 <meta name="keywords" content="machine_learning,algorithm_composing,MIR,music,transformer,VAE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Word Representation for Rhythm">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/07/21/word-representation-for-rhythm/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="This is my first scientific research about music!  Paper: https://arxiv.org/pdf/2007.10610.pdf">
+<meta property="og:description" content="This is my first scientific research about music!  Paper: https://arxiv.org/abs/2007.10610Codes: https://github.com/lucainiaoge/rhythm-word-embedding">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-22T01:51:36.603Z">
+<meta property="og:updated_time" content="2020-07-22T04:24:06.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Word Representation for Rhythm">
-<meta name="twitter:description" content="This is my first scientific research about music!  Paper: https://arxiv.org/pdf/2007.10610.pdf">
+<meta name="twitter:description" content="This is my first scientific research about music!  Paper: https://arxiv.org/abs/2007.10610Codes: https://github.com/lucainiaoge/rhythm-word-embedding">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -184,10 +184,21 @@
       
         <p><strong>This is my first scientific research about music!</strong></p>
 <hr>
-<p>Paper: <a href="https://arxiv.org/pdf/2007.10610.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/2007.10610.pdf</a></p>
+<p>Paper: <a href="https://arxiv.org/abs/2007.10610" target="_blank" rel="noopener">https://arxiv.org/abs/2007.10610</a><br>Codes: <a href="https://github.com/lucainiaoge/rhythm-word-embedding" target="_blank" rel="noopener">https://github.com/lucainiaoge/rhythm-word-embedding</a></p>
 <a id="more"></a>
 
-<p>Contents pending…</p>
+<h1 id="Introduction-and-priori-knowledges"><a href="#Introduction-and-priori-knowledges" class="headerlink" title="Introduction and priori knowledges"></a>Introduction and priori knowledges</h1><p>As already proposed in <a href="https://lucainiaoge.github.io/2020/07/21/my-researches/#Word-representation-for-rhythm" target="_blank" rel="noopener">the page of my research proposal</a>, I created a string-based word representation for rhythms. Now, how to prove that it is usable? What are the user cases of it?</p>
+<p><font color="gray">(If you have no idea what I am talking about here, please refer to <a href="https://lucainiaoge.github.io/2020/07/21/my-researches/#Word-representation-for-rhythm" target="_blank" rel="noopener">the page of my research proposal</a>! The following introduction is a blogged version of my paper! It is recommended to know something about <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04" target="_blank" rel="noopener">transformer</a> to understand my model.)</font></p>
+<h1 id="Several-Trials"><a href="#Several-Trials" class="headerlink" title="Several Trials"></a>Several Trials</h1><p>My trials are mainly about <strong>generating or reconstructing a whole piece</strong> using my rhythm word representation. This is to say that my model inputs and outputs are on the level of pieces (rather than phrases).</p>
+<p>I first tried <a href="https://towardsdatascience.com/step-by-step-understanding-lstm-autoencoder-layers-ffab055b6352" target="_blank" rel="noopener">RNN autoencoder</a> to do rhythm word generation. Model structure was straightforward: do reconstruction when training, and do step-by-step generation (given a head) when testing. The problem of this model was: it tended to repeat what it said (lack of diversity). <font color="gray">For example, if it wanted to generate a rhythm sequence in 6/8 meter, it was likely to output: [“$\langle$BOS$\rangle$”,”$\vert$6/8”,”N1.500,N0.500,N1.500,N0.500$\vert$6/8”,”N1.500,N0.500,N1.500,N0.500$\vert$6/8”,…,”N1.500,N0.500,N1.500,N0.500$\vert$6/8”] </font><br>I also tried GAN+RNN autoencoder. Result was that the model collapsed and that it was still repeating what it said.<br>At that time, I began to be aware that it may be a bad idea to directly use the rhythm words to do generation. And I thought that the reasons why models lack diversity were that:</p>
+<ol>
+<li>musical pieces tend to repeat the same rhythm pattern, and the model learned to repeat certain frequent words to achieve high accuracy (this is a local minima).</li>
+<li>Long-term information decays in RNN, which means that RNNs tend to consider local information more than historical infomation.<br>Thus, I changed my model into <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04" target="_blank" rel="noopener">transformers</a>. I first tried the encoder-decoder structure: the encoder input was a complete rhythm word sequence of idx and the decoder input was a masked rhythm word sequence; output was identical to encoder input (thus, this is a reconstruction task). The diversity problem was solved. But another problem came out: it seemed that the encoder was not working because when I remove the encoder inputs, reconstruction still worked.</li>
+</ol>
+<p>I as kind of nervous at that time: did I prove that my model was working, or was I just playing toys? I think my worries came mainly from the failure to give useful results.</p>
+<p><font color="gray">Then, I contacted <a href="https://www.cs.cmu.edu/~gxia/" target="_blank" rel="noopener">Prof. Gus Xia</a>. I felt excited and grateful to know that he was interested in my research. He proposed that I did not really do <a href="https://arxiv.org/abs/1206.5538" target="_blank" rel="noopener">representation learning</a>! In other words, I have to reduce the rhythm word idx to latent vectors which have specific contextualized meanings! And at that time I learned the <a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">BERT model</a>, which can be seen as a contextulized <a href="https://towardsdatascience.com/introduction-to-word-embedding-and-word2vec-652d0c2060fa" target="_blank" rel="noopener">word embedding</a>. Then I designed several tasks…</font></p>
+<p>OK, time to introduce my data processing pipeline and rhythm-BERT model!</p>
+<h1 id="Rhythm-BERT-model"><a href="#Rhythm-BERT-model" class="headerlink" title="Rhythm BERT model"></a>Rhythm BERT model</h1><p>…Pending…</p>
 
       
 	  
@@ -385,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    contents are flying in the space
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction-and-priori-knowledges"><span class="toc-number">1.</span> <span class="toc-text">Introduction and priori knowledges</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Several-Trials"><span class="toc-number">2.</span> <span class="toc-text">Several Trials</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rhythm-BERT-model"><span class="toc-number">3.</span> <span class="toc-text">Rhythm BERT model</span></a></li></ol>
                     </div>
                 </span>
             </div>
