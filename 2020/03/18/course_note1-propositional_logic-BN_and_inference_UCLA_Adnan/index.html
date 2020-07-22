@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="by lucainiaoge  IntroThis is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-18T13:53:58.240Z">
+<meta property="og:updated_time" content="2020-07-21T13:06:10.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Course Note1 - Propositional Logic - BN and inference UCLA Adnan Darwiche">
 <meta name="twitter:description" content="by lucainiaoge  IntroThis is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:">
@@ -224,12 +224,12 @@
 <li><strong>Model of a sentence</strong> is a set whose elements are worlds that hold true when this sentence holds true.</li>
 </ol>
 <p>Hope you are getting excited: we are linking the logic world of Ture or False with the world of sets. We can really define logical calculations.</p>
-<h1 id="Propositional-Logic-Calculation"><a href="#Propositional-Logic-Calculation" class="headerlink" title="Propositional Logic Calculation"></a>Propositional Logic Calculation</h1><p><font color="Crimson" size="4"><strong>Definition (Basic Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \wedge \beta $ is such a sentence that $Mod(\alpha \wedge \beta)=Mod(\alpha)\cap Mod(\beta)$<br>$\alpha \vee \beta $ is such a sentence that $Mod(\alpha \wedge \beta)=Mod(\alpha)\cup Mod(\beta)$<br>$\neg \alpha $ is such a sentence that $Mod(\neg \alpha)=\Omega \setminus Mod(\alpha)$<br></font><br>You see? Your familiar logical calculation “and”,”or” and “not” is actually set calculation “intersection”,”union” and “complement”.</p>
-<p><font color="Crimson" size="4"><strong>Definition (relationships of sentences):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha$ is <strong>consistent or satisfiable</strong> $\Leftrightarrow$ $Mods(\alpha)\neq \emptyset$<br>$\alpha$ is <strong>valid</strong> $\Leftrightarrow$ $Mods(\alpha)= \Omega$ $\Leftrightarrow$ $\models \alpha$ $\Leftrightarrow$ $\alpha = True$<br>$\alpha$ and $\beta$ are <strong>equivalent</strong> $\Leftrightarrow$ $Mod(\alpha)=Mod(\beta)$<br>$\alpha$ and $\beta$ are <strong>mutually exclusive</strong> $\Leftrightarrow$ $Mod(\alpha)\cap Mod(\beta)=\emptyset$<br>$\alpha$ and $\beta$ are <strong>exhaustive</strong> $\Leftrightarrow$ $Mod(\alpha)\cup Mod(\beta)=\Omega$<br>$\alpha$ <strong>implies</strong> $\beta$ $\Leftrightarrow$ $Mod(\alpha)\subset Mod(\beta)$ $\Leftrightarrow$ $\alpha \models \beta$<br></font><br>I think those definitions are to remind people the importance of such relationships. Also helping people to communicate in a more logical manner…</p>
-<p>A few more definitions of Propositional Logic calculation:<br><font color="Crimson" size="4"><strong>Definition (More Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \rightarrow \beta $ $\Leftrightarrow$ $\neg \alpha \vee \beta$<br>$\alpha \leftrightarrow \beta $ $\Leftrightarrow$ $(\alpha \rightarrow \beta)\wedge (\beta \rightarrow \alpha)$<br></font><br>Worth noticing those definitions.<br>$\alpha \rightarrow \beta $ is in fact telling you that $\alpha$ implies $\beta$, or <strong>contraposition</strong>. $\alpha \rightarrow \beta = True$ means: whenever $\alpha$ is true, $\beta$ is true. So $Mod(\alpha)\subset Mod(\beta)$. (Think the worlds!)<br>$\alpha \leftrightarrow \beta $ is actually <strong>XNOR</strong>. $\alpha \leftrightarrow \beta = True$ means that $\alpha$ and $\beta$ are equivalent.</p>
+<h1 id="Propositional-Logic-Calculation"><a href="#Propositional-Logic-Calculation" class="headerlink" title="Propositional Logic Calculation"></a>Propositional Logic Calculation</h1><p><font color="Crimson" size="4"><strong>Definition (Basic Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \wedge \beta $ is such a sentence that $Mods(\alpha \wedge \beta)=Mods(\alpha)\cap Mods(\beta)$<br>$\alpha \vee \beta $ is such a sentence that $Mods(\alpha \wedge \beta)=Mods(\alpha)\cup Mods(\beta)$<br>$\neg \alpha $ is such a sentence that $Mods(\neg \alpha)=\Omega \setminus Mods(\alpha)$<br></font><br>You see? Your familiar logical calculation “and”,”or” and “not” is actually set calculation “intersection”,”union” and “complement”.</p>
+<p><font color="Crimson" size="4"><strong>Definition (relationships of sentences):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha$ is <strong>consistent or satisfiable</strong> $\Leftrightarrow$ $Mods(\alpha)\neq \emptyset$<br>$\alpha$ is <strong>valid</strong> $\Leftrightarrow$ $Mods(\alpha)= \Omega$ $\Leftrightarrow$ $\models \alpha$ $\Leftrightarrow$ $\alpha = True$<br>$\alpha$ and $\beta$ are <strong>equivalent</strong> $\Leftrightarrow$ $Mod(\alpha)=Mods(\beta)$<br>$\alpha$ and $\beta$ are <strong>mutually exclusive</strong> $\Leftrightarrow$ $Mods(\alpha)\cap Mods(\beta)=\emptyset$<br>$\alpha$ and $\beta$ are <strong>exhaustive</strong> $\Leftrightarrow$ $Mods(\alpha)\cup Mods(\beta)=\Omega$<br>$\alpha$ <strong>implies</strong> $\beta$ $\Leftrightarrow$ $Mods(\alpha)\subset Mods(\beta)$ $\Leftrightarrow$ $\alpha \models \beta$<br></font><br>I think those definitions are to remind people the importance of such relationships. Also helping people to communicate in a more logical manner…</p>
+<p>A few more definitions of Propositional Logic calculation:<br><font color="Crimson" size="4"><strong>Definition (More Propositional Logic Calculation):</strong></font><font color="DarkRed" size="3"> given sentence $\alpha$ and $\beta$<br>$\alpha \rightarrow \beta $ $\Leftrightarrow$ $\neg \alpha \vee \beta$<br>$\alpha \leftrightarrow \beta $ $\Leftrightarrow$ $(\alpha \rightarrow \beta)\wedge (\beta \rightarrow \alpha)$<br></font><br>Worth noticing those definitions.<br>$\alpha \rightarrow \beta $ is in fact telling you that $\alpha$ implies $\beta$, or <strong>contraposition</strong>. $\alpha \rightarrow \beta = True$ means: whenever $\alpha$ is true, $\beta$ is true. So $Mods(\alpha)\subset Mods(\beta)$. (Think the worlds!)<br>$\alpha \leftrightarrow \beta $ is actually <strong>XNOR</strong>. $\alpha \leftrightarrow \beta = True$ means that $\alpha$ and $\beta$ are equivalent.</p>
 <p>Several examples:</p>
 <blockquote>
-<p>given sentences: $B=[p_B=T]$, $E=[p_E=T]$, $A=[p_A=T]$, $\neg B=[p_B=F]$ and so forth<br>$\alpha=(E \vee B)\rightarrow A$<br>$Mod(\alpha)=\lbrace w_1,w_3,w_5,w_7,w_8 \rbrace$<br>$\beta=(E \rightarrow B)$<br>$Mod(\beta)=\lbrace w_1,w_2,w_5,w_6,w_7,w_8 \rbrace$<br>then, $Mod(\alpha \wedge \beta)=\lbrace w_1,w_5,w_7,w_8 \rbrace$</p>
+<p>given sentences: $B=[p_B=T]$, $E=[p_E=T]$, $A=[p_A=T]$, $\neg B=[p_B=F]$ and so forth<br>$\alpha=(E \vee B)\rightarrow A$<br>$Mods(\alpha)=\lbrace w_1,w_3,w_5,w_7,w_8 \rbrace$<br>$\beta=(E \rightarrow B)$<br>$Mods(\beta)=\lbrace w_1,w_2,w_5,w_6,w_7,w_8 \rbrace$<br>then, $Mods(\alpha \wedge \beta)=\lbrace w_1,w_5,w_7,w_8 \rbrace$</p>
 </blockquote>
 <p>Calculating intersection is in fact adding information, and we throw away world elements by doing this. This is compactible with information theory!</p>
 
@@ -453,28 +453,58 @@
   
 
 
+
+<div style='display: none'>
+{%if post.updated and post.updated > post.date%}
+  <span class="post-updated">
+    &nbsp; | &nbsp; {{ __('post.updated') }}
+    <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+      {{ date(post.updated, config.date_format) }}
+    </time>
+  </span>
+{% endif %}
+</div>
           </div>
         </div>
       </div>
-      <footer id="footer">
+      
+<div style='display: none'>
+# PV方式，单个用户连续点击 n 篇，记录 n 次记录值
+<span id="busuanzi_container_site_pv">    total visit <span id="busuanzi_value_site_pv"></span>times</span>
+
+# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
+<span id="busuanzi_container_site_uv">  number of visit in this site <span id="busuanzi_value_site_uv"></span>times</span>
+</div>
+
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2020 lucainiaoge
-    	</div>
+        <div class="footer-left">
+            &copy; 2020 lucainiaoge
+        </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+        <span id="timeDate">loading date...</span><span id="times">loading time stamp...</span> |<span id="busuanzi_value_site_uv"> You are visitor <span id="busuanzi_value_site_uv"></span> </span>
+    <script>
+        var now = new Date(); 
+        function createtime() { 
+            var grt= new Date("09/23/2019 22:02:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("timeDate").innerHTML = "Age of my website: "+dnum+" days "; 
+            document.getElementById("times").innerHTML = hnum + " hour " + mnum + " minute " + snum + " second"; 
+        } 
+    setInterval("createtime()",250);
+    </script>
   </div>
 </footer>
-
-# PV方式，单个用户连续点击 n 篇，记录 n 次记录值
-<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-
-# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
-<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
-
     </div>
     <script>
 	var yiliaConfig = {
@@ -520,8 +550,7 @@ MathJax.Hub.Queue(function() {
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -653,6 +682,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MIR</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VAE</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -701,6 +742,10 @@ MathJax.Hub.Queue(function() {
     	<section class="tools-section tools-section-friends" q-show="friends">
   		
         <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://spaces.ac.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>BoJone&#39;s blog (Scientific Space)</a>
+            </li>
           
             <li class="search-li">
               <a href="https://imuncle.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>uncle&#39;s blog</a>

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>lucainiaoge博客介绍(introduction) | Lucainiao&#39;s blog</title>
+  <title>A brief introduction of lucainiaoge&#39;s website | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="by lucainiaoge">
 <meta name="keywords" content="blog_start,introduction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lucainiaoge博客介绍(introduction)">
+<meta property="og:title" content="A brief introduction of lucainiaoge&#39;s website">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2019/09/29/blog-intro/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="by lucainiaoge">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T09:56:49.947Z">
+<meta property="og:updated_time" content="2020-07-21T13:06:43.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lucainiaoge博客介绍(introduction)">
+<meta name="twitter:title" content="A brief introduction of lucainiaoge&#39;s website">
 <meta name="twitter:description" content="by lucainiaoge">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
@@ -177,7 +177,7 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      lucainiaoge博客介绍(introduction)
+      A brief introduction of lucainiaoge&#39;s website
     </h1>
   
 </p></center>
@@ -185,25 +185,28 @@
         <p><strong>by lucainiaoge</strong></p>
 <hr>
 <a id="more"></a>
-<p>最近心血来潮想要开始写博客。</p>
+<p>最近(2020.9.29)心血来潮想要开始写博客。</p>
 <p>我想写这些东西（当然是我觉得值得记录并感兴趣的啦）：</p>
 <ul>
+<li>个人介绍和研究</li>
 <li>技术教程和链接搬运（造福人类嗷）</li>
-<li>学习笔记（主要是理工科和音乐）</li>
-<li>平时的思考结果（主要是理工科和音乐）</li>
+<li>学习笔记</li>
+<li>平时的思考结果</li>
 <li>值得记录的经历和故事</li>
 </ul>
 <p>可能还有很多不知道怎么分类的。无论如何，所有文章都可以在博客的边栏中“All articles”项目中找到，并且可以按照标签筛选哦！</p>
 <p>稍微YY一下博客将会侧重涉及的门类：</p>
 <ul>
-<li>数学：太杂啦，有啥写啥</li>
-<li>物理学：太杂啦，有啥写啥</li>
-<li>信息科学：信号处理、信息论、模式识别、机器学习</li>
-<li>电子信息技术：通信系统、板级电路设计、FPGA、控制技术、信息科学原理的代码实现</li>
-<li>音乐：基本乐理、和声、曲式、常用乐句的总结、作品的分析</li>
+<li>数学,物理学,信息科学,电子信息技术,音乐…</li>
 </ul>
 <p>构想很宏大，那就从现在开始拧螺丝了~</p>
-<p>欢迎大家来一起交流。转载注明出处~</p>
+<p>欢迎大家来一起交流。</p>
+<hr>
+<p><strong>A Guide through my website!</strong> (added on July 21, 2020)</p>
+<p>This website is for blogging myself and sharing my ideas! I will archive my researches/notes/thoughts/stories/works in this website!</p>
+<p>Anyway, all articles are tagged and you can find all of them by clicking the <strong>all articles</strong> button in the menu on the left side. You can visit <a href="https://lucainiaoge.github.io/2020/07/18/personal-page/" target="_blank" rel="noopener"><strong>my personal page in this website</strong></a> for more information!</p>
+<p>Hurry up, lucainiao! Stay ambitious!</p>
+<p>(Feel free to comment below!)</p>
 
       
 	  
@@ -408,28 +411,58 @@
   
 
 
+
+<div style='display: none'>
+{%if post.updated and post.updated > post.date%}
+  <span class="post-updated">
+    &nbsp; | &nbsp; {{ __('post.updated') }}
+    <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+      {{ date(post.updated, config.date_format) }}
+    </time>
+  </span>
+{% endif %}
+</div>
           </div>
         </div>
       </div>
-      <footer id="footer">
+      
+<div style='display: none'>
+# PV方式，单个用户连续点击 n 篇，记录 n 次记录值
+<span id="busuanzi_container_site_pv">    total visit <span id="busuanzi_value_site_pv"></span>times</span>
+
+# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
+<span id="busuanzi_container_site_uv">  number of visit in this site <span id="busuanzi_value_site_uv"></span>times</span>
+</div>
+
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2020 lucainiaoge
-    	</div>
+        <div class="footer-left">
+            &copy; 2020 lucainiaoge
+        </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+        <span id="timeDate">loading date...</span><span id="times">loading time stamp...</span> |<span id="busuanzi_value_site_uv"> You are visitor <span id="busuanzi_value_site_uv"></span> </span>
+    <script>
+        var now = new Date(); 
+        function createtime() { 
+            var grt= new Date("09/23/2019 22:02:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("timeDate").innerHTML = "Age of my website: "+dnum+" days "; 
+            document.getElementById("times").innerHTML = hnum + " hour " + mnum + " minute " + snum + " second"; 
+        } 
+    setInterval("createtime()",250);
+    </script>
   </div>
 </footer>
-
-# PV方式，单个用户连续点击 n 篇，记录 n 次记录值
-<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-
-# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
-<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
-
     </div>
     <script>
 	var yiliaConfig = {
@@ -475,8 +508,7 @@ MathJax.Hub.Queue(function() {
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -608,6 +640,18 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MIR</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VAE</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -656,6 +700,10 @@ MathJax.Hub.Queue(function() {
     	<section class="tools-section tools-section-friends" q-show="friends">
   		
         <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://spaces.ac.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>BoJone&#39;s blog (Scientific Space)</a>
+            </li>
           
             <li class="search-li">
               <a href="https://imuncle.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>uncle&#39;s blog</a>
