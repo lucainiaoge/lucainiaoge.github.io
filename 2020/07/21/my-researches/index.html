@@ -6,23 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>My Researches | Lucainiao&#39;s blog</title>
+  <title>My Research Log in 2020 | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my ideas and researches in music tech!   Research proposalsTopic 1: music generation in a general pipeline (July 19, 2020) (In order to make i">
-<meta name="keywords" content="introduction,algorithm_composing,MIR,music">
+<meta name="keywords" content="introduction,music,MIR,algorithm_composing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My Researches">
+<meta property="og:title" content="My Research Log in 2020">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/07/21/my-researches/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my ideas and researches in music tech!   Research proposalsTopic 1: music generation in a general pipeline (July 19, 2020) (In order to make i">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2020/07/18/RXDeViOm7lqWJHY.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/18/5nftd43vgIQuyNF.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/01/16HlTkC8rg2zAGS.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/01/2oC6sXE8I3yQtqO.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/01/gPl3can9jLohSYX.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/01/tqVn5bpkCYAFxRg.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/01/FdMnZRsQI9EyhmS.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png">
-<meta property="og:updated_time" content="2020-07-22T05:51:01.992Z">
+<meta property="og:updated_time" content="2020-09-01T04:18:45.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Researches">
+<meta name="twitter:title" content="My Research Log in 2020">
 <meta name="twitter:description" content="Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my ideas and researches in music tech!   Research proposalsTopic 1: music generation in a general pipeline (July 19, 2020) (In order to make i">
 <meta name="twitter:image" content="https://i.loli.net/2020/07/18/RXDeViOm7lqWJHY.png">
   
@@ -182,7 +185,7 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      My Researches
+      My Research Log in 2020
     </h1>
   
 </p></center>
@@ -205,13 +208,25 @@
 <p><strong>Are end-to-end models always good? Not exactly…</strong></p>
 <p>Different levels of music representation matter a lot!  <a href="https://www.researchgate.net/publication/243535791_A_Framework_for_the_Evaluation_of_Music_Representation_Systems" target="_blank" rel="noopener">Wiggins et.al</a> said that audio is rich in expressive completeness but poor in structural generality, and symbolic representation is the inverse. James C. Forth also subscribed to this idea in his <a href="https://research.gold.ac.uk/7803/1/COMP_thesis_Forth_2012.pdf" target="_blank" rel="noopener">Ph.D thesis</a>. <em>Conceptual Space</em> was proposed by <a href="https://en.wikipedia.org/wiki/Peter_G%C3%A4rdenfors" target="_blank" rel="noopener">Peter Gärdenfors</a> in his book <a href="https://mitpress.mit.edu/books/conceptual-spaces" target="_blank" rel="noopener">Conceptual Spaces: The Geometry of Thought</a>. Conceptual sapce is between sub-symbolic representation (e.g. audio) and symbolic representation (e.g. chord symbols). Models have to understand musical conceptual sapce in order to do real creative works. We can say that the big-black-box models do explore conceptual space, but they explore them in a hard-to-interpret manner.</p>
 <p>Now, we have to find an intermediate way to relieve this. Then, here comes my proposal!</p>
-<p><span id="ideal_pipeline"> <img src="https://i.loli.net/2020/07/18/5nftd43vgIQuyNF.png" alt="my_ideal_pipeline.png"> </span></p>
+<p><span id="ideal_pipeline"> <img src="https://i.loli.net/2020/09/01/16HlTkC8rg2zAGS.png" alt="my_ideal_pipeline.png"> </span></p>
 <p><font color="gray"> <strong>My ideal pipeline</strong> of MIR and NLP for algorithm composing </font></p>
 <p>I specified the big-black-model with three stages: audio MIR, symbolic MIR and NLP for algrothm composing. In this framework, MIR topics are combined with algorithm composing. How? Algorithm composing models need <strong>clean structured data</strong>! MIR tasks are in charge of this! This is like word separation tasks in NLP dataset prerprocessing. For MIR, we need to do more because music is special. I will specify its unique sides and compare it with natural language in <a href="#music_as_language">another section</a>.</p>
 <p>Next, clean structured data are represented as musical words (maybe in <a href="#music_as_language">different levels</a>). Generative models in NLP (like transformers, BERT, RNN autoencoder etc.) can be used here. More tasks like style transfer (e.g. changing meter for a piece, generating variations for a motif) can be considered here. In a word, let the machine write the score!</p>
 <p>After creating the score, we have to find a way to <em>‘perform’</em> it. This is somehow like robot reader: feed an article for it and it reads the article aloud in a human-like manner. Similarly, we have to teach the machine to interprete the scores and <em>‘read’</em> them aloud!</p>
 <p>Each step is a hard task to do! I will try to solve them one-by-one!</p>
-<h2 id="Topic-2-Follow-the-Music-as-language-line-May-31-2020"><a href="#Topic-2-Follow-the-Music-as-language-line-May-31-2020" class="headerlink" title=" Topic 2: Follow the Music-as-language line (May 31, 2020)"></a><span id="music_as_language"> Topic 2: Follow the Music-as-language line (May 31, 2020)</span></h2><p>In order to avoid reinventing the wheel, we have to ask ourselves ‘is this the things we already done?’ For MIR and computational creativity, chances are that several topics are already explored by NLP reasearchers. However, we also have to find the uniqueness of music, which is not fully explored. Now, we follow the line of compareing music with natural languages:</p>
+<h2 id="Topic-2-More-to-do-for-AMT-Aug-13-2020"><a href="#Topic-2-More-to-do-for-AMT-Aug-13-2020" class="headerlink" title="Topic 2: More to do for AMT (Aug 13, 2020)"></a><span id="More4AMT">Topic 2: More to do for AMT (Aug 13, 2020)</span></h2><p><img src="https://i.loli.net/2020/09/01/2oC6sXE8I3yQtqO.png" alt="pipeline_AMT.png"><br><font color="gray"> AMT in my pipeline </font></p>
+<p>AMT is abbriviation for “automatic music transcription”. There are three main challenges in AMT: to fully exploit low-level information, to exploit music contexts and to arrange the score outputs.</p>
+<p>The first challenge is partly solved by polyphonic pitch extraction, and current progressions can be seen in <a href="http://doi.org/10.1109/MSP.2018.2869928" target="_blank" rel="noopener">Automatic Music Transcription: An Overview</a>. However, there are still space to do with the timbre information: AMT models cannot transcribe orchistral pieces, and separation of instruments is still a TODO, although the latter topic is being explored in models including NMF and deep learning models (<a href="https://doi.org/10.5281/zenodo.1163675" target="_blank" rel="noopener">Source Separation Methods for Orchestral Music: Timbre-Informed and Score-Informed Strategies</a>). The second challenge focuses on music language models (MLMs), which deal with note tracking, as introduced in <a href="http://doi.org/10.1007/s10844-013-0258-3" target="_blank" rel="noopener">Automatic Music Transcription: Challenges and Future Directions</a> (although MLM is not proposed in this paper).</p>
+<p>More to do is to quantize the pitches and change them to events, like chords, trill symbols and staccatos, which reaches the third challenge, and this is one of which I want to explore in the future. If we see scores as user-interfaces, we have to make them look friendly, which is the motivation of automatic score arrangement. Existing system like <a href="https://www.lunaverus.com/" target="_blank" rel="noopener">AnthemScore</a> provided such interface. Although AnthemScore did well in multipitch tracking (still, there are problems in detecting higher pitches and non-piano pitches), its score arrangement need improving. This process is non-trivial. The first stage of this process, rhythm quantization, was introduced in <a href="http://doi.org/10.1109/ICASSP.2018.8461914" target="_blank" rel="noopener">Towards Complete Polyphonic Music Transcription: Integrating Multi-Pitch Detection and Rhythm Quantization</a>, but there are more to do before outputting a satisfying score.</p>
+<p>More than rhythm quantizing, There is a second stage: to identify different parts and arrange them into different lines (vertical grammar, VG), and to label phrases using slurs and mark repetition using repeat signs (traverse grammar, TG). VG may be discovered by source separation in orchestral transcription, but need inspection in solos. Importantly, TG and VG are not orthogonal: after identifying a phrase in a polyphonic context, it is natural to arrange this phrase as a whole in a separate part. My proposal is to first  label phrases (music patterns) for a polyphonic transcription (which can be seen as a multi-part melody extraction task), and then use a classifyer to indentify the part of each phrase. A third stage should also be designed, where more details are to be considered, e.g. oscillating series to a trill event.</p>
+<h2 id="Topic-3-Reinforcement-learning-for-AMT-and-music-generation-Aug-13-2020"><a href="#Topic-3-Reinforcement-learning-for-AMT-and-music-generation-Aug-13-2020" class="headerlink" title="Topic 3: Reinforcement learning for AMT and music generation (Aug 13, 2020)"></a><span id="RL4music">Topic 3: Reinforcement learning for AMT and music generation (Aug 13, 2020)</span></h2><p>If we follow the minds of musicians, we will find that when they are doing music transcription and composing tasks, they often listen. When transcribing a piece of music, we do not only listen to the source over and over, but also compare our transcription results with the source by playing the transcription on instruments or music softwares. Similarly, when composing music, we listen to our composition over and over again and experiment on instrument in order to optimize the sound effects. Therefore, I would like to reproduce this process for machines. This is the motivation of using reinforcement learning (RL) in AMT and music generation.</p>
+<p><img src="https://i.loli.net/2020/09/01/gPl3can9jLohSYX.png" alt="pipeline_AMT_RL.png"><br><font color="gray"> RL for AMT </font><br><img src="https://i.loli.net/2020/09/01/tqVn5bpkCYAFxRg.png" alt="pipeline_composing_RL.png"><br><font color="gray"> RL for algorithm composing </font></p>
+<p>The detailed structures of those RL models are still left for exploration, but I designed the basic structures in the diagrams above. In those diagrams, sonification systems are crutial because both diagrams require evaluating the sonification results. Therefore, two main challenges should be resolved regarding sonification and in the RL diagrams: to achieve context-awared sonification like machine readers, and to design the evaluation function for thos sonification results.</p>
+<p>In terms of the first challenge, I propose to use synthesizing methods rather than recordings for audio generation. In detail, maintain a timbre vocabulary, whose components’ combinations become synthesized results, as introduced in <a href="https://www.cs.rochester.edu/u/jliu/CSC-576/NMF-tutorial.pdf" target="_blank" rel="noopener">A tutorial on Nonnegative Matrix Factorisation with Applications to Audiovisual Content Analysis</a>. This also helps to learn the timbre patterns of dataset audio and reproduce sound effects. The model output at each time step is a vector of weights w.r.t. each timbre component in vocabulary, and argmax sampling can be left out.</p>
+<p>For RL both in AMT and music generation, symbolic score conditions should be used. In particular, RNN autoencoder and transformers can be tried for contextulized generation.</p>
+<p>For analysis of sonification in AMT, my solutions include using <a href="https://www.eecs.qmul.ac.uk/~simond/pub/2020/AgrawalDixon-EUSIPCO2020.pdf" target="_blank" rel="noopener">music Siamese networks</a> or <a href="https://arxiv.org/abs/1411.1784" target="_blank" rel="noopener">conditional GAN</a> to evaluate the similarity between source and generated spectrograms. For analysis of sonification in music generation, a discriminator can be trained to evalute if the music is reasonable, and it can be trained in a supervised manner with millions of real and fake pieces.</p>
+<p>During RL process, we can also fine-tune the sonification system by taking it as an agent. This is left for future studies.</p>
+<h2 id="Topic-4-Follow-the-Music-as-language-line-May-31-2020"><a href="#Topic-4-Follow-the-Music-as-language-line-May-31-2020" class="headerlink" title=" Topic 4: Follow the Music-as-language line (May 31, 2020)"></a><span id="music_as_language"> Topic 4: Follow the Music-as-language line (May 31, 2020)</span></h2><p>In order to avoid reinventing the wheel, we have to ask ourselves ‘is this the things we already done?’ For MIR and computational creativity, chances are that several topics are already explored by NLP reasearchers. However, we also have to find the uniqueness of music, which is not fully explored. Now, we follow the line of compareing music with natural languages:</p>
 <ul>
 <li><p><font color="Crimson" size="3"><strong>Similarity #1: hierarchical structures</strong></font><br>We may be familiar with <strong>the idea of packing: focusing on upper layers, we care little about lower layers</strong>. Now, look at the table below, and you will get intuitions about how music and natural languages have pretty similar hierarchical structures. According to <a href="https://en.wikipedia.org/wiki/Minimalist_program" target="_blank" rel="noopener"><em>The Minimalist Program(Chomsky)</em></a>, ‘such hierarchical structures can be established through the recursive application of rules, analogous to the establishment of hierarchical structures in language’. We shall be curious about: What rules? How to apply recursively? There may be different answers in different tasks. For music, relevant tasks may include word representations for musical elements (e.g. chords, rhythms), generating long-term music structures, modeling the organizations of musical pieces.</p>
 <table>
@@ -258,7 +273,7 @@
 <li><p><font color="Crimson" size="3"><strong>Difference #3: semantics</strong></font><br>Music resists translation, which is proposed in <a href="https://www.jstor.org/stable/431086" target="_blank" rel="noopener">The Range of Musical Semantics</a>. An interesting music based <a href="https://www.ifost.org.au/~gregb/solresol/sorsoeng.htm" target="_blank" rel="noopener"><em>Solresol language</em></a> can be interpreted to have concrete semantics. However, generic musics do not have such mapping rule with natural languages as <em>Solresol</em>. Unlike ‘functional syntactics’, music lacks semantics. I think that the most relevant topics about music semantics are <em>music emotions and lyrics</em>. Applications are music emotion classification, <em>music2text</em>, music conditioned lyric generation and lyric conditioned music generation. I may get familiar with relevant tasks in the future.</p>
 </li>
 </ul>
-<h1 id="Detailed-researches"><a href="#Detailed-researches" class="headerlink" title="Detailed researches"></a>Detailed researches</h1><h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/07/18/lmE1ovrLG2JARxY.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
+<h1 id="Detailed-researches"><a href="#Detailed-researches" class="headerlink" title="Detailed researches"></a>Detailed researches</h1><h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/09/01/FdMnZRsQI9EyhmS.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
 <p>Following the idea of constructing <em>hierarchical syntactic structures</em> with <em>recursive application of rules</em>, I created a string representation method for rhythm patterns… (Paper is available in <a href="https://arxiv.org/pdf/2007.10610.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/2007.10610.pdf</a>!)</p>
 <p><font color="gray">In May 2020, I was doing internship in <a href="http://homepage.fudan.edu.cn/weili/fd-lamt/" target="_blank" rel="noopener">Prof. Wei Li’s LAB: FD-LAMT</a>. In FD-LAMT, I happened to notice that <a href="mailto:dun_1989@163.com" target="_blank" rel="noopener">Lucheng Yan</a>, a postgrad of Prof. Wei Li, was asking a question in FD-LAMT wechat group, and he was asking about training GAN. I contacted him and knew that his motivation was to consider musical priori knowledge in rhythm generation. What he did was enumerating a <strong>BIG rhythm pattern table</strong>, whose elements are frequently-used 8-beat rhythm patterns in 4/4 meter; he further used GAN to generate patterns but failed. I was kind of motivated by this. In one of our discussions, I figured out that I can create a string-based word representation for rhythms rather than enumerating them; and then the machine can learn to summarize such words!</font></p>
 <p>Question is, how to design the recursive rules? Now I brifly introduce it using three examples! <font color="gray">For further information (e.g. how to apply our word representation for rhythm), you can visit <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</font><br><img src="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png" alt="pieces_for_illustration.png"><br>First, I show the result of encoding <strong>segment (a)</strong>:</p>
@@ -376,7 +391,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm_composing</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -384,7 +399,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm_composing</a>
         		</li>
       		
 		</ul>
@@ -492,7 +507,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Research-proposals"><span class="toc-number">1.</span> <span class="toc-text">Research proposals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-1-music-generation-in-a-general-pipeline-July-19-2020"><span class="toc-number">1.1.</span> <span class="toc-text">Topic 1: music generation in a general pipeline (July 19, 2020)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-2-Follow-the-Music-as-language-line-May-31-2020"><span class="toc-number">1.2.</span> <span class="toc-text"> Topic 2: Follow the Music-as-language line (May 31, 2020)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Detailed-researches"><span class="toc-number">2.</span> <span class="toc-text">Detailed researches</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-representation-for-rhythm"><span class="toc-number">2.1.</span> <span class="toc-text">Word representation for rhythm</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Research-proposals"><span class="toc-number">1.</span> <span class="toc-text">Research proposals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-1-music-generation-in-a-general-pipeline-July-19-2020"><span class="toc-number">1.1.</span> <span class="toc-text">Topic 1: music generation in a general pipeline (July 19, 2020)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-2-More-to-do-for-AMT-Aug-13-2020"><span class="toc-number">1.2.</span> <span class="toc-text">Topic 2: More to do for AMT (Aug 13, 2020)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-3-Reinforcement-learning-for-AMT-and-music-generation-Aug-13-2020"><span class="toc-number">1.3.</span> <span class="toc-text">Topic 3: Reinforcement learning for AMT and music generation (Aug 13, 2020)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-4-Follow-the-Music-as-language-line-May-31-2020"><span class="toc-number">1.4.</span> <span class="toc-text"> Topic 4: Follow the Music-as-language line (May 31, 2020)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Detailed-researches"><span class="toc-number">2.</span> <span class="toc-text">Detailed researches</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-representation-for-rhythm"><span class="toc-number">2.1.</span> <span class="toc-text">Word representation for rhythm</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -685,31 +700,27 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pattarn_recognization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CNN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">neural_network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pattarn_recognization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">information_theory</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">communication</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">logic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,11 +732,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color3">BN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
+                <a href="javascript:void(0)" class="js-tag color1">logic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,19 +756,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CNN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">neural_network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm_composing</a>
+                <a href="javascript:void(0)" class="js-tag color1">music</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,7 +772,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">music</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm_composing</a>
               </li>
              
               <li class="article-tag-list-item">
