@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/09/01/tqVn5bpkCYAFxRg.png">
 <meta property="og:image" content="https://i.loli.net/2020/09/01/FdMnZRsQI9EyhmS.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png">
-<meta property="og:updated_time" content="2020-09-01T04:18:45.070Z">
+<meta property="og:updated_time" content="2020-09-08T09:55:36.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My Research Log in 2020">
 <meta name="twitter:description" content="Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my ideas and researches in music tech!   Research proposalsTopic 1: music generation in a general pipeline (July 19, 2020) (In order to make i">
@@ -274,9 +274,9 @@
 </li>
 </ul>
 <h1 id="Detailed-researches"><a href="#Detailed-researches" class="headerlink" title="Detailed researches"></a>Detailed researches</h1><h2 id="Word-representation-for-rhythm"><a href="#Word-representation-for-rhythm" class="headerlink" title="Word representation for rhythm"></a>Word representation for rhythm</h2><p><img src="https://i.loli.net/2020/09/01/FdMnZRsQI9EyhmS.png" alt="my_ideal_pipeline_rhythm_BERT_part.png"><br><font color="gray"> What this task is doing… </font></p>
-<p>Following the idea of constructing <em>hierarchical syntactic structures</em> with <em>recursive application of rules</em>, I created a string representation method for rhythm patterns… (Paper is available in <a href="https://arxiv.org/pdf/2007.10610.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/2007.10610.pdf</a>!)</p>
+<p>Following the idea of constructing <em>hierarchical syntactic structures</em> with <em>recursive application of rules</em>, I created a string representation method for rhythm patterns… <div style="display: none">(Paper is available in <a href="https://arxiv.org/pdf/2007.10610.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/2007.10610.pdf</a>!)</div></p>
 <p><font color="gray">In May 2020, I was doing internship in <a href="http://homepage.fudan.edu.cn/weili/fd-lamt/" target="_blank" rel="noopener">Prof. Wei Li’s LAB: FD-LAMT</a>. In FD-LAMT, I happened to notice that <a href="mailto:dun_1989@163.com" target="_blank" rel="noopener">Lucheng Yan</a>, a postgrad of Prof. Wei Li, was asking a question in FD-LAMT wechat group, and he was asking about training GAN. I contacted him and knew that his motivation was to consider musical priori knowledge in rhythm generation. What he did was enumerating a <strong>BIG rhythm pattern table</strong>, whose elements are frequently-used 8-beat rhythm patterns in 4/4 meter; he further used GAN to generate patterns but failed. I was kind of motivated by this. In one of our discussions, I figured out that I can create a string-based word representation for rhythms rather than enumerating them; and then the machine can learn to summarize such words!</font></p>
-<p>Question is, how to design the recursive rules? Now I brifly introduce it using three examples! <font color="gray">For further information (e.g. how to apply our word representation for rhythm), you can visit <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</font><br><img src="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png" alt="pieces_for_illustration.png"><br>First, I show the result of encoding <strong>segment (a)</strong>:</p>
+<p>Question is, how to design the recursive rules? Now I brifly introduce it using three examples! <div style="display: none"><font color="gray">For further information (e.g. how to apply our word representation for rhythm), you can visit <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</font></div><br><img src="https://i.loli.net/2020/07/22/A5uPeoIVx6lBMqE.png" alt="pieces_for_illustration.png"><br>First, I show the result of encoding <strong>segment (a)</strong>:</p>
 <blockquote>
 <ul>
 <li>Rhythm1a = [“$\langle$BOS$\rangle$”, “$\vert$2/4”, “R0.250,N0.250,N0.500,N0.250,N0.250$\vert$2/4”, “N0.500,N0.500,N0.500,N0.500$\vert$2/4”, “H0.250,N0.250,N0.250,N0.250,N0.250,R0.250,N0.250,N0.250$\vert$2/4”, “H0.333,N0.333,N0.333,N1.000$\vert$2/4”, “$\langle$EOS$\rangle$”]</li>
@@ -317,7 +317,7 @@
 <li>Rhythm1c_indexed = [0,2,13,12,11,3,12,13,12,11,3,12,1]</li>
 </ul>
 </blockquote>
-<p>Now, I finished introducing my rules! You can find my code in my <a href="https://github.com/lucainiaoge/rhythm-word-embedding" target="_blank" rel="noopener">Github repo (https://github.com/lucainiaoge/rhythm-word-embedding)</a> implementing such rules to <a href="https://github.com/jukedeck/nottingham-dataset" target="_blank" rel="noopener">Nottingham Dataset</a>. Again, details about my model and results are shown in <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</p>
+<p>Now, I finished introducing my rules! You can find my code in my <a href="https://github.com/lucainiaoge/rhythm-word-embedding" target="_blank" rel="noopener">Github repo (https://github.com/lucainiaoge/rhythm-word-embedding)</a> implementing such rules to <a href="https://github.com/jukedeck/nottingham-dataset" target="_blank" rel="noopener">Nottingham Dataset</a>. <div style="display: none">Again, details about my model and results are shown in <a href="https://lucainiaoge.github.io/2020/07/21/word-representation-for-rhythm" target="_blank" rel="noopener">another webpage</a>.</div></p>
 
       
 	  
@@ -479,8 +479,8 @@
     </a>
   
   
-    <a href="/2020/07/21/word-representation-for-rhythm/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Word Representation for Rhythm</div>
+    <a href="/2020/07/18/personal-page/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Welcome! I am Tongyu Lu! 我是路通宇!</div>
       <i class="icon-circle-right"></i>
     </a>
   
