@@ -6,23 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>Intuition for Statistical Inference | Lucainiao&#39;s blog</title>
+  <title>Linear-upper-coverage Algorithm for Peak Finding | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
-<meta name="keywords" content="machine_learning">
+  <meta name="description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which in">
+<meta name="keywords" content="math">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intuition for Statistical Inference">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/2020/08/03/intuition-for-statistical-inference/index.html">
+<meta property="og:title" content="Linear-upper-coverage Algorithm for Peak Finding">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
+<meta property="og:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which in">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png">
-<meta property="og:image" content="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png">
-<meta property="og:updated_time" content="2020-08-07T08:30:30.042Z">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/8I9Dcbk451fXqvp.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/P4pVHFzLuqvjTtQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/xaNzrKp34MEDJ7T.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/unDvZ8GWTBLEY4b.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/10/HYt1xgTnPkMKsZ6.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/11/9sZRka3xNpoSD48.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/11/mPtEWRMUb7NDukz.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png">
+<meta property="og:updated_time" content="2020-10-11T15:55:00.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intuition for Statistical Inference">
-<meta name="twitter:description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
-<meta name="twitter:image" content="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png">
+<meta name="twitter:title" content="Linear-upper-coverage Algorithm for Peak Finding">
+<meta name="twitter:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which in">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -159,7 +166,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-intuition-for-statistical-inference" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linear-upper-coverage-algorithm-for-peak-finding" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -168,8 +175,8 @@
 	  
         
         
-        <a href="/2020/08/03/intuition-for-statistical-inference/" class="archive-article-date">
-  	<time datetime="2020-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+        <a href="/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/" class="archive-article-date">
+  	<time datetime="2020-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-10</time>
 </a>
         
       </header>
@@ -180,7 +187,7 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      Intuition for Statistical Inference
+      Linear-upper-coverage Algorithm for Peak Finding
     </h1>
   
 </p></center>
@@ -190,60 +197,143 @@
 <div id="content"></div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>In a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A little bit hard to understand? Hope that this article can help you understand that…</p>
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>I came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which inspired me to come up with this idea: Linear-upper-coverage (LUC), which divides the peak finding problem into linear optimization subtasks.</p>
 <a id="more"></a>
 
-<ul>
-<li><strong>An example: pictures</strong></li>
-</ul>
+<h1 id="Problem-Definition-and-Motivation"><a href="#Problem-Definition-and-Motivation" class="headerlink" title="Problem Definition and Motivation"></a>Problem Definition and Motivation</h1><h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>How to find the peaks in <a href="#original_curve">the following curve</a>?</p>
+<p><span id="original_curve"> <img src="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png" alt="Original Curve.png"> </span></p>
+<p>If we manually mark the peaks, the result may normally look like <a href="#original_curve_manual_maxima">the following figure</a>?</p>
+<p><span id="original_curve_manual_maxima"> <img src="https://i.loli.net/2020/10/10/8I9Dcbk451fXqvp.png" alt="Original_Curve_manually_find.png"> </span></p>
+<p>However, how to design an algorithm to robustly find the desired peaks (local maxima)?</p>
+<p>To answer this question, we have to ask ourselves: what is a desired peak?</p>
+<p>If we just want every local maxima, we may get <a href="#original_curve_all_maxima">this  following result</a>:</p>
+<p><span id="original_curve_all_maxima"> <img src="https://i.loli.net/2020/10/10/P4pVHFzLuqvjTtQ.png" alt="Original_Curve_all_maxima.png"> </span></p>
+<p>And according to our current definition of “desired peak”, this ugly result is correct.</p>
+<p>Therefore, you may be willing to design an algorithm which is adaptable according to our variable definitions for a “desired peak”.</p>
+<h2 id="What-Inspired-Me"><a href="#What-Inspired-Me" class="headerlink" title="What Inspired Me"></a>What Inspired Me</h2><p>Well, despite the inspiring problem I have illustrated in the previous section, another incentive for my idea is <a href="#wheel_olling_analogy">a rolling wheel on a coarse road</a>:</p>
+<p><span id="wheel_olling_analogy"> <img src="https://i.loli.net/2020/10/10/xaNzrKp34MEDJ7T.png" alt="wheel_rolling_analogy.png"> </span></p>
+<p>As you can see: the centroid of the wheels form up a much smoother curve (although still a little bumping) than the original curve. However, several insignificant local maxima are still troublesome. And it is also a little bit hart do model a wheel rolling on a coarse road with a few lines of codes. So how to improve this idea?</p>
+<p>I was lucky to be playing LIMBO the previous day, and <a href="#LIMBO_scene">one scene in the vedio game LIMBO</a> just struck me:</p>
+<p><span id="LIMBO_scene"> <img src="https://i.loli.net/2020/10/10/unDvZ8GWTBLEY4b.png" alt="limbo_analogy.png"> </span></p>
+<p>Notice the the red arrows: there are tiles covering the roof/hill (whatever it looks like as it is dark).</p>
+<p>So, why not cover our curve with tiles? I drew the following picture to show my idea of tile-covering:</p>
+<p><img src="https://i.loli.net/2020/10/10/HYt1xgTnPkMKsZ6.png" alt="basic_illustration.png"></p>
+<p>First, divide the x-axis into intervals; second, cover the curves in each intervals with tiles; third, find the centroid of each tile; finally, use the centroid scatters to find the local maxima.</p>
+<p>Notice that we can cover over curve with tiles of different lengths, which is equivilant our variable definitions on “desired peak”: if we use short tiles, we will be more sensitive to small local maxima, while long tiles will ignore the local maxima which are insignificant in terms of a smaller measure on $x$.</p>
+<p>Now comes the question: how to implement this idea?</p>
+<h1 id="From-Peak-Finding-to-Linear-Optimization"><a href="#From-Peak-Finding-to-Linear-Optimization" class="headerlink" title="From Peak Finding to Linear Optimization"></a>From Peak Finding to Linear Optimization</h1><h2 id="Deriving-the-Basic-Formulation"><a href="#Deriving-the-Basic-Formulation" class="headerlink" title="Deriving the Basic Formulation"></a>Deriving the Basic Formulation</h2><p>As the title of this section suggests, I utilized linear optimization to solve the problem. Among the four steps in the previous section, you may notice that the phrase “over the curves in each intervals with tiles” is not clearly defined. How can we cover a curve with a tile? Here is where linear optimization comes into being:</p>
+<p>Suppose we got an interval $x \in [x_i,x_{i+1}]$, where a 1-D curve $f(x)$ is defined. The tile is depicted as $l_i(x)=a_i x+b_i$. Obviously, we must have $f(x) \leq l_i(x), \forall x \in [x_i,x_{i+1}]$. With this constraint, we want to find the parameters $(a_i,b_i)$ such that the tile seems to cover the curve.</p>
+<p>Newton’s laws suggest: if you put an object in a gravitatio, it is stable when its gravitational potential energy reaches its minimum. If we assume that the density of our tiles is uniformly distributed, we can conclude that the tile’s gravitational potential energy can be calculated by a particle locating at its centroid, which is $(x_i^c,y_i^c)=(\frac{x_i+x_{i+1}}{2},l_i(\frac{x_i+x_{i+1}}{2}))$. Therefore, we get our objective function: $l_i(\frac{x_i+x_{i+1}}{2}))=a_i\frac{x_i+x_{i+1}}{2}+b_i$.</p>
+<p>To sum up, we get the linear optimization problems:</p>
 <blockquote>
-<p>Suppose you are studying digital pictures $x \in \pmb{R^{M\times M}}$. Accordingly, its distribution is $p_G(x): pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$. One of our goals is to find exactly the subspace $\pmb{X_{G}}\subseteq\pmb{R^{M\times M}}$ where the pictures $x \in \pmb{X_{G}}$ look like hand-written numbers (correspondingly, $\pmb{X_{G}}$ is the space where the ${M\times M}$ hand-written number pictures are defined). Again, our mission is to find the  $p_G(x): pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$ given a hand-written number dataset $\pmb{X_{s}}$.</p>
+<p>$\forall i=1,2,…$, solve the linear programming problem within interval $[x_i,x_{i+1}]$:<br>$$min_{a_i,b_i} \quad a_i\frac{x_i+x_{i+1}}{2}+b_i $$ $$s.t. f(x) \leq a_i x+b_i, \forall x \in [x_i,x_{i+1}]$$</p>
 </blockquote>
+<p>And I may call it linear-upper-coverage (LUC) algorithm. I chose this name partly because my family name is LU…</p>
+<p>Notice that there are infinite constraints, which are intractable. One intuitive way is to sample the interval $x \in [x_i,x_{i+1}]$ to get $x_{i}^{k} \in [x_i,x_{i+1}], \forall k=1,2,…,K$. And consequently, the linear constraints become: $$f(x_{i}^{k}) \leq a_i x_{i}^{k}+b_i, \forall k=1,2,…,K$$</p>
+<p>Until now, we are able to solve that linear optimization problem with inequality constraints! Feel free to recall the classical linear programming algorithms like simplex method!</p>
+<h2 id="Interval-Partitions-can-be-Variable"><a href="#Interval-Partitions-can-be-Variable" class="headerlink" title="Interval Partitions can be Variable"></a>Interval Partitions can be Variable</h2><p>You may noticed that although I divided the x-axis equally, the lengths of tiles are not the same. Is it necessary to set the tile lengths all the same? This is actually about the choosing the segmentation strategy, i.e. the procedure to get $[x_i,x_{i+1}], i=1,2,…$</p>
+<p>Therefore, if restricted to linear coverage, the most configurable aspect is the segmentation strategy. Not only can we segment in equal length, we can also segment in a log-scale, or even sample randomly. Different segmentation strategy lead to different definitions of “desired peak”.</p>
+<p>Moreover, we can cover the curve with actually whatever function we like: circles, ovels etc. I chose lines because they look more simple and intuitive. What about other elements? It might be worth trying…</p>
+<h2 id="The-Overlap-Version-of-LUC"><a href="#The-Overlap-Version-of-LUC" class="headerlink" title="The Overlap Version of LUC"></a>The Overlap Version of LUC</h2><p>It is not necessary to assume the intervals do not overlap. Therefore, we can get our new formulation:</p>
 <blockquote>
-<p>We take $\pmb{X_{G}}$ as the “God/Ground-truth dataset” and $\pmb{X_{s}} \subseteq \pmb{X_{G}}$ as the “observation dataset” (e.g. MNIST).</p>
+<p>$\forall i=1,2,…$, sample data points $x_i^c\in D$, where $D$ is the definition set of $f$. Solve the linear programming problem within interval $[x_i^c-(\Delta x_i)^{-},x_i^c+(\Delta x_i)^{+}]$:<br>$$min_{a_i,b_i} \quad a_i(x_i^c+\frac{(\Delta x_i)^{+}-(\Delta x_i)^{-}}{2})+b_i $$ $$s.t. f(x) \leq a_i x+b_i, \forall x \in [x_i^c-(\Delta x_i)^{-},x_i^c+(\Delta x_i)^{+}]$$</p>
 </blockquote>
-<p>Now, question is: how to fit to that God/Ground-truth distribution? Well… For each question, we have to represent it before we solve it. In this article, I try to represent it clearly.</p>
-<p>This article does not try to solve those questions explicitly. The aim of this article is to remind you what you are really doing when you get lost in some annoying math works.</p>
-<p>By the way, why it is important to estimate $p_G(\pmb{x})$? Because once we know $p_G(\pmb{x})$, we can do such things: 1. to judge whether a given data point $x_0$ belongs to our distribution $p_G(\pmb{x})$, and then we can do classification; 2. to sample data points according to $p_G(\pmb{x})$, and then we can do generation!</p>
-<h1 id="The-Variational-Problem"><a href="#The-Variational-Problem" class="headerlink" title="The Variational Problem"></a>The Variational Problem</h1><p>We have already been familiar with this form: given a vector space $X$ (e.g. $X=\lbrace 0,1,2 \rbrace$) and a function $f$ (e.g. $f(x)=x^2$), we want to solve<br>$$\mathrm{argmax}_{x∈X} f(x)$$<br>What about the argmax problem which finds the optimum function? i.e. given a function space $\mathcal{F}$ (e.g. $\mathcal{F}=\lbrace f: f(x)=x^2+c,c\in \pmb{R} \rbrace$) and a <strong>functional</strong> $F: \mathcal{F}→\pmb{R}$ (e.g. $F[f]=\int_0^1 f^2(x)dx$), we want to calculate:</p>
-<p>$$\mathrm{argmin}_{f∈\mathcal{F}} F[f]$$</p>
-<p>This problem is called a <strong>variational problem</strong>, which aims to find a function $f∈\mathcal{F}$ which minimizes/maximizes a functional $F$.</p>
-<p>We have already encountered this kind of problem in information theory!<br>For example, we have already found the “discrete maximum entropy”</p>
-<p>$$\mathrm{argmax}_{p∈\mathcal{P}} H[p]$$</p>
-<p>If $\mathcal{P}= \lbrace AllDiscreteDistributionsWith\quad M \quad Values \rbrace$, and $H[p(x)]=\sum_{x}p(x)  \mathrm{log}⁡ \frac{1}{p(x)}$, then </p>
-<p>$$\mathrm{argmax}_{p∈\mathcal{P}} H[p]=U(x)$$</p>
-<p>where, $U(x)$ is the uniform distribution on $M$ possible discrete values.</p>
-<h1 id="The-Statistical-Inference-Variational-Problem"><a href="#The-Statistical-Inference-Variational-Problem" class="headerlink" title="The Statistical Inference Variational Problem"></a>The Statistical Inference Variational Problem</h1><h2 id="Problem-definitions"><a href="#Problem-definitions" class="headerlink" title="Problem definitions"></a>Problem definitions</h2><p>What we want to do is: given data $\pmb{x}$, we want to approximate its distribution $p_G(\pmb{x})$. i.e. we want to solve this variational problem:</p>
-<p>$$p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$$</p>
-<p>The term $p_G (\pmb{x})$ means the God’s distribution of data $\pmb{x}$, or the “Ground truth distribution”. Well, I have to say that we assumed that there is a ground truth (or GOD!), which is our philosophical point of view.<br>Now is the problem:</p>
+<h1 id="Proof-that-LUC-Has-Smooth-Effects-Convex-Case"><a href="#Proof-that-LUC-Has-Smooth-Effects-Convex-Case" class="headerlink" title="Proof that LUC Has Smooth Effects: Convex Case"></a>Proof that LUC Has Smooth Effects: Convex Case</h1><p>If we want to prove that an algorithm can smoothify a curve, we have to prove that the algorithm dampens the high-frequency components in certain ways.</p>
+<p>The main challenge to prove this for LUC is that there are linear-programming calculations in each interval, which is non-trivial. I find it difficult to prove this even convex constraint is considered.</p>
+<h2 id="Two-Lemmas-with-Proof"><a href="#Two-Lemmas-with-Proof" class="headerlink" title="Two Lemmas with Proof"></a>Two Lemmas with Proof</h2><p>I start from the (lower) convex segments defined in $[x_i,x_{i+1}]$:<br>$$f(\lambda x_i+(1-\lambda) x_{i+1})\leq \lambda f(x_i)+(1-\lambda) f(x_{i+1}), \forall 0\leq \lambda \leq 1$$</p>
+<p>Intuitively, we can reach the following conclusion:</p>
+<p><font color="Crimson" size="4"><strong>Lemma 1 (LUC for convex function):</strong></font><font color="DarkRed" size="3"> if $f:[x_i,x_{i+1}]\rightarrow \pmb{R}$ is convex in $[x_i,x_{i+1}]$, then the optimum LUC function becomes $l_i^{\star}(x)=\frac{f(x_i)-f(x_{i+1})}{x_i-x_{i+1}} (x-\frac{x_i+x_{i+1}}{2}) + \frac{f(x_i)+f(x_{i+1})}{2}$</font></p>
+<p><font color="Gray" size="3"><strong>Proof:</strong><br>①First prove that the given $l_i^{\star}$ obeys the constraints of LUC linear programming.<br>That constraint is: $f(x) \leq l_i(x), \forall x \in [x_i,x_{i+1}]$. If we apply $l_i^{\star}$ to that constraint, we just need to prove: $f(x) \leq l_i^{\star}(x), \forall x \in [x_i,x_{i+1}]$.<br>Plug in the convex assumption on $f(x)$ and we get: $f(\lambda x_i+(1-\lambda) x_{i+1})\leq \lambda f(x_i)+(1-\lambda) f(x_{i+1}), \forall 0\leq \lambda \leq 1$.<br>As $f(x_i) \leq l_i^{\star}(x_i)$ and $f(x_{i+1}) \leq l_i^{\star}(x_{i+1})$, we get $\lambda f(x_i)+(1-\lambda) f(x_{i+1})\leq \lambda l_i^{\star}(x_i)+(1-\lambda) l_i^{\star}(x_{i+1}) = l_i^{\star}(\lambda x_i+(1-\lambda) x_{i+1})$.<br>Therefore, we proved that $f(x) \leq l_i^{\star}(x), \forall x \in [x_i,x_{i+1}]$ is true.<br>②Then prove that $l_i^{\star}$ is the optimum.<br>Recall that the objective function is $l_i(\frac{x_i+x_{i+1}}{2}) = a_i\frac{x_i+x_{i+1}}{2}+b_i$.<br>If we want to decrease the objective value $l_i(\frac{x_i+x_{i+1}}{2})=\frac{l_i(x_i)+l_i(x_{i+1})}{2}$, either $l_i(x_i)$ or $l_i(x_{i+1})$ should be decreased.<br>However, according to the constraints, $f(x_i) \leq l_i(x_i)$ and $f(x_{i+1}) \leq l_i(x_{i+1})$: once we have $f(x_i) = l_i^{\star}(x_i)$ and $f(x_{i+1}) = l_i^{\star}(x_{i+1})$, we can assert that $l_i^{\star}$ reaches the optimum, for neither $l_i^{\star}(x_i)$ or $l_i^{\star}(x_{i+1})$ can be decreased. □<br></font></p>
+<p>On the other hand, if we assume that $f(x)$ is bounded in interval $[x_i,x_{i+1}]$, it is also intuitive to reach the following conclusion:</p>
+<p><font color="Crimson" size="4"><strong>Lemma 2 (existance of LUC solutions and tightness):</strong></font><font color="DarkRed" size="3"> if $f(x)$ is bounded in interval $[x_i,x_{i+1}]$, then:<br>there are at least two zero-slackness LUC constraints at $x_i^{-}$ and $x_i^{+}$ ($x_i^{-}&lt;x_i^{+}$); or in other words, $f(x_i^{-})=l_i^{\star}(x_i^{-})$ and $f(x_i^{+})=l_i^{\star}(x_i^{+})$.</font></p>
+<p><font color="Gray" size="3"><strong>Proof:</strong><br>①First prove that there is at least one optimum solution for the LUC problem.<br>As $f(x)$ is bounded in interval $[x_i,x_{i+1}]$, assume that $m&lt;f(x)&lt;M_1&lt;M_2$, there exists $l_i(x)=a_i x+b_i$ such that $M_2&gt;l_i(x_i)&gt;M_1&gt;f(\forall x)$ and $M_2&gt;l_i(x_{i+1})&gt;M_1&gt;f(\forall x)$. Therefore, feasible region is not empty.<br>On the other hand, there exists $l_i(x)=a_i x+b_i$ such that $m&lt;f(x_i)\leq l_i(x_i)$ and $m&lt;f(x_{i+1})\leq l_i(x_{i+1})$. This is to say, the objective $\frac{l_i(x_i)+l_i(x_{i+1})}{2}&gt;m$. Therefore, the objective cannot be arbitrarily small.<br>In sum, there is at least one optimum solution for the LUC problem.<br>②Then prove that the optimum solution lead to zero slackness. Recall the <a href="https://link.springer.com/referenceworkentry/10.1007/1-4020-0611-x_140" target="_blank" rel="noopener">complementary slackness theorem</a>:<br>Given a standard LP problem $$min\quad cx, \quad s.t. \quad Ax \geq  b$$ and its dual problem $$max\quad b^T y, \quad s.t. \quad A^T y \leq  c^T$$ Definition of slackness of the $k^{th}$ constraint is $s_k = A_k x - b_k$.<br>The complementary slackness theorem says that if a feasible solution $x_0$ is optimum (which exists because of ①), and its corresponding dual solution is $y_0$ is also optimum, then $x_0^T (c-A^T y_0)=0$ and $y_0^T (A x_0 - b)=0$.<br>Therefore, for those $y_0^k \neq 0$, we must have $A_k x_0 - b_k = 0, k \in \lbrace k:y_0^k \neq 0 \rbrace$. As a result, $s_k = A_k x_0 - b_k = 0,k \in \lbrace k:y_0^k \neq 0 \rbrace$.<br>Translate this into LUC context: $x_0=(a_{i}^{\star},b_{i}^{\star})$, $A=[x_i^{[1:K]},ones(1,K)^T]$, $c=[\frac{x_i+x_{i+1}}{2},1]$ and $b=[f(x_i^1),…,f(x_i^K)]^T$. The “$y_0^k$” in LUC cannot be all zero, or otherwize $c=0$, which is not true. Therefore, there always exists $k$ such that “$A_k x_0 - b_k = 0$”, which is actually $f(x_i^k)=l_i^{\star}(x_i^k)$ (the $k^{th}$ constraint), leading to zero slackness.<br>③Finally, according to the convexity of linear feasible region, the optimum solution touches the vertex of that region. As we know, the vertex of a region is an intersection of two lines, referring to two different constraints. Therefore, if there are at least two constraints which have zero slackness. □<br></font></p>
+<h2 id="Explore-the-Effects-of-LUC-on-DTFT-Spectrum"><a href="#Explore-the-Effects-of-LUC-on-DTFT-Spectrum" class="headerlink" title="Explore the Effects of LUC on DTFT Spectrum"></a>Explore the Effects of LUC on DTFT Spectrum</h2><p>Now, we have all the ingradients! What is left is to describe our problem in a proper way. Consider a uniformally-sampled sequence of $f(x)$, which is written as $[f_i] = [f_1,f_2,…] = [f(x_1),f(x_2),…]$.<br>Without downsampling, we do LUC for each interval centered with the $i^{th}$ point, i.e. the interval $[x_i-\Delta x,x_i+\Delta x]$. It is also OK to write this interval as $[x_{i-\Delta i},x_{i+\Delta i}]$ because of equal-partition.</p>
+<p>Therefore, we have the LUC problem formally:</p>
 <blockquote>
-<ul>
-<li>Problem 1: How to define the functional (distance between distributions) $D[p(\pmb{x}),p_G (\pmb{x})]$?</li>
-<li>Problem 2: How to define the function space $\mathcal{F}$?</li>
-</ul>
+<p>$$min_{a_i,b_i} \quad a_i x_i+b_i $$ $$s.t. f(x) \leq a_i x+b_i, \forall x \in [x_{i-\Delta i},x_{i+\Delta i}]$$</p>
 </blockquote>
-<h3 id="Problem-1-where-the-“Maximum-Likelihood”-comes-from"><a href="#Problem-1-where-the-“Maximum-Likelihood”-comes-from" class="headerlink" title="Problem 1: where the “Maximum Likelihood” comes from"></a>Problem 1: where the “Maximum Likelihood” comes from</h3><p>Problem 1: how to find the functional (distance between distributions) $D[p(\pmb{x}),p_G (\pmb{x})]$? Note that we do not know the GOD distribution i.e. $p_G(\pmb{x})$. Thus, it is impossible to calculate this functional by directly calculating the distance between $p(\pmb{x})$ and GOD distribution. However, there is an easy way to define $D[p(\pmb{x}),p_G (\pmb{x})]$ as:<br>$$D[p(\pmb{x}),p_G (\pmb{x})]≜\mathrm{log}⁡p(\pmb{x})$$(Other ways include estimating the momentums or other sufficient statistics. Those are out of the current scope.)<br>For i.i.d. data $\pmb{x}$, we can even write $\mathrm{log}⁡p(\pmb{x})$ as $\mathrm{log}⁡p(\pmb{x})=\sum_{i=1}^N \mathrm{log}⁡p(x_i)$<br>The term $\mathrm{log}⁡p(\pmb{x})$ is called as “log-likelihood”, and the variational problem $p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$ is called “maximum likelihood”, which we have already been familiar with.<br>(Note that in the scheme of “maximum likelihood”, we did not consider $p_G (\pmb{x})$ explicitly. We assumed that if $\pmb{x}$ is from the ground-truth, $p_G (\pmb{x})$ should always be larger or equal than other $p(\pmb{x})$. We tend to think that “what we see is GOD”. Or in other words, “data (what we observed) are all we know, and we cannot do better unless we know more information (more data, or more observations)”. The “<a href="https://en.wikipedia.org/wiki/Method_of_moments" target="_blank" rel="noopener">momentum estimation method</a>” directly applies this philosophical assumption, i.e. calculating the distances between moments in order to make $p(\pmb{x})$ as near as  $p_G (\pmb{x})$.)</p>
-<h3 id="Problem-2-to-parameterize-or-not-to"><a href="#Problem-2-to-parameterize-or-not-to" class="headerlink" title="Problem 2: to parameterize or not to"></a>Problem 2: to parameterize or not to</h3><p>Well… For problem 2, we have two ways: to parameterize or not.<br>What is parameterization? I use an example to illustrate that:<br>Suppose the data $\pmb{x}$ are 1D. And we assume the function space is Gaussian, i.e. $\mathcal{F}=\lbrace AllOneDimGaussianPDFs \rbrace$. We can easily write $\mathcal{F}$ in the form of the space of its sufficient statistics (i.e. $\mu$ and $\sigma$). In other words, the space $\Theta=\pmb{R}\times\pmb{R^+}$ is actually the function space $\mathcal{F}$. And there exists a unique Gaussian Function $G:\Theta→\mathcal{F}$ such that for any $(\mu,\sigma)∈\Theta$, $G(\mu,\sigma)=f(x\vert \mu,\sigma)∈\mathcal{F}$<br>In this case, we parameterized $\mathcal{F}$ with $\Theta$, with the distribution assumption $P:\Theta→\mathcal{F}$. In other words, $\Theta$ are the parameters which control the function space. Thus, the variational problem<br>$$p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$$</p>
-<p>can be written as an argmax problem for parameters:</p>
-<p>$$\theta^*=\mathrm{argmax}_{\theta∈\Theta} D[f(\pmb{x}\vert\theta),p_G (\pmb{x})]$$</p>
-<p>$$p^* (\pmb{x})=P(\theta^* )$$</p>
-<p>Of course, we can search the $\mathcal{F}$ directly without introducing $\Theta$ and $P:\Theta→\mathcal{F}$. How to search $\mathcal{F}$ given $\pmb{x}$? There are also various ways (e.g. $k-means$). However, we are not talking about those methods right now.</p>
-<h3 id="A-statement-for-a-challenge-how-to-find-the-God-bias-vs-variance"><a href="#A-statement-for-a-challenge-how-to-find-the-God-bias-vs-variance" class="headerlink" title="A statement for a challenge: how to find the God - bias vs. variance"></a>A statement for a challenge: how to find the God - bias vs. variance</h3><p>How to assume a nice function space $\mathcal{F}$ such that the $p^* (\pmb{x})∈\mathcal{F}$ is easy to find and that $D[p(\pmb{x}),p_G (\pmb{x})]$ is relatively small? In other words, the function space $\mathcal{F}$ (or parameter space $\Theta$ in the case of parameterization) should satisfy such properties in order to be a good one:</p>
-<blockquote>
+<p>According to Lemma 2, there are at least two points $x_i^{-}$ and $x_i^{+}$ such that $f(x_i^{-})=l_i^{\star}(x_i^{-})$ and $f(x_i^{+})=l_i^{\star}(x_i^{+})$. We can  subsequently determine $l_i^{\star}$ with those two points: $$a_i^{\star} = \frac{f(x_i^{-})-f(x_i^{+})}{x_i^{-}-x_i^{+}}$$ $$l_i^{\star}(x) = a_i^{\star}(x-\frac{x_i^{-}+x_i^{+}}{2})+\frac{f(x_i^{-})+f(x_i^{+})}{2} \quad (*)$$</p>
+<p>Consequently, I write the LUC version of uniformally-sampled sequence as $[f_i^{\star}] = [f_1^{\star},f_2^{\star},…] = [l_1^{\star}(x_1),l_2^{\star}(x_2),…]$</p>
+<p>Assume that $f(x)$ is convex in each interval $[x_{i-\Delta i},x_{i+\Delta i}]$ (no need to be convex in the overall definition interval). Then calculate the DTFT for both $[f_i]$ and $[f_i^{\star}]$:<br>$$F(\omega) = {\rm DTFT}[f_i] = \sum_i f_i e^{\sqrt{-1}\omega i} \quad ①$$ $$F^{\star}(\omega) = {\rm DTFT}[f_i^{\star}] = \sum_i f_i^{\star} e^{\sqrt{-1}\omega i} = \sum_i [a_i^{\star}(x_i-\frac{x_i^{-}+x_i^{+}}{2})+\frac{f(x_i^{-})+f(x_i^{+})}{2}] e^{\sqrt{-1}\omega i} \quad ②$$</p>
+<p>According to the convexity assumption, we can apply Lemma 1, which says that $l_i^{\star}(x)=\frac{f(x_{i-\Delta i})-f(x_{i+\Delta i})}{x_{i-\Delta i}-x_{i+\Delta i}} (x-\frac{x_{i-\Delta i}+x_{i+\Delta i}}{2}) + \frac{f(x_{i-\Delta i})+f(x_{i+\Delta i})}{2}$</p>
+<p>Compare this with $(*)$ and we will get $x_i^{-}=x_{i-\Delta i}$ and $x_i^{+}=x_{i+\Delta i}$.</p>
+<p>Plug this conclusion into $②$ and also apply the equality that $x_i = \frac{f(x_{i-\Delta i})+f(x_{i+\Delta i})}{2}$, we will get:<br>$F^{\star}(\omega) = {\rm DTFT}[f_i^{\star}] = \sum_i \frac{f(x_{i-\Delta i})+f(x_{i+\Delta i})}{2} e^{\sqrt{-1}\omega i}$<br>$= \sum_i \frac{f_{i-\Delta i}+f_{i+\Delta i}}{2} e^{\sqrt{-1}\omega i}$<br>$= \frac{1}{2}({\rm DTFT}[f_{i-\Delta i}] + {\rm DTFT}[f_{i+\Delta i}])\quad ③$</p>
+<p>We know that ${\rm DTFT}[f_{i-\Delta i}]=\sum_i f_{i-\Delta i}e^{\sqrt{-1}\omega i}=\sum_i f_{i}e^{\sqrt{-1}\omega (i+\Delta i)}=e^{\sqrt{-1}\omega \Delta i}\sum_i f_{i}e^{\sqrt{-1}\omega i}=e^{\sqrt{-1}\omega \Delta i}{\rm DTFT}[f_{i}]$</p>
+<p>Therefore, $③$ becomes $$F^{\star}(\omega) = {\rm DTFT}[f_i^{\star}] = \frac{1}{2}[e^{\sqrt{-1}\omega \Delta i}+e^{-\sqrt{-1}\omega \Delta i}]F(\omega) = F(\omega){\rm cos}(\omega \Delta i) \quad ④$$</p>
+<p>Finally, we can reach from $④$ that $\vert F^{\star}(\omega) \vert = \vert F(\omega)\vert \vert {\rm cos}(\omega \Delta i)\vert \leq \vert F(\omega)\vert$</p>
+<p>Due to the continuity of ${\rm cos}(\omega \Delta i)$, when $\omega$ is near zero, $F^{\star}(\omega)$ is near $F(\omega)$; but when $\omega$ is far from zero, $F^{\star}(\omega)$ will be dampened. Of course, the choice of $\Delta i$ is also a factor controlling such influence.</p>
+<h1 id="LUC-Smooth-Effects-Other-Cases"><a href="#LUC-Smooth-Effects-Other-Cases" class="headerlink" title="LUC Smooth Effects: Other Cases"></a>LUC Smooth Effects: Other Cases</h1><p>In the previous section, we discussed the LUC for a convex segment. More importantly, we proved Lemma 2, which guarentees the existance of solution, and even gives the exact solution: $$a_i^{\star} = \frac{f(x_i^{-})-f(x_i^{+})}{x_i^{-}-x_i^{+}}$$ $$l_i^{\star}(x) = a_i^{\star}(x-\frac{x_i^{-}+x_i^{+}}{2})+\frac{f(x_i^{-})+f(x_i^{+})}{2} \quad (*)$$</p>
+<p>But it did not touch the essencial case of the tile covering a rugged curve whose convexity is ill defined.</p>
+<p>My plan is to find candidates in that rugged curve, from which we select two of them as $x_i^{-}$ and $x_i^{+}$ to determine our final result.</p>
+<p>Before delving into this, we look at several examples…</p>
+<h2 id="Intuitive-Examples"><a href="#Intuitive-Examples" class="headerlink" title="Intuitive Examples"></a>Intuitive Examples</h2><p>There are different curves and we will cover each of those with a line.</p>
+<p><img src="https://i.loli.net/2020/10/11/9sZRka3xNpoSD48.png" alt="examples_raw.png"></p>
+<p>Case (c) is a convex, whose solution is that its  $x_i^{-}$ and $x_i^{+}$ are actually the endpoints, which has already been proven.<br>Case (a) and (b) are concave cases, which are intuitively different from the convex case.<br>Case (d),(e) and (f) are rugged cases.<br>Case (g),(h) and (i) are combinitions of convex and concave segments. (h) and (i) has local maxinima, while (g) is monotonic.</p>
+<p>Think for a while about the results…<br>And then, I give my intuitions:</p>
+<p><img src="https://i.loli.net/2020/10/11/mPtEWRMUb7NDukz.png" alt="examples_tentative.png"></p>
+<p>My finding is that: the candidate points (marked in orange) are such points:</p>
 <ol>
-<li>there exists $p^* (\pmb{x}))∈\mathcal{F}$ such that $D[p(\pmb{x}),p_G (\pmb{x})]$ is small, i.e. $\mathrm{E}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small;</li>
-<li>$D[p(\pmb{x}),p_G (\pmb{x})]$ cannot be too unstable, i.e. $\mathrm{Var}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small.</li>
+<li>The points around local maximima</li>
+<li>The points around endpoints $X_i=(x_i,f(x_i))$ and $X_{i+1}=(x_{i+1},f(x_{i+1}))$</li>
+<li>The curve point $P$ such that the slope of $PX_i$ reaches maximum; the curve point $Q$ such that the slope of $PX_{i+1}$ reaches minimum</li>
+</ol>
+<h2 id="Designing-a-Candidate-Set-Algorithms"><a href="#Designing-a-Candidate-Set-Algorithms" class="headerlink" title="Designing a Candidate-Set Algorithms"></a>Designing a Candidate-Set Algorithms</h2><p>My intuition leads to an algorithm to find the candidate points:</p>
+<p>First, deal with the problem of finding local maximima:</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 1 (finding local maxima):</strong></font><font color="DarkRed" size="3"> $r=locmax(f)$</font><br>(1-based indexing is used) Given sample squence $f = [f_1,f_2,…,f_k,…,f_K]_{1\times K}$</p>
+<ol>
+<li>initialize a buffer $b = [1,0,…,0,…,0,0]_{1\times (K+1)}$</li>
+<li>initialize the result $r = [0,0,…,0,…,0]_{1\times K}$</li>
+<li>for $k=1,2,…,K-1$:</li>
+<li>$\quad$ $b_{k+1} = bool(f_k \geq f_{k+1})$</li>
+<li>for $k=1,2,…,K$:</li>
+<li>$\quad$ $r_{k} = b_k·\overline{b_{k+1}}$</li>
+<li>return $r$</li>
 </ol>
 </blockquote>
-<p>If $\mathrm{E}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space F is of small bias compared with the GOD’s function $p_G (\pmb{x})$;</p>
-<p>If $\mathrm{Var}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space $\mathcal{F}$ is of small variance compared with the GOD’s function $p_G (\pmb{x})$, or that our model $p^* (\pmb{x})$ has a good ability to generalize. The term “generalize” means that no matter what data $\pmb{x}$ is given, the difference between $p^* (\pmb{x})$ and $p_G (\pmb{x})$ will not change too much.</p>
-<p>Intuition from Hung-yi Lee: see the pictures in<br>[<a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf]" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf]</a></p>
-<p><img src="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png" width="50%" height="50%"><img src="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png" width="50%" height="50%"></p>
-<p>Each “sample point $p_s^* (\pmb{x})$” is actually an instance of $p_s^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$, where $\pmb{x}\in\pmb{X_s}$, and $\pmb{X_s}$ (e.g. MNIST) is a subset of the God data set $X_G$ (e.g. all possible  pictures of handwritten numbers).</p>
-<h2 id="Afterwards…"><a href="#Afterwards…" class="headerlink" title="Afterwards…"></a>Afterwards…</h2><p>You have already got an intuition of our challenges. Now, time to solve the challenges! Of course, for several specific problems, simple models are enough! For example, if we want to fit a Gaussian distribution, the most convenient way is to calculate the mean and variance of the dataset (observation). However, most problems are complex in reality. We have to design models which can deal with such complexity.</p>
-<p>A genious way is to introduce Latent Variables to make our models more powerful. We assume that the Latent Variables can reveal the underlying modes of our observations. How to calculate the Latent Variables and find the argmax? We will discuss later when introducing HMM (Hidden Markov Model), GMM (Gaussian Mixure Model), EM (Expectation Maximization) algorithm and variational inference. The Latent Variable trick is in fact a statistical assumption.</p>
-<p>Another genious way is to use Neural Networks in order to fit arbitrary functions. The Neural Networks trick is in fact a structural (connectivism) assumption.</p>
-<p>In order to reduce the variance, more tricks can be considered (e.g. early stopping, dropout, normalization, residual connection, parameter sharing, simplified models…). Details are overwhelming. Not going to introduce them here!</p>
+<p>Then, deal with the problem of finding $P$ and $Q$:</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 2 (finding $P$ and $Q$):</strong></font><font color="DarkRed" size="3"> $k_P,k_Q=findPQ(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<ol>
+<li>$p = (f_{2:K}-f_{1})/(x_{2:K}-x_{1})$</li>
+<li>$q = (f_{1:K-1}-f_{K})/(x_{1:K-1}-x_{K})$</li>
+<li>$k_P = {\rm argmax}_k p_k$</li>
+<li>$k_Q = 1+{\rm argmax}_k q_k$</li>
+<li>return $k_P,k_Q$</li>
+</ol>
+</blockquote>
+<p>Next, we reach the algorithm for getting the candidate set:</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 3 (finding candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<ol>
+<li>initialize $I_c = \lbrace 1,K \rbrace$</li>
+<li>$r=locmax(f)$</li>
+<li>$I_r = find(r==1)$</li>
+<li>$k_P,k_Q=findPQ(x,f)$</li>
+<li>$I_c = I_c \cup I_r \cup \lbrace k_P,k_Q \rbrace$</li>
+<li>return $I_c$</li>
+</ol>
+</blockquote>
+<p>Now, take a look at the example (d),(e) and (f) in the last section: as those curves are rugged, the candidate points in $\lbrace (x_{i_c},x_{i_c}): i_c \in I_c \rbrace$ still form a rugged curve. Why not plug those points again into Algorithm 3? Consequently, we get $\hat{I_c}=findCandidate(x_{I_c},f_{I_c})$, as illustrated in the following figure:<br><img src="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png" alt="candidate_algorithm_example.png"></p>
+<p>This leads to the ultimate algorithm:</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 4 (finding  the smallest candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidateSmallest(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<ol>
+<li>initialize $I_c = \lbrace 1,2,…,K \rbrace, \tilde{I}=I_c, \hat{x} = x_{I_c}, \hat{f} = f_{I_c}$</li>
+<li>while $1$:</li>
+<li>$\quad$ $\hat{I_c}=findCandidate(\hat{x},\hat{f})$</li>
+<li>$\quad$ if $\vert \hat{I_c} \vert == \vert I_c \vert$:</li>
+<li>$\quad\quad$ break</li>
+<li>$\quad$ else:</li>
+<li>$\quad\quad$ $I_c=\hat{I_c}$</li>
+<li>$\quad\quad$ $\tilde{I} = \tilde{I}[I_c], \hat{x} = \hat{x}[I_c], \hat{f} = \hat{f}[I_c]$</li>
+<li>return $\tilde{I}$</li>
+</ol>
+</blockquote>
+<p>Finally, we reduce the number of constraints to those indexed by $I_c$.</p>
+<p>But, how does this work? Obviously, my intuitive explanations are far from compelling. I am going to leave this intensive task (to explore the effectiveness of the candidate-set method) for future.</p>
+<h1 id="Implementation-and-Experiments"><a href="#Implementation-and-Experiments" class="headerlink" title="Implementation and Experiments"></a>Implementation and Experiments</h1><p>I used SciPy to implement the linear programming solver. I will derive the standard form of the linear programming problems in LUC, and then I am going to show two examples: one is a hand-crafted curve, and another is a real spectrogram of a Chinese pop song.</p>
+<p>TODO…</p>
 
       
 	  
@@ -258,7 +348,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://lucainiaoge.github.io.git/2020/08/03/intuition-for-statistical-inference/
+				https://lucainiaoge.github.io.git/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -313,7 +403,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
         		</li>
       		
 		</ul>
@@ -369,7 +459,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2020/08/03/intuition-for-statistical-inference/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,18 +473,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/03/my-music-thoughts/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          My Music Thoughts
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/02/music-computation-labs-and-people-and-useful-links/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">A Summarization for Labs and People in Music Technology (Useful Links Attached!)</div>
+    <a href="/2020/09/03/my-music-thoughts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My Music Thoughts</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -421,7 +502,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Variational-Problem"><span class="toc-number">2.</span> <span class="toc-text">The Variational Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Statistical-Inference-Variational-Problem"><span class="toc-number">3.</span> <span class="toc-text">The Statistical Inference Variational Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-definitions"><span class="toc-number">3.1.</span> <span class="toc-text">Problem definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-where-the-“Maximum-Likelihood”-comes-from"><span class="toc-number">3.1.1.</span> <span class="toc-text">Problem 1: where the “Maximum Likelihood” comes from</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-2-to-parameterize-or-not-to"><span class="toc-number">3.1.2.</span> <span class="toc-text">Problem 2: to parameterize or not to</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-statement-for-a-challenge-how-to-find-the-God-bias-vs-variance"><span class="toc-number">3.1.3.</span> <span class="toc-text">A statement for a challenge: how to find the God - bias vs. variance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Afterwards…"><span class="toc-number">3.2.</span> <span class="toc-text">Afterwards…</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Definition-and-Motivation"><span class="toc-number">2.</span> <span class="toc-text">Problem Definition and Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem"><span class="toc-number">2.1.</span> <span class="toc-text">The Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Inspired-Me"><span class="toc-number">2.2.</span> <span class="toc-text">What Inspired Me</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Peak-Finding-to-Linear-Optimization"><span class="toc-number">3.</span> <span class="toc-text">From Peak Finding to Linear Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deriving-the-Basic-Formulation"><span class="toc-number">3.1.</span> <span class="toc-text">Deriving the Basic Formulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interval-Partitions-can-be-Variable"><span class="toc-number">3.2.</span> <span class="toc-text">Interval Partitions can be Variable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Overlap-Version-of-LUC"><span class="toc-number">3.3.</span> <span class="toc-text">The Overlap Version of LUC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof-that-LUC-Has-Smooth-Effects-Convex-Case"><span class="toc-number">4.</span> <span class="toc-text">Proof that LUC Has Smooth Effects: Convex Case</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Lemmas-with-Proof"><span class="toc-number">4.1.</span> <span class="toc-text">Two Lemmas with Proof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-the-Effects-of-LUC-on-DTFT-Spectrum"><span class="toc-number">4.2.</span> <span class="toc-text">Explore the Effects of LUC on DTFT Spectrum</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LUC-Smooth-Effects-Other-Cases"><span class="toc-number">5.</span> <span class="toc-text">LUC Smooth Effects: Other Cases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intuitive-Examples"><span class="toc-number">5.1.</span> <span class="toc-text">Intuitive Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Designing-a-Candidate-Set-Algorithms"><span class="toc-number">5.2.</span> <span class="toc-text">Designing a Candidate-Set Algorithms</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-and-Experiments"><span class="toc-number">6.</span> <span class="toc-text">Implementation and Experiments</span></a></li></ol>
                     </div>
                 </span>
             </div>
