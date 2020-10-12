@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/10/11/9sZRka3xNpoSD48.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/11/mPtEWRMUb7NDukz.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png">
-<meta property="og:updated_time" content="2020-10-12T05:08:25.104Z">
+<meta property="og:updated_time" content="2020-10-12T16:25:44.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear-upper-coverage Algorithm for Peak Finding">
 <meta name="twitter:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which in">
@@ -224,7 +224,7 @@
 <p>Now comes the question: how to implement this idea?</p>
 <h1 id="From-Peak-Finding-to-Linear-Optimization"><a href="#From-Peak-Finding-to-Linear-Optimization" class="headerlink" title="From Peak Finding to Linear Optimization"></a>From Peak Finding to Linear Optimization</h1><h2 id="Deriving-the-Basic-Formulation"><a href="#Deriving-the-Basic-Formulation" class="headerlink" title="Deriving the Basic Formulation"></a>Deriving the Basic Formulation</h2><p>As the title of this section suggests, I utilized linear optimization to solve the problem. Among the four steps in the previous section, you may notice that the phrase “over the curves in each intervals with tiles” is not clearly defined. How can we cover a curve with a tile? Here is where linear optimization comes into being:</p>
 <p>Suppose we got an interval $x \in [x_i,x_{i+1}]$, where a 1-D curve $f(x)$ is defined. The tile is depicted as $l_i(x)=a_i x+b_i$. Obviously, we must have $f(x) \leq l_i(x), \forall x \in [x_i,x_{i+1}]$. With this constraint, we want to find the parameters $(a_i,b_i)$ such that the tile seems to cover the curve.</p>
-<p>Newton’s laws suggest: if you put an object in a gravitatio, it is stable when its gravitational potential energy reaches its minimum. If we assume that the density of our tiles is uniformly distributed, we can conclude that the tile’s gravitational potential energy can be calculated by a particle locating at its centroid, which is $(x_i^c,y_i^c)=(\frac{x_i+x_{i+1}}{2},l_i(\frac{x_i+x_{i+1}}{2}))$. Therefore, we get our objective function: $l_i(\frac{x_i+x_{i+1}}{2})=a_i\frac{x_i+x_{i+1}}{2}+b_i$.</p>
+<p>Newton’s laws suggest: if you put an object in a gravitatio, it is stable when its gravitational potential energy reaches its minimum. If we assume that the density of our tiles is uniformly distributed, we can conclude that the tile’s gravitational potential energy can be calculated by a particle locating at its centroid, which is $(\frac{x_i+x_{i+1}}{2},l_i(\frac{x_i+x_{i+1}}{2}))$. Therefore, we get our objective function: $l_i(\frac{x_i+x_{i+1}}{2})=a_i\frac{x_i+x_{i+1}}{2}+b_i$.</p>
 <p>To sum up, we get the linear optimization problems:</p>
 <blockquote>
 <p>$\forall i=1,2,…$, solve the linear programming problem within interval $[x_i,x_{i+1}]$:<br>$$min_{a_i,b_i} \quad a_i\frac{x_i+x_{i+1}}{2}+b_i $$ $$s.t. f(x) \leq a_i x+b_i, \forall x \in [x_i,x_{i+1}]$$</p>
@@ -232,13 +232,12 @@
 <p>And I may call it linear-upper-coverage (LUC) algorithm. I chose this name partly because my family name is LU…</p>
 <p>Notice that there are infinite constraints, which are intractable. One intuitive way is to sample the interval $x \in [x_i,x_{i+1}]$ to get $x_{i}^{k} \in [x_i,x_{i+1}], \forall k=1,2,…,K$. And consequently, the linear constraints become: $$f(x_{i}^{k}) \leq a_i x_{i}^{k}+b_i, \forall k=1,2,…,K$$</p>
 <p>Until now, we are able to solve that linear optimization problem with inequality constraints! Feel free to recall the classical linear programming algorithms like simplex method!</p>
-<h2 id="Interval-Partitions-can-be-Variable"><a href="#Interval-Partitions-can-be-Variable" class="headerlink" title="Interval Partitions can be Variable"></a>Interval Partitions can be Variable</h2><p>You may noticed that although I divided the x-axis equally, the lengths of tiles are not the same. Is it necessary to set the tile lengths all the same? This is actually about the choosing the segmentation strategy, i.e. the procedure to get $[x_i,x_{i+1}], i=1,2,…$</p>
+<h2 id="Formal-LUC-Definition-Generalizing-Interval-Partitions"><a href="#Formal-LUC-Definition-Generalizing-Interval-Partitions" class="headerlink" title="Formal LUC Definition Generalizing Interval Partitions"></a>Formal LUC Definition Generalizing Interval Partitions</h2><p>You may noticed that although I divided the x-axis equally, the lengths of tiles are not the same. Is it necessary to set the tile lengths all the same? This is actually about the choosing the segmentation strategy, i.e. the procedure to get $[x_i,x_{i+1}], i=1,2,…$</p>
 <p>Therefore, if restricted to linear coverage, the most configurable aspect is the segmentation strategy. Not only can we segment in equal length, we can also segment in a log-scale, or even sample randomly. Different segmentation strategy lead to different definitions of “desired peak”.</p>
-<p>Moreover, we can cover the curve with actually whatever function we like: circles, ovels etc. I chose lines because they look more simple and intuitive. What about other elements? It might be worth trying…</p>
-<h2 id="The-Overlap-Version-of-LUC"><a href="#The-Overlap-Version-of-LUC" class="headerlink" title="The Overlap Version of LUC"></a>The Overlap Version of LUC</h2><p>It is not necessary to assume the intervals do not overlap. Therefore, we can get our new formulation:</p>
-<blockquote>
-<p>$\forall i=1,2,…$, sample data points $x_i^c\in D$, where $D$ is the definition set of $f$. Solve the linear programming problem within interval $[x_i^c-(\Delta x_i)^{-},x_i^c+(\Delta x_i)^{+}]$:<br>$$min_{a_i,b_i} \quad a_i(x_i^c+\frac{(\Delta x_i)^{+}-(\Delta x_i)^{-}}{2})+b_i $$ $$s.t. f(x) \leq a_i x+b_i, \forall x \in [x_i^c-(\Delta x_i)^{-},x_i^c+(\Delta x_i)^{+}]$$</p>
-</blockquote>
+<p>Also, it is not necessary to assume that the intervals do not overlap. Instead, we can arbitrarily sample the curve and construct intervals for each of those sample points, even if those intervals can overlap. Such more general definition becomes:</p>
+<p><font color="Crimson" size="4"><strong>Definition 1 (general LUC):</strong></font><font color="DarkRed" size="3"> $\forall i=1,2,…$, sample data points $x_i\in D$, where $D$ is the definition set of $f$. Define intervals $I_i = [x_i^l,x_i^r]$ where $x_i \in I_i$, and define linear segments $l_i(x)=a_i x+b_i, \forall x\in I_i$.<br>Define the linear programming problems $LUC_i$ within intervals<br>$$LUC_i:\quad min_{a_i,b_i} \quad l_i(x_i)$$ $$s.t. f(x) \leq l_i(x), \forall x \in I_i$$ And write the optimum linear segments as $l_i^{\star}(x)$<br></font></p>
+<p>Now, $x_i$ no longer means the left endpoint of interval $I_i$, but the centroid point of interval $I_i$. The left endpoint of interval $I_i$ is written as $x_i^l$ instead.</p>
+<p>Moreover, we can cover the curve with actually whatever function we like: circles, ovels etc. I chose lines because they look more simple and intuitive. What about other elements? It might be worth trying, but I am not going to talk about them at this moment…</p>
 <h1 id="Proof-that-LUC-Has-Smooth-Effects-Convex-Case"><a href="#Proof-that-LUC-Has-Smooth-Effects-Convex-Case" class="headerlink" title="Proof that LUC Has Smooth Effects: Convex Case"></a>Proof that LUC Has Smooth Effects: Convex Case</h1><p>If we want to prove that an algorithm can smoothify a curve, we have to prove that the algorithm dampens the high-frequency components in certain ways.</p>
 <p>The main challenge to prove this for LUC is that there are linear-programming calculations in each interval, which is non-trivial. I find it difficult to prove this even convex constraint is considered.</p>
 <h2 id="Two-Lemmas-with-Proof"><a href="#Two-Lemmas-with-Proof" class="headerlink" title="Two Lemmas with Proof"></a>Two Lemmas with Proof</h2><p>I start from the (lower) convex segments defined in $[x_i,x_{i+1}]$:<br>$$f(\lambda x_i+(1-\lambda) x_{i+1})\leq \lambda f(x_i)+(1-\lambda) f(x_{i+1}), \forall 0\leq \lambda \leq 1$$</p>
@@ -262,8 +261,9 @@
 <p>We know that ${\rm DTFT}[f_{i-\Delta i}]=\sum_i f_{i-\Delta i}e^{\sqrt{-1}\omega i}=\sum_i f_{i}e^{\sqrt{-1}\omega (i+\Delta i)}=e^{\sqrt{-1}\omega \Delta i}\sum_i f_{i}e^{\sqrt{-1}\omega i}=e^{\sqrt{-1}\omega \Delta i}{\rm DTFT}[f_{i}]$</p>
 <p>Therefore, $③$ becomes $$F^{\star}(\omega) = {\rm DTFT}[f_i^{\star}] = \frac{1}{2}[e^{\sqrt{-1}\omega \Delta i}+e^{-\sqrt{-1}\omega \Delta i}]F(\omega) = F(\omega){\rm cos}(\omega \Delta i) \quad ④$$</p>
 <p>Finally, we can reach from $④$ that $\vert F^{\star}(\omega) \vert = \vert F(\omega)\vert \vert {\rm cos}(\omega \Delta i)\vert \leq \vert F(\omega)\vert$</p>
+<p>Summing up the discussions above:<br><font color="Crimson" size="4"><strong>Theorem 1 (smooth effect of convex LUC):</strong></font><font color="DarkRed" size="3"> given $\Delta i &gt; 0$ and bounded $f(x):D\rightarrow R$, sample a sequence $x_i, i=1,2,…$ from $D$, whose corresponding intervals are $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$; the LUC centroids form a sequence $f_i^{\star}=l_i^{\star}(x_i), i=1,2,…$ whose DTFT is $F^{\star}(\omega)$, while the sampled curve becomes $f_i=f(x_i), i=1,2,…$ whose DTFT is $F(\omega)$. Then we have:<br>if $f(x)$ is convex in intervals $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$ separately, then $$F^{\star}(\omega)=F(\omega){\rm cos}(\omega \Delta i)$$</font></p>
 <p>Due to the continuity of ${\rm cos}(\omega \Delta i)$, when $\omega$ is near zero, $F^{\star}(\omega)$ is near $F(\omega)$; but when $\omega$ is far from zero, $F^{\star}(\omega)$ will be dampened. Of course, the choice of $\Delta i$ is also a factor controlling such influence.</p>
-<p>To understand this effect more intuitively, here is an example, in which $\Delat i = 1/2$, and $f(x)$ in convex in every separate interval.</p>
+<p>To understand this effect more intuitively, here is an example, in which $\Delta i = 1/2$, and $f(x)$ in convex in every separate interval.</p>
 <p><img src="https://i.loli.net/2020/10/12/HIRO2igyXS7Ms3F.png" alt="LUC_convex_example.png"></p>
 <p>The red line (downsampled results) is more rugged than the green line (LUC centroids), which confers to my previous analysis.</p>
 <h1 id="A-Candidate-set-LUC-Algorithm-for-General-Cases"><a href="#A-Candidate-set-LUC-Algorithm-for-General-Cases" class="headerlink" title="A Candidate-set LUC Algorithm for General Cases"></a>A Candidate-set LUC Algorithm for General Cases</h1><p>In the previous section, we discussed the LUC for a convex segment. More importantly, we proved Lemma 2, which guarentees the existance of solution, and even gives the exact solution: $$a_i^{\star} = \frac{f(x_i^{-})-f(x_i^{+})}{x_i^{-}-x_i^{+}}$$ $$l_i^{\star}(x) = a_i^{\star}(x-\frac{x_i^{-}+x_i^{+}}{2})+\frac{f(x_i^{-})+f(x_i^{+})}{2} \quad (*)$$</p>
@@ -277,27 +277,27 @@
 <p><img src="https://i.loli.net/2020/10/11/mPtEWRMUb7NDukz.png" alt="examples_tentative.png"></p>
 <p>My finding is that: the candidate points (marked in orange) are such typical points:</p>
 <ol>
-<li>The points around local maximima</li>
-<li>The points around endpoints $X_i=(x_i,f(x_i))$ and $X_{i+1}=(x_{i+1},f(x_{i+1}))$</li>
-<li>The curve point $P$ such that the slope of $PX_i$ reaches maximum; the curve point $Q$ such that the slope of $QX_{i+1}$ reaches minimum</li>
+<li>The local maximima</li>
+<li>The endpoints $X_i=(x_i^l,f(x_i^l))$ and $X_{i}^r=(x_{i}^r,f(x_{i}^r))$</li>
+<li>The curve point $P$ such that the slope of $PX_i^l$ reaches maximum; the curve point $Q$ such that the slope of $QX_{i}^r$ reaches minimum</li>
 </ol>
 <h2 id="Designing-Candidate-Set-Algorithm"><a href="#Designing-Candidate-Set-Algorithm" class="headerlink" title="Designing Candidate-Set Algorithm"></a>Designing Candidate-Set Algorithm</h2><p>My intuition leads to an algorithm to find the candidate points:</p>
 <p>First, deal with the problem of finding local maximima:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 1 (finding local maxima):</strong></font><font color="DarkRed" size="3"> $r=locmax(f)$</font><br>(1-based indexing is used) Given sample squence $f = [f_1,f_2,…,f_k,…,f_K]_{1\times K}$</p>
+<p><font color="Crimson" size="4"><strong>Algorithm 1 (finding local maxima):</strong></font><font color="DarkRed" size="3"> $m=locmax(f)$</font><br>(1-based indexing is used) Given sample squence $f = [f_1,f_2,…,f_k,…,f_K]_{1\times K}$</p>
 <ol>
 <li>initialize a buffer $b = [1,0,…,0,…,0,0]_{1\times (K+1)}$</li>
-<li>initialize the result $r = [0,0,…,0,…,0]_{1\times K}$</li>
+<li>initialize the result $m = [0,0,…,0,…,0]_{1\times K}$</li>
 <li>for $k=1,2,…,K-1$:</li>
 <li>$\quad$ $b_{k+1} = bool(f_k \geq f_{k+1})$</li>
 <li>for $k=1,2,…,K$:</li>
-<li>$\quad$ $r_{k} = b_k·\overline{b_{k+1}}$</li>
-<li>return $r$</li>
+<li>$\quad$ $m_{k} = b_k·\overline{b_{k+1}}$</li>
+<li>return $m$</li>
 </ol>
 </blockquote>
 <p>Then, deal with the problem of finding $P$ and $Q$:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 2 (finding $P$ and $Q$):</strong></font><font color="DarkRed" size="3"> $k_P,k_Q=findPQ(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color="Crimson" size="4"><strong>Algorithm 2 (finding $P$ and $Q$):</strong></font><font color="DarkRed" size="3"> $k_P,k_Q=findPQ(x,f)$</font><br>(1-based indexing is used) Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
 <ol>
 <li>$p = (f_{2:K}-f_{1})/(x_{2:K}-x_{1})$</li>
 <li>$q = (f_{1:K-1}-f_{K})/(x_{1:K-1}-x_{K})$</li>
@@ -308,23 +308,23 @@
 </blockquote>
 <p>Next, we reach the algorithm for getting the candidate set:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 3 (finding candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color="Crimson" size="4"><strong>Algorithm 3 (finding candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,f)$</font><br>(1-based indexing is used) Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
 <ol>
 <li>initialize $I_c = \lbrace 1,K \rbrace$</li>
-<li>$r=locmax(f)$</li>
-<li>$I_r = find(r==1)$</li>
+<li>$m=locmax(f)$</li>
+<li>$I_m = find(m==1)$</li>
 <li>$k_P,k_Q=findPQ(x,f)$</li>
-<li>$I_c = I_c \cup I_r \cup \lbrace k_P,k_Q \rbrace$</li>
+<li>$I_c = I_c \cup I_m \cup \lbrace k_P,k_Q \rbrace$</li>
 <li>return $I_c$</li>
 </ol>
 </blockquote>
 <p>Now, take a look at the example (d),(e) and (f) in the last section: as those curves are rugged, the candidate points in $\lbrace (x_{i_c},x_{i_c}): i_c \in I_c \rbrace$ still form a rugged curve. Why not plug those points again into Algorithm 3? Consequently, we get $\hat{I_c}=findCandidate(x_{I_c},f_{I_c})$, as illustrated in the following figure:<br><span id="candidate_set_algorithm_intuition"> <img src="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png" alt="candidate_algorithm_example.png"> </span></p>
 <p>This leads to the ultimate algorithm:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 4 (finding  the smallest candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidateSmallest(x,f)$</font><br>Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color="Crimson" size="4"><strong>Algorithm 4 (finding  the smallest candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidateSmallest(x,f,N)$</font><br>(1-based indexing is used) Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$;<br>$N$ denotes the max iteration times;</p>
 <ol>
 <li>initialize $I_c = \lbrace 1,2,…,K \rbrace, \tilde{I}=I_c, \hat{x} = x_{I_c}, \hat{f} = f_{I_c}$</li>
-<li>while $1$:</li>
+<li>for $n$ in $range(N)$:</li>
 <li>$\quad$ $\hat{I_c}=findCandidate(\hat{x},\hat{f})$</li>
 <li>$\quad$ if $\vert \hat{I_c} \vert == \vert I_c \vert$:</li>
 <li>$\quad\quad$ break</li>
@@ -335,9 +335,53 @@
 </ol>
 </blockquote>
 <p>Finally, we reduce the number of constraints to those indexed by $I_c$.</p>
-<h2 id="Reflections"><a href="#Reflections" class="headerlink" title="Reflections"></a>Reflections</h2><p>Why does the candidate-set algorithm work? Obviously, my intuitive explanations are far from compelling. I am going to leave this intensive task (to explore the effectiveness of the candidate-set method) for future.</p>
+<h2 id="Reflections"><a href="#Reflections" class="headerlink" title="Reflections"></a>Reflections</h2><p>Why does the candidate-set algorithm work? Obviously, my intuitive explanations are far from compelling. I am going to leave this intensive task (to explore the effectiveness of the candidate-set method) for future.<br>I propose a tentative mentality to solve this </p>
 <p>Also, my definition for candidate-set does not lead to the equivilant result as the full-sized LUC. This can be proven by <a href="#candidate_set_algorithm_intuition">the figure in the previous section which illustrates the candidate-set algorithm</a>, which provides a counter-example: the ultimate LUC calculated based on the blue points actually violates the LUC constraints based on the initial black curve!</p>
-<p>However, although this effect sometimes happens, the results do not seriously change. I am going to demonstrate this in the experiment section.</p>
+<p>However, although this effect sometimes happens, the results do not seriously change. I am going to demonstrate this in the experiment section. Still, I have my solution which can perfectly solve this problem, with the cost of doing more argmax calculation. The key is: modify the $3^{rd}$ criterion to get a new one:</p>
+<blockquote>
+<ul>
+<li>For type 1 candidate points $X_k = (x_k,f(x_k))$ (which are local maxima), find curve points $P_k = (x_{k}^{+},f(x_{k}^{+})),Q_k = (x_{k}^{-},f(x_{k}^{-}))$ for each $X_k$, such that</li>
+<li>$x_{k}^{+}&gt;x_k$ and the slope of $X_k P_k$ reaches maximum</li>
+<li>$x_{k}^{-}&lt;x_k$ and the slope of $Q_k X_k$ reaches minimum</li>
+</ul>
+</blockquote>
+<p>Therefore, the candidate-set finder algorithm should be modified according to the $4^{th}$ criterion. Fortunatelly, it is quite easy by changing Algorithm 2 and 3 a little bit. After all, I am going summarize all about candidate-set algorithm in the next section.</p>
+<h2 id="Formal-Definition-for-Candidate-set-Algorithm"><a href="#Formal-Definition-for-Candidate-set-Algorithm" class="headerlink" title="Formal Definition for Candidate-set Algorithm"></a>Formal Definition for Candidate-set Algorithm</h2><p><font color="Crimson" size="4"><strong>Definition 2 (candidate set):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$;the endpoints are $x_{i}^l=inf(I),x_{i}^r=sup(I)$.<br>Then, the candidate set for $I$ is written as $I_{c}=\lbrace x:isCandidate(x) \rbrace$. Where, $isCandidate(x)=\lbrace x:x\in I_m, x\in I_{e}, x\in I_{e}^a, x\in I_{m}^a \rbrace$ is defined by the following 4 criteria:</font></p>
+<ol>
+<li><font color="DarkRed" size="3">$I_m = \lbrace x: x\in I \quad AND \quad \exists \delta &gt;0 \quad s.t.\quad f(x)\geq f(x+\epsilon), \forall \vert \epsilon \vert &lt; \delta \rbrace$, named “Maxima Set”</font></li>
+<li><font color="DarkRed" size="3">$I_{e} = \lbrace x_{i}^l,,x_{i}^r \rbrace$, named “Endpoints”</font></li>
+<li><font color="DarkRed" size="3">$I_{e}^a = \lbrace \arg\max_{x\in I} \frac{f(x)-f(x_{i}^l)}{x-x_{i}^l},\arg\min_{x\in I} \frac{f(x)-f(x_{i}^r)}{x-x_{i}^r} \rbrace$, named “Endpoint Accompany Set”</font></li>
+<li><font color="DarkRed" size="3">$I_{m}^a = \lbrace \arg\max_{x\in I,x&gt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x_m\in I_m \rbrace \cup \lbrace \arg\min_{x\in I,x&lt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x\in I_m \rbrace$, named “Accompany Set”</font>
+
+</li>
+</ol>
+<p>As described, I need to modify the Algorithm 2 and 3 a little here:</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 2.2 (finding the accompany set):</strong></font><font color="DarkRed" size="3"> $I_m^a=findAccompany(x,f,I_m)$</font><br>(1-based indexing is used) Given sample squence $f_{1:K}$, its corresponding x-axis $x_{1:K}$ and its maxima index set $I_m$</p>
+<ol>
+<li>Initialize $I_m^a = \emptyset$</li>
+<li>for $i_m$ in $I_m$:</li>
+<li>$\quad I^{-} = [2:i_m], I^{+} = [(i_m+1):(K-1)]$</li>
+<li>$\quad a^{+} = (f_{i_m}-f_{I^{+}})/(x_{i_m}-x_{I^{+}})$</li>
+<li>$\quad a^{-} = (f_{i_m}-f_{I^{-}})/(x_{i_m}-x_{I^{-}})$</li>
+<li>$\quad k^{a+} = I^{+}[\arg\max_{k}a_k^{+}]$</li>
+<li>$\quad k^{a-} = I^{-}[\arg\min_{k}a_k^{-}]$</li>
+<li>$\quad I_m^a = I_m^a \cup \lbrace k^{a+},k^{a-} \rbrace $</li>
+<li>return $I_m^a$</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Algorithm 3.2 (finding  the full candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,f)$</font><br>(1-based indexing is used) Given sample squence $f_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<ol>
+<li>initialize $I_c = \lbrace 1,K \rbrace$</li>
+<li>$m=locmax(f)$</li>
+<li>$I_m = find(m==1)$</li>
+<li>$k_P,k_Q=findPQ(x,f)$</li>
+<li>$I_m^a=findAccompany(x,f,I_m)$</li>
+<li>$I_c = I_c \cup I_m \cup \lbrace k_P,k_Q \rbrace \cup I_m^a$</li>
+<li>return $I_c$</li>
+</ol>
+</blockquote>
 <h1 id="Implementation-and-Experiments"><a href="#Implementation-and-Experiments" class="headerlink" title="Implementation and Experiments"></a>Implementation and Experiments</h1><p>I used SciPy to implement the linear programming solver. I will derive the standard form of the linear programming problems in LUC, and then I am going to show two examples: one is a hand-crafted curve, and another is a real spectrogram of a Chinese pop song.</p>
 <p>TODO…</p>
 
@@ -508,7 +552,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Definition-and-Motivation"><span class="toc-number">2.</span> <span class="toc-text">Problem Definition and Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem"><span class="toc-number">2.1.</span> <span class="toc-text">The Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Inspired-Me"><span class="toc-number">2.2.</span> <span class="toc-text">What Inspired Me</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Peak-Finding-to-Linear-Optimization"><span class="toc-number">3.</span> <span class="toc-text">From Peak Finding to Linear Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deriving-the-Basic-Formulation"><span class="toc-number">3.1.</span> <span class="toc-text">Deriving the Basic Formulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interval-Partitions-can-be-Variable"><span class="toc-number">3.2.</span> <span class="toc-text">Interval Partitions can be Variable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Overlap-Version-of-LUC"><span class="toc-number">3.3.</span> <span class="toc-text">The Overlap Version of LUC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof-that-LUC-Has-Smooth-Effects-Convex-Case"><span class="toc-number">4.</span> <span class="toc-text">Proof that LUC Has Smooth Effects: Convex Case</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Lemmas-with-Proof"><span class="toc-number">4.1.</span> <span class="toc-text">Two Lemmas with Proof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-the-Effects-of-LUC-on-DTFT-Spectrum"><span class="toc-number">4.2.</span> <span class="toc-text">Explore the Effects of LUC on DTFT Spectrum</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Candidate-set-LUC-Algorithm-for-General-Cases"><span class="toc-number">5.</span> <span class="toc-text">A Candidate-set LUC Algorithm for General Cases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intuitive-Examples"><span class="toc-number">5.1.</span> <span class="toc-text">Intuitive Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Designing-Candidate-Set-Algorithm"><span class="toc-number">5.2.</span> <span class="toc-text">Designing Candidate-Set Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reflections"><span class="toc-number">5.3.</span> <span class="toc-text">Reflections</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-and-Experiments"><span class="toc-number">6.</span> <span class="toc-text">Implementation and Experiments</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Problem-Definition-and-Motivation"><span class="toc-number">2.</span> <span class="toc-text">Problem Definition and Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem"><span class="toc-number">2.1.</span> <span class="toc-text">The Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Inspired-Me"><span class="toc-number">2.2.</span> <span class="toc-text">What Inspired Me</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#From-Peak-Finding-to-Linear-Optimization"><span class="toc-number">3.</span> <span class="toc-text">From Peak Finding to Linear Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deriving-the-Basic-Formulation"><span class="toc-number">3.1.</span> <span class="toc-text">Deriving the Basic Formulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Formal-LUC-Definition-Generalizing-Interval-Partitions"><span class="toc-number">3.2.</span> <span class="toc-text">Formal LUC Definition Generalizing Interval Partitions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proof-that-LUC-Has-Smooth-Effects-Convex-Case"><span class="toc-number">4.</span> <span class="toc-text">Proof that LUC Has Smooth Effects: Convex Case</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Lemmas-with-Proof"><span class="toc-number">4.1.</span> <span class="toc-text">Two Lemmas with Proof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explore-the-Effects-of-LUC-on-DTFT-Spectrum"><span class="toc-number">4.2.</span> <span class="toc-text">Explore the Effects of LUC on DTFT Spectrum</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Candidate-set-LUC-Algorithm-for-General-Cases"><span class="toc-number">5.</span> <span class="toc-text">A Candidate-set LUC Algorithm for General Cases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intuitive-Examples"><span class="toc-number">5.1.</span> <span class="toc-text">Intuitive Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Designing-Candidate-Set-Algorithm"><span class="toc-number">5.2.</span> <span class="toc-text">Designing Candidate-Set Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reflections"><span class="toc-number">5.3.</span> <span class="toc-text">Reflections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Formal-Definition-for-Candidate-set-Algorithm"><span class="toc-number">5.4.</span> <span class="toc-text">Formal Definition for Candidate-set Algorithm</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementation-and-Experiments"><span class="toc-number">6.</span> <span class="toc-text">Implementation and Experiments</span></a></li></ol>
                     </div>
                 </span>
             </div>
