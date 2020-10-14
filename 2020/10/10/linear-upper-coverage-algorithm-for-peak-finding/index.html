@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/10/11/9sZRka3xNpoSD48.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/11/mPtEWRMUb7NDukz.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png">
-<meta property="og:updated_time" content="2020-10-13T16:27:57.627Z">
+<meta property="og:updated_time" content="2020-10-14T02:16:20.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear-upper-coverage Algorithm for Peak Finding">
 <meta name="twitter:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, which in">
@@ -286,8 +286,8 @@
 <p>My finding is that: the candidate points (marked in orange) are such typical points:</p>
 <ol>
 <li>The local maximima</li>
-<li>The endpoints $X_i=(x_i^l,f(x_i^l))$ and $X_{i}^r=(x_{i}^r,f(x_{i}^r))$</li>
-<li>The curve point $P$ such that the slope of $PX_i^l$ reaches maximum; the curve point $Q$ such that the slope of $QX_{i}^r$ reaches minimum</li>
+<li>The endpoints $X^l=(x^l,f(x^l))$ and $X^r=(x^r,f(x^r))$</li>
+<li>The curve point $P$ such that the slope of $PX^l$ reaches maximum; the curve point $Q$ such that the slope of $QX^r$ reaches minimum</li>
 </ol>
 <h2 id="Designing-Candidate-Set-Algorithm"><a href="#Designing-Candidate-Set-Algorithm" class="headerlink" title="Designing Candidate-Set Algorithm"></a>Designing Candidate-Set Algorithm</h2><p>My intuition leads to an algorithm to find the candidate points:</p>
 <p>First, deal with the problem of finding local maximima:</p>
@@ -408,7 +408,11 @@
 <blockquote>
 <p><font color="Crimson" size="4"><strong>Definition 4 (linear accompany function):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$; the maxima set is $I_m$; the accompany pair set is $P^a$.<br>Then, for each accompany pair $p_m=(x_m,x_m^a)\in P^a$, define its linear accompany function as $l_{p_m}(x)=\frac{f(x_m^a)-f(x_m)}{x_m^a-x_m}(x-x_m)+f(x_m), x\in I$.<br></font><br><font color="Crimson" size="4"><strong>Definition 5 (feasible accompany pairs and their set):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$;  the maxima set is $I_m$; the accompany pair set is $P^a$.<br>Then, an accompany pair $p\in P^a$ is feasible i.i.f $l_p(x)\geq f(x), \forall x\in I_m$<br>Correspondingly, all feasible accompay pairs consist of the feasible accompany pair set, written as $P^{a_f}$<br></font><br><font color="Crimson" size="4"><strong>Definition 6 (best accompany pair):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$; the endpoints are $x^l=inf(I),x^r=sup(I)$; the maxima set is $I_m$; the  feasible accompany pair set is $P^{a_f}$.<br>Then, the best accompany pair $p^{\star}$ is defined as $p^{\star}=\arg\min_{p\in P^{a_f}}\quad l_p (\frac{1}{2} (x^l+x^r))$<br></font></p>
 </blockquote>
-<p>The definition of accompamy pair is actually paving the way to describe the following algorithm, which I expect to be equivalent to the LP based LUC:</p>
+<p>Equipped with concepts of accompany pairs, I introduce another hypothesis, which is a vital hint for my next steps.</p>
+<blockquote>
+<p><font color="Crimson" size="4"><strong>Hypothesis 2 (at least one accompany pair is a zero-slackness pair):</strong></font><font color="DarkRed" size="3"><br>if the candidate set for bounded $f(x):I_i\rightarrow R$ is $I_{ci}$, and its feasible accompany pair set is $P_i^{a_f}$; then, there is at least one accompany pair ${x_i^{-},x_i^{+}}\in P_i^{a_f}, s.t.\quad l_i^{\star}(x_i^{-})=f(x_i^{-}),l_i^{\star}(x_i^{+})=f(x_i^{+})$, where $l_i^{\star}$ is the optimum LUC in interval $I_i$ for $f(x)$.</font></p>
+</blockquote>
+<p>The definitions regarding accompamy pair and Hypothesis 2 are actually paving the way to describe the following algorithm, which I expect to be equivalent to the LP based LUC:</p>
 <blockquote>
 <p><font color="Crimson" size="4"><strong>Algorithm 5 (LUCA: finding the best accompany pair):</strong></font><font color="DarkRed" size="3"> $p^{\star}=LUCBestAccompany(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$.</p>
 <ol>
@@ -435,7 +439,7 @@
 </li>
 </ol>
 </blockquote>
-<p>See? the result $p^{\star}$ is actually the final decision!<br>Even so, it is still unsolved in terms of judging if LUCA is equivalent with the normal LUC.</p>
+<p>See? the result $p^{\star}$ is actually the final decision!<br>Even so, it is still unsolved in terms of judging if LUCA is equivalent with the normal LUC, or verifying Hypothesis 2.</p>
 <h2 id="Future-Proofs-and-Hints"><a href="#Future-Proofs-and-Hints" class="headerlink" title="Future Proofs and Hints"></a>Future Proofs and Hints</h2><p>To finishing the discussions, I have to recapitulate several unexplained phenomena or unjustified hypothesis:</p>
 <ol>
 <li>to prove that the general case LUC (not restricted to convexity) has smooth effects.</li>
