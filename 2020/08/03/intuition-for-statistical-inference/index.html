@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png">
-<meta property="og:updated_time" content="2020-08-07T08:30:30.042Z">
+<meta property="og:updated_time" content="2020-12-17T14:18:09.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intuition for Statistical Inference">
 <meta name="twitter:description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
@@ -197,7 +197,7 @@
 <li><strong>An example: pictures</strong></li>
 </ul>
 <blockquote>
-<p>Suppose you are studying digital pictures $x \in \pmb{R^{M\times M}}$. Accordingly, its distribution is $p_G(x): pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$. One of our goals is to find exactly the subspace $\pmb{X_{G}}\subseteq\pmb{R^{M\times M}}$ where the pictures $x \in \pmb{X_{G}}$ look like hand-written numbers (correspondingly, $\pmb{X_{G}}$ is the space where the ${M\times M}$ hand-written number pictures are defined). Again, our mission is to find the  $p_G(x): pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$ given a hand-written number dataset $\pmb{X_{s}}$.</p>
+<p>Suppose you are studying digital pictures $x \in \pmb{R^{M\times M}}$. Accordingly, its distribution is $p_G(x): \pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$. One of our goals is to find exactly the subspace $\pmb{X_{G}}\subseteq\pmb{R^{M\times M}}$ where the pictures $x \in \pmb{X_{G}}$ look like hand-written numbers (correspondingly, $\pmb{X_{G}}$ is the space where the ${M\times M}$ hand-written number pictures are defined). Again, our mission is to find the  $p_G(x): \pmb{X_{G}} \rightarrow \pmb{R^+}\cup\pmb{O}$ given a hand-written number dataset $\pmb{X_{s}}$.</p>
 </blockquote>
 <blockquote>
 <p>We take $\pmb{X_{G}}$ as the “God/Ground-truth dataset” and $\pmb{X_{s}} \subseteq \pmb{X_{G}}$ as the “observation dataset” (e.g. MNIST).</p>
@@ -237,7 +237,7 @@
 </blockquote>
 <p>If $\mathrm{E}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space F is of small bias compared with the GOD’s function $p_G (\pmb{x})$;</p>
 <p>If $\mathrm{Var}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space $\mathcal{F}$ is of small variance compared with the GOD’s function $p_G (\pmb{x})$, or that our model $p^* (\pmb{x})$ has a good ability to generalize. The term “generalize” means that no matter what data $\pmb{x}$ is given, the difference between $p^* (\pmb{x})$ and $p_G (\pmb{x})$ will not change too much.</p>
-<p>Intuition from Hung-yi Lee: see the pictures in<br>[<a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf]" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf]</a></p>
+<p>Intuition from Hung-yi Lee: see the pictures in<br><a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf</a></p>
 <p><img src="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png" width="50%" height="50%"><img src="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png" width="50%" height="50%"></p>
 <p>Each “sample point $p_s^* (\pmb{x})$” is actually an instance of $p_s^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$, where $\pmb{x}\in\pmb{X_s}$, and $\pmb{X_s}$ (e.g. MNIST) is a subset of the God data set $X_G$ (e.g. all possible  pictures of handwritten numbers).</p>
 <h2 id="Afterwards…"><a href="#Afterwards…" class="headerlink" title="Afterwards…"></a>Afterwards…</h2><p>You have already got an intuition of our challenges. Now, time to solve the challenges! Of course, for several specific problems, simple models are enough! For example, if we want to fit a Gaussian distribution, the most convenient way is to calculate the mean and variance of the dataset (observation). However, most problems are complex in reality. We have to design models which can deal with such complexity.</p>
