@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[(Chinese) - 记录一个儿时的游戏-"攒" (A Biography for A Game in my Childhood-"Zan")]]></title>
+    <url>%2F2020%2F12%2F28%2Fgame_chiledhood_zan%2F</url>
+    <content type="text"><![CDATA[This article contains two Chinese articles about my childhood: a Chinese introduction for game "Zan" (see also http://www.wikibin.org/articles/bor-bor-zan-2.html), and a Chinese article regarding my view of points on this game. Game_instruction_zan_Chinese.pdf Memory_zan_Chinese.pdf If I have spare-time in the future, I will complete the English version.]]></content>
+      <tags>
+        <tag>misc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PyTorch - Use create_graph to Compute Second-order Derivative]]></title>
     <url>%2F2020%2F12%2F22%2FPyTorch_create_graph_is_true%2F</url>
     <content type="text"><![CDATA[by lucainiaoge This article assumes that readers have been familiar with the concept of computation graph. Suppose we want to back-propagate through such a computation graph… To view the whole passage, please download:PyTorch: Use create_graph to Compute Second-order Derivative And the illustrations in that passage could be downloaded from create_graph_true_PyTorch_tutorial.ipynb]]></content>
