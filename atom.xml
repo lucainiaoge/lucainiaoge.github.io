@@ -44,9 +44,9 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
     <link href="https://lucainiaoge.github.io.git/2020/12/22/PyTorch_create_graph_is_true/"/>
     <id>https://lucainiaoge.github.io.git/2020/12/22/PyTorch_create_graph_is_true/</id>
     <published>2020-12-21T16:00:00.000Z</published>
-    <updated>2020-12-21T16:16:40.124Z</updated>
+    <updated>2021-01-13T10:15:08.155Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p>This article assumes that readers have been familiar with the concept of computation graph.</p><p>Suppose we want to back-propagate through such a computation graph…</p><a id="more"></a><p>To view the whole passage, please download:<br><a href="/download/PyTorch-create_graph-is-true_Tutorial_and_Example.pdf">PyTorch: Use create_graph to Compute Second-order Derivative</a></p><p>And the illustrations in that passage could be downloaded from <a href="/download/create_graph_true_PyTorch_tutorial.ipynb">create_graph_true_PyTorch_tutorial.ipynb</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes that readers have been familiar with the concept of computation graph.</font></p><p>Suppose we want to back-propagate through such a computation graph…</p><a id="more"></a><p>To view the whole passage, please download:<br><a href="/download/PyTorch-create_graph-is-true_Tutorial_and_Example.pdf">PyTorch: Use create_graph to Compute Second-order Derivative</a></p><p>And the illustrations in that passage could be downloaded from <a href="/download/create_graph_true_PyTorch_tutorial.ipynb">create_graph_true_PyTorch_tutorial.ipynb</a></p>]]></content>
     
     <summary type="html">
     
@@ -55,7 +55,7 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
 &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;This article assumes that readers have been familiar with the concept of computation graph.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; This article assumes that readers have been familiar with the concept of computation graph.&lt;/font&gt;&lt;/p&gt;
 &lt;p&gt;Suppose we want to back-propagate through such a computation graph…&lt;/p&gt;
     
     </summary>
@@ -307,6 +307,31 @@ This article summarizes my understandings on music composing and appreciation.
   </entry>
   
   <entry>
+    <title>Reflections on Linear Algebra - Range and Nullspace</title>
+    <link href="https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/"/>
+    <id>https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/</id>
+    <published>2020-01-12T16:00:00.000Z</published>
+    <updated>2021-01-13T10:17:37.220Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.).</font></p><p>When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you!</p><a id="more"></a><p>To view the whole passage, please download:<br><a href="/download/Linear_Algebra_Reflection_Range_and_Nullspace.pdf">Reflections on Linear Algebra: Range and Nullspace</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.).&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you!&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)</title>
     <link href="https://lucainiaoge.github.io.git/2019/10/02/math-modling-2019CUMCM-answer-2/"/>
     <id>https://lucainiaoge.github.io.git/2019/10/02/math-modling-2019CUMCM-answer-2/</id>
@@ -516,31 +541,6 @@ This article summarizes my understandings on music composing and appreciation.
       &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h1&gt;&lt;p&gt;总的来说，算是顺利。提交完文档恋恋不舍，仔仔细细又看了两遍，感觉漏洞百出，算了吧，不再提交MD码了，省得出车祸。&lt;br&gt;具体过程呢，记不太清了，简要回忆一下吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="math_moding" scheme="https://lucainiaoge.github.io.git/tags/math-moding/"/>
-    
-      <category term="experience" scheme="https://lucainiaoge.github.io.git/tags/experience/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</title>
-    <link href="https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-3/"/>
-    <id>https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-3/</id>
-    <published>2019-09-14T16:00:00.000Z</published>
-    <updated>2019-10-03T06:53:20.182Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><h1 id="Great-progress-2019-9-14"><a href="#Great-progress-2019-9-14" class="headerlink" title="Great progress - 2019.9.14"></a>Great progress - 2019.9.14</h1><p>第三天一早（其实严格来说是第二天），我<strong>double帅</strong>先到达战场</p><a id="more"></a><p><img src="https://i.loli.net/2019/09/22/CxntuPJ2lvR4V9e.png" alt="shuai_me.png"></p><p>开始干第二问，抱着一腔“宜将剩勇追穷寇，不可沽名学霸王”的热忱。</p><p>翔哥也来了，带着一把鼻涕和一脸阴沉，看出来感冒了。昨晚上弄出了成果，我就让他想办法验证。于是一早，他又来自闭推公式了。我首先问他，你这个碰撞公式是否是对的？为什么某个速度向量表达式不含碰撞系数e？他表示不理解加不爽，看得出他及其暴躁，语气及其敷衍，用诸如“怎么了？不行么？我没错啊？你说是就是吧？”之类的话来怼。我表示不理解，并明确表达了出来，换来一句“你说是就是吧”。此时我也很不爽，甚至想发火。要知道，我在大学还是没发过几次火的。（顶多称得上愠怒，不能说发火，我真没情绪失控过，就算之前被坑、被隐瞒真相、觉得十分不公、觉得自己走错了人生道路……都没发过火，这一点不能说引以为啥，因为这一点或许是懦弱的一面。我一直觉得自己是很懦弱的。）</p><p>一旁子烨似乎不受影响。不知他内心在怎么想。反正，我只顾着和翔哥理论呢。因为，我压住了火气，从源头推了一遍碰撞的结论，找出问题所在了。</p><blockquote><p><del>我向来是对事不对人的</del></p></blockquote><p>(其实还是对人的)，你说是不是？你说不是就不是吧，反正我觉得是就是了。</p><p>接下来，就是见证奇迹的时刻：一次第二问的胜利，让翔哥重获新生，似乎是凤凰涅槃、超新星爆发一般，从废墟中焕发出了连感冒都夺不走的活力（哈哈哈哈哈）。</p><p>没错，我又出来了。这一次是真的出来了，以至于我高兴地一上午都在研究怎么画图把这难得的结果欣赏出来。（当然，顺手把平动的模型也弄出来了）</p><p>这时，我也可以开开心心地给翔哥解释他的错误所在了。并且表达了我对推公式（数学推证、数理逻辑思考）这件事情的看法：不时地定义新事物，可能会使复杂的事情变得简单；不时地想自己的问题能否抽象为已知的事物（例如，一大坨数其实就是一个常量），可能会使复杂的问题变得简单；主动地去尝试各个可能性，才是数学中发现新宇宙的精髓（这一点我没跟翔哥说，嘘。。。。。毕竟他已经自闭了）。我甚至还骄傲地以自己为例子：我，考试的时候大部分公式是自己推出来的（所以我很讨厌那种记公式记文字的考试，纯粹只是为了检验你有没有为了考试而学习）</p><p>顺便提一句，这天上午子烨依然不肯善罢甘休，甚至更加积极了：他总认为我的模型方向有误。我又开始演讲了。不过很明显，我们互相听不进去。我于是也开始急躁了：心理就在暗暗地跺脚，我靠这不就纯粹地浪费时间么？我还是压住火气，拿出我总结的系统雏形（没错，我一直在酝酿这个雏形，尽管它现在还没有实体化，但我只能尽力去说服了。<strong>还是那句话，特殊时刻，只能用特殊的办法</strong>。）</p><p>不知是不是我突然“主动地”变得耐心的缘故，让他和我一起头脑风暴，达成几点共识：这道题想要表达的，就是那三个基础量（合力大小，方向，随时间变化），并用F-t图这样程序；总之子烨似乎进入了我的世界明白了我的想法，或许是完全是服从于团队而不得不妥协，总之，随着几声“奥”，他也便耐心去打论文了。真的，压力和时间的流逝使我暴躁，但我的习惯又不想让我暴躁，这大概也是反馈吧。</p><p><img src="https://i.loli.net/2019/09/22/SPsKYGtxZzFlhkv.jpg" alt="pig_you.jpg"></p><hr><p>来不及再高兴了，看看剩多大点儿时间？只有一天半了！赶紧继续分工，把公式扔给子烨（我的天他还是老看不懂公式，老不理解系统，这可咋整？我说：你还不理解是吧？你再不理解我就……再给你讲一遍，你不理解10遍我给你讲10遍直到你理解），让翔哥：继续想验证第二问的事情，想合力分解成分力的事情，并对后者给予了厚望和大权值。</p><p>为什么想这个事情？因为我在做第二问的时候，心里就在想给第三问打铺垫了：既然考虑了三维，转动，那一定就是基于这个重新设计系统，使它适应三维世界。怎么适应三维世界？有一维已经ok了，就是竖直维度；其余两个维度，不过就是xOy平面。在这个平面上，我们要接到球，并且合适地反弹它使得它竖直上抛。问题就转化为怎么去接球，怎么设置速度了。不过，我们要控制8个人，怎么弄？很简单，先想想鼓会自己动！也就是：只考虑合力！</p><p>哈哈！有思路了（好难啊）！分解成这么几个数学问题：怎么控制它，使其想到哪到哪（莫名想到PID哦）；怎么控制它，使其速度想怎样怎样（莫名想到PID哦）；怎么设置碰撞时的速度和朝向；怎么保证鼓在移动时不翻转；怎么保证鼓在其他时刻不乱翻转？</p><p>乍一看，我了个c。。。</p><p>但再一想，诶呦不错哦！PID！RM战队牛逼！<a href="https://imuncle.github.io/" target="_blank" rel="noopener">谢老板</a>带领的南工骁鹰真是给我上了美好的一课，在这里竟然用上了！用！上！了！不过，这是一个多维度的PID，不！太！一！样！</p><p>于是第一时间，我想到了。。。百度（哈哈，第二时间我才想到了谢老板）。可悲啊，百度太辣鸡，连个二阶pid都查不到，更别说多维度了，都是水不拉几的学位论文，都给我消失！还是谢老板厉害！于是开始勾搭谢老板。没想到秒回！不过嘛。。。谢老板工程经验丰富，但是对于我这么具体的理论问题就表示无奈了，毕竟这太具体了。谢老板表示我应该着重推公式，好吧，我去推公式了，自闭时间到。（最后我表示推一下系统函数，然后，真香）</p><p>自闭了一下午，我推了三张纸，越推越爽，一直推公式一直爽！那是真的爽！不骗你！当你发现复杂问题被自己简化成一个小迭代公式还不用涉及什么矩阵求逆啊之类的复杂运算之后，整个人都升华了——觉得自己成为了数学家！问翔哥，是否想听我讲一讲；翔哥用表情表示：算了，我还在自闭，我想不开。问子烨，继续扔给他公式，要他写我们的第三问，子烨这回善罢甘休了，不过能力也是有限啊。于是我就花了很长时间，召集子烨和翔哥，讲了半天我的PID推导，讲了半天我的系统，收获了翔哥的赞叹和子烨的默许，好的，这是一个好的开始了。</p><p>后来子烨果然闷闷闷儿去用公式编辑器打公式了，不过还需要我不时地给予指导。</p><p>这方面，我没能控制住自己的傲气，这点不好。我本应理解他不能立刻理解这些数学原理的，因为毕竟用他的话来说，“这些不是计科的东西啊，我哪能直接就会”。当然，这些也不是电信的东西，但毕竟，我搞过RM，我搞过控制，我搞过MATLAB，我对物理和数学都感兴趣！我有责任讲清楚！</p><p>不过一切都开始进入正轨了。</p><p>现在距离考试结束还有86400秒钟！（包含睡觉！）</p><p>夜晚，我们大家确实都开始恋恋不舍这个战场了。我终于有那个魄力向三维的世界进发，向我所担心、害怕的世界进发！我担心，我花了一下午，6个小时，360分钟，21600秒钟推导出来的公式会是一坨辣鸡；我担心，我头铁坚持了那么久，强硬了那么多，怼了那么多次队友而坚持的道路会戛然而止；我担心，我自己会因为思绪混乱而放弃……</p><p>不过，一晚上的尝试，让我再一次表示：我靠，还真给出来了！</p><p>这得感谢我在电赛中学到的经验：把大的任务分解成小的任务。检验一个电路，先从电源模块入手，再检查每个管脚、每个功能，逐个排查；写一个大的代码，不要奢求“一把嗦（这么写的么？请教尤大佬！！）”（翻译：一步到位），而应该一步一步实现基础功能，一步一个脚印地组合到最终的功能。想一下不久前电赛备赛的时候，尤大佬是如何“一把嗦”的？他在实验室做了好久，先实现了MSP430的ADC，进而实现MSP430计数、墨水屏幕显示，然后才是MSP430频率计；然后实现FPGA流水灯、FPGA数码转换和数码管显示、FPGA的基本操作、FPGA的读取外设、FPGA的IO口使用，到这时候，尤大佬对这些东西已经有一个基本概念了，所以又可以通过FPGA实现频率计了；学会了GPIO，又可以手写SPI协议和MSP通信；SPI协议又要从最基础的发射开始，不要奢求一开始就可以读取，先用示波器尝试……啊好多啊，想想就复杂，但就被尤大佬一点点积累，等到最后出成果那一刻，美其名曰“一把嗦”！后来，我借鉴这个经验，才一点点搭建出我的FPGA第一个流水灯、读取IO、DDS生成器、AM调制、AM解调、FM调制、FM解调、TDMA信号的调制、TDMA信号的解调仿真、TDMA实际信号的解调的。</p><p>翔哥觉得自己不够聪明，实际上，就像我说的，“脑子清醒不清醒是一回事；聪明不聪明，是另一回事”。回想大一时候，翔哥可是线性代数很厉害的，我真的也赞叹。于是我就努力地学好线性代数。人在不同阶段总是要有榜样的，这种榜样，可以是自己所崇拜的那种，可以是身边的技胜一筹的，甚至可以是自己所不屑却嫉妒的那种人。</p><p>哇，扯了这么多。说说我怎么解决的最难问题吧！</p><ul><li><p>Step1：在三维模型中，不引入水平反馈，看看竖直方向是否还和之前一样。if一样，转Step2，else改程序；</p></li><li><p>Step2：尝试平动的PID公式，将球的初始水平位置设置到别处，看看能不能过去。if可以，转Step3，else找问题，确定是step1还是step2出了问题；</p></li><li><p>Step3：尝试加入接球击打的PID公式，if能打上去，转Step4，else，顺着Step123排查问题；</p></li><li><p>Step4是啥？我还差一个PID公式没有调，也就是修正转动的PID，但我并不急着弄！Step4是什么？是思考人生！思考的结果是：干到了这里，一定得有点结果！于是，我是用了求助rar技能！然后，向他俩汇报阶段性成果，接下来什么截图保存啊啥的都得有。好，转Step5</p></li><li><p>Step5：加入转动的PID公式，if能转正，then诶嘿嘿嘿，else，我了个c</p></li></ul><p>嗯没错，我了个c</p><p>这该咋办？它转不正？！我先试一拨玄学调参，调整PID的比例值大小，没用；调整公式一些参数，没用；用动画来呈现这一切，看看到底咋转，写了一晚上电影，得到结论，它给我乱转！不过走到这一步，基本确定问题了：它乱转，转到最后转没了！我怀疑是不是我画图边界太窄了，我加大好几倍，它还是没。我于是追根溯源，直接看变量值，得到NaN！我的妈耶！加了PID不收敛了！但是又发现，法向量的y分量的结果很喜人，只是x分量炸了，导致z分量一起炸，那是不是….?我还没开窍，于是傻不愣登地把参数都设为0；好，回到了step3，一切正常。也就是我的迭代公式本身没有使我的系统爆炸，而是我的PID参数。也就是，我还有没考虑到的地方。我差点就要对PID参数进行搜索了，不过上帝给了我的大脑一盏LED灯，告诉我：你的Kp应该设成负的，要不就把迭代公式设成负的，至少也要试一试！于是我就试了试，成了！哇，到了晚上两点！宣布完毕这个阶段性成果，我就去洗澡了（哇头皮是真的痒痒，如果大于两天不洗头的话）。他俩还是恋恋不舍。</p><p>这晚上我有点睡不着，不过还是莫名其妙睡着了……</p><blockquote><p>（因为中午出去买饭遇上了下雨，电梯里人也很多，所以我今天把！单！词！背！完！了！）</p></blockquote><blockquote><p>（无wxh之乱耳，无wxh之劳形，今晚成果颇丰，过得很爽！（wxh：我耳朵长铁轨上了））</p></blockquote><h1 id="2019数学建模系列传送门"><a href="#2019数学建模系列传送门" class="headerlink" title="2019数学建模系列传送门"></a>2019数学建模系列传送门</h1><ul><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-2/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-3/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-4/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/29/math-modling-2019CUMCM-answer-1/" target="_blank" rel="noopener">2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)</a></li><li><a href="https://lucainiaoge.github.io/2019/10/02/math-modling-2019CUMCM-answer-2/" target="_blank" rel="noopener">2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;Great-progress-2019-9-14&quot;&gt;&lt;a href=&quot;#Great-progress-2019-9-14&quot; class=&quot;headerlink&quot; title=&quot;Great progress - 2019.9.14&quot;&gt;&lt;/a&gt;Great progress - 2019.9.14&lt;/h1&gt;&lt;p&gt;第三天一早（其实严格来说是第二天），我&lt;strong&gt;double帅&lt;/strong&gt;先到达战场&lt;/p&gt;
     
     </summary>
     
