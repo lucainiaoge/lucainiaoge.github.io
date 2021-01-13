@@ -44,9 +44,9 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
     <link href="https://lucainiaoge.github.io.git/2020/12/22/PyTorch_create_graph_is_true/"/>
     <id>https://lucainiaoge.github.io.git/2020/12/22/PyTorch_create_graph_is_true/</id>
     <published>2020-12-21T16:00:00.000Z</published>
-    <updated>2021-01-13T10:15:08.155Z</updated>
+    <updated>2021-01-13T10:21:20.511Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes that readers have been familiar with the concept of computation graph.</font></p><p>Suppose we want to back-propagate through such a computation graph…</p><a id="more"></a><p>To view the whole passage, please download:<br><a href="/download/PyTorch-create_graph-is-true_Tutorial_and_Example.pdf">PyTorch: Use create_graph to Compute Second-order Derivative</a></p><p>And the illustrations in that passage could be downloaded from <a href="/download/create_graph_true_PyTorch_tutorial.ipynb">create_graph_true_PyTorch_tutorial.ipynb</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes that readers have been familiar with the concept of computation graph.</font></p><p>Can we use computation graph to calculate arbitrary-order derivative? The answer is yes, we can. But how to leverage it using PyTorch, and how to understand the whole thing?</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/PyTorch-create_graph-is-true_Tutorial_and_Example.pdf">PyTorch: Use create_graph to Compute Second-order Derivative</a></p><p>And the illustrations in that passage could be downloaded from <a href="/download/create_graph_true_PyTorch_tutorial.ipynb">create_graph_true_PyTorch_tutorial.ipynb</a></p>]]></content>
     
     <summary type="html">
     
@@ -56,7 +56,7 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;font color=&quot;gray&quot;&gt; This article assumes that readers have been familiar with the concept of computation graph.&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;Suppose we want to back-propagate through such a computation graph…&lt;/p&gt;
+&lt;p&gt;Can we use computation graph to calculate arbitrary-order derivative? The answer is yes, we can. But how to leverage it using PyTorch, and how to understand the whole thing?&lt;/p&gt;
     
     </summary>
     
@@ -311,9 +311,9 @@ This article summarizes my understandings on music composing and appreciation.
     <link href="https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/"/>
     <id>https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/</id>
     <published>2020-01-12T16:00:00.000Z</published>
-    <updated>2021-01-13T10:17:37.220Z</updated>
+    <updated>2021-01-13T10:20:09.651Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.).</font></p><p>When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you!</p><a id="more"></a><p>To view the whole passage, please download:<br><a href="/download/Linear_Algebra_Reflection_Range_and_Nullspace.pdf">Reflections on Linear Algebra: Range and Nullspace</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.).</font></p><p>When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you!</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/Linear_Algebra_Reflection_Range_and_Nullspace.pdf">Reflections on Linear Algebra: Range and Nullspace</a></p>]]></content>
     
     <summary type="html">
     

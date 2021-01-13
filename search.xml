@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[PyTorch - Use create_graph to Compute Second-order Derivative]]></title>
     <url>%2F2020%2F12%2F22%2FPyTorch_create_graph_is_true%2F</url>
-    <content type="text"><![CDATA[by lucainiaoge This article assumes that readers have been familiar with the concept of computation graph. Suppose we want to back-propagate through such a computation graph… To view the whole passage, please download:PyTorch: Use create_graph to Compute Second-order Derivative And the illustrations in that passage could be downloaded from create_graph_true_PyTorch_tutorial.ipynb]]></content>
+    <content type="text"><![CDATA[by lucainiaoge This article assumes that readers have been familiar with the concept of computation graph. Can we use computation graph to calculate arbitrary-order derivative? The answer is yes, we can. But how to leverage it using PyTorch, and how to understand the whole thing? To view this article, please download:PyTorch: Use create_graph to Compute Second-order Derivative And the illustrations in that passage could be downloaded from create_graph_true_PyTorch_tutorial.ipynb]]></content>
       <tags>
         <tag>machine_learning</tag>
         <tag>python</tag>
@@ -102,7 +102,7 @@
   <entry>
     <title><![CDATA[Reflections on Linear Algebra - Range and Nullspace]]></title>
     <url>%2F2020%2F01%2F13%2FLinear_Algebra_Reflection_Range_and_Nullspace%2F</url>
-    <content type="text"><![CDATA[This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.). When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you! To view the whole passage, please download:Reflections on Linear Algebra: Range and Nullspace]]></content>
+    <content type="text"><![CDATA[This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.). When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you! To view this article, please download:Reflections on Linear Algebra: Range and Nullspace]]></content>
       <tags>
         <tag>math</tag>
       </tags>
