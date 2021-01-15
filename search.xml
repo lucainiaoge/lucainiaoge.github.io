@@ -100,6 +100,16 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Harmonic Constraint in Music Spectrogram Reconstruction]]></title>
+    <url>%2F2020%2F01%2F15%2FHarmonic_Constraint_in_Music_Spectrogram_Reconstruction%2F</url>
+    <content type="text"><![CDATA[It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article. This article gives a brief review of harmonic constraints on timbre dictionary. Such harmonic constraints are useful in helping non-negative matrix factorization (NMF) algorithm to converge into a musically meaningful result. Noticing the disadvantages of the traditional NMF algorithm and hard-harmonic-constraints, this article proposes a dB-trick for NMF which could loosen the non-negativity constraints, and a soft-harmonic-constraint method based on regularization, which gives more freedom to the parameter compared with the existing hard-harmonic-constraints. To view this article, please download:Harmonic_Constraint_in_Music_Spectrogram_Reconstruction]]></content>
+      <tags>
+        <tag>MIR</tag>
+        <tag>AMT</tag>
+        <tag>research</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Reflections on Linear Algebra - Range and Nullspace]]></title>
     <url>%2F2020%2F01%2F13%2FLinear_Algebra_Reflection_Range_and_Nullspace%2F</url>
     <content type="text"><![CDATA[This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.). When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you! To view this article, please download:Reflections on Linear Algebra: Range and Nullspace]]></content>

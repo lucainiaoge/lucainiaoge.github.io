@@ -6,35 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>CNN Note - Back Propagation Alogorithm | Lucainiao&#39;s blog</title>
+  <title>Harmonic Constraint in Music Spectrogram Reconstruction | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
-<meta name="keywords" content="machine_learning,CNN,neural_network,math">
+  <meta name="description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
+<meta name="keywords" content="MIR,AMT,research">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CNN Note - Back Propagation Alogorithm">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/index.html">
+<meta property="og:title" content="Harmonic Constraint in Music Spectrogram Reconstruction">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
+<meta property="og:description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/O9Kr2CpN7iLTegG.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/1gUuzNhxtQnrEdY.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/mZOnVXgxsQL4tYf.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/miqXKzBD7CE1rL3.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/ECVM5AsbKok2xLY.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/OspeVKBUJvXqGHD.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/z3EOHS85xdV4Wai.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/5AM3KsWoSx7jvmR.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/9b1aSiH2FrcCzqp.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/fQND1v9PutTHmCc.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/k5PZdEBDzOVWL1r.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/dRnJtA8plyIFMbY.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/04/03/5NhKxmcvrGFbWZz.jpg">
-<meta property="og:updated_time" content="2020-12-21T16:15:37.692Z">
+<meta property="og:updated_time" content="2021-01-15T11:38:34.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CNN Note - Back Propagation Alogorithm">
-<meta name="twitter:description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
-<meta name="twitter:image" content="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg">
+<meta name="twitter:title" content="Harmonic Constraint in Music Spectrogram Reconstruction">
+<meta name="twitter:description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -171,7 +156,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CNNnote2-BP_algorithm" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Harmonic_Constraint_in_Music_Spectrogram_Reconstruction" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -180,8 +165,8 @@
 	  
         
         
-        <a href="/2020/04/03/CNNnote2-BP_algorithm/" class="archive-article-date">
-  	<time datetime="2020-04-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+        <a href="/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/" class="archive-article-date">
+  	<time datetime="2020-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
 </a>
         
       </header>
@@ -192,30 +177,19 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      CNN Note - Back Propagation Alogorithm
+      Harmonic Constraint in Music Spectrogram Reconstruction
     </h1>
   
 </p></center>
       
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:</p>
+        <div id="content"></div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p><font color="gray"> It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article.</font></p>
+<p>This article gives a brief review of harmonic constraints on timbre dictionary. Such harmonic constraints are useful in helping non-negative matrix factorization (NMF) algorithm to converge into a musically meaningful result. Noticing the disadvantages of the traditional NMF algorithm and hard-harmonic-constraints, this article proposes a dB-trick for NMF which could loosen the non-negativity constraints, and a soft-harmonic-constraint method based on regularization, which gives more freedom to the parameter compared with the existing hard-harmonic-constraints.</p>
 <a id="more"></a>
 
-<h2 id="References-and-helpful-links"><a href="#References-and-helpful-links" class="headerlink" title="References and helpful links"></a>References and helpful links</h2><blockquote>
-<ul>
-<li><a href="http://cogprints.org/5869/1/cnn_tutorial.pdf" target="_blank" rel="noopener">Reference 1: CNN tutorial note of Jake Bouvrie</a></li>
-<li><a href="https://blog.csdn.net/ck1798333105/article/details/52369122" target="_blank" rel="noopener">Reference 2: A helpful CSDN blog in Chinese, author - xqp_dream</a></li>
-</ul>
-</blockquote>
-<h2 id="Prerequisites-for-this-note"><a href="#Prerequisites-for-this-note" class="headerlink" title="Prerequisites for this note"></a>Prerequisites for this note</h2><p>neural network concepts, CNN concepts, vector calculus</p>
-<h1 id="First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><a href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers" class="headerlink" title="First Part: Review – BP (back propagation) in fully connected layers"></a>First Part: Review – BP (back propagation) in fully connected layers</h1><h2 id="Review-of-Feedforward-and-BP-formula"><a href="#Review-of-Feedforward-and-BP-formula" class="headerlink" title="Review of Feedforward and BP formula"></a>Review of Feedforward and BP formula</h2><p><img src="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg" alt="Part1_1-1_1.jpg"><br>Just a review, not a tutorial! How to derive the formula? Please go to learn neural network basics.<br>Give <a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">a link of tutorial from Andrew Ng</a></p>
-<h2 id="Detailed-derivation-of-BP-formula"><a href="#Detailed-derivation-of-BP-formula" class="headerlink" title="Detailed derivation of BP formula"></a>Detailed derivation of BP formula</h2><p><img src="https://i.loli.net/2020/04/03/O9Kr2CpN7iLTegG.jpg" alt="Part1_1-2_1.jpg"><br><img src="https://i.loli.net/2020/04/03/1gUuzNhxtQnrEdY.jpg" alt="Part1_1-2_2.jpg"><br><img src="https://i.loli.net/2020/04/03/mZOnVXgxsQL4tYf.jpg" alt="Part1_1-2_3.jpg"></p>
-<h1 id="Second-Part-math-in-CNN-–-representation-and-BP"><a href="#Second-Part-math-in-CNN-–-representation-and-BP" class="headerlink" title="Second Part: math in CNN – representation and BP"></a>Second Part: math in CNN – representation and BP</h1><h2 id="Math-formalization-of-CNN-feeding-forward"><a href="#Math-formalization-of-CNN-feeding-forward" class="headerlink" title="Math formalization of CNN feeding forward"></a>Math formalization of CNN feeding forward</h2><p><img src="https://i.loli.net/2020/04/03/miqXKzBD7CE1rL3.jpg" alt="Part2-1_1.jpg"><br><img src="https://i.loli.net/2020/04/03/ECVM5AsbKok2xLY.jpg" alt="Part2-1_2.jpg"></p>
-<h2 id="BP-for-convolutional-layers"><a href="#BP-for-convolutional-layers" class="headerlink" title="BP for convolutional layers"></a>BP for convolutional layers</h2><p><img src="https://i.loli.net/2020/04/03/OspeVKBUJvXqGHD.jpg" alt="Part2-2_0.jpg"></p>
-<h3 id="The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer"><a href="#The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer" class="headerlink" title="The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)"></a>The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)</h3><p><img src="https://i.loli.net/2020/04/03/z3EOHS85xdV4Wai.jpg" alt="Part2-2_1_1.jpg"><br><img src="https://i.loli.net/2020/04/03/5AM3KsWoSx7jvmR.jpg" alt="Part2-2_1_2.jpg"></p>
-<h3 id="Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer"><a href="#Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer" class="headerlink" title="Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)"></a>Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)</h3><p><img src="https://i.loli.net/2020/04/03/9b1aSiH2FrcCzqp.jpg" alt="Part2-2_2_1.jpg"><br><img src="https://i.loli.net/2020/04/03/fQND1v9PutTHmCc.jpg" alt="Part2-2_2_2.jpg"><br><img src="https://i.loli.net/2020/04/03/k5PZdEBDzOVWL1r.jpg" alt="Part2-2_2_3.jpg"><br><img src="https://i.loli.net/2020/04/03/dRnJtA8plyIFMbY.jpg" alt="Part2-2_2_4.jpg"></p>
-<h2 id="BP-for-CNN-–-a-summarization"><a href="#BP-for-CNN-–-a-summarization" class="headerlink" title="BP for CNN – a summarization"></a>BP for CNN – a summarization</h2><p><img src="https://i.loli.net/2020/04/03/5NhKxmcvrGFbWZz.jpg" alt="Part2-2_3.jpg"></p>
+<p>To view this article, please download:<br><a href="/download/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction.pdf">Harmonic_Constraint_in_Music_Spectrogram_Reconstruction</a></p>
 
       
 	  
@@ -230,7 +204,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/
+				https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -274,25 +248,26 @@
     </div>
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MIR</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CNN</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AMT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">neural_network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">research</a>
         		</li>
       		
 		</ul>
@@ -348,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +337,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/18/personal-page/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Welcome! I am Tongyu Lu! 我是路通宇!
+          Course Note - Propositional Logic - BN and inference UCLA Adnan Darwiche
         
       </div>
     </a>
   
   
-    <a href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Course Note - Propositional Logic - BN and inference UCLA Adnan Darwiche</div>
+    <a href="/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Reflections on Linear Algebra - Range and Nullspace</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +375,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#References-and-helpful-links"><span class="toc-number">1.1.</span> <span class="toc-text">References and helpful links</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites-for-this-note"><span class="toc-number">1.2.</span> <span class="toc-text">Prerequisites for this note</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><span class="toc-number">2.</span> <span class="toc-text">First Part: Review – BP (back propagation) in fully connected layers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Review-of-Feedforward-and-BP-formula"><span class="toc-number">2.1.</span> <span class="toc-text">Review of Feedforward and BP formula</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detailed-derivation-of-BP-formula"><span class="toc-number">2.2.</span> <span class="toc-text">Detailed derivation of BP formula</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Part-math-in-CNN-–-representation-and-BP"><span class="toc-number">3.</span> <span class="toc-text">Second Part: math in CNN – representation and BP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-formalization-of-CNN-feeding-forward"><span class="toc-number">3.1.</span> <span class="toc-text">Math formalization of CNN feeding forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-convolutional-layers"><span class="toc-number">3.2.</span> <span class="toc-text">BP for convolutional layers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer"><span class="toc-number">3.2.1.</span> <span class="toc-text">The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer"><span class="toc-number">3.2.2.</span> <span class="toc-text">Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-CNN-–-a-summarization"><span class="toc-number">3.3.</span> <span class="toc-text">BP for CNN – a summarization</span></a></li></ol></li></ol>
+                    contents are flying in the space
                     </div>
                 </span>
             </div>

@@ -307,6 +307,35 @@ This article summarizes my understandings on music composing and appreciation.
   </entry>
   
   <entry>
+    <title>Harmonic Constraint in Music Spectrogram Reconstruction</title>
+    <link href="https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/"/>
+    <id>https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/</id>
+    <published>2020-01-14T16:00:00.000Z</published>
+    <updated>2021-01-15T11:38:34.267Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article.</font></p><p>This article gives a brief review of harmonic constraints on timbre dictionary. Such harmonic constraints are useful in helping non-negative matrix factorization (NMF) algorithm to converge into a musically meaningful result. Noticing the disadvantages of the traditional NMF algorithm and hard-harmonic-constraints, this article proposes a dB-trick for NMF which could loosen the non-negativity constraints, and a soft-harmonic-constraint method based on regularization, which gives more freedom to the parameter compared with the existing hard-harmonic-constraints.</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction.pdf">Harmonic_Constraint_in_Music_Spectrogram_Reconstruction</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;This article gives a brief review of harmonic constraints on timbre dictionary. Such harmonic constraints are useful in helping non-negative matrix factorization (NMF) algorithm to converge into a musically meaningful result. Noticing the disadvantages of the traditional NMF algorithm and hard-harmonic-constraints, this article proposes a dB-trick for NMF which could loosen the non-negativity constraints, and a soft-harmonic-constraint method based on regularization, which gives more freedom to the parameter compared with the existing hard-harmonic-constraints.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="MIR" scheme="https://lucainiaoge.github.io.git/tags/MIR/"/>
+    
+      <category term="AMT" scheme="https://lucainiaoge.github.io.git/tags/AMT/"/>
+    
+      <category term="research" scheme="https://lucainiaoge.github.io.git/tags/research/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reflections on Linear Algebra - Range and Nullspace</title>
     <link href="https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/"/>
     <id>https://lucainiaoge.github.io.git/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/</id>
@@ -516,31 +545,6 @@ This article summarizes my understandings on music composing and appreciation.
       &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;First-Battle-2019-9-13&quot;&gt;&lt;a href=&quot;#First-Battle-2019-9-13&quot; class=&quot;headerlink&quot; title=&quot;First Battle - 2019.9.13&quot;&gt;&lt;/a&gt;First Battle - 2019.9.13&lt;/h1&gt;&lt;p&gt;第二天，我&lt;strong&gt;帅&lt;/strong&gt;先到达战场（毕竟我就睡在隔壁战壕里）。自己又调了一会小模型，画了几个图给了子烨。就继续了。第一天晚上，我宣布完阶段性胜利后，便给翔哥分配任务了：“赶紧研究第二问，它和第一问没啥重合的，但是关系到后面”。翔哥于是就又开始自闭了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="math_moding" scheme="https://lucainiaoge.github.io.git/tags/math-moding/"/>
-    
-      <category term="experience" scheme="https://lucainiaoge.github.io.git/tags/experience/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</title>
-    <link href="https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-1/"/>
-    <id>https://lucainiaoge.github.io.git/2019/09/15/math-modling-2019CUMCM-summary-1/</id>
-    <published>2019-09-14T16:00:00.000Z</published>
-    <updated>2019-10-03T06:53:22.280Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>总的来说，算是顺利。提交完文档恋恋不舍，仔仔细细又看了两遍，感觉漏洞百出，算了吧，不再提交MD码了，省得出车祸。<br>具体过程呢，记不太清了，简要回忆一下吧。</p><a id="more"></a><h1 id="Just-before-the-start"><a href="#Just-before-the-start" class="headerlink" title="Just before the start"></a>Just before the start</h1><p>第一天12号，下午5:30上完电磁场与电磁波，和翔哥赶紧跑回2301B打开电脑焦急地等待。翔哥表示手在颤抖。能干啥呢？在闷热的活动室准备好了插排、台灯，烧了水，上了厕所，甚至还和hhn理论理论开空调的事情，不过被hhn拒绝了，他表示自己感冒了并且需要通风。看在他经常搞卫生的份上，我就预期接下来几天要坐桑拿房了。</p><p>6:00，子烨也来了，看题。我们分工看题，我先看的A题，给翔哥看B题，子烨看C题。不巧，子烨得紧急去开学生会，那就让他去吧。我就在钻研A，钻研半天总觉得不对劲，在bilibili和google还有油管上找了关于2019A题油管的视频（没错，我在油管找油管），但是我在油管死活找不到我要的油管：我要知道油管里是否一直有油，油管压强该怎么算，我要学流体力学，我要……妈呀想着都害怕。不过我本着不想出来这题咋回事不放弃做这道题的想法，继续逼着自己想啊想。油管里是否有空气？题目的流程到底是啥（这个想明白了）？数据咋获取？代码将会成什么样子？……我先换换思路吧，呼叫翔哥，问问他B题咋想。</p><p>扫了一眼B，发现，我天这也太小儿科了吧，弄个游戏整过来让我们建模，有意思么？？我于是老是在把这个想法表示出来，还好这只是牢骚而已，当真的话我可能就不会在现在兴奋地打字了。翔哥没有对这题表达太多的看法，难就是了，似乎要确定很多量；我当然，满脑子都在说“这题太无聊了”。恰好，子烨回来了。</p><p>我问他学生会其他的去搞建模的咋想？他说，他认识的几个都还啥都没想呢。再问：C题有想法么？他说找到数据了。仔细看C题，我天，一个数字都没有，就让我们建模。想到这里，我脑海里不禁想起通信导论的课设。<br>我还挣扎一下，呼叫他俩看看A题，我啥都没讲出来。好吧，我们讨论了一番，决定B题了。具体怎么做出的集体决定，我也忘了，总之，觉得B题相对“好欺负”就是了。</p><h1 id="first-night-2019-9-12"><a href="#first-night-2019-9-12" class="headerlink" title="first night - 2019.9.12"></a>first night - 2019.9.12</h1><p>好的，下面是干活阶段。拿到这玩意咋整？先不想乱七八糟的，第一问做不出来，其他的咋办？我们怎么分工？我第一天晚上会不会有思路？我还能不能睡着觉？我现在要不要上厕所？我还剩多长时间就比完赛了？我作业写了么？……</p><p>总之嘛，要想的问题还是很多的（呵呵）</p><p>我的大脑告诉我，首先要决定的问题就是怎么分工。传说中的 “数学-代码-写作文”的分工只是说说而已，拿到这玩意谁会套用这个“数码写”（原谅我这么简称它）的模型？我摸了一遍四个问题，发现第一问是一维的，第二问是填空题，第三问是三维的，第四问是第三问。所以决定先想第一问好了，让子烨先去干问题重述、外加查资料，反正也分析过一遍题了。翔哥呢？没让他去打代码，刚开始我记得是让他去研究一维碰撞了。分工就大致明了了：我搞代码（这也是被他俩认可的，之前两周备赛，重要代码基本都是我弄出来的），翔哥研究物理问题，子烨查资料+写作文（我还教了他几招用word打公式的骚方法，输入速度秒杀LateX）</p><p>我隐约记得，第一天晚上蹦出了很多想法，比如考虑空气阻力，然后查找空气阻力的公式，子烨找了很多论文，什么斯托克斯公式啥的，都是作为参考了的，然后我们还估算各种值，比如浮力和重力的比例啊、碰撞系数啊啥的，完全是在做一个物理题嘛。我甚至回宿舍去找大物书，发现只剩下下册了，上册捐给学弟（学妹？不存在的）了，翔哥也去我宿舍拿了我的线代书，我拿了我的大物笔记，还好笔记记得全。</p><p>我想，第一问还有点难，不过大概要输出什么东西是明白了：游戏策略嘛，不过控制力道和方向，画个F-t图和φ-t图不就得了，当然还可以是电影；这图咋来？MATLAB来。MATLAB咋来？一定要离散化。离散化咋来？转微分表达式为差分表达式。Bingo！开始干活！脑袋一热，就写了一个小球在地上颠来颠去的程序（此处感谢HYX大一时候发来的VB碰撞仿真程序带来的灵感！）还真别说，给颠起来了，很兴奋了。于是我开始找怎么做电影，还真别说，给做出来了，但是MATLAB做电影是真的真的慢慢慢慢！算了，以后再说吧，这事儿算是告一段落。</p><p>与此同时，翔哥的一维碰撞也给似乎搞出来了。我们纠结了半天碰撞该怎么刻画，我坚持让翔哥找出恢复系数e，这样我们就不需要讨论能量守恒了；还没有开始写程序的翔哥表示，一个式子已经够便宜了，这个e哪找得到？哪都找不到！炒了半天，子烨表示，自己查到了足球和地面碰撞的e=0.68，大部分e值是试验测定的。好吧，不吵了，我在碰撞中将e设为0.8得了，翔哥不必在考虑这个问题了，今后对e进行灵敏度分析就好了。于是，我解锁新技能：<strong>挂起任务</strong>！这一点真的很关键，切中了马克思主义中的“把握主要矛盾”的哲学观念。</p><p>于是，我开始着手写第一问的代码，具体那四个状态我是怎么构建出来的，我记不太清了，因为那时我在集中思考，别人在干啥我都没在意，当然，我还记得在此期间hhn热心肠拿来了一个电风扇供我消遣（感动！）<br>还真别说，我给写出来了（辣鸡MATLAB可真好用）。就看那小球越颠越高，要不就一颠就掉地上，总之，不符合常理。我就想，我不让你（指的小球）飞不就得了，你飞高了，我下次就给少一点劲儿，你飞低了，我下一次就给大一点劲儿，完美！反馈！！！负反馈！！！着手写负反馈函数，施力大小和高度成负相关。在夜里12点之前，我忘了翔哥在自闭啥，也忘了子烨写了哪部分论文，总之我很兴奋地宣布：第一问我快做出来了！到了这里，本来自闭的翔哥想开了，本来面瘫的子烨动容了，本来鸭梨山大的路菜鸟鸭梨小了。</p><p>于是，第一个物理引擎诞生了，它长在一维世界里。最后合力的分解才到二维。毕竟第一问是十分理想的。</p><p>睡觉吧。子烨先去睡了，我挑头表示我也去睡了，翔哥就也睡了。后来，隔壁Ldt表示，我们搞数学建模睡得竟然比他还早！谁叫他老喝快乐水吃炸鸡（而且肌肉发达不长胖还喜欢熬夜）呢！</p><h1 id="2019数学建模系列传送门"><a href="#2019数学建模系列传送门" class="headerlink" title="2019数学建模系列传送门"></a>2019数学建模系列传送门</h1><ul><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-1/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 1 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-2/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 2 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-3/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 3 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/15/math-modling-2019CUMCM-summary-4/" target="_blank" rel="noopener">2019数学建模国赛总结 Part 4 (2019 CUMCM Summary)</a></li><li><a href="https://lucainiaoge.github.io/2019/09/29/math-modling-2019CUMCM-answer-1/" target="_blank" rel="noopener">2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)</a></li><li><a href="https://lucainiaoge.github.io/2019/10/02/math-modling-2019CUMCM-answer-2/" target="_blank" rel="noopener">2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h1&gt;&lt;p&gt;总的来说，算是顺利。提交完文档恋恋不舍，仔仔细细又看了两遍，感觉漏洞百出，算了吧，不再提交MD码了，省得出车祸。&lt;br&gt;具体过程呢，记不太清了，简要回忆一下吧。&lt;/p&gt;
     
     </summary>
     
