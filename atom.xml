@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucainiaoge.github.io.git/"/>
-  <updated>2020-12-28T04:08:47.229Z</updated>
+  <updated>2021-03-15T05:31:26.868Z</updated>
   <id>https://lucainiaoge.github.io.git/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>From Beta Distribution to Conjugate Distribution</title>
+    <link href="https://lucainiaoge.github.io.git/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/"/>
+    <id>https://lucainiaoge.github.io.git/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/</id>
+    <published>2021-03-13T16:00:00.000Z</published>
+    <updated>2021-03-15T05:31:26.868Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> Pre-requisites:</font></p><ol><li>Knowing the Bayes theorem;</li><li>It is recommended that readers have gone through elementary training about statistics.</li></ol><p>This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities.</p><p>In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”.</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/From_Beta_Distribution_to_Conjugate_Distributions.pdf">From_Beta_Distribution_to_Conjugate_Distributions.pdf</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; Pre-requisites:&lt;/font&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Knowing the Bayes theorem;&lt;/li&gt;
+&lt;li&gt;It is recommended that readers have gone through elementary training about statistics.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities.&lt;/p&gt;
+&lt;p&gt;In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
+    
+      <category term="statistics" scheme="https://lucainiaoge.github.io.git/tags/statistics/"/>
+    
+  </entry>
   
   <entry>
     <title>(Chinese) - 记录一个儿时的游戏-&quot;攒&quot; (A Biography for A Game in my Childhood-&quot;Zan&quot;)</title>
@@ -303,38 +335,6 @@ This article summarizes my understandings on music composing and appreciation.
       <category term="BN" scheme="https://lucainiaoge.github.io.git/tags/BN/"/>
     
       <category term="logic" scheme="https://lucainiaoge.github.io.git/tags/logic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>From Beta Distribution to Conjugate Distribution</title>
-    <link href="https://lucainiaoge.github.io.git/2020/03/14/From_Beta_Distribution_to_Conjugate_Distributions/"/>
-    <id>https://lucainiaoge.github.io.git/2020/03/14/From_Beta_Distribution_to_Conjugate_Distributions/</id>
-    <published>2020-03-13T16:00:00.000Z</published>
-    <updated>2021-03-14T12:34:48.082Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> Pre-requisites:</font></p><ol><li>Knowing the Bayes theorem;</li><li>It is recommended that readers have gone through elementary training about statistics.</li></ol><p>This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities.</p><p>In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”.</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/From_Beta_Distribution_to_Conjugate_Distributions.pdf">From_Beta_Distribution_to_Conjugate_Distributions.pdf</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; Pre-requisites:&lt;/font&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Knowing the Bayes theorem;&lt;/li&gt;
-&lt;li&gt;It is recommended that readers have gone through elementary training about statistics.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities.&lt;/p&gt;
-&lt;p&gt;In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”.&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
-    
-      <category term="statistics" scheme="https://lucainiaoge.github.io.git/tags/statistics/"/>
     
   </entry>
   

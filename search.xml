@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[From Beta Distribution to Conjugate Distribution]]></title>
+    <url>%2F2021%2F03%2F14%2FFrom_Beta_Distribution_to_Conjugate_Distributions%2F</url>
+    <content type="text"><![CDATA[Pre-requisites: Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics. This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities. In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”. To view this article, please download:From_Beta_Distribution_to_Conjugate_Distributions.pdf]]></content>
+      <tags>
+        <tag>math</tag>
+        <tag>statistics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[(Chinese) - 记录一个儿时的游戏-"攒" (A Biography for A Game in my Childhood-"Zan")]]></title>
     <url>%2F2020%2F12%2F28%2Fgame_chiledhood_zan%2F</url>
     <content type="text"><![CDATA[This article contains two Chinese articles about my childhood: a Chinese introduction for game "Zan" (see also http://www.wikibin.org/articles/bor-bor-zan-2.html), and a Chinese article regarding my view of points on this game. Game_instruction_zan_Chinese.pdf Memory_zan_Chinese.pdf If I have spare-time in the future, I will complete the English version.]]></content>
@@ -97,15 +106,6 @@
         <tag>machine_learning</tag>
         <tag>BN</tag>
         <tag>logic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[From Beta Distribution to Conjugate Distribution]]></title>
-    <url>%2F2020%2F03%2F14%2FFrom_Beta_Distribution_to_Conjugate_Distributions%2F</url>
-    <content type="text"><![CDATA[Pre-requisites: Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics. This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities. In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”. To view this article, please download:From_Beta_Distribution_to_Conjugate_Distributions.pdf]]></content>
-      <tags>
-        <tag>math</tag>
-        <tag>statistics</tag>
       </tags>
   </entry>
   <entry>
