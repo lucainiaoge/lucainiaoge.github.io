@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure]]></title>
+    <url>%2F2021%2F03%2F21%2FPyTorch_lesson_1D_dimension_leading_to_bad_loss%2F</url>
+    <content type="text"><![CDATA[This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B]. Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?Have you encountered python warning like this? UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size. There is a lesson behind this. To view this article, please download:PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf]]></content>
+      <tags>
+        <tag>machine_learning</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[From Beta Distribution to Conjugate Distribution]]></title>
     <url>%2F2021%2F03%2F14%2FFrom_Beta_Distribution_to_Conjugate_Distributions%2F</url>
     <content type="text"><![CDATA[Pre-requisites: Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics. This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities. In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”. To view this article, please download:From_Beta_Distribution_to_Conjugate_Distributions.pdf]]></content>

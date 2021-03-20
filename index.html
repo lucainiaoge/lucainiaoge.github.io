@@ -719,6 +719,102 @@ This article summarizes my understandings on music composing and appreciation.
 
 
   
+    <article id="post-PyTorch_lesson_1D_dimension_leading_to_bad_loss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" class="archive-article-date">
+  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+</a>
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_lucainiaoge" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</a>
+    </h1>
+  
+</p></center>
+      
+        <div id="content"></div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p>
+<p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p>
+        
+          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/#more">more >></a>
+        
+      
+	  
+	  
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">show full article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-From_Beta_Distribution_to_Conjugate_Distributions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1288,111 +1384,9 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
 
 
   
-    <article id="post-CNNnote2-BP_algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/04/03/CNNnote2-BP_algorithm/" class="archive-article-date">
-  	<time datetime="2020-04-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/04/03/CNNnote2-BP_algorithm/">CNN Note - Back Propagation Alogorithm</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:</p>
-        
-          <a class="article-more-a" href="/2020/04/03/CNNnote2-BP_algorithm/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CNN</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">neural_network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/CNNnote2-BP_algorithm/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
