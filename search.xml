@@ -12,7 +12,7 @@
   <entry>
     <title><![CDATA[Beta Regression vs. Logistic Regression]]></title>
     <url>%2F2021%2F03%2F21%2FBeta_Regression_vs_Logistic_Regression%2F</url>
-    <content type="text"><![CDATA[Pre-requisites:Pre-requisites: Knowing the Maximum-likelihood criterion; It is recommended that readers have known the concepts and basic applications of Beta distribution. This article tells you a method to modeling a regression problem whose output is bounded and supposed to be countinuous. To view this article, please download:Beta_Regression_vs_Logistic_Regression.pdfThere is a .ipynb notebook for a toy experiment, which could be downloaded from:BoundedRegression.ipynb]]></content>
+    <content type="text"><![CDATA[Pre-requisites: Knowing the Maximum-likelihood criterion; It is recommended that readers have known the concepts and basic applications of Beta distribution. This article tells you a method to modeling a regression problem whose output is bounded and supposed to be countinuous. To view this article, please download:Beta_Regression_vs_Logistic_Regression.pdfThere is a .ipynb notebook for a toy experiment, which could be downloaded from:BoundedRegression.ipynb]]></content>
       <tags>
         <tag>math</tag>
         <tag>statistics</tag>

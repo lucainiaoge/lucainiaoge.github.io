@@ -48,16 +48,16 @@
     <link href="https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/"/>
     <id>https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/</id>
     <published>2021-03-20T16:00:00.000Z</published>
-    <updated>2021-03-21T09:10:02.619Z</updated>
+    <updated>2021-03-21T10:26:25.919Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> Pre-requisites:<br>Pre-requisites:</font></p><ol><li>Knowing the Maximum-likelihood criterion;</li><li>It is recommended that readers have known the concepts and basic applications of Beta distribution.</li></ol><p>This article tells you a method to modeling a regression problem whose output is bounded and supposed to be countinuous.</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/Beta_Regression_vs_Logistic_Regression.pdf">Beta_Regression_vs_Logistic_Regression.pdf</a><br>There is a .ipynb notebook for a toy experiment, which could be downloaded from:<a href="/download/BoundedRegression.ipynb">BoundedRegression.ipynb</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> Pre-requisites:</font></p><ol><li>Knowing the Maximum-likelihood criterion;</li><li>It is recommended that readers have known the concepts and basic applications of Beta distribution.</li></ol><p>This article tells you a method to modeling a regression problem whose output is bounded and supposed to be countinuous.</p><a id="more"></a><p>To view this article, please download:<br><a href="/download/Beta_Regression_vs_Logistic_Regression.pdf">Beta_Regression_vs_Logistic_Regression.pdf</a><br>There is a .ipynb notebook for a toy experiment, which could be downloaded from:<a href="/download/BoundedRegression.ipynb">BoundedRegression.ipynb</a></p>]]></content>
     
     <summary type="html">
     
       &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; Pre-requisites:&lt;br&gt;Pre-requisites:&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; Pre-requisites:&lt;/font&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Knowing the Maximum-likelihood criterion;&lt;/li&gt;
 &lt;li&gt;It is recommended that readers have known the concepts and basic applications of Beta distribution.&lt;/li&gt;
