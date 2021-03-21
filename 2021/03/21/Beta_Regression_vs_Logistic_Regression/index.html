@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>From Beta Distribution to Conjugate Distribution | Lucainiao&#39;s blog</title>
+  <title>Beta Regression vs. Logistic Regression | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Pre-requisites:  Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics.  This article tells you the basic ideas behind the Beta distribut">
+  <meta name="description" content="Pre-requisites:Pre-requisites:  Knowing the Maximum-likelihood criterion; It is recommended that readers have known the concepts and basic applications of Beta distribution.  This article tells yo">
 <meta name="keywords" content="math,statistics">
 <meta property="og:type" content="article">
-<meta property="og:title" content="From Beta Distribution to Conjugate Distribution">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/index.html">
+<meta property="og:title" content="Beta Regression vs. Logistic Regression">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="Pre-requisites:  Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics.  This article tells you the basic ideas behind the Beta distribut">
+<meta property="og:description" content="Pre-requisites:Pre-requisites:  Knowing the Maximum-likelihood criterion; It is recommended that readers have known the concepts and basic applications of Beta distribution.  This article tells yo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-15T05:31:26.868Z">
+<meta property="og:updated_time" content="2021-03-21T09:10:02.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="From Beta Distribution to Conjugate Distribution">
-<meta name="twitter:description" content="Pre-requisites:  Knowing the Bayes theorem; It is recommended that readers have gone through elementary training about statistics.  This article tells you the basic ideas behind the Beta distribut">
+<meta name="twitter:title" content="Beta Regression vs. Logistic Regression">
+<meta name="twitter:description" content="Pre-requisites:Pre-requisites:  Knowing the Maximum-likelihood criterion; It is recommended that readers have known the concepts and basic applications of Beta distribution.  This article tells yo">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -156,7 +156,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-From_Beta_Distribution_to_Conjugate_Distributions" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Beta_Regression_vs_Logistic_Regression" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -165,8 +165,8 @@
 	  
         
         
-        <a href="/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/" class="archive-article-date">
-  	<time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
+        <a href="/2021/03/21/Beta_Regression_vs_Logistic_Regression/" class="archive-article-date">
+  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
 </a>
         
       </header>
@@ -177,7 +177,7 @@
 		<center><p>
   
     <h1 class="article-title_lucainiaoge" itemprop="name">
-      From Beta Distribution to Conjugate Distribution
+      Beta Regression vs. Logistic Regression
     </h1>
   
 </p></center>
@@ -185,16 +185,15 @@
         <div id="content"></div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p><font color="gray"> Pre-requisites:</font></p>
+<p><font color="gray"> Pre-requisites:<br>Pre-requisites:</font></p>
 <ol>
-<li>Knowing the Bayes theorem;</li>
-<li>It is recommended that readers have gone through elementary training about statistics.</li>
+<li>Knowing the Maximum-likelihood criterion;</li>
+<li>It is recommended that readers have known the concepts and basic applications of Beta distribution.</li>
 </ol>
-<p>This article tells you the basic ideas behind the Beta distribution, and its basic applications. In detail, we could use Beta distribution to model random varibales which represent proportions or probabilities.</p>
-<p>In this article, you could understand why Beta distribution is called “distribution of distributions”, and get an intuition about the concept “conjugate distribution”.</p>
+<p>This article tells you a method to modeling a regression problem whose output is bounded and supposed to be countinuous.</p>
 <a id="more"></a>
 
-<p>To view this article, please download:<br><a href="/download/From_Beta_Distribution_to_Conjugate_Distributions.pdf">From_Beta_Distribution_to_Conjugate_Distributions.pdf</a></p>
+<p>To view this article, please download:<br><a href="/download/Beta_Regression_vs_Logistic_Regression.pdf">Beta_Regression_vs_Logistic_Regression.pdf</a><br>There is a .ipynb notebook for a toy experiment, which could be downloaded from:<a href="/download/BoundedRegression.ipynb">BoundedRegression.ipynb</a></p>
 
       
 	  
@@ -209,7 +208,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://lucainiaoge.github.io.git/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/
+				https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -319,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,18 +332,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/21/Beta_Regression_vs_Logistic_Regression/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Beta Regression vs. Logistic Regression
+          Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure
         
       </div>
     </a>
   
   
-    <a href="/2020/12/28/game_chiledhood_zan/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">(Chinese) - 记录一个儿时的游戏-&#34;攒&#34; (A Biography for A Game in my Childhood-&#34;Zan&#34;)</div>
+    <a href="/2021/03/14/From_Beta_Distribution_to_Conjugate_Distributions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">From Beta Distribution to Conjugate Distribution</div>
       <i class="icon-circle-right"></i>
     </a>
   
