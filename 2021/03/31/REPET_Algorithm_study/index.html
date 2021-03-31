@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>Tag: python | Lucainiao&#39;s blog</title>
+  <title>REPET Algorithm - Background Music Separation Using Auto-correlation | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Here&apos;s my blog for coders and music lovers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lucainiao&#39;s blog">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/tags/python/index.html">
+  <meta name="description" content="Pre-requisites:  Knowing the discrete Fourier transform (DFT); Knowing the auto-correlation calculation for discrete series.  This is a note for Zafar Rafii’s REpeating Pattern Extraction Techniqu">
+<meta name="keywords" content="mir,MSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REPET Algorithm - Background Music Separation Using Auto-correlation">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2021/03/31/REPET_Algorithm_study/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="Here&apos;s my blog for coders and music lovers">
+<meta property="og:description" content="Pre-requisites:  Knowing the discrete Fourier transform (DFT); Knowing the auto-correlation calculation for discrete series.  This is a note for Zafar Rafii’s REpeating Pattern Extraction Techniqu">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-03-31T11:05:28.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lucainiao&#39;s blog">
-<meta name="twitter:description" content="Here&apos;s my blog for coders and music lovers">
+<meta name="twitter:title" content="REPET Algorithm - Background Music Separation Using Auto-correlation">
+<meta name="twitter:description" content="Pre-requisites:  Knowing the discrete Fourier transform (DFT); Knowing the auto-correlation calculation for discrete series.  This is a note for Zafar Rafii’s REpeating Pattern Extraction Techniqu">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -154,170 +156,264 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-REPET_Algorithm_study" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" class="archive-article-date">
-  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2021/03/31/REPET_Algorithm_study/" class="archive-article-date">
+  	<time datetime="2021-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-31</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</a>
+    <h1 class="article-title_lucainiaoge" itemprop="name">
+      REPET Algorithm - Background Music Separation Using Auto-correlation
     </h1>
   
+</p></center>
+      
+        <div id="content"></div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-        <div class="article-info info-on-right">
-          
+<p><font color="gray"> Pre-requisites:</font></p>
+<ol>
+<li>Knowing the discrete Fourier transform (DFT);</li>
+<li>Knowing the auto-correlation calculation for discrete series.</li>
+</ol>
+<p>This is a note for Zafar Rafii’s REpeating Pattern Extraction Technique (REPET) algorithm in its basic form. REPET is a super-simple algorithm which could separate human voice from accompanied music, although it is effective only in typical cases when background music is highly repetitive.</p>
+<a id="more"></a>
+
+<p>To view this article, please download:<br><a href="/download/REPET_Algorithm_study.pdf">REPET_Algorithm_study.pdf</a></p>
+
+      
+	  
+	  
+		
+		
+		  <div>
+			<blockquote>
+				<strong>本文作者：</strong>
+				
+				  lucainiaoge
+				
+				<br>
+				<strong>本文链接：</strong>
+				https://lucainiaoge.github.io.git/2021/03/31/REPET_Algorithm_study/
+				<br>
+				<strong>版权声明：</strong>
+				本作品采用
+				<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons authorship - noncommercial use - same way sharing 4.0 international license agreement</a>
+				进行许可。转载请注明出处！
+				
+				  <br>
+				  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+				
+			</blockquote>
+			
+			
+			<hr>
+				<center><strong>Welcome to my little world</strong></center>
+			<hr>
+		  </div>
+		
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thx!!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">mir</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MSS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2021/03/31/REPET_Algorithm_study/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/22/PyTorch_create_graph_is_true/" class="archive-article-date">
-  	<time datetime="2020-12-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    contents are flying in the space
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/22/PyTorch_create_graph_is_true/">PyTorch - Use create_graph to Compute Second-order Derivative</a>
-    </h1>
-  
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/25/KNN-handwriting-recognization/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/25/KNN-handwriting-recognization/">KNN实现手写数字识别(KNN handwriting recognization)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
+<div class="gitalk">
+    <div id="gitalk-container"></div>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+            clientID: '113d81d5e28a1fcdede5',
+            clientSecret: '457eefa5d617e8c922ad82852dbcfe01abf436bf',
+            repo: 'lucainiaoge.github.io',
+            owner: 'lucainiaoge',
+            admin: ['lucainiaoge'],
+            id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+
+  
+
+
+
+<div style='display: none'>
+{%if post.updated and post.updated > post.date%}
+  <span class="post-updated">
+    &nbsp; | &nbsp; {{ __('post.updated') }}
+    <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+      {{ date(post.updated, config.date_format) }}
+    </time>
+  </span>
+{% endif %}
+</div>
           </div>
         </div>
       </div>
@@ -364,9 +460,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: false,
