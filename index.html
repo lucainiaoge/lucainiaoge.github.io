@@ -819,102 +819,6 @@ This article summarizes my understandings on music composing and appreciation.
 
 
   
-    <article id="post-PyTorch_lesson_1D_dimension_leading_to_bad_loss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" class="archive-article-date">
-  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</a>
-    </h1>
-  
-</p></center>
-      
-        <div id="content"></div>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p>
-<p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p>
-        
-          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Beta_Regression_vs_Logistic_Regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -986,6 +890,102 @@ This article summarizes my understandings on music composing and appreciation.
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/03/21/Beta_Regression_vs_Logistic_Regression/">show full article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PyTorch_lesson_1D_dimension_leading_to_bad_loss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" class="archive-article-date">
+  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+</a>
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_lucainiaoge" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</a>
+    </h1>
+  
+</p></center>
+      
+        <div id="content"></div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p>
+<p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p>
+        
+          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/#more">more >></a>
+        
+      
+	  
+	  
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/">show full article >></a>
         </p>
       
 
@@ -1544,23 +1544,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CNN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">neural_network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1576,11 +1564,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BN</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">logic</a>
+                <a href="javascript:void(0)" class="js-tag color4">CNN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">neural_network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1592,7 +1588,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">misc</a>
+                <a href="javascript:void(0)" class="js-tag color4">mir</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">logic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1616,6 +1624,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">misc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
@@ -1625,18 +1637,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mir</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSS</a>
               </li>
             
             <div class="clearfix"></div>

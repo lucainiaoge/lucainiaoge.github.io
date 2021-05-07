@@ -48,33 +48,6 @@
   </entry>
   
   <entry>
-    <title>Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</title>
-    <link href="https://lucainiaoge.github.io.git/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/"/>
-    <id>https://lucainiaoge.github.io.git/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/</id>
-    <published>2021-03-20T16:00:00.000Z</published>
-    <updated>2021-03-20T16:16:25.123Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p><p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p><a id="more"></a><p>There is a lesson behind this. To view this article, please download:<br><a href="/download/PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf">PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?&lt;br&gt;Have you encountered python warning like this? &lt;em&gt;UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.&lt;/em&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
-    
-      <category term="python" scheme="https://lucainiaoge.github.io.git/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Beta Regression vs. Logistic Regression</title>
     <link href="https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/"/>
     <id>https://lucainiaoge.github.io.git/2021/03/21/Beta_Regression_vs_Logistic_Regression/</id>
@@ -102,6 +75,33 @@
       <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
     
       <category term="statistics" scheme="https://lucainiaoge.github.io.git/tags/statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure</title>
+    <link href="https://lucainiaoge.github.io.git/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/"/>
+    <id>https://lucainiaoge.github.io.git/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/</id>
+    <published>2021-03-20T16:00:00.000Z</published>
+    <updated>2021-03-20T16:16:25.123Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p><p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p><a id="more"></a><p>There is a lesson behind this. To view this article, please download:<br><a href="/download/PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf">PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?&lt;br&gt;Have you encountered python warning like this? &lt;em&gt;UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
+    
+      <category term="python" scheme="https://lucainiaoge.github.io.git/tags/python/"/>
     
   </entry>
   
@@ -390,13 +390,13 @@ This article summarizes my understandings on music composing and appreciation.
     
     
     
+      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
+    
       <category term="machine_learning" scheme="https://lucainiaoge.github.io.git/tags/machine-learning/"/>
     
       <category term="CNN" scheme="https://lucainiaoge.github.io.git/tags/CNN/"/>
     
       <category term="neural_network" scheme="https://lucainiaoge.github.io.git/tags/neural-network/"/>
-    
-      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
     
   </entry>
   
