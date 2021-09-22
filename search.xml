@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Neural Network Theory Lecture Note 1 - Approximation Theorem]]></title>
+    <url>%2F2021%2F09%2F22%2FNeural_network_theory_course_1%2F</url>
+    <content type="text"><![CDATA[Pre-requisites: It will be helpful to know some basic concept about functional analysis, e.g. linear functional, normed space, Hahn-Banach Theorem; anyway they will be explained in my note Basic form of single-layer neural network. After the happy summer vacation, I have to attend the master program at ETH Zurich. This is my lecture note for my first course, Neural Network Theory, at ETH. Lecturer: Prof. Helmut Elbrächter This first note is about the capacity of a single-layer neural network in approximating an arbitrary function whose domain is in ${\rm \pmb{R}}^d$. To view this note, please download:NNT_note1_tongyulu.pdf]]></content>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[REPET Algorithm - Background Music Separation Using Auto-correlation]]></title>
     <url>%2F2021%2F03%2F31%2FREPET_Algorithm_study%2F</url>
     <content type="text"><![CDATA[Pre-requisites: Knowing the discrete Fourier transform (DFT); Knowing the auto-correlation calculation for discrete series. This is a note for Zafar Rafii’s REpeating Pattern Extraction Technique (REPET) algorithm in its basic form. REPET is a super-simple algorithm which could separate human voice from accompanied music, although it is effective only in typical cases when background music is highly repetitive. To view this article, please download:REPET_Algorithm_study.pdf]]></content>
