@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Backpropagation - More than Chain Rule]]></title>
+    <url>%2F2021%2F10%2F04%2FBack_propagation%2F</url>
+    <content type="text"><![CDATA[Pre-requisites: Knowing multi-variable differentiation; It is recommended that readers have known the concepts of directed graphs. This is my lecture note of the natural language processing (NLP) lecture in ETH Zurich. Lecturer: Ryan Cotterell. This lecture tells you what backpropagation algorithm really is. Well, I have to say that it is surprising that backpropagation (BP) is taught in an NLP course instead of a machine learning course. To view this article, please download:Lecture_note1_BP.pdf If I have time, I will implement BP with Python without PyTorch.]]></content>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Neural Network Theory Lecture Note 1 - Approximation Theorem]]></title>
     <url>%2F2021%2F09%2F22%2FNeural_network_theory_course_1%2F</url>
     <content type="text"><![CDATA[Pre-requisites: It will be helpful to know some basic concept about functional analysis, e.g. linear functional, normed space, Hahn-Banach Theorem; anyway they will be explained in my note Basic form of single-layer neural network. After the happy summer vacation, I have to attend the master program at ETH Zurich. This is my lecture note for my first course, Neural Network Theory, at ETH. Lecturer: Prof. Helmut Elbrächter This first note is about the capacity of a single-layer neural network in approximating an arbitrary function whose domain is in ${\rm \pmb{R}}^d$. To view this note, please download:NNT_note1_tongyulu.pdf]]></content>

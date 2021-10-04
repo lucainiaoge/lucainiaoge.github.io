@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lucainiaoge.github.io.git/"/>
-  <updated>2021-09-22T09:30:40.891Z</updated>
+  <updated>2021-10-04T20:51:44.090Z</updated>
   <id>https://lucainiaoge.github.io.git/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Backpropagation - More than Chain Rule</title>
+    <link href="https://lucainiaoge.github.io.git/2021/10/04/Back_propagation/"/>
+    <id>https://lucainiaoge.github.io.git/2021/10/04/Back_propagation/</id>
+    <published>2021-10-03T22:00:00.000Z</published>
+    <updated>2021-10-04T20:51:44.090Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div id="content"></div><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><p><font color="gray"> Pre-requisites:</font></p><ol><li>Knowing multi-variable differentiation;</li><li>It is recommended that readers have known the concepts of directed graphs.</li></ol><p>This is my lecture note of the natural language processing (NLP) lecture in ETH Zurich. Lecturer: Ryan Cotterell. This lecture tells you what backpropagation algorithm really is.</p><a id="more"></a><p>Well, I have to say that it is surprising that backpropagation (BP) is taught in an NLP course instead of a machine learning course.</p><p>To view this article, please download:<br><a href="/download/Lecture_note1_BP.pdf">Lecture_note1_BP.pdf</a></p><p>If I have time, I will implement BP with Python without PyTorch.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;font color=&quot;gray&quot;&gt; Pre-requisites:&lt;/font&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Knowing multi-variable differentiation;&lt;/li&gt;
+&lt;li&gt;It is recommended that readers have known the concepts of directed graphs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is my lecture note of the natural language processing (NLP) lecture in ETH Zurich. Lecturer: Ryan Cotterell. This lecture tells you what backpropagation algorithm really is.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>Neural Network Theory Lecture Note 1 - Approximation Theorem</title>
@@ -543,34 +572,6 @@ This article summarizes my understandings on music composing and appreciation.
       <category term="physics" scheme="https://lucainiaoge.github.io.git/tags/physics/"/>
     
       <category term="simulation" scheme="https://lucainiaoge.github.io.git/tags/simulation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三维旋转矩阵和刚体旋转(Object Rotation in 3D Space)</title>
-    <link href="https://lucainiaoge.github.io.git/2019/10/02/rotation-in-3D-space/"/>
-    <id>https://lucainiaoge.github.io.git/2019/10/02/rotation-in-3D-space/</id>
-    <published>2019-10-01T22:00:00.000Z</published>
-    <updated>2019-10-02T04:41:04.482Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>by lucainiaoge</strong></p><hr><p>如何描绘一个向量在三维世界中的旋转？如何描绘一个物体在三维世界中的旋转？</p><ul><li>基础知识required：空间向量的概念</li></ul><a id="more"></a><ul><li>若无法显示公式，或者出现[Math Processing Error]，请尝试shift+F5或者ctrl+shift+F5刷新页面<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><h1 id="Rotation-of-Vector"><a href="#Rotation-of-Vector" class="headerlink" title="Rotation of Vector"></a>Rotation of Vector</h1></li></ul><p>我们知道,在三维空间中，描绘一个三维列向量$\pmb{v}$<strong>逆时针</strong>绕着$z$轴旋转$\theta$角度，可以用这个矩阵来表示：<br><img src="https://i.loli.net/2019/10/02/QDcOun5d6wK7kmb.png" alt="Rotation_mat_2D.png"><br>那么$Rv$就是旋转之后的向量了！<br>（如果不能理解，可以试试推导一下二维空间中向量绕原点旋转的矩阵）<br>同理，绕着x轴,y轴旋转的矩阵如下：<br><img src="https://i.loli.net/2019/10/02/qExRjpni4POm1Zr.png" alt="Rotation_mat_2D_xy.png"></p><p>接下来：我们试着求一下三维空间中任何一个向量$\pmb{n_2}$绕着原点旋转到$z$轴方向的矩阵：肯定要经历两次二维旋转！<br><img src="https://i.loli.net/2019/10/02/bKTACj6dDYQezO9.png" alt="3D-vector_rotation.png"></p><p>如上图：先绕$x轴$转到$xOz$平面，再绕$y轴$转到$z$方向。构造出来旋转矩阵：<br><img src="https://i.loli.net/2019/10/02/xlRXAWsi5jQPD9z.png" alt="Rotation_mat_3D.png"><br>(上图中$\alpha \beta$ 的直角坐标计算公式就不给出了！)<br>那么$\pmb{n_2}=\pmb{R_1} \pmb{R_2} \pmb{e_z}$</p><p>我们令$\pmb{R_z}=\pmb{R_1R_2}$，即为将z单位向量$\pmb{e_z}$旋转到任意向量$\pmb{n}$的旋转矩阵（简记为z旋转矩阵）。$\pmb{R^{-1}}$即为将任意向量$\pmb{n}$旋转到$\pmb{e_z}$方向的旋转矩阵。</p><p>如何将任意向量$\pmb{n_1}$旋转到另一个任意向量$\pmb{n_2}$的方向？设$\pmb{n_1}$的z旋转矩阵为$\pmb{R_{z1}}$，$\pmb{n_2}$的z旋转矩阵为$\pmb{R_{z2}}$，那么先将$\pmb{n_1}$转到z轴，再将z轴转到$\pmb{n_2}$，得到$\pmb{n_2}=\pmb{R_{z2}}\pmb{R_{z1}^{-1}}\pmb{n_1}$</p><h1 id="Rotation-of-Object"><a href="#Rotation-of-Object" class="headerlink" title="Rotation of Object"></a>Rotation of Object</h1><p>我们已知某个物体初始时刻的任意质点的位矢$\pmb{r}(x,y,z)$。现在，我们想描述这个物体绕着原点随便转动，转动的角度按球坐标系刻画，为：$xOy平面极角\beta$，$z轴极角\alpha$。对应的z旋转矩阵为$\pmb{R_{z}}$。</p><p>如果知道这个物体某个质点$\pmb{P}$位于$\pmb{e_{z}}$方向时其他质点相对于这个质点的位矢为$\pmb{\Delta r}=(\Delta x,\Delta y,\Delta z)$，那么$\pmb{R_{z}P}+\pmb{\Delta r}$即为刚体任意其他质点的方向了~</p><p>描述一个物体，只需要知道其一个位矢$\pmb{r}$（一般为质心），要旋转物体，只需要对$\pmb{r}$进行操作：$\pmb{R_{z}} \pmb{r}$，其余质点按照相对位置分配即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;by lucainiaoge&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;如何描绘一个向量在三维世界中的旋转？如何描绘一个物体在三维世界中的旋转？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基础知识required：空间向量的概念&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="math" scheme="https://lucainiaoge.github.io.git/tags/math/"/>
-    
-      <category term="physics" scheme="https://lucainiaoge.github.io.git/tags/physics/"/>
     
   </entry>
   

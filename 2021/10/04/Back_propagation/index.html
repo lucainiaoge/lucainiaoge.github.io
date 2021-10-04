@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
-  <title>Lucainiao&#39;s blog</title>
+  <title>Backpropagation - More than Chain Rule | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Here&apos;s my blog for coders and music lovers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lucainiao&#39;s blog">
-<meta property="og:url" content="https://lucainiaoge.github.io.git/page/2/index.html">
+  <meta name="description" content="Pre-requisites:  Knowing multi-variable differentiation; It is recommended that readers have known the concepts of directed graphs.  This is my lecture note of the natural language processing (NLP">
+<meta name="keywords" content="math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backpropagation - More than Chain Rule">
+<meta property="og:url" content="https://lucainiaoge.github.io.git/2021/10/04/Back_propagation/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
-<meta property="og:description" content="Here&apos;s my blog for coders and music lovers">
+<meta property="og:description" content="Pre-requisites:  Knowing multi-variable differentiation; It is recommended that readers have known the concepts of directed graphs.  This is my lecture note of the natural language processing (NLP">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-10-04T20:51:44.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lucainiao&#39;s blog">
-<meta name="twitter:description" content="Here&apos;s my blog for coders and music lovers">
+<meta name="twitter:title" content="Backpropagation - More than Chain Rule">
+<meta name="twitter:description" content="Pre-requisites:  Knowing multi-variable differentiation; It is recommended that readers have known the concepts of directed graphs.  This is my lecture note of the natural language processing (NLP">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -154,9 +156,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-PyTorch_create_graph_is_true" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Back_propagation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -165,8 +165,8 @@
 	  
         
         
-        <a href="/2020/12/22/PyTorch_create_graph_is_true/" class="archive-article-date">
-  	<time datetime="2020-12-21T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
+        <a href="/2021/10/04/Back_propagation/" class="archive-article-date">
+  	<time datetime="2021-10-03T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-04</time>
 </a>
         
       </header>
@@ -176,586 +176,8 @@
 		
 		<center><p>
   
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/12/22/PyTorch_create_graph_is_true/">PyTorch - Use create_graph to Compute Second-order Derivative</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<div id="content"></div>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<p><font color="gray"> This article assumes that readers have been familiar with the concept of computation graph.</font></p>
-<p>Can we use computation graph to calculate arbitrary-order derivative? The answer is yes, we can. But how to leverage it using PyTorch, and how to understand the whole thing?</p>
-        
-          <a class="article-more-a" href="/2020/12/22/PyTorch_create_graph_is_true/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/22/PyTorch_create_graph_is_true/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-deep_clustering_intro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/12/17/deep_clustering_intro/" class="archive-article-date">
-  	<time datetime="2020-12-16T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/12/17/deep_clustering_intro/">An Introduction to Deep Clustering</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<div id="content"></div>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h1 id="Toy-Example"><a href="#Toy-Example" class="headerlink" title="Toy Example"></a>Toy Example</h1><p>Suppose we have a series of vectors $V=[v_n],n=1,2,…,N$, where $v_n\in {\rm R^K}$. We want to cluster together similar vectors, what will we do?</p>
-        
-          <a class="article-more-a" href="/2020/12/17/deep_clustering_intro/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/17/deep_clustering_intro/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-intuition-for-statistical-inference" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/08/03/intuition-for-statistical-inference/" class="archive-article-date">
-  	<time datetime="2020-08-02T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/08/03/intuition-for-statistical-inference/">Intuition for Statistical Inference</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<div id="content"></div>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>In a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A little bit hard to understand? Hope that this article can help you understand that…</p>
-        
-          <a class="article-more-a" href="/2020/08/03/intuition-for-statistical-inference/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/intuition-for-statistical-inference/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-music-explorations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/07/18/my-music-explorations/" class="archive-article-date">
-  	<time datetime="2020-07-17T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/07/18/my-music-explorations/">My Music Explorations (from 2017 to 2020)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>Welcome! I am Tongyu Lu (路通宇)! This is an introduction of my explorations on composing!</strong></p>
-<hr>
-<p>This is an introduction of my explorations and my musical pieces! <font color="gray"> I am far from professional. Instead, I hope that my explorations on composition can inspire more music lovers to try bravely!</font></p>
-        
-          <a class="article-more-a" href="/2020/07/18/my-music-explorations/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">introduction</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/my-music-explorations/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CNNnote2-BP_algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/04/03/CNNnote2-BP_algorithm/" class="archive-article-date">
-  	<time datetime="2020-04-02T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/04/03/CNNnote2-BP_algorithm/">CNN Note - Back Propagation Alogorithm</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:</p>
-        
-          <a class="article-more-a" href="/2020/04/03/CNNnote2-BP_algorithm/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CNN</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">neural_network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/CNNnote2-BP_algorithm/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-course_note1-propositional_logic-BN_and_inference_UCLA_Adnan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/" class="archive-article-date">
-  	<time datetime="2020-03-17T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/">Course Note - Propositional Logic - BN and inference UCLA Adnan Darwiche</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a fundamental course for those who wanna have a thorough understanding of Baysian Networks:</p>
-        
-          <a class="article-more-a" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BN</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">logic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/18/course_note1-propositional_logic-BN_and_inference_UCLA_Adnan/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linear_Algebra_Reflection_Range_and_Nullspace" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/" class="archive-article-date">
-  	<time datetime="2020-01-12T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/">Reflections on Linear Algebra - Range and Nullspace</a>
+    <h1 class="article-title_lucainiaoge" itemprop="name">
+      Backpropagation - More than Chain Rule
     </h1>
   
 </p></center>
@@ -763,19 +185,71 @@
         <div id="content"></div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p><font color="gray"> This article assumes readers have grasped the basic concepts of linear algebra (e.g. inner product space, subspace, rank of matrix, solving linear equations with Gaussian elimination etc.).</font></p>
-<p>When I was learning about convex optimization, I encountered a statement about feasibility: given constraint $Ax=b$, if $b\notin R(A)$, then this problem is not feasible. I was wondering what $R(A)$ was. After reading this article, hope that the answer will be trivial to you!</p>
-        
-          <a class="article-more-a" href="/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/#more">more >></a>
-        
+<p><font color="gray"> Pre-requisites:</font></p>
+<ol>
+<li>Knowing multi-variable differentiation;</li>
+<li>It is recommended that readers have known the concepts of directed graphs.</li>
+</ol>
+<p>This is my lecture note of the natural language processing (NLP) lecture in ETH Zurich. Lecturer: Ryan Cotterell. This lecture tells you what backpropagation algorithm really is.</p>
+<a id="more"></a>
+
+<p>Well, I have to say that it is surprising that backpropagation (BP) is taught in an NLP course instead of a machine learning course.</p>
+<p>To view this article, please download:<br><a href="/download/Lecture_note1_BP.pdf">Lecture_note1_BP.pdf</a></p>
+<p>If I have time, I will implement BP with Python without PyTorch.</p>
+
       
 	  
 	  
 		
 		
-		  <div hidden="hidden"></div>
+		  <div>
+			<blockquote>
+				<strong>本文作者：</strong>
+				
+				  lucainiaoge
+				
+				<br>
+				<strong>本文链接：</strong>
+				https://lucainiaoge.github.io.git/2021/10/04/Back_propagation/
+				<br>
+				<strong>版权声明：</strong>
+				本作品采用
+				<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons authorship - noncommercial use - same way sharing 4.0 international license agreement</a>
+				进行许可。转载请注明出处！
+				
+				  <br>
+				  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+				
+			</blockquote>
+			
+			
+			<hr>
+				<center><strong>Welcome to my little world</strong></center>
+			<hr>
+		  </div>
 		
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thx!!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -795,16 +269,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/13/Linear_Algebra_Reflection_Range_and_Nullspace/">show full article >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lucainiaoge.github.io.git/2021/10/04/Back_propagation/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/22/Neural_network_theory_course_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Neural Network Theory Lecture Note 1 - Approximation Theorem</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -819,523 +352,66 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-math-modling-2019CUMCM-answer-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/10/02/math-modling-2019CUMCM-answer-2/" class="archive-article-date">
-  	<time datetime="2019-10-01T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/10/02/math-modling-2019CUMCM-answer-2/">2019数模国赛B题解析Part2(Analysis of 2019CUMCM Question-B Part2)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<p>这篇文章讲解2019年数学建模国赛B题的求解历程。这是第二篇。</p>
-<ul>
-<li>基础知识required：运动学和牛顿力学，空间向量的概念，最好有点反馈控制的知识（没有也行）</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/10/02/math-modling-2019CUMCM-answer-2/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">physics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">simulation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/02/math-modling-2019CUMCM-answer-2/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    contents are flying in the space
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-rotation-in-3D-space" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/10/02/rotation-in-3D-space/" class="archive-article-date">
-  	<time datetime="2019-10-01T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/10/02/rotation-in-3D-space/">三维旋转矩阵和刚体旋转(Object Rotation in 3D Space)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<p>如何描绘一个向量在三维世界中的旋转？如何描绘一个物体在三维世界中的旋转？</p>
-<ul>
-<li>基础知识required：空间向量的概念</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/10/02/rotation-in-3D-space/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">physics</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/02/rotation-in-3D-space/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-blog-intro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/09/29/blog-intro/" class="archive-article-date">
-  	<time datetime="2019-09-28T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/09/29/blog-intro/">A brief introduction of lucainiaoge&#39;s website</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-        
-          <a class="article-more-a" href="/2019/09/29/blog-intro/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">blog_start</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/29/blog-intro/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-math-modling-2019CUMCM-answer-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/09/29/math-modling-2019CUMCM-answer-1/" class="archive-article-date">
-  	<time datetime="2019-09-28T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/09/29/math-modling-2019CUMCM-answer-1/">2019数模国赛B题解析Part1(Analysis of 2019CUMCM Question-B Part1)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<p>这篇文章讲解2019年数学建模国赛B题的求解历程。</p>
-<ul>
-<li>基础知识required：运动学和牛顿力学，空间向量的概念</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/09/29/math-modling-2019CUMCM-answer-1/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">math_moding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">physics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">simulation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/29/math-modling-2019CUMCM-answer-1/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-KNN-handwriting-recognization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2019/09/25/KNN-handwriting-recognization/" class="archive-article-date">
-  	<time datetime="2019-09-24T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2019/09/25/KNN-handwriting-recognization/">KNN实现手写数字识别(KNN handwriting recognization)</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>（这其实是我第一次真正意义上的手写数字识别，使用KNN方法）</p>
-<p>之前在某宝上买来了一个小姐姐给的吴恩达作业（小姐姐讲解声音真的好听！），但是学完了（包括手写数字识别的手打BP神经网络实现），发现自己弄还是不会！现在，上了模式识别课程，一切重新开始！</p>
-        
-          <a class="article-more-a" href="/2019/09/25/KNN-handwriting-recognization/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/KNN-handwriting-recognization/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
+<div class="gitalk">
+    <div id="gitalk-container"></div>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+            clientID: '113d81d5e28a1fcdede5',
+            clientSecret: '457eefa5d617e8c922ad82852dbcfe01abf436bf',
+            repo: 'lucainiaoge.github.io',
+            owner: 'lucainiaoge',
+            admin: ['lucainiaoge'],
+            id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+
+  
+
+
+
+<div style='display: none'>
+{%if post.updated and post.updated > post.date%}
+  <span class="post-updated">
+    &nbsp; | &nbsp; {{ __('post.updated') }}
+    <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+      {{ date(post.updated, config.date_format) }}
+    </time>
+  </span>
+{% endif %}
+</div>
           </div>
         </div>
       </div>
@@ -1381,8 +457,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

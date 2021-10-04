@@ -720,6 +720,102 @@ This article summarizes my understandings on music composing and appreciation.
 
 
   
+    <article id="post-Back_propagation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	  
+		
+	  
+        
+        
+        <a href="/2021/10/04/Back_propagation/" class="archive-article-date">
+  	<time datetime="2021-10-03T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-04</time>
+</a>
+        
+      </header>
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+		
+		<center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_lucainiaoge" href="/2021/10/04/Back_propagation/">Backpropagation - More than Chain Rule</a>
+    </h1>
+  
+</p></center>
+      
+        <div id="content"></div>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p><font color="gray"> Pre-requisites:</font></p>
+<ol>
+<li>Knowing multi-variable differentiation;</li>
+<li>It is recommended that readers have known the concepts of directed graphs.</li>
+</ol>
+<p>This is my lecture note of the natural language processing (NLP) lecture in ETH Zurich. Lecturer: Ryan Cotterell. This lecture tells you what backpropagation algorithm really is.</p>
+        
+          <a class="article-more-a" href="/2021/10/04/Back_propagation/#more">more >></a>
+        
+      
+	  
+	  
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/04/Back_propagation/">show full article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Neural_network_theory_course_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1276,104 +1372,6 @@ This article contains two Chinese articles about my childhood: a Chinese introdu
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/12/28/game_chiledhood_zan/">show full article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PyTorch_create_graph_is_true" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	  
-		
-	  
-        
-        
-        <a href="/2020/12/22/PyTorch_create_graph_is_true/" class="archive-article-date">
-  	<time datetime="2020-12-21T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
-        
-      </header>
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-		
-		<center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_lucainiaoge" href="/2020/12/22/PyTorch_create_graph_is_true/">PyTorch - Use create_graph to Compute Second-order Derivative</a>
-    </h1>
-  
-</p></center>
-      
-        <p><strong>by lucainiaoge</strong></p>
-<hr>
-<div id="content"></div>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<p><font color="gray"> This article assumes that readers have been familiar with the concept of computation graph.</font></p>
-<p>Can we use computation graph to calculate arbitrary-order derivative? The answer is yes, we can. But how to leverage it using PyTorch, and how to understand the whole thing?</p>
-        
-          <a class="article-more-a" href="/2020/12/22/PyTorch_create_graph_is_true/#more">more >></a>
-        
-      
-	  
-	  
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/22/PyTorch_create_graph_is_true/">show full article >></a>
         </p>
       
 
