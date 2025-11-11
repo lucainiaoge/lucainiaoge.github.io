@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>CNN Note - Back Propagation Alogorithm | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
-<meta name="keywords" content="math,machine_learning,CNN,neural_network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CNN Note - Back Propagation Alogorithm">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/04/03/CNNnote2-BP_algorithm/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/03/O9Kr2CpN7iLTegG.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/03/1gUuzNhxtQnrEdY.jpg">
@@ -30,10 +29,14 @@
 <meta property="og:image" content="https://i.loli.net/2020/04/03/k5PZdEBDzOVWL1r.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/03/dRnJtA8plyIFMbY.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/03/5NhKxmcvrGFbWZz.jpg">
-<meta property="og:updated_time" content="2020-12-21T16:15:37.692Z">
+<meta property="article:published_time" content="2020-04-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T13:28:51.797Z">
+<meta property="article:author" content="lucainiaoge">
+<meta property="article:tag" content="CNN">
+<meta property="article:tag" content="machine_learning">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="neural_network">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CNN Note - Back Propagation Alogorithm">
-<meta name="twitter:description" content="by lucainiaoge  IntroThis is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:">
 <meta name="twitter:image" content="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
@@ -53,7 +56,7 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
@@ -64,7 +67,7 @@
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
   <script src="/lib/gitalk/gitalk.min.js"></script>
   <script src="/lib/gitalk/md5.min.js"></script>
-</html>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -77,10 +80,8 @@
 			<img src="/img/lucainiao.jpg" class="js-avatar show">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">lucainiaoge</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">coding&amp;music</p>
 		
 
 		<nav class="header-menu">
@@ -131,10 +132,8 @@
 				<img src="/img/lucainiao.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">lucainiaoge</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>coding&amp;music<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +180,7 @@
         
         
         <a href="/2020/04/03/CNNnote2-BP_algorithm/" class="archive-article-date">
-  	<time datetime="2020-04-02T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+  	<time datetime="2020-04-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
 </a>
         
       </header>
@@ -200,16 +199,16 @@
         <p><strong>by lucainiaoge</strong></p>
 <hr>
 <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This is a detailed derivation and summerization on back propagation (BP) algorithm in fully-connected neural networks and CNN:</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="References-and-helpful-links"><a href="#References-and-helpful-links" class="headerlink" title="References and helpful links"></a>References and helpful links</h2><blockquote>
 <ul>
-<li><a href="http://cogprints.org/5869/1/cnn_tutorial.pdf" target="_blank" rel="noopener">Reference 1: CNN tutorial note of Jake Bouvrie</a></li>
-<li><a href="https://blog.csdn.net/ck1798333105/article/details/52369122" target="_blank" rel="noopener">Reference 2: A helpful CSDN blog in Chinese, author - xqp_dream</a></li>
+<li><a href="http://cogprints.org/5869/1/cnn_tutorial.pdf">Reference 1: CNN tutorial note of Jake Bouvrie</a></li>
+<li><a href="https://blog.csdn.net/ck1798333105/article/details/52369122">Reference 2: A helpful CSDN blog in Chinese, author - xqp_dream</a></li>
 </ul>
 </blockquote>
 <h2 id="Prerequisites-for-this-note"><a href="#Prerequisites-for-this-note" class="headerlink" title="Prerequisites for this note"></a>Prerequisites for this note</h2><p>neural network concepts, CNN concepts, vector calculus</p>
-<h1 id="First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><a href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers" class="headerlink" title="First Part: Review – BP (back propagation) in fully connected layers"></a>First Part: Review – BP (back propagation) in fully connected layers</h1><h2 id="Review-of-Feedforward-and-BP-formula"><a href="#Review-of-Feedforward-and-BP-formula" class="headerlink" title="Review of Feedforward and BP formula"></a>Review of Feedforward and BP formula</h2><p><img src="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg" alt="Part1_1-1_1.jpg"><br>Just a review, not a tutorial! How to derive the formula? Please go to learn neural network basics.<br>Give <a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">a link of tutorial from Andrew Ng</a></p>
+<h1 id="First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><a href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers" class="headerlink" title="First Part: Review – BP (back propagation) in fully connected layers"></a>First Part: Review – BP (back propagation) in fully connected layers</h1><h2 id="Review-of-Feedforward-and-BP-formula"><a href="#Review-of-Feedforward-and-BP-formula" class="headerlink" title="Review of Feedforward and BP formula"></a>Review of Feedforward and BP formula</h2><p><img src="https://i.loli.net/2020/04/03/l6dOyAPTnqRcGtS.jpg" alt="Part1_1-1_1.jpg"><br>Just a review, not a tutorial! How to derive the formula? Please go to learn neural network basics.<br>Give <a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E7%AE%97%E6%B3%95">a link of tutorial from Andrew Ng</a></p>
 <h2 id="Detailed-derivation-of-BP-formula"><a href="#Detailed-derivation-of-BP-formula" class="headerlink" title="Detailed derivation of BP formula"></a>Detailed derivation of BP formula</h2><p><img src="https://i.loli.net/2020/04/03/O9Kr2CpN7iLTegG.jpg" alt="Part1_1-2_1.jpg"><br><img src="https://i.loli.net/2020/04/03/1gUuzNhxtQnrEdY.jpg" alt="Part1_1-2_2.jpg"><br><img src="https://i.loli.net/2020/04/03/mZOnVXgxsQL4tYf.jpg" alt="Part1_1-2_3.jpg"></p>
 <h1 id="Second-Part-math-in-CNN-–-representation-and-BP"><a href="#Second-Part-math-in-CNN-–-representation-and-BP" class="headerlink" title="Second Part: math in CNN – representation and BP"></a>Second Part: math in CNN – representation and BP</h1><h2 id="Math-formalization-of-CNN-feeding-forward"><a href="#Math-formalization-of-CNN-feeding-forward" class="headerlink" title="Math formalization of CNN feeding forward"></a>Math formalization of CNN feeding forward</h2><p><img src="https://i.loli.net/2020/04/03/miqXKzBD7CE1rL3.jpg" alt="Part2-1_1.jpg"><br><img src="https://i.loli.net/2020/04/03/ECVM5AsbKok2xLY.jpg" alt="Part2-1_2.jpg"></p>
 <h2 id="BP-for-convolutional-layers"><a href="#BP-for-convolutional-layers" class="headerlink" title="BP for convolutional layers"></a>BP for convolutional layers</h2><p><img src="https://i.loli.net/2020/04/03/OspeVKBUJvXqGHD.jpg" alt="Part2-2_0.jpg"></p>
@@ -400,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#References-and-helpful-links"><span class="toc-number">1.1.</span> <span class="toc-text">References and helpful links</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites-for-this-note"><span class="toc-number">1.2.</span> <span class="toc-text">Prerequisites for this note</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Part-Review-–-BP-back-propagation-in-fully-connected-layers"><span class="toc-number">2.</span> <span class="toc-text">First Part: Review – BP (back propagation) in fully connected layers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Review-of-Feedforward-and-BP-formula"><span class="toc-number">2.1.</span> <span class="toc-text">Review of Feedforward and BP formula</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detailed-derivation-of-BP-formula"><span class="toc-number">2.2.</span> <span class="toc-text">Detailed derivation of BP formula</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Part-math-in-CNN-–-representation-and-BP"><span class="toc-number">3.</span> <span class="toc-text">Second Part: math in CNN – representation and BP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-formalization-of-CNN-feeding-forward"><span class="toc-number">3.1.</span> <span class="toc-text">Math formalization of CNN feeding forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-convolutional-layers"><span class="toc-number">3.2.</span> <span class="toc-text">BP for convolutional layers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer"><span class="toc-number">3.2.1.</span> <span class="toc-text">The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer"><span class="toc-number">3.2.2.</span> <span class="toc-text">Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-CNN-–-a-summarization"><span class="toc-number">3.3.</span> <span class="toc-text">BP for CNN – a summarization</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#References-and-helpful-links"><span class="toc-number">1.1.</span> <span class="toc-text">References and helpful links</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites-for-this-note"><span class="toc-number">1.2.</span> <span class="toc-text">Prerequisites for this note</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Part-Review-%E2%80%93-BP-back-propagation-in-fully-connected-layers"><span class="toc-number">2.</span> <span class="toc-text">First Part: Review – BP (back propagation) in fully connected layers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Review-of-Feedforward-and-BP-formula"><span class="toc-number">2.1.</span> <span class="toc-text">Review of Feedforward and BP formula</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Detailed-derivation-of-BP-formula"><span class="toc-number">2.2.</span> <span class="toc-text">Detailed derivation of BP formula</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Second-Part-math-in-CNN-%E2%80%93-representation-and-BP"><span class="toc-number">3.</span> <span class="toc-text">Second Part: math in CNN – representation and BP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-formalization-of-CNN-feeding-forward"><span class="toc-number">3.1.</span> <span class="toc-text">Math formalization of CNN feeding forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-convolutional-layers"><span class="toc-number">3.2.</span> <span class="toc-text">BP for convolutional layers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-start-of-error-terms-and-dealing-with-BP-of-the-L-th-layer-which-is-a-pooling-layer"><span class="toc-number">3.2.1.</span> <span class="toc-text">The start of error terms and dealing with BP of the $L^{th}$ layer (which is a pooling layer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dealing-with-BP-of-the-L-1-th-layer-which-is-a-convolutional-layer"><span class="toc-number">3.2.2.</span> <span class="toc-text">Dealing with BP of the $(L-1)^{th}$ layer (which is a convolutional layer)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP-for-CNN-%E2%80%93-a-summarization"><span class="toc-number">3.3.</span> <span class="toc-text">BP for CNN – a summarization</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,7 +468,7 @@
   <div class="outer">
     <div id="footer-info">
         <div class="footer-left">
-            &copy; 2023 lucainiaoge
+            &copy; 2025 lucainiaoge
         </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -597,10 +596,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
@@ -613,15 +608,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,11 +644,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,15 +676,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
               </li>
             
             <div class="clearfix"></div>

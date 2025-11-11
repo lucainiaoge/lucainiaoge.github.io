@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B]. Have you encountered such a problem when training a neural network: you">
-<meta name="keywords" content="machine_learning,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B]. Have you encountered such a problem when training a neural network: you">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-20T16:16:25.123Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T13:28:51.803Z">
+<meta property="article:author" content="lucainiaoge">
+<meta property="article:tag" content="machine_learning">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch - A Seemingly Indifferent 1-D Dimension Leading to Model Failure">
-<meta name="twitter:description" content="This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B]. Have you encountered such a problem when training a neural network: you">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -38,7 +39,7 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
@@ -49,7 +50,7 @@
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
   <script src="/lib/gitalk/gitalk.min.js"></script>
   <script src="/lib/gitalk/md5.min.js"></script>
-</html>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -62,10 +63,8 @@
 			<img src="/img/lucainiao.jpg" class="js-avatar show">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">lucainiaoge</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">coding&amp;music</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +115,8 @@
 				<img src="/img/lucainiao.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">lucainiaoge</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>coding&amp;music<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,7 +163,7 @@
         
         
         <a href="/2021/03/21/PyTorch_lesson_1D_dimension_leading_to_bad_loss/" class="archive-article-date">
-  	<time datetime="2021-03-20T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+  	<time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
 </a>
         
       </header>
@@ -185,9 +182,9 @@
         <div id="content"></div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p><font color="gray"> This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p>
+<p><font color=gray > This is a reflection on PyTorch: be careful with the shape of tensor, even for differences between shape[B,1] and shape[B].</font></p>
 <p>Have you encountered such a problem when training a neural network: you are sure that your model is perfectly correct, and your training procedure is also correct. But you cannot get the expect result. Your model outputs seem blurred, and the loss curve does not show obvious descent. What is wrong?<br>Have you encountered python warning like this? <em>UserWarning: Using a target size (torch.Size([12])) that is different to the input size (torch.Size([12, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.</em></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>There is a lesson behind this. To view this article, please download:<br><a href="/download/PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf">PyTorch_lesson_1D_dimension_leading_to_bad_loss.pdf</a></p>
 
@@ -435,7 +432,7 @@
   <div class="outer">
     <div id="footer-info">
         <div class="footer-left">
-            &copy; 2023 lucainiaoge
+            &copy; 2025 lucainiaoge
         </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -563,10 +560,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
@@ -579,15 +572,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,11 +608,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,15 +640,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
               </li>
             
             <div class="clearfix"></div>

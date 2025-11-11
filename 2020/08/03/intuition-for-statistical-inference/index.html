@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>Intuition for Statistical Inference | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
-<meta name="keywords" content="machine_learning,philosophy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intuition for Statistical Inference">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/08/03/intuition-for-statistical-inference/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png">
 <meta property="og:image" content="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png">
-<meta property="og:updated_time" content="2021-10-05T14:54:16.753Z">
+<meta property="article:published_time" content="2020-08-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T13:28:51.810Z">
+<meta property="article:author" content="lucainiaoge">
+<meta property="article:tag" content="machine_learning">
+<meta property="article:tag" content="philosophy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intuition for Statistical Inference">
-<meta name="twitter:description" content="by lucainiaoge     IntroIn a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A litt">
 <meta name="twitter:image" content="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
@@ -41,7 +42,7 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
@@ -52,7 +53,7 @@
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
   <script src="/lib/gitalk/gitalk.min.js"></script>
   <script src="/lib/gitalk/md5.min.js"></script>
-</html>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -65,10 +66,8 @@
 			<img src="/img/lucainiao.jpg" class="js-avatar show">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">lucainiaoge</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">coding&amp;music</p>
 		
 
 		<nav class="header-menu">
@@ -119,10 +118,8 @@
 				<img src="/img/lucainiao.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">lucainiaoge</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>coding&amp;music<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -169,7 +166,7 @@
         
         
         <a href="/2020/08/03/intuition-for-statistical-inference/" class="archive-article-date">
-  	<time datetime="2020-08-02T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+  	<time datetime="2020-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
 </a>
         
       </header>
@@ -191,7 +188,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>In a word, statistical inference deal with the problem of “trying to reach the God”. In other words, we observe data, and we try to fit to the distribution of such data. A little bit hard to understand? Hope that this article can help you understand that…</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <ul>
 <li><strong>An example: pictures</strong></li>
@@ -222,7 +219,7 @@
 <li>Problem 2: How to define the function space $\mathcal{F}$?</li>
 </ul>
 </blockquote>
-<h3 id="Problem-1-where-the-“Maximum-Likelihood”-comes-from"><a href="#Problem-1-where-the-“Maximum-Likelihood”-comes-from" class="headerlink" title="Problem 1: where the “Maximum Likelihood” comes from"></a>Problem 1: where the “Maximum Likelihood” comes from</h3><p>Problem 1: how to find the functional (distance between distributions) $D[p(\pmb{x}),p_G (\pmb{x})]$? Note that we do not know the GOD distribution i.e. $p_G(\pmb{x})$. Thus, it is impossible to calculate this functional by directly calculating the distance between $p(\pmb{x})$ and GOD distribution. However, there is an easy way to define $D[p(\pmb{x}),p_G (\pmb{x})]$ as:<br>$$D[p(\pmb{x}),p_G (\pmb{x})]≜\mathrm{log}⁡p(\pmb{x})$$(Other ways include estimating the momentums or other sufficient statistics. Those are out of the current scope.)<br>For i.i.d. data $\pmb{x}$, we can even write $\mathrm{log}⁡p(\pmb{x})$ as $\mathrm{log}⁡p(\pmb{x})=\sum_{i=1}^N \mathrm{log}⁡p(x_i)$<br>The term $\mathrm{log}⁡p(\pmb{x})$ is called as “log-likelihood”, and the variational problem $p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$ is called “maximum likelihood”, which we have already been familiar with.<br>(Note that in the scheme of “maximum likelihood”, we did not consider $p_G (\pmb{x})$ explicitly. We assumed that if $\pmb{x}$ is from the ground-truth, $p_G (\pmb{x})$ should always be larger or equal than other $p(\pmb{x})$. We tend to think that “what we see is GOD”. Or in other words, “data (what we observed) are all we know, and we cannot do better unless we know more information (more data, or more observations)”. The “<a href="https://en.wikipedia.org/wiki/Method_of_moments" target="_blank" rel="noopener">momentum estimation method</a>” directly applies this philosophical assumption, i.e. calculating the distances between moments in order to make $p(\pmb{x})$ as near as  $p_G (\pmb{x})$.)</p>
+<h3 id="Problem-1-where-the-“Maximum-Likelihood”-comes-from"><a href="#Problem-1-where-the-“Maximum-Likelihood”-comes-from" class="headerlink" title="Problem 1: where the “Maximum Likelihood” comes from"></a>Problem 1: where the “Maximum Likelihood” comes from</h3><p>Problem 1: how to find the functional (distance between distributions) $D[p(\pmb{x}),p_G (\pmb{x})]$? Note that we do not know the GOD distribution i.e. $p_G(\pmb{x})$. Thus, it is impossible to calculate this functional by directly calculating the distance between $p(\pmb{x})$ and GOD distribution. However, there is an easy way to define $D[p(\pmb{x}),p_G (\pmb{x})]$ as:<br>$$D[p(\pmb{x}),p_G (\pmb{x})]≜\mathrm{log}⁡p(\pmb{x})$$(Other ways include estimating the momentums or other sufficient statistics. Those are out of the current scope.)<br>For i.i.d. data $\pmb{x}$, we can even write $\mathrm{log}⁡p(\pmb{x})$ as $\mathrm{log}⁡p(\pmb{x})=\sum_{i=1}^N \mathrm{log}⁡p(x_i)$<br>The term $\mathrm{log}⁡p(\pmb{x})$ is called as “log-likelihood”, and the variational problem $p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$ is called “maximum likelihood”, which we have already been familiar with.<br>(Note that in the scheme of “maximum likelihood”, we did not consider $p_G (\pmb{x})$ explicitly. We assumed that if $\pmb{x}$ is from the ground-truth, $p_G (\pmb{x})$ should always be larger or equal than other $p(\pmb{x})$. We tend to think that “what we see is GOD”. Or in other words, “data (what we observed) are all we know, and we cannot do better unless we know more information (more data, or more observations)”. The “<a href="https://en.wikipedia.org/wiki/Method_of_moments">momentum estimation method</a>” directly applies this philosophical assumption, i.e. calculating the distances between moments in order to make $p(\pmb{x})$ as near as  $p_G (\pmb{x})$.)</p>
 <h3 id="Problem-2-to-parameterize-or-not-to"><a href="#Problem-2-to-parameterize-or-not-to" class="headerlink" title="Problem 2: to parameterize or not to"></a>Problem 2: to parameterize or not to</h3><p>Well… For problem 2, we have two ways: to parameterize or not.<br>What is parameterization? I use an example to illustrate that:<br>Suppose the data $\pmb{x}$ are 1D. And we assume the function space is Gaussian, i.e. $\mathcal{F}=\lbrace AllOneDimGaussianPDFs \rbrace$. We can easily write $\mathcal{F}$ in the form of the space of its sufficient statistics (i.e. $\mu$ and $\sigma$). In other words, the space $\Theta=\pmb{R}\times\pmb{R^+}$ is actually the function space $\mathcal{F}$. And there exists a unique Gaussian Function $G:\Theta→\mathcal{F}$ such that for any $(\mu,\sigma)∈\Theta$, $G(\mu,\sigma)=f(x\vert \mu,\sigma)∈\mathcal{F}$<br>In this case, we parameterized $\mathcal{F}$ with $\Theta$, with the distribution assumption $P:\Theta→\mathcal{F}$. In other words, $\Theta$ are the parameters which control the function space. Thus, the variational problem<br>$$p^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$$</p>
 <p>can be written as an argmax problem for parameters:</p>
 <p>$$\theta^*=\mathrm{argmax}_{\theta∈\Theta} D[f(\pmb{x}\vert\theta),p_G (\pmb{x})]$$</p>
@@ -237,7 +234,7 @@
 </blockquote>
 <p>If $\mathrm{E}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space F is of small bias compared with the GOD’s function $p_G (\pmb{x})$;</p>
 <p>If $\mathrm{Var}_{\pmb{x}\in\pmb{X_G}} [D[p(\pmb{x}),p_G (\pmb{x})]]$ is small, we say that the function space $\mathcal{F}$ is of small variance compared with the GOD’s function $p_G (\pmb{x})$, or that our model $p^* (\pmb{x})$ has a good ability to generalize. The term “generalize” means that no matter what data $\pmb{x}$ is given, the difference between $p^* (\pmb{x})$ and $p_G (\pmb{x})$ will not change too much.</p>
-<p>Intuition from Hung-yi Lee: see the pictures in<br><a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf</a></p>
+<p>Intuition from Hung-yi Lee: see the pictures in<br><a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf">http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Bias%20and%20Variance%20(v2).pdf</a></p>
 <p><img src="https://i.loli.net/2020/08/03/hkIGbLB6nuM73sK.png" width="50%" height="50%"><img src="https://i.loli.net/2020/08/03/OHZu2yWABVl3Cgb.png" width="50%" height="50%"></p>
 <p>Each “sample point $p_s^* (\pmb{x})$” is actually an instance of $p_s^*(\pmb{x})=\mathrm{argmax}_{p∈\mathcal{F}} D[p(\pmb{x}),p_G (\pmb{x})]$, where $\pmb{x}\in\pmb{X_s}$, and $\pmb{X_s}$ (e.g. MNIST) is a subset of the God data set $X_G$ (e.g. all possible  pictures of handwritten numbers).</p>
 <h2 id="Afterwards…"><a href="#Afterwards…" class="headerlink" title="Afterwards…"></a>Afterwards…</h2><p>You have already got an intuition of our challenges. Now, time to solve the challenges! Of course, for several specific problems, simple models are enough! For example, if we want to fit a Gaussian distribution, the most convenient way is to calculate the mean and variance of the dataset (observation). However, most problems are complex in reality. We have to design models which can deal with such complexity.</p>
@@ -420,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Variational-Problem"><span class="toc-number">2.</span> <span class="toc-text">The Variational Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Statistical-Inference-Variational-Problem"><span class="toc-number">3.</span> <span class="toc-text">The Statistical Inference Variational Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-definitions"><span class="toc-number">3.1.</span> <span class="toc-text">Problem definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-where-the-“Maximum-Likelihood”-comes-from"><span class="toc-number">3.1.1.</span> <span class="toc-text">Problem 1: where the “Maximum Likelihood” comes from</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-2-to-parameterize-or-not-to"><span class="toc-number">3.1.2.</span> <span class="toc-text">Problem 2: to parameterize or not to</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-statement-for-a-challenge-how-to-find-the-God-bias-vs-variance"><span class="toc-number">3.1.3.</span> <span class="toc-text">A statement for a challenge: how to find the God - bias vs. variance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Afterwards…"><span class="toc-number">3.2.</span> <span class="toc-text">Afterwards…</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Variational-Problem"><span class="toc-number">2.</span> <span class="toc-text">The Variational Problem</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Statistical-Inference-Variational-Problem"><span class="toc-number">3.</span> <span class="toc-text">The Statistical Inference Variational Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-definitions"><span class="toc-number">3.1.</span> <span class="toc-text">Problem definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-1-where-the-%E2%80%9CMaximum-Likelihood%E2%80%9D-comes-from"><span class="toc-number">3.1.1.</span> <span class="toc-text">Problem 1: where the “Maximum Likelihood” comes from</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-2-to-parameterize-or-not-to"><span class="toc-number">3.1.2.</span> <span class="toc-text">Problem 2: to parameterize or not to</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-statement-for-a-challenge-how-to-find-the-God-bias-vs-variance"><span class="toc-number">3.1.3.</span> <span class="toc-text">A statement for a challenge: how to find the God - bias vs. variance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Afterwards%E2%80%A6"><span class="toc-number">3.2.</span> <span class="toc-text">Afterwards…</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,7 +486,7 @@
   <div class="outer">
     <div id="footer-info">
         <div class="footer-left">
-            &copy; 2023 lucainiaoge
+            &copy; 2025 lucainiaoge
         </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -617,10 +614,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
@@ -633,15 +626,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,11 +662,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,15 +694,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
               </li>
             
             <div class="clearfix"></div>

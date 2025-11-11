@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>Harmonic Constraint in Music Spectrogram Reconstruction | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
-<meta name="keywords" content="MIR,AMT,research">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Harmonic Constraint in Music Spectrogram Reconstruction">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-01-15T11:43:41.185Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T13:28:51.801Z">
+<meta property="article:author" content="lucainiaoge">
+<meta property="article:tag" content="AMT">
+<meta property="article:tag" content="MIR">
+<meta property="article:tag" content="research">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Harmonic Constraint in Music Spectrogram Reconstruction">
-<meta name="twitter:description" content="It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm.">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
   
@@ -38,7 +40,7 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
@@ -49,7 +51,7 @@
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
   <script src="/lib/gitalk/gitalk.min.js"></script>
   <script src="/lib/gitalk/md5.min.js"></script>
-</html>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -62,10 +64,8 @@
 			<img src="/img/lucainiao.jpg" class="js-avatar show">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">lucainiaoge</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">coding&amp;music</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +116,8 @@
 				<img src="/img/lucainiao.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">lucainiaoge</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>coding&amp;music<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,7 +164,7 @@
         
         
         <a href="/2020/01/15/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction/" class="archive-article-date">
-  	<time datetime="2020-01-14T23:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
+  	<time datetime="2020-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
 </a>
         
       </header>
@@ -185,9 +183,9 @@
         <div id="content"></div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p><font color="gray"> It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article.</font></p>
+<p><font color=gray > It is assumed that readers have known the concepts about harmonic (overtone) structure of musical notes. And readers are recommended to know the non-negative matrix factorization (NMF) algorithm. But anyway, I tried to briefly elaborate it in this article.</font></p>
 <p>This article gives a brief review of harmonic constraints on timbre dictionary. Such harmonic constraints are useful in helping non-negative matrix factorization (NMF) algorithm to converge into a musically meaningful result, which could enable automatic music transcription (AMT) and music source separation (MSS). Noticing the disadvantages of the traditional NMF algorithm and hard-harmonic-constraints, this article proposes a dB-trick for NMF which could loosen the non-negativity constraints, and a soft-harmonic-constraint method based on regularization which gives more freedom to the parameter compared with the existing hard-harmonic-constraints.</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>To view this article, please download:<br><a href="/download/Harmonic_Constraint_in_Music_Spectrogram_Reconstruction.pdf">Harmonic_Constraint_in_Music_Spectrogram_Reconstruction</a></p>
 
@@ -444,7 +442,7 @@
   <div class="outer">
     <div id="footer-info">
         <div class="footer-left">
-            &copy; 2023 lucainiaoge
+            &copy; 2025 lucainiaoge
         </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -572,10 +570,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
@@ -588,15 +582,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,11 +618,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,15 +650,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
               </li>
             
             <div class="clearfix"></div>

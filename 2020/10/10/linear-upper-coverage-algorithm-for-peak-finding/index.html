@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lucainiaoge.github.io.git">
   <title>Linear-upper-coverage Smoothing for Peak Finding | Lucainiao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, and that">
-<meta name="keywords" content="math,research">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linear-upper-coverage Smoothing for Peak Finding">
 <meta property="og:url" content="https://lucainiaoge.github.io.git/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/index.html">
 <meta property="og:site_name" content="Lucainiao&#39;s blog">
 <meta property="og:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, and that">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/10/8I9Dcbk451fXqvp.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/10/P4pVHFzLuqvjTtQ.png">
@@ -33,10 +32,12 @@
 <meta property="og:image" content="https://i.loli.net/2020/10/16/vfdNsP1DglLuMjn.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/16/NKvDqsXBnyi6ATE.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/16/whfAVBuby3qlC4x.png">
-<meta property="og:updated_time" content="2023-03-18T17:42:17.384Z">
+<meta property="article:published_time" content="2020-10-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-11T13:28:51.810Z">
+<meta property="article:author" content="lucainiaoge">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="research">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linear-upper-coverage Smoothing for Peak Finding">
-<meta name="twitter:description" content="by lucainiaoge     IntroI came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, and that">
 <meta name="twitter:image" content="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png">
   
     <link rel="alternative" href="/atom.xml" title="Lucainiao&#39;s blog" type="application/atom+xml">
@@ -56,7 +57,7 @@
   
 
 
-</head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
@@ -67,7 +68,7 @@
   <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
   <script src="/lib/gitalk/gitalk.min.js"></script>
   <script src="/lib/gitalk/md5.min.js"></script>
-</html>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -80,10 +81,8 @@
 			<img src="/img/lucainiao.jpg" class="js-avatar show">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">lucainiaoge</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">coding&amp;music</p>
 		
 
 		<nav class="header-menu">
@@ -134,10 +133,8 @@
 				<img src="/img/lucainiao.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">lucainiaoge</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>coding&amp;music<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -184,7 +181,7 @@
         
         
         <a href="/2020/10/10/linear-upper-coverage-algorithm-for-peak-finding/" class="archive-article-date">
-  	<time datetime="2020-10-09T22:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-10</time>
+  	<time datetime="2020-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-10</time>
 </a>
         
       </header>
@@ -206,13 +203,13 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>I came up with this idea on October 9th, 2020, when I was considering how to find the overtone peaks in a spectrogram. I happened to be playing LIMBO the previous day, and that inspired me to come up with my idea regarding Linear-upper-coverage (LUC), which converts the peak finding problem into linear optimization subtasks.</p>
-<a id="more"></a>
+<span id="more"></span>
 
 
 <ul>
-<li><font color="Gray" size="3">It is recommended that readers have grasped basic knowledge about calculus, convex optimization and digital signal processing (DSP). Still, if those pre-requisites are not satisfied, it is also OK to understand my ideas and algorithms. Most of those knowledges are helpful when readers want to understand my proofs for the Lemmas or Theorems proposed in this article.</font></li>
-<li><font color="Gray" size="3">If [Math Processing Error] occurs or figures are not showing, please refresh this page or switch to another browser (Google chrome is recommended).</font></li>
-<li><font color="Gray" size="3">One more tip: this article is a little bit long. However, if you skip my rationales/proofs and go directly to my motivations and experiment results, you will finish reading this article quicker. Anyway, welcome to delve into my math works and logics in order to understand LUC deeply, and welcome to correct me if I made mistakes.</font></li>
+<li><font color=Gray size=3>It is recommended that readers have grasped basic knowledge about calculus, convex optimization and digital signal processing (DSP). Still, if those pre-requisites are not satisfied, it is also OK to understand my ideas and algorithms. Most of those knowledges are helpful when readers want to understand my proofs for the Lemmas or Theorems proposed in this article.</font></li>
+<li><font color=Gray size=3>If [Math Processing Error] occurs or figures are not showing, please refresh this page or switch to another browser (Google chrome is recommended).</font></li>
+<li><font color=Gray size=3>One more tip: this article is a little bit long. However, if you skip my rationales/proofs and go directly to my motivations and experiment results, you will finish reading this article quicker. Anyway, welcome to delve into my math works and logics in order to understand LUC deeply, and welcome to correct me if I made mistakes.</font></li>
 </ul>
 <h1 id="Problem-Definition-and-Motivation"><a href="#Problem-Definition-and-Motivation" class="headerlink" title="Problem Definition and Motivation"></a>Problem Definition and Motivation</h1><h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>How to find the peaks in the following curve?</p>
 <p><span id="original_curve"> <img src="https://i.loli.net/2020/10/10/jRu3N6WJUfzYT9d.png" alt="Original Curve.png"> </span></p>
@@ -249,7 +246,7 @@
 <p>Therefore, if restricted to linear coverage, the most configurable aspect is the segmentation strategy. Not only can we segment in equal length, we can also segment in a log-scale, or even sample randomly. Different segmentation strategy lead to different definitions of “desired peak”.</p>
 <p>Also, it is not necessary to assume that the intervals do not overlap. Instead, we can arbitrarily sample the curve and construct intervals for each of those sample points, even if those intervals can overlap. Such more general definition becomes:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Definition 1 (normal LUC):</strong></font><font color="DarkRed" size="3"> Given $f:D\rightarrow \pmb{R}$, sample data points $x_i\in D,i=1,2,…$. Define intervals $I_i = [x_i^l,x_i^r]$ where $x_i \in I_i$, and define linear segments $l_i(x)=a_i x+b_i, \forall x\in I_i$.<br>Define the linear programming problems $LUC_i$ within intervals<br>$$LUC_i:\quad min_{a_i,b_i} \quad l_i(\frac{1}{2}(x_i^l+x_i^r))$$ $$s.t. f(x) \leq l_i(x), \forall x \in I_i$$ The LUC solution is the set of all optimum linear segments, i.e. $l_i^{\star}(x)$<br></font></p>
+<p><font color=Crimson size=4><strong>Definition 1 (normal LUC):</strong></font><font color=DarkRed size=3> Given $f:D\rightarrow \pmb{R}$, sample data points $x_i\in D,i=1,2,…$. Define intervals $I_i = [x_i^l,x_i^r]$ where $x_i \in I_i$, and define linear segments $l_i(x)=a_i x+b_i, \forall x\in I_i$.<br>Define the linear programming problems $LUC_i$ within intervals<br>$$LUC_i:\quad min_{a_i,b_i} \quad l_i(\frac{1}{2}(x_i^l+x_i^r))$$ $$s.t. f(x) \leq l_i(x), \forall x \in I_i$$ The LUC solution is the set of all optimum linear segments, i.e. $l_i^{\star}(x)$<br></font></p>
 </blockquote>
 <p>From now on, $x_i$ no longer means the left endpoint of interval $I_i$, but the centroid point of interval $I_i$. The left endpoint of interval $I_i$ is written as $x_i^l$ instead. (If I sometime breaks this law, please understand that because those cases are obvious.)</p>
 <p>Moreover, we can cover the curve with actually whatever function we like: circles, ovels etc. I chose lines because they look more simple and intuitive. What about other elements? It might be worth trying, but I am not going to talk about them at this moment…</p>
@@ -258,18 +255,18 @@
 <h2 id="Two-Lemmas-with-Proof"><a href="#Two-Lemmas-with-Proof" class="headerlink" title="Two Lemmas with Proof"></a>Two Lemmas with Proof</h2><p>I start from the (lower) convex segments defined in $[x^l,x^r]$:<br>$$f(\lambda x^l+(1-\lambda) x^r)\leq \lambda f(x^l)+(1-\lambda) f(x^r), \forall 0\leq \lambda \leq 1$$</p>
 <p>Intuitively, we can reach the following conclusion:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Lemma 1 (LUC for convex function):</strong></font><font color="DarkRed" size="3"> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is convex in $[x^l,x^r]$, then the optimum LUC function becomes $l^{\star}(x)=\frac{f(x^l)-f(x^r)}{x^l-x^r} (x-\frac{x^l+x^r}{2}) + \frac{f(x^l)+f(x^r)}{2}$</font></p>
+<p><font color=Crimson size=4><strong>Lemma 1 (LUC for convex function):</strong></font><font color=DarkRed size=3> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is convex in $[x^l,x^r]$, then the optimum LUC function becomes $l^{\star}(x)=\frac{f(x^l)-f(x^r)}{x^l-x^r} (x-\frac{x^l+x^r}{2}) + \frac{f(x^l)+f(x^r)}{2}$</font></p>
 </blockquote>
-<p><font color="Gray" size="3"><strong>Proof:</strong><br>①First prove that the given $l^{\star}$ obeys the constraints of LUC linear programming.<br>That constraint is: $f(x) \leq l(x), \forall x \in [x^l,x^r]$. If we apply $l^{\star}$ to that constraint, we just need to prove: $f(x) \leq l^{\star}(x), \forall x \in [x^l,x^r]$.<br>Plug in the convex assumption on $f(x)$ and we get: $f(\lambda x^l+(1-\lambda) x^r)\leq \lambda f(x^l)+(1-\lambda) f(x^r), \forall 0\leq \lambda \leq 1$.<br>As $f(x^l) \leq l^{\star}(x^l)$ and $f(x^r) \leq l^{\star}(x^r)$, we get $\lambda f(x^l)+(1-\lambda) f(x^r)\leq \lambda l^{\star}(x^l)+(1-\lambda) l^{\star}(x^r) = l^{\star}(\lambda x^l+(1-\lambda) x^r)$.<br>Therefore, we proved that $f(x) \leq l^{\star}(x), \forall x \in [x^l,x^r]$ is true.<br>②Then prove that $l^{\star}$ is the optimum.<br>Recall that the objective function is $l(\frac{x^l+x^r}{2}) = a_i\frac{x^l+x^r}{2}+b_i$.<br>If we want to decrease the objective value $l(\frac{x^l+x^r}{2})=\frac{l(x^l)+l(x^r)}{2}$, either $l(x^l)$ or $l(x^r)$ should be decreased.<br>However, according to the constraints, $f(x^l) \leq l(x^l)$ and $f(x^r) \leq l(x^r)$: once we have $f(x^l) = l^{\star}(x^l)$ and $f(x^r) = l^{\star}(x^r)$, we can assert that $l^{\star}$ reaches the optimum, for neither $l^{\star}(x^l)$ or $l^{\star}(x^r)$ can be decreased. □<br></font></p>
+<p><font color=Gray size=3><strong>Proof:</strong><br>①First prove that the given $l^{\star}$ obeys the constraints of LUC linear programming.<br>That constraint is: $f(x) \leq l(x), \forall x \in [x^l,x^r]$. If we apply $l^{\star}$ to that constraint, we just need to prove: $f(x) \leq l^{\star}(x), \forall x \in [x^l,x^r]$.<br>Plug in the convex assumption on $f(x)$ and we get: $f(\lambda x^l+(1-\lambda) x^r)\leq \lambda f(x^l)+(1-\lambda) f(x^r), \forall 0\leq \lambda \leq 1$.<br>As $f(x^l) \leq l^{\star}(x^l)$ and $f(x^r) \leq l^{\star}(x^r)$, we get $\lambda f(x^l)+(1-\lambda) f(x^r)\leq \lambda l^{\star}(x^l)+(1-\lambda) l^{\star}(x^r) = l^{\star}(\lambda x^l+(1-\lambda) x^r)$.<br>Therefore, we proved that $f(x) \leq l^{\star}(x), \forall x \in [x^l,x^r]$ is true.<br>②Then prove that $l^{\star}$ is the optimum.<br>Recall that the objective function is $l(\frac{x^l+x^r}{2}) = a_i\frac{x^l+x^r}{2}+b_i$.<br>If we want to decrease the objective value $l(\frac{x^l+x^r}{2})=\frac{l(x^l)+l(x^r)}{2}$, either $l(x^l)$ or $l(x^r)$ should be decreased.<br>However, according to the constraints, $f(x^l) \leq l(x^l)$ and $f(x^r) \leq l(x^r)$: once we have $f(x^l) = l^{\star}(x^l)$ and $f(x^r) = l^{\star}(x^r)$, we can assert that $l^{\star}$ reaches the optimum, for neither $l^{\star}(x^l)$ or $l^{\star}(x^r)$ can be decreased. □<br></font></p>
 <p>On the other hand, if we assume that $f(x)$ is bounded in interval $[x^l,x^r]$, it is also intuitive to reach the following conclusion:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Lemma 2 (existance of LUC solutions and tightness):</strong></font><font color="DarkRed" size="3"> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is bounded, then:</font></p>
+<p><font color=Crimson size=4><strong>Lemma 2 (existance of LUC solutions and tightness):</strong></font><font color=DarkRed size=3> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is bounded, then:</font></p>
 <ol>
-<li><font color="DarkRed" size="3">There are at least two zero-slackness LUC constraints at $x^{-}$ and $x^{+}$ ($x^{-}\leq x^{+}$); the term zero-slackness indicates that $f(x^{-})=l^{\star}(x^{-})$ and $f(x^{+})=l^{\star}(x^{+})$.</font></li>
-<li><font color="DarkRed" size="3">Equality of $x^{-}\leq x^{+}$ is reached only when $x^{-}=x^{+}=x^l$ or $x^{-}=x^{+}=x^r$</font></li>
+<li><font color=DarkRed size=3>There are at least two zero-slackness LUC constraints at $x^{-}$ and $x^{+}$ ($x^{-}\leq x^{+}$); the term zero-slackness indicates that $f(x^{-})=l^{\star}(x^{-})$ and $f(x^{+})=l^{\star}(x^{+})$.</font></li>
+<li><font color=DarkRed size=3>Equality of $x^{-}\leq x^{+}$ is reached only when $x^{-}=x^{+}=x^l$ or $x^{-}=x^{+}=x^r$</font></li>
 </ol>
 </blockquote>
-<p><font color="Gray" size="3"><strong>Proof:</strong><br>① First prove that there is at least one optimum solution for the LUC problem.<br>As $f(x)$ is bounded in interval $[x^l,x^r]$, assume that $m&lt;f(x)&lt;M_1&lt;M_2$, there exists $l(x)=a_i x+b_i$ such that $M_2&gt;l(x^l)&gt;M_1&gt;f(\forall x)$ and $M_2&gt;l(x^r)&gt;M_1&gt;f(\forall x)$. Therefore, feasible region is not empty.<br>On the other hand, there exists $l(x)=a_i x+b_i$ such that $m&lt;f(x^l)\leq l(x^l)$ and $m&lt;f(x^r)\leq l(x^r)$. This is to say, the objective $\frac{l(x^l)+l(x^r)}{2}&gt;m$. Therefore, the objective cannot be arbitrarily small.<br>In sum, there is at least one optimum solution for the LUC problem.<br>② Then prove that the optimum solution lead to zero slackness. Recall the <a href="https://link.springer.com/referenceworkentry/10.1007/1-4020-0611-x_140" target="_blank" rel="noopener">complementary slackness theorem</a>:<br>Given a standard LP problem $$min\quad cx, \quad s.t. \quad Ax \geq  b$$ and its dual problem $$max\quad b^T y, \quad s.t. \quad A^T y \leq  c^T$$ Definition of slackness of the $k^{th}$ constraint is $s_k = A_k x - b_k$.<br>The complementary slackness theorem says that if a feasible solution $x_0$ is optimum (which exists because of ①), and its corresponding dual solution is $y_0$ is also optimum, then $x_0^T (c-A^T y_0)=0$ and $y_0^T (A x_0 - b)=0$.<br>Therefore, for those $y_0^k \neq 0$, we must have $A_k x_0 - b_k = 0, k \in \lbrace k:y_0^k \neq 0 \rbrace$. As a result, $s_k = A_k x_0 - b_k = 0,k \in \lbrace k:y_0^k \neq 0 \rbrace$.<br>Translate this into LUC context: $x_0=(a_{i}^{\star},b_{i}^{\star})$, $A=[x^{[1:K]},ones(1,K)^T]$, $c=[\frac{x^l+x^r}{2},1]$ and $b=[f(x^1),…,f(x^K)]^T$. The “$y_0^k$” in LUC cannot be all zero, or otherwize $c=0$, which is not true. Therefore, there always exists $k$ such that “$A_k x_0 - b_k = 0$”, which is actually $f(x^k)=l^{\star}(x^k)$ (the $k^{th}$ constraint), leading to zero slackness.<br>③ Then prove that there are at least two different tight constraints.<br>According to the convexity of linear feasible region (which is a polyhedron), the optimum solution touches the vertex of that region. As we know, the vertex of a region is an intersection of two hyperplanes (in LUC, they are actually two 2-D lines, because there are only two variables), corresponding to two different constraints. Therefore, if there are at least two constraints which have zero slackness, they are different.<br>④ Finally prove the property when $x^{-}=x^{+}$.<br>We know that each constraint can be linked with an $x$ in $[x^l,x^r]$. Moreover, the statement $x\in [x^l,x^r]$ indicates two more underlying constraints $x\geq x^l$ and $x\leq x^r$. Recall ③: the two constraints at $x=x^{-}$ and $x=x^{+}$ are different. If a constraint at $x=x^{-}$ is tight and $x^{-}=x^{+}$, then this case only happens at $x=x^l$ or $x=x^r$, because: any $x\in (x^l,x^r)$ can be linked with only one constraint $f(x)\leq l(x)$; but at $x=x^l$, there exists one more constraint $x\geq x^l$, which reaches tightness (and the case when $x=x^r$ is similar). In conclusion, the statement $x^{-}=x^{+}$ indicates that two tight constraints sharing the same point, and such case can only happen at $x=x^l$ or $x=x^r$; consequently, $x^{-}=x^{+}=x^l$ or $x^{-}=x^{+}=x^r$.□<br></font></p>
+<p><font color=Gray size=3><strong>Proof:</strong><br>① First prove that there is at least one optimum solution for the LUC problem.<br>As $f(x)$ is bounded in interval $[x^l,x^r]$, assume that $m&lt;f(x)&lt;M_1&lt;M_2$, there exists $l(x)=a_i x+b_i$ such that $M_2&gt;l(x^l)&gt;M_1&gt;f(\forall x)$ and $M_2&gt;l(x^r)&gt;M_1&gt;f(\forall x)$. Therefore, feasible region is not empty.<br>On the other hand, there exists $l(x)=a_i x+b_i$ such that $m&lt;f(x^l)\leq l(x^l)$ and $m&lt;f(x^r)\leq l(x^r)$. This is to say, the objective $\frac{l(x^l)+l(x^r)}{2}&gt;m$. Therefore, the objective cannot be arbitrarily small.<br>In sum, there is at least one optimum solution for the LUC problem.<br>② Then prove that the optimum solution lead to zero slackness. Recall the <a href="https://link.springer.com/referenceworkentry/10.1007/1-4020-0611-x_140">complementary slackness theorem</a>:<br>Given a standard LP problem $$min\quad cx, \quad s.t. \quad Ax \geq  b$$ and its dual problem $$max\quad b^T y, \quad s.t. \quad A^T y \leq  c^T$$ Definition of slackness of the $k^{th}$ constraint is $s_k = A_k x - b_k$.<br>The complementary slackness theorem says that if a feasible solution $x_0$ is optimum (which exists because of ①), and its corresponding dual solution is $y_0$ is also optimum, then $x_0^T (c-A^T y_0)=0$ and $y_0^T (A x_0 - b)=0$.<br>Therefore, for those $y_0^k \neq 0$, we must have $A_k x_0 - b_k = 0, k \in \lbrace k:y_0^k \neq 0 \rbrace$. As a result, $s_k = A_k x_0 - b_k = 0,k \in \lbrace k:y_0^k \neq 0 \rbrace$.<br>Translate this into LUC context: $x_0=(a_{i}^{\star},b_{i}^{\star})$, $A=[x^{[1:K]},ones(1,K)^T]$, $c=[\frac{x^l+x^r}{2},1]$ and $b=[f(x^1),…,f(x^K)]^T$. The “$y_0^k$” in LUC cannot be all zero, or otherwize $c=0$, which is not true. Therefore, there always exists $k$ such that “$A_k x_0 - b_k = 0$”, which is actually $f(x^k)=l^{\star}(x^k)$ (the $k^{th}$ constraint), leading to zero slackness.<br>③ Then prove that there are at least two different tight constraints.<br>According to the convexity of linear feasible region (which is a polyhedron), the optimum solution touches the vertex of that region. As we know, the vertex of a region is an intersection of two hyperplanes (in LUC, they are actually two 2-D lines, because there are only two variables), corresponding to two different constraints. Therefore, if there are at least two constraints which have zero slackness, they are different.<br>④ Finally prove the property when $x^{-}=x^{+}$.<br>We know that each constraint can be linked with an $x$ in $[x^l,x^r]$. Moreover, the statement $x\in [x^l,x^r]$ indicates two more underlying constraints $x\geq x^l$ and $x\leq x^r$. Recall ③: the two constraints at $x=x^{-}$ and $x=x^{+}$ are different. If a constraint at $x=x^{-}$ is tight and $x^{-}=x^{+}$, then this case only happens at $x=x^l$ or $x=x^r$, because: any $x\in (x^l,x^r)$ can be linked with only one constraint $f(x)\leq l(x)$; but at $x=x^l$, there exists one more constraint $x\geq x^l$, which reaches tightness (and the case when $x=x^r$ is similar). In conclusion, the statement $x^{-}=x^{+}$ indicates that two tight constraints sharing the same point, and such case can only happen at $x=x^l$ or $x=x^r$; consequently, $x^{-}=x^{+}=x^l$ or $x^{-}=x^{+}=x^r$.□<br></font></p>
 <h2 id="Explore-the-Effects-of-LUC-on-DTFT-Spectrum"><a href="#Explore-the-Effects-of-LUC-on-DTFT-Spectrum" class="headerlink" title="Explore the Effects of LUC on DTFT Spectrum"></a>Explore the Effects of LUC on DTFT Spectrum</h2><p>Now, we have all the ingradients! What is left is to describe our problem in a proper way. Consider a uniformally-sampled sequence of $f(x)$, which is written as $[f_i] = [f_1,f_2,…] = [f(x_1),f(x_2),…]$.<br>Without downsampling, we do LUC for each interval centered with the $i^{th}$ point, i.e. the interval $[x_i-\Delta x,x_i+\Delta x]$. It is also OK to write this interval as $[x_{i-\Delta i},x_{i+\Delta i}]$ because of equal-partition.</p>
 <p>Therefore, we have the LUC problem formally:</p>
 <blockquote>
@@ -286,7 +283,7 @@
 <p>Finally, we can reach from $④$ that $\vert F^{\star}(\omega) \vert = \vert F(\omega)\vert \vert {\rm cos}(\omega \Delta i)\vert \leq \vert F(\omega)\vert$</p>
 <p>Summing up the discussions above:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Theorem 1 (smooth effect of convex LUC):</strong></font><font color="DarkRed" size="3"> given $\Delta i &gt; 0$ and bounded $f(x):D\rightarrow R$, sample a sequence $x_i, i=1,2,…$ from $D$, whose corresponding intervals are $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$; the LUC centroids form a sequence $f_i^{\star}=l_i^{\star}(x_i), i=1,2,…$ whose DTFT is $F^{\star}(\omega)$, while the sampled curve becomes $f_i=f(x_i), i=1,2,…$ whose DTFT is $F(\omega)$. Then we have:<br>if $f(x)$ is convex in intervals $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$ separately, then $F^{\star}(\omega)=F(\omega){\rm cos}(\omega \Delta i)$</font></p>
+<p><font color=Crimson size=4><strong>Theorem 1 (smooth effect of convex LUC):</strong></font><font color=DarkRed size=3> given $\Delta i &gt; 0$ and bounded $f(x):D\rightarrow R$, sample a sequence $x_i, i=1,2,…$ from $D$, whose corresponding intervals are $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$; the LUC centroids form a sequence $f_i^{\star}=l_i^{\star}(x_i), i=1,2,…$ whose DTFT is $F^{\star}(\omega)$, while the sampled curve becomes $f_i=f(x_i), i=1,2,…$ whose DTFT is $F(\omega)$. Then we have:<br>if $f(x)$ is convex in intervals $[x_{i-\Delta i},x_{i+\Delta i}], i=1,2,…$ separately, then $F^{\star}(\omega)=F(\omega){\rm cos}(\omega \Delta i)$</font></p>
 </blockquote>
 <p>Due to Taylor’s approximation of ${\rm cos}(\omega \Delta i)$: when $\omega$ is near zero, $F^{\star}(\omega)$ is near $F(\omega)$; but when $\omega$ is a little bit far from zero, $F^{\star}(\omega)$ will be dampened. Of course, the choice of $\Delta i$ is also a factor controlling such influence.</p>
 <p>To understand this effect more intuitively, here is an example, in which $\Delta i = 1/2$, and $f(x)$ is convex in every separate interval.</p>
@@ -309,7 +306,7 @@
 <h2 id="Designing-Candidate-Set-Algorithm"><a href="#Designing-Candidate-Set-Algorithm" class="headerlink" title="Designing Candidate-Set Algorithm"></a>Designing Candidate-Set Algorithm</h2><p>My intuition leads to an algorithm to find the candidate points:</p>
 <p>First, deal with the problem of finding local maximima:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 1 (finding local maxima):</strong></font><font color="DarkRed" size="3"> $m=locmax(y)$</font><br>(1-based indexing is used) Given sample squence $y = [y_1,y_2,…,y_k,…,y_K]_{1\times K}$</p>
+<p><font color=Crimson size=4><strong>Algorithm 1 (finding local maxima):</strong></font><font color=DarkRed size=3> $m=locmax(y)$</font><br>(1-based indexing is used) Given sample squence $y = [y_1,y_2,…,y_k,…,y_K]_{1\times K}$</p>
 <ol>
 <li>initialize a buffer $b = [1,0,…,0,…,0,0]_{1\times (K+1)}$</li>
 <li>initialize the result $m = [0,0,…,0,…,0]_{1\times K}$</li>
@@ -322,7 +319,7 @@
 </blockquote>
 <p>Then, deal with the problem of finding $P$ and $Q$:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 2 (finding $P$ and $Q$):</strong></font><font color="DarkRed" size="3"> $k_P,k_Q=findPQ(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color=Crimson size=4><strong>Algorithm 2 (finding $P$ and $Q$):</strong></font><font color=DarkRed size=3> $k_P,k_Q=findPQ(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
 <ol>
 <li>$p = (y[2:K]-y[1])/(x[2:K]-x[1])$</li>
 <li>$q = (y[1:K-1]-y[K])/(x[1:K-1]-x[K])$</li>
@@ -333,7 +330,7 @@
 </blockquote>
 <p>Next, we reach the algorithm for getting the candidate set:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 3 (finding candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color=Crimson size=4><strong>Algorithm 3 (finding candidate set):</strong></font><font color=DarkRed size=3> $I_c=findCandidate(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
 <ol>
 <li>initialize $I_c = \lbrace 1,K \rbrace$</li>
 <li>$m=locmax(y)$</li>
@@ -346,7 +343,7 @@
 <p>Now, take a look at the example (d),(e) and (f) in the last section: as those curves are rugged, the candidate points in $\lbrace (x_{i_c},x_{i_c}): i_c \in I_c \rbrace$ still form a rugged curve. Why not plug those points again into Algorithm 3? Consequently, we get $\hat{I_c}=findCandidate(x[I_c],y[I_c])$, as illustrated in the following figure:<br><span id="candidate_set_algorithm_intuition"> <img src="https://i.loli.net/2020/10/11/RW8vqKDFrm4puBf.png" alt="candidate_algorithm_example.png"> </span></p>
 <p>This leads to the ultimate algorithm:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 4 (finding  the smallest candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidateSmallest(x,y,N)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$;<br>$N$ denotes the max iteration times;</p>
+<p><font color=Crimson size=4><strong>Algorithm 4 (finding  the smallest candidate set):</strong></font><font color=DarkRed size=3> $I_c=findCandidateSmallest(x,y,N)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$;<br>$N$ denotes the max iteration times;</p>
 <ol>
 <li>initialize $I_c = \lbrace 1,2,…,K \rbrace, \tilde{I}=I_c, \hat{x} = x[I_c], \hat{y} = y[I_c]$</li>
 <li>for $n$ in $range(N)$:</li>
@@ -362,7 +359,7 @@
 <p>Finally, we reduce the number of constraints to those indexed by $I_c$.</p>
 <h2 id="Reflections"><a href="#Reflections" class="headerlink" title="Reflections"></a>Reflections</h2><p>Why does the candidate-set algorithm work? Obviously, my intuitive explanations are far from compelling. To develop the following sections and to reconcile the effectiveness of candidat-set algorithm, I need to introduce my hypothesis, which is not proved at this moment:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Hypothesis 1 (equivalence of candidate-set in terms of LUC):</strong></font><font color="DarkRed" size="3"><br>if the candidate set for bounded $f(x):I_i\rightarrow R$ is $I_{ci}$, then the normal LUC problem reduce to: $$LUC_i:\quad min_{a_i,b_i} \quad l_i(x_i)$$ $$s.t. f(x) \leq l_i(x), \forall x \in I_{ci}$$<br>Or in the language of Lemma 2: $x_i^{-}\in I_{ci}$ and $x_i^{+}\in I_{ci}$</font></p>
+<p><font color=Crimson size=4><strong>Hypothesis 1 (equivalence of candidate-set in terms of LUC):</strong></font><font color=DarkRed size=3><br>if the candidate set for bounded $f(x):I_i\rightarrow R$ is $I_{ci}$, then the normal LUC problem reduce to: $$LUC_i:\quad min_{a_i,b_i} \quad l_i(x_i)$$ $$s.t. f(x) \leq l_i(x), \forall x \in I_{ci}$$<br>Or in the language of Lemma 2: $x_i^{-}\in I_{ci}$ and $x_i^{+}\in I_{ci}$</font></p>
 </blockquote>
 <p>In addition, if you are careful enough, you may find that my definition for candidate-set is flawwed: it does not lead to the equivalent result as the normal LUC. This can be proven by <a href="#candidate_set_algorithm_intuition">the figure in the previous section which illustrates the candidate-set algorithm</a>, which provides a counter-example: the ultimate LUC calculated based on the blue points actually violates the LUC constraints based on the initial black curve!<br>Luckily, although this effect sometimes happens, the  LUC results do not seriously change. I am going to demonstrate this in the experiment section.</p>
 <p>Still, I have my solution which can perfectly solve this flawwed-definition problem. The key is: modify the $3^{rd}$ criterion to get a tentative $4^{th}$ criterion:</p>
@@ -375,18 +372,18 @@
 </blockquote>
 <p>Consequently, the candidate-set finder algorithm should be modified according to the $4^{th}$ criterion. Fortunatelly, it is quite easy by changing Algorithm 2 and 3 a little bit. After all, I am going summarize all about candidate-set algorithm in the next section.</p>
 <h2 id="Formal-Definition-for-Candidate-set-Algorithm"><a href="#Formal-Definition-for-Candidate-set-Algorithm" class="headerlink" title="Formal Definition for Candidate-set Algorithm"></a>Formal Definition for Candidate-set Algorithm</h2><blockquote>
-<p><font color="Crimson" size="4"><strong>Definition 2 (full definition for candidate set):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$;the endpoints are $x^l=inf(I),x^r=sup(I)$.<br>Then, the candidate set for $I$ is written as $I_{c}=\lbrace x:x\in I_m, x\in I_{e}, x\in I_{e}^a, x\in I_{m}^a \rbrace$, as defined by the following 4 criteria:</font></p>
+<p><font color=Crimson size=4><strong>Definition 2 (full definition for candidate set):</strong></font><font color=DarkRed size=3> Given bounded $f(x):I\rightarrow R$;the endpoints are $x^l=inf(I),x^r=sup(I)$.<br>Then, the candidate set for $I$ is written as $I_{c}=\lbrace x:x\in I_m, x\in I_{e}, x\in I_{e}^a, x\in I_{m}^a \rbrace$, as defined by the following 4 criteria:</p>
 <ol>
-<li><font color="DarkRed" size="3">$I_m = \lbrace x: x\in I \quad AND \quad \exists \delta &gt;0 \quad s.t.\quad f(x)\geq f(x+\epsilon), \forall \vert \epsilon \vert &lt; \delta \rbrace$, named “Maxima Set”</font></li>
-<li><font color="DarkRed" size="3">$I_{e} = \lbrace x^l,x^r \rbrace$, named “Endpoints”</font></li>
-<li><font color="DarkRed" size="3">$I_{e}^a = \lbrace \arg\max_{x\in I} \frac{f(x)-f(x^l)}{x-x^l},\arg\min_{x\in I} \frac{f(x)-f(x^r)}{x-x^r} \rbrace$, named “Endpoint Accompany Set”</font></li>
-<li><font color="DarkRed" size="3">$I_{m}^a = \lbrace \arg\max_{x\in I,x&gt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x_m\in I_m \rbrace \cup \lbrace \arg\min_{x\in I,x&lt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x\in I_m \rbrace$, named “Accompany Set”</font>
+<li><font color=DarkRed size=3>$I_m = \lbrace x: x\in I \quad AND \quad \exists \delta &gt;0 \quad s.t.\quad f(x)\geq f(x+\epsilon), \forall \vert \epsilon \vert &lt; \delta \rbrace$, named “Maxima Set”</font></li>
+<li><font color=DarkRed size=3>$I_{e} = \lbrace x^l,x^r \rbrace$, named “Endpoints”</font></li>
+<li><font color=DarkRed size=3>$I_{e}^a = \lbrace \arg\max_{x\in I} \frac{f(x)-f(x^l)}{x-x^l},\arg\min_{x\in I} \frac{f(x)-f(x^r)}{x-x^r} \rbrace$, named “Endpoint Accompany Set”</font></li>
+<li><font color=DarkRed size=3>$I_{m}^a = \lbrace \arg\max_{x\in I,x&gt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x_m\in I_m \rbrace \cup \lbrace \arg\min_{x\in I,x&lt;x_m} \frac{f(x)-f(x_m)}{x-x_m}, \forall x\in I_m \rbrace$, named “Accompany Set”</font></font>
 </li>
 </ol>
 </blockquote>
 <p>As described, I need to modify the Algorithm 2 and 3 a little here:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 2.2 (finding the accompany set):</strong></font><font color="DarkRed" size="3"> $I_m^a=findAccompany(x,y,I_m)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$, its corresponding x-axis $x_{1:K}$ and its maxima index set $I_m$</p>
+<p><font color=Crimson size=4><strong>Algorithm 2.2 (finding the accompany set):</strong></font><font color=DarkRed size=3> $I_m^a=findAccompany(x,y,I_m)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$, its corresponding x-axis $x_{1:K}$ and its maxima index set $I_m$</p>
 <ol>
 <li>Initialize $I_m^a = \emptyset$</li>
 <li>for $k_m$ in $I_m$:</li>
@@ -400,7 +397,7 @@
 </ol>
 </blockquote>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 3.2 (finding  the full candidate set):</strong></font><font color="DarkRed" size="3"> $I_c=findCandidate(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
+<p><font color=Crimson size=4><strong>Algorithm 3.2 (finding  the full candidate set):</strong></font><font color=DarkRed size=3> $I_c=findCandidate(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$</p>
 <ol>
 <li>initialize $I_c = \lbrace 1,K \rbrace$</li>
 <li>$m=locmax(y)$</li>
@@ -413,25 +410,25 @@
 </blockquote>
 <h2 id="Stepping-Further-is-it-OK-to-Leave-Out-Linear-Programming"><a href="#Stepping-Further-is-it-OK-to-Leave-Out-Linear-Programming" class="headerlink" title="Stepping Further: is it OK to Leave Out Linear Programming?"></a>Stepping Further: is it OK to Leave Out Linear Programming?</h2><p>Under Hypothesis 1, there seems no need to bother calling linear programming in order to get $l_i^{\star}$: as the candidate set is small, we can just search infinite-many pairs in order to locate $x_i^{-}$ and $x_i^{+}$.<br>This motivates me to think about accompany pairs. What is an accompany pair? Well, I define it as follows:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Definition 3 (accompany pair and accompany pair set):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$; the endpoints are $x^l=inf(I),x^r=sup(I)$; the maxima set is $I_m$.<br>Then, an accompany pair is such a tuple $p_m = (x_m,x_m^a)$, where:</font></p>
+<p><font color=Crimson size=4><strong>Definition 3 (accompany pair and accompany pair set):</strong></font><font color=DarkRed size=3> Given bounded $f(x):I\rightarrow R$; the endpoints are $x^l=inf(I),x^r=sup(I)$; the maxima set is $I_m$.<br>Then, an accompany pair is such a tuple $p_m = (x_m,x_m^a)$, where:</p>
 <ol>
-<li><font color="DarkRed" size="3">$x_m \in I_m \cup \lbrace  x^l,x^r\rbrace$</font>;</li>
-<li><font color="DarkRed" size="3">$x_m^a = \arg\max_{x\in I,x&gt;x_m} \frac{f(x)-f(x_m)}{x-x_m}$ or $x_m^a = \arg\min_{x\in I,x&lt;x_m} \frac{f(x)-f(x_m)}{x-x_m}$</font><br><font color="DarkRed" size="3">Correspondingly, if $x&gt;x_m^a$, then we can also write this pair as $p_m^{-} = (x_m,x^{a-}_m)$, which is called the left-side accompany pair; if $x&lt;x_m^a$, then we can also write this pair as $p_m^{+} = (x_m,x^{a+}_m)$, which is called the right-side accompany pair.<br>The set of all accompany pairs is written as $P^a(f,I)$, or just $P^a$</font>
+<li><font color=DarkRed size=3>$x_m \in I_m \cup \lbrace  x^l,x^r\rbrace$</font>;</li>
+<li><font color=DarkRed size=3>$x_m^a = \arg\max_{x\in I,x&gt;x_m} \frac{f(x)-f(x_m)}{x-x_m}$ or $x_m^a = \arg\min_{x\in I,x&lt;x_m} \frac{f(x)-f(x_m)}{x-x_m}$</font><br><font color=DarkRed size=3>Correspondingly, if $x&gt;x_m^a$, then we can also write this pair as $p_m^{-} = (x_m,x^{a-}_m)$, which is called the left-side accompany pair; if $x&lt;x_m^a$, then we can also write this pair as $p_m^{+} = (x_m,x^{a+}_m)$, which is called the right-side accompany pair.<br>The set of all accompany pairs is written as $P^a(f,I)$, or just $P^a$</font>
 </li>
 </ol>
 </blockquote>
 <p>Easy to know that $x^l$ has no left-side accompany pair, and $x^r$ has no righy-side accompany pair. If there are $M$ elements in $I_m$, then the number of accompany pair is no greater than $2M+2$.</p>
 <p>Lastly, as each accompany pair can determine a linear function, there must exist the best pairs in terms of LUC objective function. Let’s define the best accompany pair step-by-step:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Definition 4 (linear accompany function):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$; the accompany pair set is $P^a$.<br>Then, for each accompany pair $p=(x_m,x_m^a)\in P^a$, define its linear accompany function as $l_{p_m}(x)=\frac{f(x_m^a)-f(x_m)}{x_m^a-x_m}(x-x_m)+f(x_m), x\in I$.<br></font><br><font color="Crimson" size="4"><strong>Definition 5 (feasible accompany pairs and their set):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$;  the maxima set is $I_m$; the accompany pair set is $P^a$.<br>Then, an accompany pair $p\in P^a$ is feasible i.i.f $l_p(x)\geq f(x), \forall x\in I_m \cup \lbrace x^l,x^r \rbrace$<br>Correspondingly, all feasible accompay pairs consist of the feasible accompany pair set, written as $P^{a_f}$<br></font><br><font color="Crimson" size="4"><strong>Definition 6 (best accompany pair):</strong></font><font color="DarkRed" size="3"> Given bounded $f(x):I\rightarrow R$; the endpoints are $x^l=inf(I),x^r=sup(I)$; the maxima set is $I_m$; the  feasible accompany pair set is $P^{a_f}$.<br>Then, the best accompany pair $p^{\star}$ is defined as $p^{\star}=\arg\min_{p\in P^{a_f}}\quad l_p (\frac{1}{2} (x^l+x^r))$<br></font></p>
+<p><font color=Crimson size=4><strong>Definition 4 (linear accompany function):</strong></font><font color=DarkRed size=3> Given bounded $f(x):I\rightarrow R$; the accompany pair set is $P^a$.<br>Then, for each accompany pair $p=(x_m,x_m^a)\in P^a$, define its linear accompany function as $l_{p_m}(x)=\frac{f(x_m^a)-f(x_m)}{x_m^a-x_m}(x-x_m)+f(x_m), x\in I$.<br></font><br><font color=Crimson size=4><strong>Definition 5 (feasible accompany pairs and their set):</strong></font><font color=DarkRed size=3> Given bounded $f(x):I\rightarrow R$;  the maxima set is $I_m$; the accompany pair set is $P^a$.<br>Then, an accompany pair $p\in P^a$ is feasible i.i.f $l_p(x)\geq f(x), \forall x\in I_m \cup \lbrace x^l,x^r \rbrace$<br>Correspondingly, all feasible accompay pairs consist of the feasible accompany pair set, written as $P^{a_f}$<br></font><br><font color=Crimson size=4><strong>Definition 6 (best accompany pair):</strong></font><font color=DarkRed size=3> Given bounded $f(x):I\rightarrow R$; the endpoints are $x^l=inf(I),x^r=sup(I)$; the maxima set is $I_m$; the  feasible accompany pair set is $P^{a_f}$.<br>Then, the best accompany pair $p^{\star}$ is defined as $p^{\star}=\arg\min_{p\in P^{a_f}}\quad l_p (\frac{1}{2} (x^l+x^r))$<br></font></p>
 </blockquote>
 <p>Equipped with concepts of accompany pairs, I introduce another hypothesis, which is a vital hint for my next steps.</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Hypothesis 2 (at least one accompany pair is a zero-slackness pair):</strong></font><font color="DarkRed" size="3"><br>Given $f(x):I_i\rightarrow R$ whose feasible accompany pair set is $P_i^{a_f}$; then, there is at least one accompany pair ${x_i^{-},x_i^{+}}\in P_i^{a_f}, s.t.\quad l_i^{\star}(x_i^{-})=f(x_i^{-}),l_i^{\star}(x_i^{+})=f(x_i^{+})$, where $l_i^{\star}$ is the optimum LUC in interval $I_i$ for $f(x)$.</font></p>
+<p><font color=Crimson size=4><strong>Hypothesis 2 (at least one accompany pair is a zero-slackness pair):</strong></font><font color=DarkRed size=3><br>Given $f(x):I_i\rightarrow R$ whose feasible accompany pair set is $P_i^{a_f}$; then, there is at least one accompany pair ${x_i^{-},x_i^{+}}\in P_i^{a_f}, s.t.\quad l_i^{\star}(x_i^{-})=f(x_i^{-}),l_i^{\star}(x_i^{+})=f(x_i^{+})$, where $l_i^{\star}$ is the optimum LUC in interval $I_i$ for $f(x)$.</font></p>
 </blockquote>
 <p>The definitions regarding accompamy pair and Hypothesis 2 are actually paving the way to describe the following algorithm, which I expect to be equivalent to the LP based LUC:</p>
 <blockquote>
-<p><font color="Crimson" size="4"><strong>Algorithm 5 (LUCA: finding the best accompany pair):</strong></font><font color="DarkRed" size="3"> $p^{\star}=LUCBestAccompany(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$.</p>
+<p><font color=Crimson size=4><strong>Algorithm 5 (LUCA: finding the best accompany pair):</strong></font><font color=DarkRed size=3> $p^{\star}=LUCBestAccompany(x,y)$</font><br>(1-based indexing is used) Given sample squence $y_{1:K}$ and its corresponding x-axis $x_{1:K}$.</p>
 <ol>
 <li>Initialize $P^{a} = \emptyset, y^{\star}=+\infty, x^c = \frac{1}{2} (x[1]+x[K])$</li>
 <li>$m=locmax(y)$</li>
@@ -452,7 +449,7 @@
 <li>$\quad$if $y^c&lt;y^{\star}$ and $\hat{y_m}\geq y_m$:</li>
 <li>$\quad\quad y^{\star} = y^c$</li>
 <li>$\quad\quad p^{\star} = (k,k^a)$</li>
-<li>return $p^{\star}$
+<li>return $p^{\star}$</font>
 </li>
 </ol>
 </blockquote>
@@ -466,23 +463,23 @@
 </ol>
 <ul>
 <li>In terms of task 1, I have an idea (although not strictly proved): because we can get candidate sets $I_{ci},i=1,2…$ according to Algorithm 3.2, we can construct a new function $f_c(x),x\in \cup_i I_{ci}$. Take $f_c(x)$ as $f(x)$ and consider convexity again!<blockquote>
-<p><font color="Crimson" size="4"><strong>Lemma 3 (candidate reconstruction):</strong></font><font color="DarkRed" size="3"> if $f:[x^l,x^r]\rightarrow \pmb{R}$ has LUC solution $l^{\star}(x)$, and the equation $l^{\star}(x)=f(x),x\in I$ has solutions $x_n^s,n=1,2,…,N$ then:<br>there exists function $f_c(x)$ such that</font>:</p>
+<p><font color=Crimson size=4><strong>Lemma 3 (candidate reconstruction):</strong></font><font color=DarkRed size=3> if $f:[x^l,x^r]\rightarrow \pmb{R}$ has LUC solution $l^{\star}(x)$, and the equation $l^{\star}(x)=f(x),x\in I$ has solutions $x_n^s,n=1,2,…,N$ then:<br>there exists function $f_c(x)$ such that</font>:</p>
 <ol>
-<li><font color="DarkRed" size="3">$f(x)&lt;f_c(x)\leq l^{\star}(x), \forall x\in I-\lbrace x_n^s,n=1,2,…,N \rbrace$</font></li>
-<li><font color="DarkRed" size="3">$f_c(x)$ is convex respectively in $[x^l,x_1^s],[x_1^s,x_2^s],…,[x_N^s,x^{r}]$</font></li>
+<li><font color=DarkRed size=3>$f(x)&lt;f_c(x)\leq l^{\star}(x), \forall x\in I-\lbrace x_n^s,n=1,2,…,N \rbrace$</font></li>
+<li><font color=DarkRed size=3>$f_c(x)$ is convex respectively in $[x^l,x_1^s],[x_1^s,x_2^s],…,[x_N^s,x^{r}]$</font></li>
 </ol>
 </blockquote>
 </li>
 </ul>
-<p><font color="Gray" size="3"><strong>Proof:</strong><br>For any interval $[x_i^s,x_{i+1}^s]$:<br>① if $f(x)$ is convex in $[x_i^s,x_{i+1}^s]$: set $f_c(x)=\frac{1}{2}(l^{\star}(x)+f(x))$ in this interval, which confers to the conditions;<br>② if $f(x)$ is not convex in $[x_i^s,x_{i+1}^s]$: set $f_c(x)=l^{\star}(x)$ in this interval, which confers to the conditions. □<br></font></p>
+<p><font color=Gray size=3><strong>Proof:</strong><br>For any interval $[x_i^s,x_{i+1}^s]$:<br>① if $f(x)$ is convex in $[x_i^s,x_{i+1}^s]$: set $f_c(x)=\frac{1}{2}(l^{\star}(x)+f(x))$ in this interval, which confers to the conditions;<br>② if $f(x)$ is not convex in $[x_i^s,x_{i+1}^s]$: set $f_c(x)=l^{\star}(x)$ in this interval, which confers to the conditions. □<br></font></p>
 <p>After reconstruction using Lemma 3, we get $f_c(x)$, which is a concave version of $f(x)$ and is somehow like the case in Lemma 1, although the intervals are not equally partitioned. This intuition gives us a hint that even though the curve $f(x)$ is rugged, the smooth effects may still be similar to the convex case in Lemma 1 (although not exactly the same). Then, it is easy to see that $f_c(x)$ is smoother than $f(x)$ because of down-sampling. Therefore, as $l^{\star}(x)$ is smoother than $f_c(x)$ and $f_c(x)$ is smoother than $f(x)$, $l^{\star}(x)$ has smooth effects on $f(x)$, and even better than a mere down-sampling.</p>
 <ul>
 <li>In terms of task 2, I think we have to consider all convexity and corresponding behaviour regarding the candidate pairs… To do task 2, we have to think about the relationship with Lemma 2 and (Definition 2,3,4,5 and Algorithm 2.2,3.2,5).<br>I think a conclusion may be of help: (I am not going to utilize this Lemma to solve task 2. I merely think that this conclusion is beautiful and may be of help, therefore I put it here with proof.)<blockquote>
-<p><font color="Crimson" size="4"><strong>Lemma 4 (LUC for concave function):</strong></font><font color="DarkRed" size="3"> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is concave in $I=[x^l,x^r]$, then the optimum LUC function $l^{\star}(x),x\in I$ becomes one of the tangents of $f(x)$ at $x^l$ or $x^r$</font></p>
+<p><font color=Crimson size=4><strong>Lemma 4 (LUC for concave function):</strong></font><font color=DarkRed size=3> if $f:[x^l,x^r]\rightarrow \pmb{R}$ is concave in $I=[x^l,x^r]$, then the optimum LUC function $l^{\star}(x),x\in I$ becomes one of the tangents of $f(x)$ at $x^l$ or $x^r$</font></p>
 </blockquote>
 </li>
 </ul>
-<p><font color="Gray" size="3"><strong>Proof:</strong><br>① first prove that $l^{\star}(x)$ must be tangent to $f(x)$ in interval $I$.<br>Assume that $l^{\star}(x)$ is not tangent to $f(x)$ in $I$, which indicates that equition $l^{\star}(x)=f(x)$ has two different solutions $x^{-}$ and $x^{+}$ where $x^{-}&lt;x^{+}$. Then, for each $x\in (x^{-},x^{+})$, there exists $0&lt;\lambda&lt;1$ such that $x=(1-\lambda) x^{-} + \lambda x^{+}$, and then $f(x)=f((1-\lambda) x^{-} + \lambda x^{+})&gt;(1-\lambda) f(x^{-}) + \lambda f(x^{+})=(1-\lambda) l^{\star}(x^{-}) + \lambda l^{\star}(x^{+})=l^{\star}((1-\lambda) x^{-} + \lambda x^{+})$, which violates the LUC constraints.<br>② then prove that $l^{\star}(x)$ is tangent to $f(x)$ at $x^l$ or $x^r$.<br>Let $l^{\star}(x)=f’(x_0)(x-x_0)+f(x_0)$, therefore the LUC min objective function $obj(x_0)=l^{\star}(\frac{1}{2}(x^l+x^r))=f’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)+f(x_0)$.<br>Take the first derivative of $obj(x_0)$ and get $obj’(x_0)=f’’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)$. When $obj’(x_0)=0$, then $x_0=(\frac{1}{2}(x^l+x^r)$. Unfortunately, when we take the second derivative of $obj(x_0)$ and get $obj’’(x_0)=f’’’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)-f’’(x_0)$, we find that $obj’’(\frac{1}{2}(x^l+x^r))&lt;0$, which indicates that $obj(x_0)$ reaches the maxima at $\frac{1}{2}(x^l+x^r)$. But we want the minima.<br>Luckily, we find that $obj’(x_0)$ is monotonically increasing in $I^l=[x^l,\frac{1}{2}(x^l+x^r)]$ and monotonically decreasing in $I^r=[\frac{1}{2}(x^l+x^r),x^r]$. Therefore, $obj(x^l)&lt;obj(x), x\in I^l$ and $obj(x^r)&lt;obj(x), x\in I^r$. Therefore, we can just compare $obj(x^l)$ and $obj(x^r)$ in order to determine whether the final $l^{\star}(x)$ locates at $x_l$ or $x_r$.<br>③ finally give the condition for whether $x^l$ or $x^r$ is the tangent point.<br>Solve the inequality $obj(x^r)&gt;obj(x^l)$ and we shall get $\frac{f(x^r)-f(x^l)}{x^r-x^l}&gt;\frac{1}{2}[f’(x^r)+f’(x^l)]$. If this equality holds true, we choose $x^l$ as the tangent point; otherwise, we choose $x^r$. □<br></font></p>
+<p><font color=Gray size=3><strong>Proof:</strong><br>① first prove that $l^{\star}(x)$ must be tangent to $f(x)$ in interval $I$.<br>Assume that $l^{\star}(x)$ is not tangent to $f(x)$ in $I$, which indicates that equition $l^{\star}(x)=f(x)$ has two different solutions $x^{-}$ and $x^{+}$ where $x^{-}&lt;x^{+}$. Then, for each $x\in (x^{-},x^{+})$, there exists $0&lt;\lambda&lt;1$ such that $x=(1-\lambda) x^{-} + \lambda x^{+}$, and then $f(x)=f((1-\lambda) x^{-} + \lambda x^{+})&gt;(1-\lambda) f(x^{-}) + \lambda f(x^{+})=(1-\lambda) l^{\star}(x^{-}) + \lambda l^{\star}(x^{+})=l^{\star}((1-\lambda) x^{-} + \lambda x^{+})$, which violates the LUC constraints.<br>② then prove that $l^{\star}(x)$ is tangent to $f(x)$ at $x^l$ or $x^r$.<br>Let $l^{\star}(x)=f’(x_0)(x-x_0)+f(x_0)$, therefore the LUC min objective function $obj(x_0)=l^{\star}(\frac{1}{2}(x^l+x^r))=f’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)+f(x_0)$.<br>Take the first derivative of $obj(x_0)$ and get $obj’(x_0)=f’’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)$. When $obj’(x_0)=0$, then $x_0=(\frac{1}{2}(x^l+x^r)$. Unfortunately, when we take the second derivative of $obj(x_0)$ and get $obj’’(x_0)=f’’’(x_0)(\frac{1}{2}(x^l+x^r)-x_0)-f’’(x_0)$, we find that $obj’’(\frac{1}{2}(x^l+x^r))&lt;0$, which indicates that $obj(x_0)$ reaches the maxima at $\frac{1}{2}(x^l+x^r)$. But we want the minima.<br>Luckily, we find that $obj’(x_0)$ is monotonically increasing in $I^l=[x^l,\frac{1}{2}(x^l+x^r)]$ and monotonically decreasing in $I^r=[\frac{1}{2}(x^l+x^r),x^r]$. Therefore, $obj(x^l)&lt;obj(x), x\in I^l$ and $obj(x^r)&lt;obj(x), x\in I^r$. Therefore, we can just compare $obj(x^l)$ and $obj(x^r)$ in order to determine whether the final $l^{\star}(x)$ locates at $x_l$ or $x_r$.<br>③ finally give the condition for whether $x^l$ or $x^r$ is the tangent point.<br>Solve the inequality $obj(x^r)&gt;obj(x^l)$ and we shall get $\frac{f(x^r)-f(x^l)}{x^r-x^l}&gt;\frac{1}{2}[f’(x^r)+f’(x^l)]$. If this equality holds true, we choose $x^l$ as the tangent point; otherwise, we choose $x^r$. □<br></font></p>
 <ul>
 <li><p>In terms of task 3, it is OK to regard LUC a low-pass filter. But even if LUC coverage is relatively smooth, it still has infinite frequency components, for it is not perfectly sinusioid. As a result, the tool of Fourier Analysis may not be enough to explain the phenomenon that “LUC ignores the rugged surface, no matter how rugged the surface is”. I think the potintial explanation should be based on candidate sets.</p>
 </li>
@@ -499,14 +496,14 @@
 <li>(LP-based) full candidate-set algorithm</li>
 <li>accompany-pair algorithm</li>
 </ol>
-<p>I used SciPy to implement LP-based methods by calling <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html" target="_blank" rel="noopener">the scipy linprog method</a>.<br>One of the problems is to translate the LUC problem into the standard LP problem. The proof for Lemma 2 has already shown how to achieve this.<br>Another problem is to choose a proper method for LP solution. I tried different methods and concluded that the revised simplex method is most efficient.</p>
+<p>I used SciPy to implement LP-based methods by calling <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html">the scipy linprog method</a>.<br>One of the problems is to translate the LUC problem into the standard LP problem. The proof for Lemma 2 has already shown how to achieve this.<br>Another problem is to choose a proper method for LP solution. I tried different methods and concluded that the revised simplex method is most efficient.</p>
 <p>For (non-full) candidate-set algorithm, I applied Algorithm 1,2,3,4 to find the candidate set, and then use LP (whose constraints are based on the candidate set) to find the solutions.</p>
 <p>The full-candidate-set algorithm modifies the candidate-set algorithm by replacing Algorithm 3 with Algorithm 3.2.</p>
 <p>For the accompany-pair algorithm, I apply Algorithm 5 only, which takes the role of LP.</p>
 <h3 id="LUC-Results"><a href="#LUC-Results" class="headerlink" title="LUC Results"></a>LUC Results</h3><p>In this experiment, I set $\Delta_h = 10$ and $\Delta_I = 10$.</p>
-<p>First I extract the first two intervals and do LUC for them. Here is the result: <img src="https://i.loli.net/2020/10/14/Rfe92bHUBSqoI5X.png" alt="exp_verify_lemma2.png"><font color="Gray" size="3">The yellow lines indicate candidate-sets, while the red lines indicate the original curve.</font></p>
+<p>First I extract the first two intervals and do LUC for them. Here is the result: <img src="https://i.loli.net/2020/10/14/Rfe92bHUBSqoI5X.png" alt="exp_verify_lemma2.png"><font color=Gray size=3>The yellow lines indicate candidate-sets, while the red lines indicate the original curve.</font></p>
 <p>Those results verify the correctness of Lemma 2 by showing that at least two zero-slackness constraints are reached. They also show that applying full definition of candidate set does not lead to seriously different results compared with the results obtained by the non-full definition.</p>
-<p>Then, I test the whole curve, which is shown in the following figure:<img src="https://i.loli.net/2020/10/14/7PZFAXfUTQr3gDm.png" alt="exp_LUC_all_methods.png"><font color="Gray" size="3">The green-star marks indicate local maxima of the centroid sequence, which are marked mostly by blue marks.</font></p>
+<p>Then, I test the whole curve, which is shown in the following figure:<img src="https://i.loli.net/2020/10/14/7PZFAXfUTQr3gDm.png" alt="exp_LUC_all_methods.png"><font color=Gray size=3>The green-star marks indicate local maxima of the centroid sequence, which are marked mostly by blue marks.</font></p>
 <p>From the whole-curve result we can see several phenomena:</p>
 <ol>
 <li>The accompany-pair algorithm result is the same as the normal-LP algorithm result and the candidate-set-full algorithm result.</li>
@@ -515,7 +512,7 @@
 </ol>
 <p>Phenomenon 1 verifies my Hypothesis 1 and 2, because the candidate-set-full algorithm and the accompany-pair algorithm is grounded on Hypothesis 1 and 2.<br>Phenomenon 2 gives us a hint that we can change candidate-set-full algorithm into non-full candidate-set algorithm without losing much accuracy. In the next section I will compare the time consumption between those two algorithms.<br>Phenomenon 3 verifies the effectiveness of LUC algorithm: after smoothed by LUC, it is OK to directly apply the strict $locmax$ function to the centroid serie and get the desired peaks.</p>
 <p>Next, I will compare each algorithm more deeply regarding their time cost and correctness.</p>
-<h3 id="Time-Consumption"><a href="#Time-Consumption" class="headerlink" title="Time Consumption"></a>Time Consumption</h3><p>For each algorithm, I adjusted interval size $\Delta_I$ and LP methods (except accompany-pair algorithm). I used Monte-Carlo method to reduce the variation of time cost estimation. In this test, I run each case for 100 times. Results are shown in the following figure:<br><img src="https://i.loli.net/2020/10/15/aBU3SZX4i7jsImD.png" alt="exp_time_cost.png"><font color="Gray" size="3">Time cost experiment results.</font></p>
+<h3 id="Time-Consumption"><a href="#Time-Consumption" class="headerlink" title="Time Consumption"></a>Time Consumption</h3><p>For each algorithm, I adjusted interval size $\Delta_I$ and LP methods (except accompany-pair algorithm). I used Monte-Carlo method to reduce the variation of time cost estimation. In this test, I run each case for 100 times. Results are shown in the following figure:<br><img src="https://i.loli.net/2020/10/15/aBU3SZX4i7jsImD.png" alt="exp_time_cost.png"><font color=Gray size=3>Time cost experiment results.</font></p>
 <p>This experiment is done by my old laptop, whose CPU is an Intel CORE i5.<br>From the results, we can observe that:</p>
 <ol>
 <li>The most efficient algorithm is the accompany-pair algorithm, whose time cost is much lower than the others</li>
@@ -783,7 +780,7 @@
   <div class="outer">
     <div id="footer-info">
         <div class="footer-left">
-            &copy; 2023 lucainiaoge
+            &copy; 2025 lucainiaoge
         </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -911,10 +908,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
              
@@ -927,15 +920,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -967,11 +956,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">misc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+                <a href="javascript:void(0)" class="js-tag color1">blog_start</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,15 +988,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">guide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">experience</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">philosophy</a>
               </li>
             
             <div class="clearfix"></div>
